@@ -4870,3 +4870,17 @@ body {
     align-items: center !important;
     justify-content: center !important;
 }
+
+/* LOGO HOTEL EN HAUT A GAUCHE */
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
