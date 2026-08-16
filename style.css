@@ -4448,10 +4448,10 @@ div{
   }
 
   body .app > header{
-    margin-bottom:3px !important;
+    margin-bottom:22px !important;
     padding-top:0 !important;
     padding-bottom:2px !important;
-  }
+}
 
   body #manageBtn{
     width:42px !important;
