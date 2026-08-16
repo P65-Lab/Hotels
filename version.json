@@ -1,5 +1,5 @@
 {
-  "version": "v118",
-  "date": "16/08/2026 10:00",
-  "notes": "Boutons Ajouter cet hébergement et Effacer toute la demande encore descendus et mis à la même hauteur que les boutons Nouvelle demande / Modification."
+  "version": "v119",
+  "date": "16/08/2026 10:05",
+  "notes": "Les deux boutons de Nouvelle demande sont encore légèrement descendus. Leur taille V118 est conservée."
 }

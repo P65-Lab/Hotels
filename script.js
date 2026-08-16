@@ -1,5 +1,5 @@
-const APP_VERSION = "v118";
-const APP_VERSION_DATE = "16/08/2026 10:00";
+const APP_VERSION = "v119";
+const APP_VERSION_DATE = "16/08/2026 10:05";
 
 const $=id=>document.getElementById(id);
 
