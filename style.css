@@ -4925,3 +4925,10 @@ header {
     font-size: 17px !important;
     font-weight: 800 !important;
 }
+
+/* TEXTE PETIT-DEJEUNER - NOUVELLE DEMANDE */
+#normalRequestZone .pdj > span {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+}
