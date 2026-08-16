@@ -4902,3 +4902,26 @@ header {
 .header-title h1 {
     margin: 0 !important;
 }
+
+/* PETIT-DEJEUNER PLUS GRAND - NOUVELLE DEMANDE */
+#normalRequestZone .pdj {
+    font-size: 35px !important;
+    font-weight: 700 !important;
+}
+
+/* OUI / NON PLUS GRANDS ET CARRES */
+#normalRequestZone .pdj button.choice {
+    width: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+
+    padding: 0 !important;
+    border-radius: 10px !important;
+
+    font-size: 17px !important;
+    font-weight: 800 !important;
+}
