@@ -4808,3 +4808,10 @@ div{
   font-size:12px !important;
   line-height:1 !important;
 }
+
+/* SEJOUR NOIR - NOUVELLE DEMANDE */
+#normalRequestZone > .section-title {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-weight: 800 !important;
+}
