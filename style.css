@@ -4559,15 +4559,15 @@ div{
 
   /* Champ Hôtel */
   #normalRequestZone #hotel{
-    height:36px !important;
-    min-height:36px !important;
+    height:54px !important;
+    min-height:54px !important;
     padding:3px 9px !important;
     font-size:13px !important;
     font-weight:700 !important;
     border-radius:11px !important;
   }
 
-  /* Texte "Choisir un hébergement..." en gris */
+  /* Texte "Choisir un hôtel..." en gris */
   #normalRequestZone #hotel:required:invalid{
     color:#9ca3af !important;
     -webkit-text-fill-color:#9ca3af !important;
