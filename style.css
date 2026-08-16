@@ -4937,3 +4937,26 @@ header {
 header {
     margin-bottom: 22px !important;
 }
+
+/* ==========================================================
+   MODIFICATION / ANNULATION UNIQUEMENT
+   AJUSTEMENT DES ESPACEMENTS
+   ========================================================== */
+
+/* Rapproche Petit-déjeuner du bloc Arrivée / Départ */
+#modificationRequestZone .mod-pdj {
+    margin-top: 24px !important;
+    margin-bottom: 28px !important;
+}
+
+/* Rapproche Agents concernés de Petit-déjeuner */
+#modificationRequestZone .hotel-agent-picker-block {
+    margin-top: 0 !important;
+    margin-bottom: 28px !important;
+}
+
+/* Rapproche ACTION du bloc Agents */
+#modificationRequestZone .appearance-title {
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+}
