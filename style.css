@@ -4879,8 +4879,8 @@ body {
 }
 
 .header-logo {
-    width: 36px !important;
-    height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
     object-fit: contain;
     flex-shrink: 0;
 }
