@@ -4815,3 +4815,8 @@ div{
     -webkit-text-fill-color: #000000 !important;
     font-weight: 800 !important;
 }
+
+/* CADRES ARRIVEE / DEPART - NOUVELLE DEMANDE */
+#normalRequestZone > .travel-grid > .travel-card {
+    min-height: 185px !important;
+}
