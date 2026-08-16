@@ -4818,7 +4818,7 @@ div{
 
 /* CADRES ARRIVEE / DEPART - NOUVELLE DEMANDE */
 #normalRequestZone > .travel-grid > .travel-card {
-    min-height: 185px !important;
+    min-height: 165px !important;
 }
 
 /* HEURE PLUS BAS - NOUVELLE DEMANDE */
