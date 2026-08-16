@@ -5128,26 +5128,27 @@ header {
 
 /* ANNULER + REMPLACER */
 #modificationRequestZone .mod-action-switch button {
-    height: 44px !important;
-    min-height: 44px !important;
-    max-height: 44px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
 
     padding: 0 12px !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
     border-radius: 12px !important;
 }
 
-/* CREER LE MAIL */
+/* CREER LE MAIL - MODIFICATION */
 #modificationRequestZone .mod-mail-btn {
-    height: 50px !important;
-    min-height: 50px !important;
-    max-height: 50px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
 
     padding: 0 12px !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
     border-radius: 12px !important;
 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
+
