@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111827">
 <link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css?v=119">
+<link rel="stylesheet" href="style.css?v=120">
 <title>Demande Hôtel</title>
 <link rel="apple-touch-icon" sizes="180x180" href="/demandehotels/icons/hotel-apple-180.png?v=27">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -228,28 +228,26 @@
 
 <div id="modificationRequestZone" hidden>
 
-  <div class="mod-card mod-card-sym">
+  <div class="mod-card">
 
-    <div class="hotel-grid">
-      <label>Ville
-        <div class="search-wrap">
-          <input
-            id="modVille"
-            autocomplete="off"
-            placeholder="Tapez une ville..."
-          >
-          <div id="modVilleResults" class="search-results" hidden></div>
-        </div>
-      </label>
+    
 
-      <label>Hôtel
-        <select id="modHotel">
-          <option value="">Choisir un hébergement</option>
-        </select>
-      </label>
-    </div>
+    <label>Ville
+      <div class="search-wrap">
+        <input
+          id="modVille"
+          autocomplete="off"
+          placeholder="Rechercher une ville..."
+        >
+        <div id="modVilleResults" class="search-results" hidden></div>
+      </div>
+    </label>
 
-    <div class="section-title">Séjour</div>
+    <label>Hôtel
+      <select id="modHotel">
+        <option value="">Choisir un hébergement</option>
+      </select>
+    </label>
 
     <div class="travel-grid">
 
@@ -281,10 +279,8 @@
 
     <div class="pdj mod-pdj">
       <span>Petit-déjeuner</span>
-      <div class="yn">
-        <button type="button" id="modBreakfastYes" class="yn-btn active" aria-pressed="true">OUI</button>
-        <button type="button" id="modBreakfastNo" class="yn-btn" aria-pressed="false">NON</button>
-      </div>
+      <button type="button" id="modBreakfastYes" class="choice active">OUI</button>
+      <button type="button" id="modBreakfastNo" class="choice">NON</button>
     </div>
 
     <div class="hotel-agent-picker-block">
@@ -664,8 +660,8 @@
 </section>
 
 
-<div class="app-version" id="appVersion">À JOUR V119</div>
+<div class="app-version" id="appVersion">À JOUR V120</div>
 
 </main>
-<script src="database.js?v=119"></script><script src="script.js?v=119"></script>
+<script src="database.js?v=120"></script><script src="script.js?v=120"></script>
 </body></html>

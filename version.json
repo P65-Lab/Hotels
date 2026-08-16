@@ -1,5 +1,5 @@
 {
-  "version": "v119",
-  "date": "16/08/2026 10:05",
-  "notes": "Les deux boutons de Nouvelle demande sont encore légèrement descendus. Leur taille V118 est conservée."
+  "version": "v120",
+  "date": "16/08/2026 10:15",
+  "notes": "Pages Nouvelle demande et Modification/Annulation séparées. Modification conserve son ancienne mise en page avec Petit-déjeuner restauré. Les ajustements récents ne ciblent plus que Nouvelle demande."
 }

@@ -1,5 +1,5 @@
-const APP_VERSION = "v119";
-const APP_VERSION_DATE = "16/08/2026 10:05";
+const APP_VERSION = "v120";
+const APP_VERSION_DATE = "16/08/2026 10:15";
 
 const $=id=>document.getElementById(id);
 
@@ -2155,7 +2155,12 @@ function construireMailModificationHotel(){
   const agents=
     agentsModificationSelectionnes();
 
-  
+  if(!agents.length){
+    alert(
+      "Sélectionnez au moins un agent concerné."
+    );
+    return;
+  }
 
   const ville=
     $("modVille").value.trim();
@@ -3001,36 +3006,46 @@ if(document.readyState === "loading"){
 
 
 /* ==========================================================
-   V113 - PROPRIETAIRE UNIQUE POUR NOUVELLE DEMANDE
+   V120 - Petit-déjeuner Modification / Annulation
    ========================================================== */
-function proprietaireHotelDemande(){
-  const nom = String((profil && profil.nom) || "").trim();
-  return nom ? [{ nom }] : [];
-}
+function installerPetitDejeunerModificationV120(){
+  const oui = document.getElementById("modBreakfastYes");
+  const non = document.getElementById("modBreakfastNo");
 
-/* V114 - Petit-déjeuner Modification / Annulation */
-function installerPetitDejeunerModification(){
-  const oui=document.getElementById("modBreakfastYes");
-  const non=document.getElementById("modBreakfastNo");
-  if(!oui||!non)return;
+  if(!oui || !non) return;
 
-  function setPd(value){
-    oui.classList.toggle("active",value==="OUI");
-    non.classList.toggle("active",value==="NON");
-    oui.setAttribute("aria-pressed",value==="OUI"?"true":"false");
-    non.setAttribute("aria-pressed",value==="NON"?"true":"false");
-    try{sessionStorage.setItem("hotel_mod_breakfast",value);}catch(e){}
+  function choisir(valeur){
+    oui.classList.toggle("active", valeur === "OUI");
+    non.classList.toggle("active", valeur === "NON");
+
+    try{
+      sessionStorage.setItem(
+        "hotel_modification_petit_dejeuner",
+        valeur
+      );
+    }catch(e){}
   }
 
-  oui.addEventListener("click",()=>setPd("OUI"));
-  non.addEventListener("click",()=>setPd("NON"));
+  oui.onclick = () => choisir("OUI");
+  non.onclick = () => choisir("NON");
 
-  let saved="OUI";
-  try{saved=sessionStorage.getItem("hotel_mod_breakfast")||"OUI";}catch(e){}
-  setPd(saved);
+  let valeur = "OUI";
+  try{
+    valeur =
+      sessionStorage.getItem(
+        "hotel_modification_petit_dejeuner"
+      ) || "OUI";
+  }catch(e){}
+
+  choisir(valeur);
 }
-if(document.readyState==="loading"){
-  document.addEventListener("DOMContentLoaded",installerPetitDejeunerModification,{once:true});
+
+if(document.readyState === "loading"){
+  document.addEventListener(
+    "DOMContentLoaded",
+    installerPetitDejeunerModificationV120,
+    {once:true}
+  );
 }else{
-  installerPetitDejeunerModification();
+  installerPetitDejeunerModificationV120();
 }
