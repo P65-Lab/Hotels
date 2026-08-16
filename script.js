@@ -3049,3 +3049,14 @@ if(document.readyState === "loading"){
 }else{
   installerPetitDejeunerModificationV120();
 }
+
+/* POSITION PAGE A L'OUVERTURE */
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant"
+        });
+    }, 100);
+});
