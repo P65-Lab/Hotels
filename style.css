@@ -4591,6 +4591,12 @@ div{
 
     width:46px !important;
     min-width:46px !important;
+
+     /* SEJOUR - NOUVELLE DEMANDE */
+#normalRequestZone .section-title {
+    color: #000 !important;
+    margin-top: 22px !important;
+}
     max-width:46px !important;
 
     height:28px !important;
