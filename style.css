@@ -4995,3 +4995,62 @@ div{
 #normalRequestZone .main-actions.plus-only{
   margin-top:38px !important;
 }
+
+
+/* ==========================================================
+   V118 - BOUTONS PLUS BAS + MEME TAILLE
+   ========================================================== */
+
+/* Descendre davantage tout le groupe */
+#normalRequestZone .main-actions.plus-only{
+  margin-top:52px !important;
+}
+
+/* Même taille que les boutons Nouvelle demande / Modification */
+#normalRequestZone #addStay,
+#normalRequestZone #reset{
+  min-height:52px !important;
+  height:52px !important;
+  max-height:52px !important;
+
+  padding:0 14px !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+
+  border-radius:14px !important;
+
+  font-size:17px !important;
+  line-height:1.05 !important;
+  font-weight:800 !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  box-sizing:border-box !important;
+}
+
+/* Même largeur pour les deux */
+#normalRequestZone #addStay,
+#normalRequestZone #reset{
+  width:100% !important;
+}
+
+/* Espace régulier entre Ajouter et Effacer */
+#normalRequestZone #reset{
+  margin-top:12px !important;
+}
+
+@media (max-width:600px){
+  #normalRequestZone .main-actions.plus-only{
+    margin-top:52px !important;
+  }
+
+  #normalRequestZone #addStay,
+  #normalRequestZone #reset{
+    min-height:52px !important;
+    height:52px !important;
+    max-height:52px !important;
+    font-size:17px !important;
+  }
+}
