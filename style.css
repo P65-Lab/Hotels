@@ -5096,3 +5096,27 @@ header {
     margin-top: 0 !important;
     margin-bottom: 2px !important;
 }
+
+/* ==========================================================
+   MODIFICATION / ANNULATION
+   REMONTER UNIQUEMENT LES ACTIONS DU BAS
+   ========================================================== */
+
+/* Titre ACTION */
+#modificationRequestZone .appearance-title {
+    margin-top: -14px !important;
+    margin-bottom: 4px !important;
+}
+
+/* Boutons ANNULER / REMPLACER */
+#modificationRequestZone .mod-action-switch {
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+    transform: translateY(-10px) !important;
+}
+
+/* Bouton CREER LE MAIL */
+#modificationRequestZone .mod-mail-btn {
+    margin-top: 0 !important;
+    transform: translateY(-18px) !important;
+}
