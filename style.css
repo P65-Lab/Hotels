@@ -4879,16 +4879,16 @@ body {
 }
 
 .header-logo {
-    width: 38px !important;
-    height: 38px !important;
+    width: 40px !important;
+    height: 40px !important;
     object-fit: contain;
     flex-shrink: 0;
 }
 
 /* ROUE MEME TAILLE QUE LE LOGO */
 header #manageBtn {
-    width: 36px !important;
-    height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
     min-width: 36px !important;
     min-height: 36px !important;
     padding: 0 !important;
