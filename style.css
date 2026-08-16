@@ -4905,19 +4905,19 @@ header {
 
 /* PETIT-DEJEUNER PLUS GRAND - NOUVELLE DEMANDE */
 #normalRequestZone .pdj {
-    font-size: 35px !important;
+    font-size: 40px !important;
     font-weight: 700 !important;
 }
 
 /* OUI / NON PLUS GRANDS ET CARRES */
 #normalRequestZone .pdj button.choice {
-    width: 54px !important;
-    min-width: 54px !important;
-    max-width: 54px !important;
+    width: 60px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
 
-    height: 54px !important;
-    min-height: 54px !important;
-    max-height: 54px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
 
     padding: 0 !important;
     border-radius: 10px !important;
