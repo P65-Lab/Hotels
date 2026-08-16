@@ -11,11 +11,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
+
 <body>
+
 <div id="hotelAgentsPicker" class="hotel-agents-picker-overlay" hidden>
+
   <div class="hotel-agents-picker-card">
 
     <div class="hotel-agents-picker-header">
+
       <div>
         <div class="kicker">AGENTS</div>
         <h2>Sélectionner les agents</h2>
@@ -29,6 +33,7 @@
       >
         ×
       </button>
+
     </div>
 
     <input
@@ -45,6 +50,7 @@
     ></div>
 
     <div class="hotel-agents-picker-actions">
+
       <button
         type="button"
         id="cancelAgentsPicker"
@@ -60,27 +66,40 @@
       >
         Valider
       </button>
+
     </div>
 
   </div>
+
 </div>
 
+
 <div id="hotelSettingsMenu" class="hotel-settings-overlay" hidden>
+
   <div class="hotel-settings-menu">
-    <div class="hotel-settings-title">Paramètres</div>
+
+    <div class="hotel-settings-title">
+      Paramètres
+    </div>
+
     <div
       id="hotelPopupUpdateCard"
       class="hotel-popup-update-card"
       hidden
     >
+
       <div class="hotel-popup-update-info">
+
         <span class="hotel-popup-update-icon">↻</span>
+
         <span>
           <strong>Mise à jour disponible</strong>
+
           <small id="hotelPopupUpdateText">
             Une nouvelle version est disponible.
           </small>
         </span>
+
       </div>
 
       <button
@@ -90,55 +109,127 @@
       >
         Mettre à jour
       </button>
+
     </div>
 
 
-    <button type="button" id="hotelQuickProfil" class="hotel-settings-choice">
+    <button
+      type="button"
+      id="hotelQuickProfil"
+      class="hotel-settings-choice"
+    >
       <span class="hotel-settings-icon">👤</span>
-      <span><strong>Profil / Réservation</strong><small>Mon profil et le service logement</small></span>
+
+      <span>
+        <strong>Profil / Réservation</strong>
+        <small>Mon profil et le service logement</small>
+      </span>
     </button>
 
-    <button type="button" id="hotelQuickAgents" class="hotel-settings-choice">
+
+    <button
+      type="button"
+      id="hotelQuickAgents"
+      class="hotel-settings-choice"
+    >
       <span class="hotel-settings-icon">👥</span>
-      <span><strong>Agents</strong><small>Gérer et importer les agents</small></span>
+
+      <span>
+        <strong>Agents</strong>
+        <small>Gérer et importer les agents</small>
+      </span>
     </button>
 
-    <button type="button" id="hotelQuickHotels" class="hotel-settings-choice">
+
+    <button
+      type="button"
+      id="hotelQuickHotels"
+      class="hotel-settings-choice"
+    >
       <span class="hotel-settings-icon">🏨</span>
-      <span><strong>Hôtels</strong><small>Gérer les hôtels</small></span>
+
+      <span>
+        <strong>Hôtels</strong>
+        <small>Gérer les hôtels</small>
+      </span>
     </button>
 
-    <button type="button" id="hotelQuickAppearance" class="hotel-settings-choice">
+
+    <button
+      type="button"
+      id="hotelQuickAppearance"
+      class="hotel-settings-choice"
+    >
       <span class="hotel-settings-icon">🎨</span>
-      <span><strong>Apparence</strong><small>Thème et couleurs</small></span>
+
+      <span>
+        <strong>Apparence</strong>
+        <small>Thème et couleurs</small>
+      </span>
     </button>
 
-    <button type="button" id="hotelQuickCancel" class="hotel-settings-cancel">Annuler</button>
+
+    <button
+      type="button"
+      id="hotelQuickCancel"
+      class="hotel-settings-cancel"
+    >
+      Annuler
+    </button>
+
   </div>
+
 </div>
+
 
 <main class="app">
+
 <header>
+
   <div class="header-title">
-  <img src="logo-hotel.png" class="header-logo" alt="">
-  <h1>Demande Hôtel</h1>
-</div>
-  <button id="manageBtn" class="round">
-  ⚙
-  <span
-    id="settingsUpdateBadge"
-    class="settings-update-badge"
-    aria-hidden="true"
-    hidden
-  ></span>
-</button>
+
+    <img
+      src="logo-hotel.png"
+      class="header-logo"
+      alt=""
+    >
+
+    <h1>Demande Hôtel</h1>
+
+  </div>
+
+  <button
+    id="manageBtn"
+    class="round"
+  >
+    ⚙
+
+    <span
+      id="settingsUpdateBadge"
+      class="settings-update-badge"
+      aria-hidden="true"
+      hidden
+    ></span>
+
+  </button>
+
 </header>
+
 
 <section class="card">
 
-<form id="form" onsubmit="return false;">
+<form
+  id="form"
+  onsubmit="return false;"
+>
+
+
+  <!-- =====================================================
+       CHOIX NOUVELLE DEMANDE / MODIFICATION ANNULATION
+       ===================================================== -->
 
   <div class="request-mode-switch">
+
     <button
       type="button"
       id="modeNouvelle"
@@ -154,293 +245,584 @@
     >
       Modification  Annulation
     </button>
+
   </div>
 
-<div id="normalRequestZone">
 
-  <div class="hotel-grid">
-    <label>Ville
-      <div class="search-wrap">
-        <input
-          id="ville"
-          autocomplete="off"
-          placeholder="Tapez une ville..."
+  <!-- =====================================================
+       NOUVELLE DEMANDE
+       ===================================================== -->
+
+  <div id="normalRequestZone">
+
+
+    <!-- VILLE / HOTEL -->
+
+    <div class="hotel-grid">
+
+      <label>
+        Ville
+
+        <div class="search-wrap">
+
+          <input
+            id="ville"
+            autocomplete="off"
+            placeholder="Tapez une ville..."
+            required
+          >
+
+          <div
+            id="villeResults"
+            class="search-results"
+            hidden
+          ></div>
+
+        </div>
+
+      </label>
+
+
+      <label>
+        Hôtel
+
+        <select
+          id="hotel"
           required
         >
-        <div id="villeResults" class="search-results" hidden></div>
-      </div>
-    </label>
+          <option value="">
+            Choisir un hébergement...
+          </option>
+        </select>
 
-    <label>Hôtel
-      <select id="hotel" required>
-        <option value="">Choisir un hébergement...</option>
-      </select>
-    </label>
-  </div>
-
-  <div class="section-title">Séjour</div>
-
-  <div class="travel-grid">
-
-    <div class="travel-card">
-      <div class="travel-title">ARRIVÉE</div>
-
-      <label>
-        Date
-        <input id="arrivee" type="date" required>
       </label>
 
-      <label>
-        Heure
-        <input id="heureArrivee" type="time" required>
-      </label>
     </div>
 
-    <div class="travel-card">
-      <div class="travel-title">DÉPART</div>
 
-      <label>
-        Date
-        <input id="depart" type="date" required>
-      </label>
+    <!-- SEJOUR -->
 
-      <label>
-        Heure
-        <input id="heureDepart" type="time">
-      </label>
+    <div class="section-title">
+      Séjour
     </div>
 
-  </div>
-  <div class="pdj">
-    <span>Petit-déjeuner</span>
-    <button type="button" id="pdjOui" class="choice active">OUI</button>
-    <button type="button" id="pdjNon" class="choice">NON</button>
-  </div>
 
-  <div class="main-actions plus-only">
-    <button type="button" id="addStay" class="add-hotel-final">
-      + Ajouter cet hébergement
-    </button>
-  </div>
-
-  <button type="button" id="reset" class="secondary">
-    Effacer toute la demande
-  </button>
-
-</div>
-
-<div id="modificationRequestZone" hidden>
-
-  <div class="mod-card">
-
-    
-
-    <label>Ville
-      <div class="search-wrap">
-        <input
-          id="modVille"
-          autocomplete="off"
-          placeholder="Rechercher une ville..."
-        >
-        <div id="modVilleResults" class="search-results" hidden></div>
-      </div>
-    </label>
-
-    <label>Hôtel
-<select
-  id="modHotel"
-  required
-  style="color:#9ca3af !important; -webkit-text-fill-color:#9ca3af !important;"
-  onchange="
-    this.style.setProperty(
-      'color',
-      this.value ? '#111827' : '#9ca3af',
-      'important'
-    );
-    this.style.setProperty(
-      '-webkit-text-fill-color',
-      this.value ? '#111827' : '#9ca3af',
-      'important'
-    );
-  "
->
-  <option value="">Choisir un hébergement...</option>
-</select>
-    </label>
-<label class="mod-sejour-title">Séjour</label>
     <div class="travel-grid">
 
-      <div class="travel-card">
-        <div class="travel-title">ARRIVÉE</div>
 
-        <label>Date
-          <input id="modArrivee" type="date">
-        </label>
-
-        <label>Heure
-          <input id="modHeureArrivee" type="time">
-        </label>
-      </div>
+      <!-- ARRIVEE -->
 
       <div class="travel-card">
-        <div class="travel-title">DÉPART</div>
 
-        <label>Date
-          <input id="modDepart" type="date">
-        </label>
+        <div class="travel-title">
+          ARRIVÉE
+        </div>
 
-        <label>Heure
-          <input id="modHeureDepart" type="time">
-        </label>
-      </div>
+        <label>
+          Date
 
-    </div>
-
-    <div class="pdj mod-pdj">
-      <span>Petit-déjeuner</span>
-      <button type="button" id="modBreakfastYes" class="choice active">OUI</button>
-      <button type="button" id="modBreakfastNo" class="choice">NON</button>
-    </div>
-
-    <div class="hotel-agent-picker-block">
-      <div class="hotel-agent-picker-head">
-        <strong>Agents concernés</strong>
-        <span id="modAgentsCount" class="hotel-agent-count">0 sélectionné</span>
-      </div>
-
-      <button
-        type="button"
-        id="chooseModAgents"
-        class="hotel-agent-picker-btn"
-      >
-        <span>Choisir les agents</span>
-        <span class="hotel-agent-chevron">›</span>
-      </button>
-    </div>
-
-    <div class="appearance-title">
-      Action
-    </div>
-
-    <div class="mod-action-switch">
-
-      <button
-        type="button"
-        id="modActionAnnuler"
-        class="mod-action-btn active"
-      >
-        Annuler
-      </button>
-
-      <button
-        type="button"
-        id="modActionRemplacer"
-        class="mod-action-btn"
-      >
-        Remplacer
-      </button>
-
-    </div>
-
-    <div
-      id="replacementZone"
-      class="replacement-zone"
-      hidden
-    >
-
-      <div class="section-title">
-        Nouvel hébergement à réserver
-      </div>
-
-      <label>Ville
-        <div class="search-wrap">
           <input
-            id="newVille"
+            id="arrivee"
+            type="date"
+            required
+          >
+        </label>
+
+        <label>
+          Heure
+
+          <input
+            id="heureArrivee"
+            type="time"
+            required
+          >
+        </label>
+
+      </div>
+
+
+      <!-- DEPART -->
+
+      <div class="travel-card">
+
+        <div class="travel-title">
+          DÉPART
+        </div>
+
+        <label>
+          Date
+
+          <input
+            id="depart"
+            type="date"
+            required
+          >
+        </label>
+
+        <label>
+          Heure
+
+          <input
+            id="heureDepart"
+            type="time"
+          >
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <!-- PETIT DEJEUNER -->
+
+    <div class="pdj">
+
+      <span>
+        Petit-déjeuner
+      </span>
+
+      <button
+        type="button"
+        id="pdjOui"
+        class="choice active"
+      >
+        OUI
+      </button>
+
+      <button
+        type="button"
+        id="pdjNon"
+        class="choice"
+      >
+        NON
+      </button>
+
+    </div>
+
+
+    <!-- AJOUTER HEBERGEMENT -->
+
+    <div class="main-actions plus-only">
+
+      <button
+        type="button"
+        id="addStay"
+        class="add-hotel-final"
+      >
+        + Ajouter cet hébergement
+      </button>
+
+    </div>
+
+
+    <!-- EFFACER -->
+
+    <button
+      type="button"
+      id="reset"
+      class="secondary"
+    >
+      Effacer toute la demande
+    </button>
+
+
+  </div>
+
+  <!-- =====================================================
+       MODIFICATION / ANNULATION
+       ===================================================== -->
+
+  <div id="modificationRequestZone" hidden>
+
+    <div class="mod-card">
+
+
+      <!-- VILLE -->
+
+      <label>
+        Ville
+
+        <div class="search-wrap">
+
+          <input
+            id="modVille"
             autocomplete="off"
             placeholder="Rechercher une ville..."
           >
-          <div id="newVilleResults" class="search-results" hidden></div>
+
+          <div
+            id="modVilleResults"
+            class="search-results"
+            hidden
+          ></div>
+
         </div>
+
       </label>
 
-      <label>Hôtel
-        <select id="newHotel">
-          <option value="">Choisir une ville...</option>
+
+      <!-- HOTEL -->
+
+      <label>
+        Hôtel
+
+        <select
+          id="modHotel"
+          required
+          style="
+            color:#9ca3af !important;
+            -webkit-text-fill-color:#9ca3af !important;
+          "
+          onchange="
+            this.style.setProperty(
+              'color',
+              this.value ? '#111827' : '#9ca3af',
+              'important'
+            );
+
+            this.style.setProperty(
+              '-webkit-text-fill-color',
+              this.value ? '#111827' : '#9ca3af',
+              'important'
+            );
+          "
+        >
+          <option value="">
+            Choisir un hébergement...
+          </option>
         </select>
+
       </label>
 
-      <div class="travel-grid">
 
-        <div class="travel-card">
-          <div class="travel-title">ARRIVÉE</div>
+      <!-- =================================================
+           DATES DE L'HEBERGEMENT ACTUEL
+           CONSERVEES POUR LE JAVASCRIPT MAIS NON AFFICHEES
+           ================================================= -->
 
-          <label>Date
-            <input id="newArrivee" type="date">
-          </label>
+      <div id="modDatesZone" hidden>
 
-          <label>Heure
-            <input id="newHeureArrivee" type="time">
-          </label>
-        </div>
+        <input
+          id="modArrivee"
+          type="date"
+        >
 
-        <div class="travel-card">
-          <div class="travel-title">DÉPART</div>
+        <input
+          id="modHeureArrivee"
+          type="time"
+        >
 
-          <label>Date
-            <input id="newDepart" type="date">
-          </label>
+        <input
+          id="modDepart"
+          type="date"
+        >
 
-          <label>Heure
-            <input id="newHeureDepart" type="time">
-          </label>
-        </div>
+        <input
+          id="modHeureDepart"
+          type="time"
+        >
 
       </div>
 
-      <div class="pdj">
-        <span>Petit-déjeuner</span>
+
+      <!-- PETIT DEJEUNER -->
+
+      <div class="pdj mod-pdj">
+
+        <span>
+          Petit-déjeuner
+        </span>
+
         <button
           type="button"
-          id="newPdjOui"
+          id="modBreakfastYes"
           class="choice active"
         >
           OUI
         </button>
+
         <button
           type="button"
-          id="newPdjNon"
+          id="modBreakfastNo"
           class="choice"
         >
           NON
         </button>
+
       </div>
 
-    </div>
 
-    <button
-      type="button"
-      id="createModificationMail"
-      class="create-mail-final mod-mail-btn"
-    >
-      ✉ Créer le mail de modification
-    </button>
+      <!-- AGENTS CONCERNES -->
+
+      <div class="hotel-agent-picker-block">
+
+        <div class="hotel-agent-picker-head">
+
+          <strong>
+            Agents concernés
+          </strong>
+
+          <span
+            id="modAgentsCount"
+            class="hotel-agent-count"
+          >
+            0 sélectionné
+          </span>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="chooseModAgents"
+          class="hotel-agent-picker-btn"
+        >
+          <span>
+            Choisir les agents
+          </span>
+
+          <span class="hotel-agent-chevron">
+            ›
+          </span>
+        </button>
+
+      </div>
+
+
+      <!-- ACTION -->
+
+      <div class="appearance-title">
+        Action
+      </div>
+
+
+      <div class="mod-action-switch">
+
+        <button
+          type="button"
+          id="modActionAnnuler"
+          class="mod-action-btn active"
+        >
+          Annuler
+        </button>
+
+
+        <button
+          type="button"
+          id="modActionRemplacer"
+          class="mod-action-btn"
+        >
+          Remplacer
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           NOUVEL HEBERGEMENT
+           APPARAIT UNIQUEMENT SI REMPLACER EST SELECTIONNE
+           ================================================= -->
+
+      <div
+        id="replacementZone"
+        class="replacement-zone"
+        hidden
+      >
+
+
+        <div class="section-title">
+          Nouvel hébergement à réserver
+        </div>
+
+
+        <!-- NOUVELLE VILLE -->
+
+        <label>
+          Ville
+
+          <div class="search-wrap">
+
+            <input
+              id="newVille"
+              autocomplete="off"
+              placeholder="Rechercher une ville..."
+            >
+
+            <div
+              id="newVilleResults"
+              class="search-results"
+              hidden
+            ></div>
+
+          </div>
+
+        </label>
+
+
+        <!-- NOUVEL HOTEL -->
+
+        <label>
+          Hôtel
+
+          <select id="newHotel">
+
+            <option value="">
+              Choisir une ville...
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <!--
+          ON GARDE POUR L'INSTANT LES DATES DU NOUVEL
+          HEBERGEMENT CAR TON JAVASCRIPT LES UTILISE ENCORE.
+        -->
+
+        <div class="travel-grid">
+
+          <div class="travel-card">
+
+            <div class="travel-title">
+              ARRIVÉE
+            </div>
+
+            <label>
+              Date
+
+              <input
+                id="newArrivee"
+                type="date"
+              >
+            </label>
+
+            <label>
+              Heure
+
+              <input
+                id="newHeureArrivee"
+                type="time"
+              >
+            </label>
+
+          </div>
+
+
+          <div class="travel-card">
+
+            <div class="travel-title">
+              DÉPART
+            </div>
+
+            <label>
+              Date
+
+              <input
+                id="newDepart"
+                type="date"
+              >
+            </label>
+
+            <label>
+              Heure
+
+              <input
+                id="newHeureDepart"
+                type="time"
+              >
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- PETIT DEJEUNER NOUVEL HEBERGEMENT -->
+
+        <div class="pdj">
+
+          <span>
+            Petit-déjeuner
+          </span>
+
+          <button
+            type="button"
+            id="newPdjOui"
+            class="choice active"
+          >
+            OUI
+          </button>
+
+          <button
+            type="button"
+            id="newPdjNon"
+            class="choice"
+          >
+            NON
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- CREER LE MAIL -->
+
+      <button
+        type="button"
+        id="createModificationMail"
+        class="create-mail-final mod-mail-btn"
+      >
+        ✉ Créer le mail de modification
+      </button>
+
+
+    </div>
 
   </div>
 
-</div>
 </form>
+
 </section>
 
-<section id="staysCard" class="card" hidden>
+
+<!-- =====================================================
+     HEBERGEMENTS AJOUTES
+     ===================================================== -->
+
+<section
+  id="staysCard"
+  class="card"
+  hidden
+>
+
   <div class="stays-header">
+
     <div>
-      <div class="kicker">HÉBERGEMENTS AJOUTÉS</div>
-      <h2>Demande en cours</h2>
+
+      <div class="kicker">
+        HÉBERGEMENTS AJOUTÉS
+      </div>
+
+      <h2>
+        Demande en cours
+      </h2>
+
     </div>
-    <div id="staysCount" class="stays-count">0 hébergement</div>
+
+    <div
+      id="staysCount"
+      class="stays-count"
+    >
+      0 hébergement
+    </div>
+
   </div>
 
+
   <div id="staysList"></div>
+
 
   <button
     type="button"
@@ -448,8 +830,13 @@
     class="create-mail-final"
   >
     ✉ Créer le mail
-    <small>Demande complète avec tous les hébergements</small>
+
+    <small>
+      Demande complète avec tous les hébergements
+    </small>
   </button>
+
+
   <button
     type="button"
     id="previewHtmlMailBtn"
@@ -460,227 +847,546 @@
 
 </section>
 
+  <!-- =====================================================
+     PARAMETRES
+     ===================================================== -->
+
+<section
+  id="manage"
+  class="card"
+  hidden
+>
+
+  <div class="admin-head">
+
+    <div>
+      <div class="kicker">
+        RÉGLAGES
+      </div>
+
+      <h2 id="manageTitle">
+        Paramètres
+      </h2>
+    </div>
+
+    <button
+      id="closeManage"
+      class="secondary small"
+    >
+      Fermer
+    </button>
+
+  </div>
 
 
-<section id="manage" class="card" hidden>
- <div class="admin-head"><div><div class="kicker">RÉGLAGES</div><h2 id="manageTitle">Paramètres</h2></div><button id="closeManage" class="secondary small">Fermer</button></div>
-<div
-   id="settingsUpdateCard"
-   class="settings-update-card"
-   hidden
- >
-   <div class="settings-update-content">
-     <div class="settings-update-icon">↻</div>
+  <!-- MISE A JOUR -->
 
-     <div class="settings-update-texts">
-       <strong>Mise à jour disponible</strong>
-       <span id="settingsUpdateText">
-         Une nouvelle version est disponible.
-       </span>
-     </div>
-   </div>
+  <div
+    id="settingsUpdateCard"
+    class="settings-update-card"
+    hidden
+  >
 
-   <button
-     type="button"
-     id="settingsUpdateBtn"
-     class="settings-update-btn"
-   >
-     Mettre à jour
-   </button>
- </div>
-<div id="profil" class="panel">
-   <div class="settings-section-title">Profil de l’agent</div>
-   <label>Nom de l'agent<input id="profilNom" placeholder="NOM Prénom"></label>
-   <button id="saveProfil" class="primary">Enregistrer</button>
- 
-   <div class="settings-section-separator"></div>
-   <div id="dest" class="settings-inline-section">
-     <div class="settings-section-title">Service réservation / logement</div>
-<label>Service réservation / logement<input id="destNom" placeholder="Service logement"></label>
-   <label>Adresse e-mail<input id="destMail" type="email" placeholder="reservation@..."></label>
-   <div class="actions3">
-     <button id="saveDest" class="primary">Enregistrer le service</button>
-     <button id="cancelDest" class="secondary">Effacer la saisie</button>
-     <button id="deleteDest" class="danger">Supprimer le service</button>
-   </div>
-   </div>
+    <div class="settings-update-content">
 
-</div>
+      <div class="settings-update-icon">
+        ↻
+      </div>
 
-<div id="agents" class="panel" hidden>
+      <div class="settings-update-texts">
 
-   <div class="appearance-title">Agents de l’équipage</div>
+        <strong>
+          Mise à jour disponible
+        </strong>
 
-   <p class="hint">
-     Les agents sont enregistrés uniquement sur ce téléphone.
-   </p>
+        <span id="settingsUpdateText">
+          Une nouvelle version est disponible.
+        </span>
 
-   <label>Nom de l’agent
-     <input
-       id="agentNom"
-       autocomplete="off"
-       placeholder="Ajouter ou rechercher un agent..."
-     >
-   </label>
+      </div>
 
-   <div class="actions3 agents-import-actions">
-     <button
-       type="button"
-       id="addAgent"
-       class="primary"
-     >
-       Ajouter
-     </button>
+    </div>
 
-     <button
-       type="button"
-       id="importAgentsBtn"
-       class="secondary"
-     >
-       Importer
-     </button>
 
-     <button
-       type="button"
-       id="clearAgent"
-       class="secondary"
-     >
-       Effacer
-     </button>
-   </div>
+    <button
+      type="button"
+      id="settingsUpdateBtn"
+      class="settings-update-btn"
+    >
+      Mettre à jour
+    </button>
 
-   <input
-     id="importAgentsFile"
-     type="file"
-     accept=".json,.txt,.csv,application/json,text/plain,text/csv"
-     hidden
-   >
+  </div>
 
-   <div
-     id="importAgentsStatus"
-     class="import-agents-status"
-     aria-live="polite"
-   ></div>
 
-   <div
-     id="agentsAdminList"
-     class="agents-admin-list"
-   ></div>
+  <!-- =====================================================
+       PROFIL
+       ===================================================== -->
 
- </div>
+  <div
+    id="profil"
+    class="panel"
+  >
 
- <div id="hotels" class="panel" hidden>
+    <div class="settings-section-title">
+      Profil de l’agent
+    </div>
 
-   <label>Ville
-     <div class="search-wrap">
-       <input id="adminVille" autocomplete="off" placeholder="Tapez une ville...">
-       <div id="adminVilleResults" class="search-results" hidden></div>
-     </div>
-   </label>
+    <label>
+      Nom de l'agent
 
-   <label>Hôtel
-     <input id="adminHotel" autocomplete="off" placeholder="Saisir un nouvel hôtel...">
-   </label>
+      <input
+        id="profilNom"
+        placeholder="NOM Prénom"
+      >
+    </label>
 
-   <div class="actions2 admin-hotel-actions">
-     <button id="addHotel" class="primary">Ajouter</button>
-     <button id="cancelHotel" class="secondary">Annuler</button>
-   </div>
+    <button
+      id="saveProfil"
+      class="primary"
+    >
+      Enregistrer
+    </button>
 
-   <div id="adminHotelsFound" class="admin-hotels-list-wrap" hidden>
-     <div id="adminHotelsList"></div>
-   </div>
 
-   <p class="hint">Les hôtels de la ville apparaissent ci-dessous.</p>
- </div>
+    <div class="settings-section-separator"></div>
 
- <div id="appearance" class="panel" hidden>
 
-   <div class="appearance-title">Thèmes rapides</div>
+    <!-- SERVICE RESERVATION / LOGEMENT -->
 
-   <div class="theme-grid">
-     <button type="button" class="theme-choice" data-theme="classic">
-       <span class="theme-dot theme-classic"></span>
-       <span class="theme-label">Classique</span>
-     </button>
+    <div
+      id="dest"
+      class="settings-inline-section"
+    >
 
-     <button type="button" class="theme-choice" data-theme="blue">
-       <span class="theme-dot theme-blue"></span>
-       <span class="theme-label">Bleu</span>
-     </button>
+      <div class="settings-section-title">
+        Service réservation / logement
+      </div>
 
-     <button type="button" class="theme-choice" data-theme="green">
-       <span class="theme-dot theme-green"></span>
-       <span class="theme-label">Vert</span>
-     </button>
+      <label>
+        Service réservation / logement
 
-     <button type="button" class="theme-choice" data-theme="orange">
-       <span class="theme-dot theme-orange"></span>
-       <span class="theme-label">Orange</span>
-     </button>
+        <input
+          id="destNom"
+          placeholder="Service logement"
+        >
+      </label>
 
-     <button type="button" class="theme-choice" data-theme="red">
-       <span class="theme-dot theme-red"></span>
-       <span class="theme-label">Rouge</span>
-     </button>
+      <label>
+        Adresse e-mail
 
-     <button type="button" class="theme-choice" data-theme="dark">
-       <span class="theme-dot theme-dark"></span>
-       <span class="theme-label">Sombre</span>
-     </button>
-   </div>
+        <input
+          id="destMail"
+          type="email"
+          placeholder="reservation@..."
+        >
+      </label>
 
-   <div class="appearance-title">Couleurs personnalisées</div>
 
-   <div class="color-grid">
+      <div class="actions3">
 
-     <label class="color-field">
-       <span>Couleur principale</span>
-       <input id="colorPrimary" type="color" value="#111827">
-     </label>
+        <button
+          id="saveDest"
+          class="primary"
+        >
+          Enregistrer le service
+        </button>
 
-     <label class="color-field">
-       <span>Bouton Créer le mail</span>
-       <input id="colorMail" type="color" value="#079447">
-     </label>
+        <button
+          id="cancelDest"
+          class="secondary"
+        >
+          Effacer la saisie
+        </button>
 
-     <label class="color-field">
-       <span>Nuitées</span>
-       <input id="colorNights" type="color" value="#dc2626">
-     </label>
+        <button
+          id="deleteDest"
+          class="danger"
+        >
+          Supprimer le service
+        </button>
 
-     <label class="color-field">
-       <span>Fond de l’application</span>
-       <input id="colorBackground" type="color" value="#f3f4f6">
-     </label>
+      </div>
 
-     <label class="color-field">
-       <span>Cartes / cadres</span>
-       <input id="colorCard" type="color" value="#ffffff">
-     </label>
+    </div>
 
-   </div>
+  </div>
 
-   <div class="appearance-actions">
-     <button type="button" id="saveAppearance" class="primary">
-       Enregistrer les couleurs
-     </button>
 
-     <button type="button" id="resetAppearance" class="secondary">
-       Réinitialiser
-     </button>
-   </div>
+  <!-- =====================================================
+       AGENTS
+       ===================================================== -->
 
-   <p class="hint">
-     Les couleurs sont enregistrées uniquement sur cet appareil.
-   </p>
+  <div
+    id="agents"
+    class="panel"
+    hidden
+  >
 
- </div>
+    <div class="appearance-title">
+      Agents de l’équipage
+    </div>
+
+    <p class="hint">
+      Les agents sont enregistrés uniquement sur ce téléphone.
+    </p>
+
+
+    <label>
+      Nom de l’agent
+
+      <input
+        id="agentNom"
+        autocomplete="off"
+        placeholder="Ajouter ou rechercher un agent..."
+      >
+
+    </label>
+
+
+    <div class="actions3 agents-import-actions">
+
+      <button
+        type="button"
+        id="addAgent"
+        class="primary"
+      >
+        Ajouter
+      </button>
+
+      <button
+        type="button"
+        id="importAgentsBtn"
+        class="secondary"
+      >
+        Importer
+      </button>
+
+      <button
+        type="button"
+        id="clearAgent"
+        class="secondary"
+      >
+        Effacer
+      </button>
+
+    </div>
+
+
+    <input
+      id="importAgentsFile"
+      type="file"
+      accept=".json,.txt,.csv,application/json,text/plain,text/csv"
+      hidden
+    >
+
+
+    <div
+      id="importAgentsStatus"
+      class="import-agents-status"
+      aria-live="polite"
+    ></div>
+
+
+    <div
+      id="agentsAdminList"
+      class="agents-admin-list"
+    ></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HOTELS
+       ===================================================== -->
+
+  <div
+    id="hotels"
+    class="panel"
+    hidden
+  >
+
+    <label>
+      Ville
+
+      <div class="search-wrap">
+
+        <input
+          id="adminVille"
+          autocomplete="off"
+          placeholder="Tapez une ville..."
+        >
+
+        <div
+          id="adminVilleResults"
+          class="search-results"
+          hidden
+        ></div>
+
+      </div>
+
+    </label>
+
+
+    <label>
+      Hôtel
+
+      <input
+        id="adminHotel"
+        autocomplete="off"
+        placeholder="Saisir un nouvel hôtel..."
+      >
+
+    </label>
+
+
+    <div class="actions2 admin-hotel-actions">
+
+      <button
+        id="addHotel"
+        class="primary"
+      >
+        Ajouter
+      </button>
+
+      <button
+        id="cancelHotel"
+        class="secondary"
+      >
+        Annuler
+      </button>
+
+    </div>
+
+
+    <div
+      id="adminHotelsFound"
+      class="admin-hotels-list-wrap"
+      hidden
+    >
+
+      <div id="adminHotelsList"></div>
+
+    </div>
+
+
+    <p class="hint">
+      Les hôtels de la ville apparaissent ci-dessous.
+    </p>
+
+  </div>
+
+
+  <!-- =====================================================
+       APPARENCE
+       ===================================================== -->
+
+  <div
+    id="appearance"
+    class="panel"
+    hidden
+  >
+
+    <div class="appearance-title">
+      Thèmes rapides
+    </div>
+
+
+    <div class="theme-grid">
+
+      <button
+        type="button"
+        class="theme-choice"
+        data-theme="classic"
+      >
+        <span class="theme-dot theme-classic"></span>
+        <span class="theme-label">Classique</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="theme-choice"
+        data-theme="blue"
+      >
+        <span class="theme-dot theme-blue"></span>
+        <span class="theme-label">Bleu</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="theme-choice"
+        data-theme="green"
+      >
+        <span class="theme-dot theme-green"></span>
+        <span class="theme-label">Vert</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="theme-choice"
+        data-theme="orange"
+      >
+        <span class="theme-dot theme-orange"></span>
+        <span class="theme-label">Orange</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="theme-choice"
+        data-theme="red"
+      >
+        <span class="theme-dot theme-red"></span>
+        <span class="theme-label">Rouge</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="theme-choice"
+        data-theme="dark"
+      >
+        <span class="theme-dot theme-dark"></span>
+        <span class="theme-label">Sombre</span>
+      </button>
+
+    </div>
+
+
+    <div class="appearance-title">
+      Couleurs personnalisées
+    </div>
+
+
+    <div class="color-grid">
+
+      <label class="color-field">
+
+        <span>
+          Couleur principale
+        </span>
+
+        <input
+          id="colorPrimary"
+          type="color"
+          value="#111827"
+        >
+
+      </label>
+
+
+      <label class="color-field">
+
+        <span>
+          Bouton Créer le mail
+        </span>
+
+        <input
+          id="colorMail"
+          type="color"
+          value="#079447"
+        >
+
+      </label>
+
+
+      <label class="color-field">
+
+        <span>
+          Nuitées
+        </span>
+
+        <input
+          id="colorNights"
+          type="color"
+          value="#dc2626"
+        >
+
+      </label>
+
+
+      <label class="color-field">
+
+        <span>
+          Fond de l’application
+        </span>
+
+        <input
+          id="colorBackground"
+          type="color"
+          value="#f3f4f6"
+        >
+
+      </label>
+
+
+      <label class="color-field">
+
+        <span>
+          Cartes / cadres
+        </span>
+
+        <input
+          id="colorCard"
+          type="color"
+          value="#ffffff"
+        >
+
+      </label>
+
+    </div>
+
+
+    <div class="appearance-actions">
+
+      <button
+        type="button"
+        id="saveAppearance"
+        class="primary"
+      >
+        Enregistrer les couleurs
+      </button>
+
+
+      <button
+        type="button"
+        id="resetAppearance"
+        class="secondary"
+      >
+        Réinitialiser
+      </button>
+
+    </div>
+
+
+    <p class="hint">
+      Les couleurs sont enregistrées uniquement sur cet appareil.
+    </p>
+
+  </div>
+
 </section>
 
 
-<div class="app-version" id="appVersion">À JOUR V120</div>
+<!-- VERSION APPLICATION -->
+
+<div
+  class="app-version"
+  id="appVersion"
+>
+  À JOUR V120
+</div>
+
 
 </main>
-<script src="database.js?v=120"></script><script src="script.js?v=121"></script>
-</body></html>
+
+
+<script src="database.js?v=120"></script>
+<script src="script.js?v=121"></script>
+
+</body>
+</html>
+  
