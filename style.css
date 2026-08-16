@@ -4849,3 +4849,23 @@ body {
     font-size: 16px !important;
     font-weight: 800 !important;
 }
+
+/* FORCER TAILLE OUI NON - NOUVELLE DEMANDE */
+#normalRequestZone .pdj button.choice {
+    width: 72px !important;
+    min-width: 72px !important;
+    max-width: 72px !important;
+
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+
+    padding: 0 !important;
+
+    font-size: 16px !important;
+    font-weight: 800 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
