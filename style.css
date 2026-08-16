@@ -5047,3 +5047,52 @@ header {
     margin-top: 4px !important;
     margin-bottom: 4px !important;
 }
+
+/* ==========================================================
+   MODIFICATION / ANNULATION
+   COMPACTER ENCORE POUR FAIRE REMONTER LE BOUTON MAIL
+   ========================================================== */
+
+/* Réduire la hauteur des cartes Arrivée / Départ */
+#modificationRequestZone .travel-card {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+/* Titre ARRIVÉE / DÉPART plus compact */
+#modificationRequestZone .travel-title {
+    margin-bottom: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+/* Rapprocher Date et Heure */
+#modificationRequestZone .travel-card label {
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+
+/* Champs Date / Heure un peu moins hauts */
+#modificationRequestZone .travel-card input {
+    min-height: 42px !important;
+    height: 42px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+/* Petit-déjeuner plus proche */
+#modificationRequestZone .mod-pdj {
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+}
+
+/* Agents plus proche */
+#modificationRequestZone .hotel-agent-picker-block {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+}
+
+/* ACTION plus proche */
+#modificationRequestZone .appearance-title {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+}
