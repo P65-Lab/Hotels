@@ -4932,3 +4932,8 @@ header {
     font-weight: 800 !important;
     line-height: 1 !important;
 }
+
+/* ESPACE SOUS LE TITRE DEMANDE HOTEL */
+header {
+    margin-bottom: 16px !important;
+}
