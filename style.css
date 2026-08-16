@@ -4879,8 +4879,26 @@ body {
 }
 
 .header-logo {
-    width: 36px;
-    height: 36px;
+    width: 36px !important;
+    height: 36px !important;
     object-fit: contain;
     flex-shrink: 0;
+}
+
+/* ROUE MEME TAILLE QUE LE LOGO */
+header #manageBtn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+}
+
+/* ALIGNEMENT LOGO - TITRE - ROUE */
+header {
+    align-items: center !important;
+}
+
+.header-title h1 {
+    margin: 0 !important;
 }
