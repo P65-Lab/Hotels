@@ -5158,10 +5158,10 @@ header {
     color: #111827 !important;
     margin-top: 4px !important;
     margin-bottom: 0 !important;
-}
 #modificationRequestZone .mod-sejour-title + .travel-grid {
-    margin-top: -16px !important;
+    margin-top: 4px !important;
 }
+
 /* Petit-déjeuner : juste en gras */
 #modificationRequestZone .mod-pdj > span {
     font-weight: 800 !important;
