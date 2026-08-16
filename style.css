@@ -4559,8 +4559,8 @@ div{
 
   /* Champ Hôtel */
   #normalRequestZone #hotel{
-    height:56px !important;
-    min-height:56px !important;
+    height:54px !important;
+    min-height:54px !important;
     padding:3px 9px !important;
     font-size:13px !important;
     font-weight:700 !important;
