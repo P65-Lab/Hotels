@@ -5166,3 +5166,10 @@ header {
 #modificationRequestZone .mod-pdj > span {
     font-weight: 800 !important;
 }
+
+/* HOTEL EN GRIS - MODIFICATION / ANNULATION */
+#modificationRequestZone #modHotel {
+    color: #8a94a3 !important;
+    -webkit-text-fill-color: #8a94a3 !important;
+    font-weight: 700 !important;
+}
