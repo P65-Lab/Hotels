@@ -247,9 +247,25 @@
     </label>
 
     <label>Hôtel
-     <select id="modHotel" required>
-        <option value="">Choisir un hébergement...</option>
-      </select>
+<select
+  id="modHotel"
+  required
+  style="color:#9ca3af !important; -webkit-text-fill-color:#9ca3af !important;"
+  onchange="
+    this.style.setProperty(
+      'color',
+      this.value ? '#111827' : '#9ca3af',
+      'important'
+    );
+    this.style.setProperty(
+      '-webkit-text-fill-color',
+      this.value ? '#111827' : '#9ca3af',
+      'important'
+    );
+  "
+>
+  <option value="">Choisir un hébergement...</option>
+</select>
     </label>
 <label class="mod-sejour-title">Séjour</label>
     <div class="travel-grid">
