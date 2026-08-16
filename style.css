@@ -5167,9 +5167,26 @@ header {
     font-weight: 800 !important;
 }
 
-/* HOTEL EN GRIS - MODIFICATION / ANNULATION */
+/* HOTEL - MODIFICATION / ANNULATION */
 #modificationRequestZone #modHotel {
-    color: #8a94a3 !important;
-    -webkit-text-fill-color: #8a94a3 !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
 }
+
+/* "Choisir un hébergement..." en gris */
+#modificationRequestZone #modHotel:invalid {
+    color: #9aa3af !important;
+    -webkit-text-fill-color: #9aa3af !important;
+}
+
+/* Hôtel choisi = noir */
+#modificationRequestZone #modHotel:valid {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}
+
+#modificationRequestZone #modHotel option {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}
+   
