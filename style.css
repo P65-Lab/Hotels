@@ -4850,19 +4850,20 @@ body {
     font-weight: 800 !important;
 }
 
-/* FORCER TAILLE OUI NON - NOUVELLE DEMANDE */
+/* OUI / NON CARRES - NOUVELLE DEMANDE */
 #normalRequestZone .pdj button.choice {
-    width: 72px !important;
-    min-width: 72px !important;
-    max-width: 72px !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    max-width: 48px !important;
 
-    height:  50px !important;
-    min-height: 50px !important;
-    max-height: 50px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
 
     padding: 0 !important;
+    border-radius: 10px !important;
 
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 800 !important;
 
     display: inline-flex !important;
