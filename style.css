@@ -5152,3 +5152,19 @@ header {
     justify-content: center !important;
 }
 
+/* ==========================================================
+   MODIFICATION / ANNULATION
+   SEJOUR + PETIT-DEJEUNER
+   ========================================================== */
+
+#modificationRequestZone .mod-sejour-title {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    margin: 6px 0 4px !important;
+}
+
+/* Petit-déjeuner : juste en gras */
+#modificationRequestZone .mod-pdj > span {
+    font-weight: 800 !important;
+}
