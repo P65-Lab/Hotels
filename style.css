@@ -5189,4 +5189,22 @@ header {
     color: #111827 !important;
     -webkit-text-fill-color: #111827 !important;
 }
-   
+
+/* ==========================================================
+   HOTEL MODIFICATION - TEXTE CHOISIR EN GRIS
+   ========================================================== */
+
+#modificationRequestZone #modHotel:required:invalid {
+    color: #9ca3af !important;
+    -webkit-text-fill-color: #9ca3af !important;
+}
+
+#modificationRequestZone #modHotel:required:valid {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}
+
+#modificationRequestZone #modHotel option {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}   
