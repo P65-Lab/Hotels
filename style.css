@@ -5189,7 +5189,19 @@ header {
     color: #111827 !important;
     -webkit-text-fill-color: #111827 !important;
 }
+/* ==========================================================
+   MODIFICATION / ANNULATION
+   CACHER SEJOUR + ARRIVEE + DEPART
+   ========================================================== */
 
+#modificationRequestZone .mod-sejour-title {
+    display: none !important;
+}
+
+#modificationRequestZone .mod-sejour-title + .travel-grid {
+    display: none !important;
+}
+   
 
 
 
