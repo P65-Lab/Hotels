@@ -4960,3 +4960,49 @@ header {
     margin-top: 0 !important;
     margin-bottom: 14px !important;
 }
+
+/* ==========================================================
+   MODIFICATION / ANNULATION
+   REMONTER L'ENSEMBLE POUR VOIR LES BOUTONS DU BAS
+   ========================================================== */
+
+/* Ville / Hôtel plus rapprochés */
+#modificationRequestZone .mod-card > label {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+/* Arrivée / Départ plus proche du cadre Hôtel */
+#modificationRequestZone .travel-grid {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+/* Petit-déjeuner juste sous Arrivée / Départ */
+#modificationRequestZone .mod-pdj {
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Agents juste sous Petit-déjeuner */
+#modificationRequestZone .hotel-agent-picker-block {
+    margin-top: 6px !important;
+    margin-bottom: 12px !important;
+}
+
+/* ACTION juste sous Agents */
+#modificationRequestZone .appearance-title {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+/* Annuler / Remplacer */
+#modificationRequestZone .mod-action-switch {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Bouton créer le mail plus proche */
+#modificationRequestZone .mod-mail-btn {
+    margin-top: 10px !important;
+}
