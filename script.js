@@ -17,6 +17,7 @@ const load=(k,d=[])=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{re
 const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 let custom=load(LS_H), deleted=load(LS_HDEL), profil=load(LS_P,{}), dest=load(LS_D,{});
 let appearance=load(LS_A,{});
+
 function chargerAgentsHotelAvecRecuperation(){
 
   const clesPossibles = [
@@ -155,8 +156,9 @@ setTimeout(
   actualiserListeProfilAgents,
   0
 );
+
 /* ==========================================================
-AGENTS LOCAUX
+   AGENTS LOCAUX
    ========================================================== */
 
 function normaliserAgentHotel(nom){
@@ -208,6 +210,7 @@ function nettoyerNomAgentImporteHotel(valeur){
 
   return normaliserAgentHotel(nom);
 }
+
 
 async function importerAgentsDepuisFichierHotel(fichier){
 
@@ -354,7 +357,8 @@ async function importerAgentsDepuisFichierHotel(fichier){
       LS_AGENTS,
       hotelAgents
     );
-actualiserListeProfilAgents();
+
+    actualiserListeProfilAgents();
     renderHotelAgentsAdmin();
     renderModificationAgents();
 
@@ -387,6 +391,7 @@ actualiserListeProfilAgents();
     );
   }
 }
+
 
 function renderHotelAgentsAdmin(){
 
@@ -499,6 +504,7 @@ function renderHotelAgentsAdmin(){
       };
     });
 }
+
 
 let selectedHotelAgents = [];
 let draftHotelAgents = [];
@@ -651,504 +657,665 @@ function fermerSelectionAgentsHotel(){
   agentsPickerContext = "";
 }
 
-function validerSelectionAgentsHotel(){
+const APP_VERSION = "v120";
+const APP_VERSION_DATE = "16/08/2026 10:15";
 
-  selectedHotelAgents =
-    [...draftHotelAgents];
+const $=id=>document.getElementById(id);
 
-  actualiserCompteursAgentsHotel();
-  fermerSelectionAgentsHotel();
+function afficherVersionChargeeHotel() {
+  const el = document.getElementById("appVersion");
+  if (!el) return;
+  el.textContent = `À JOUR ${String(APP_VERSION).toUpperCase()}`;
 }
 
-/* ==========================================================
-   DATES ARRIVEE / DEPART
-   - le départ est automatiquement le lendemain de l'arrivée
-   - le jour d'arrivée et les jours précédents sont interdits
-     dans le calendrier de départ
-   - l'utilisateur peut choisir n'importe quelle date ultérieure
-   ========================================================== */
 
-function lendemainISO(dateISO){
+const LS_H="hotelCustom",LS_HDEL="hotelDeleted",LS_P="hotelProfil",LS_D="hotelDest";
+const LS_A="hotelAppearance";
+const LS_AGENTS="hotelAgentsLocal";
+const load=(k,d=[])=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}};
+const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let custom=load(LS_H), deleted=load(LS_HDEL), profil=load(LS_P,{}), dest=load(LS_D,{});
+let appearance=load(LS_A,{});
 
-  if(!dateISO) return "";
+function chargerAgentsHotelAvecRecuperation(){
 
-  const parties = dateISO.split("-").map(Number);
+  const clesPossibles = [
+    LS_AGENTS,
+    "hotelAgents",
+    "hotel_agents",
+    "agentsHotel",
+    "agents_hotel",
+    "agentsLocal",
+    "agents_local",
+    "agents"
+  ];
 
-  const d = new Date(
-    parties[0],
-    parties[1] - 1,
-    parties[2]
+  let noms = [];
+
+  function ajouterValeurs(valeur){
+
+    if(!valeur) return;
+
+    let donnees = valeur;
+
+    if(typeof valeur === "string"){
+
+      try{
+        donnees = JSON.parse(valeur);
+      }catch{
+        return;
+      }
+    }
+
+    if(Array.isArray(donnees)){
+
+      donnees.forEach(item=>{
+
+        let nom = "";
+
+        if(typeof item === "string"){
+          nom = item;
+        }
+        else if(
+          item &&
+          typeof item === "object"
+        ){
+          nom =
+            item.nom ||
+            item.name ||
+            "";
+        }
+
+        nom =
+          String(nom || "")
+            .trim()
+            .replace(/\s+/g," ");
+
+        if(
+          nom &&
+          !noms.some(
+            x =>
+              x.toLocaleUpperCase("fr-FR") ===
+              nom.toLocaleUpperCase("fr-FR")
+          )
+        ){
+          noms.push(nom);
+        }
+      });
+    }
+  }
+
+  /*
+    1. Clés connues des anciennes versions.
+  */
+  clesPossibles.forEach(cle=>{
+
+    try{
+      ajouterValeurs(
+        localStorage.getItem(cle)
+      );
+    }catch{}
+  });
+
+  /*
+    2. Secours :
+       parcourir les autres clés locales et récupérer
+       uniquement les tableaux ressemblant clairement
+       à une liste d'agents.
+  */
+  try{
+
+    for(
+      let i=0;
+      i<localStorage.length;
+      i++
+    ){
+
+      const cle =
+        localStorage.key(i) || "";
+
+      if(
+        !/agent/i.test(cle)
+      ){
+        continue;
+      }
+
+      ajouterValeurs(
+        localStorage.getItem(cle)
+      );
+    }
+
+  }catch{}
+
+  noms.sort(
+    (a,b)=>
+      a.localeCompare(
+        b,
+        "fr"
+      )
   );
 
-  d.setDate(d.getDate() + 1);
+  /*
+    On consolide immédiatement dans la clé actuelle.
+  */
+  try{
+    localStorage.setItem(
+      LS_AGENTS,
+      JSON.stringify(noms)
+    );
+  }catch{}
 
-  const annee = d.getFullYear();
-  const mois = String(d.getMonth() + 1).padStart(2,"0");
-  const jour = String(d.getDate()).padStart(2,"0");
-
-  return `${annee}-${mois}-${jour}`;
+  return noms;
 }
 
-function reglerDepartDepuisArrivee(){
+let hotelAgents =
+  chargerAgentsHotelAvecRecuperation();
 
-  const arrivee = $("arrivee").value;
-
-  if(!arrivee){
-    $("depart").min = "";
-    return;
-  }
-
-  const premierDepart = lendemainISO(arrivee);
-
-  // Dans le calendrier Départ, la première date possible
-  // est le lendemain de l'arrivée.
-  $("depart").min = premierDepart;
-
-  // Chaque nouvelle date d'arrivée présélectionne
-  // automatiquement le lendemain.
-  $("depart").value = premierDepart;
-}
-
-$("arrivee").addEventListener(
-  "change",
-  reglerDepartDepuisArrivee
+setTimeout(
+  actualiserListeProfilAgents,
+  0
 );
-
-$("arrivee").addEventListener(
-  "input",
-  reglerDepartDepuisArrivee
-);
-
-$("depart").addEventListener("change",()=>{
-
-  const arrivee = $("arrivee").value;
-
-  if(!arrivee) return;
-
-  const minimum = lendemainISO(arrivee);
-
-  if(
-    $("depart").value &&
-    $("depart").value < minimum
-  ){
-    $("depart").value = minimum;
-  }
-});
-
 
 /* ==========================================================
-   DATE DEPART : BLOQUER ARRIVEE + DATES ANTERIEURES
+   AGENTS LOCAUX
    ========================================================== */
 
-function actualiserMinimumDepart() {
+function normaliserAgentHotel(nom){
+  return String(nom || "")
+    .trim()
+    .replace(/\s+/g," ");
+}
 
-  const arrivee = $("arrivee").value;
 
-  if (!arrivee) {
-    $("depart").min = "";
+function nettoyerNomAgentImporteHotel(valeur){
+
+  let nom =
+    String(valeur || "")
+      .replace(/^\uFEFF/,"")
+      .trim();
+
+  if(!nom) return "";
+
+  /*
+    Si CSV avec plusieurs colonnes :
+    première colonne = nom.
+  */
+  if(nom.includes(";")){
+    nom =
+      nom.split(";")[0].trim();
+  }else if(nom.includes(",")){
+    nom =
+      nom.split(",")[0].trim();
+  }
+
+  nom =
+    nom.replace(/^["']|["']$/g,"").trim();
+
+  /*
+    Ignorer les en-têtes classiques.
+  */
+  const n = norm(nom);
+
+  if(
+    n === "NOM" ||
+    n === "AGENT" ||
+    n === "AGENTS" ||
+    n === "NOM AGENT" ||
+    n === "NOM DE L AGENT" ||
+    n === "NOM DE L'AGENT"
+  ){
+    return "";
+  }
+
+  return normaliserAgentHotel(nom);
+}
+
+
+async function importerAgentsDepuisFichierHotel(fichier){
+
+  const statut =
+    document.getElementById(
+      "importAgentsStatus"
+    );
+
+  if(!fichier){
     return;
   }
 
-  $("depart").min = lendemainISO(arrivee);
-}
+  try{
 
-$("depart").addEventListener(
-  "focus",
-  actualiserMinimumDepart
-);
+    const texte =
+      await fichier.text();
 
-$("depart").addEventListener(
-  "click",
-  actualiserMinimumDepart
-);
+    let noms = [];
 
+    const estJson =
+      fichier.name
+        .toLowerCase()
+        .endsWith(".json") ||
+      String(fichier.type || "")
+        .toLowerCase()
+        .includes("json");
 
+    if(estJson){
 
-let pdj=true;
-let stays=[];
-let dateDepartMemorisee="";
-const norm=s=>(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toUpperCase();
-const key=x=>norm(x.ville+"|"+x.hotel);
-const allHotels=()=>[...BASE_HOTELS,...custom].filter(x=>!deleted.includes(key(x)));
-function villes(){return [...new Set(allHotels().map(x=>x.ville))].sort((a,b)=>a.localeCompare(b,"fr"))}
+      const donnees =
+        JSON.parse(texte);
 
-function hotelsPourVilleHotel(ville){
-  const v=norm(ville);
-  return allHotels()
-    .filter(x=>norm(x.ville)===v)
-    .sort((a,b)=>a.hotel.localeCompare(b.hotel,"fr"));
-}
+      /*
+        Formats acceptés :
+        [
+          {"nom":"POIRIER", ...},
+          {"nom":"DUPONT", ...}
+        ]
 
-function remplirSelectHotelPourVille(villeId,hotelId){
-  const ville=document.getElementById(villeId);
-  const hotel=document.getElementById(hotelId);
-  if(!ville||!hotel)return;
+        ou :
+        {
+          "agents":[
+            {"nom":"POIRIER", ...}
+          ]
+        }
 
-  const list=hotelsPourVilleHotel(ville.value);
+        ou un objet agent unique.
+        Seul le champ "nom" est importé.
+        Matricule, téléphone, email, actif, etc.
+        ne sont PAS enregistrés dans l'application Hôtel.
+      */
+      let agentsJson = [];
 
-  hotel.innerHTML=
-    '<option value="">Choisir un hébergement...</option>'+
-    list.map(x=>
-      `<option value="${x.hotel.replace(/"/g,"&quot;")}">${x.hotel}</option>`
-    ).join("");
-}
+      if(Array.isArray(donnees)){
+        agentsJson = donnees;
+      }
+      else if(
+        donnees &&
+        Array.isArray(donnees.agents)
+      ){
+        agentsJson = donnees.agents;
+      }
+      else if(
+        donnees &&
+        typeof donnees === "object"
+      ){
+        agentsJson = [donnees];
+      }
 
-function installerRechercheVilleHotel(villeId,resultsId,hotelId){
-  const input=document.getElementById(villeId);
-  const results=document.getElementById(resultsId);
+      noms =
+        agentsJson
+          .map(agent=>{
 
-  if(!input||!results)return;
+            if(
+              typeof agent === "string"
+            ){
+              return normaliserAgentHotel(
+                agent
+              );
+            }
 
-  function afficher(){
-    const q=norm(input.value);
-    let list=villes();
+            if(
+              agent &&
+              typeof agent === "object"
+            ){
+              return normaliserAgentHotel(
+                agent.nom
+              );
+            }
 
-    if(q){
-      list=list.filter(v=>norm(v).includes(q));
+            return "";
+          })
+          .filter(Boolean);
+
+    }else{
+
+      noms =
+        texte
+          .split(/\r?\n/)
+          .map(
+            nettoyerNomAgentImporteHotel
+          )
+          .filter(Boolean);
     }
 
-    list=list.slice(0,10);
-
-    if(!list.length){
-      results.innerHTML='<div class="search-empty">Aucune ville trouvée</div>';
-      results.hidden=false;
-      return;
+    if(!noms.length){
+      throw new Error(
+        "Aucun nom d’agent trouvé dans le fichier."
+      );
     }
 
-    results.innerHTML=list.map(v=>`
-      <button
-        type="button"
-        class="search-result"
-        data-ville="${v.replace(/"/g,"&quot;")}"
-      >${v}</button>
-    `).join("");
+    let ajoutes = 0;
+    let doublons = 0;
 
-    results.hidden=false;
+    noms.forEach(nom=>{
 
-    results.querySelectorAll(".search-result").forEach(btn=>{
-      btn.addEventListener("mousedown",e=>{
-        e.preventDefault();
-        input.value=btn.dataset.ville;
-        results.hidden=true;
-        remplirSelectHotelPourVille(villeId,hotelId);
-      });
+      const existe =
+        hotelAgents.some(
+          x=>norm(x)===norm(nom)
+        );
+
+      if(existe){
+        doublons++;
+        return;
+      }
+
+      /*
+        IMPORTANT :
+        on ne conserve QUE le nom.
+      */
+      hotelAgents.push(nom);
+      ajoutes++;
     });
+
+    hotelAgents.sort(
+      (a,b)=>
+        a.localeCompare(
+          b,
+          "fr"
+        )
+    );
+
+    save(
+      LS_AGENTS,
+      hotelAgents
+    );
+
+    actualiserListeProfilAgents();
+    renderHotelAgentsAdmin();
+    renderModificationAgents();
+
+    if(statut){
+
+      statut.className =
+        "import-agents-status ok";
+
+      statut.textContent =
+        `${ajoutes} agent${ajoutes>1?"s":""} importé${ajoutes>1?"s":""}` +
+        (doublons
+          ? ` • ${doublons} doublon${doublons>1?"s":""} ignoré${doublons>1?"s":""}`
+          : "");
+    }
+
+  }catch(err){
+
+    if(statut){
+
+      statut.className =
+        "import-agents-status error";
+
+      statut.textContent =
+        "Impossible d’importer ce fichier JSON.";
+    }
+
+    console.log(
+      "Import agents :",
+      err
+    );
   }
-
-  input.addEventListener("input",()=>{
-    afficher();
-    remplirSelectHotelPourVille(villeId,hotelId);
-  });
-
-  input.addEventListener("focus",afficher);
-
-  input.addEventListener("blur",()=>{
-    setTimeout(()=>{
-      results.hidden=true;
-    },150);
-  });
 }
 
-const villeResults = $("villeResults");
 
-function showVilleResults(){
-  const q = norm($("ville").value);
-  let list = villes();
+function renderHotelAgentsAdmin(){
 
-  if(q){
-    list = list.filter(v => norm(v).includes(q));
-  }
+  const cont =
+    document.getElementById(
+      "agentsAdminList"
+    );
 
-  list = list.slice(0, 10);
+  const input =
+    document.getElementById(
+      "agentNom"
+    );
 
-  if(!list.length){
-    villeResults.innerHTML =
-      '<div class="search-empty">Aucune ville trouvée</div>';
-    villeResults.hidden = false;
+  if(!cont) return;
+
+  const recherche =
+    input
+      ? normaliserAgentHotel(
+          input.value
+        ).toLocaleUpperCase("fr-FR")
+      : "";
+
+  /*
+    Rien saisi :
+    la liste reste totalement cachée.
+  */
+  if(!recherche){
+
+    cont.innerHTML = "";
+    cont.hidden = true;
     return;
   }
 
-  villeResults.innerHTML = list.map(v => `
-    <button
-      type="button"
-      class="search-result"
-      data-ville="${v.replace(/"/g, "&quot;")}"
-    >${v}</button>
-  `).join("");
+  const resultats =
+    hotelAgents
+      .map((nom,index)=>({
+        nom,
+        index
+      }))
+      .filter(item =>
+        String(item.nom)
+          .toLocaleUpperCase("fr-FR")
+          .includes(recherche)
+      );
 
-  villeResults.hidden = false;
+  cont.hidden = false;
 
-  villeResults.querySelectorAll(".search-result").forEach(btn => {
-    btn.addEventListener("mousedown", e => {
-      e.preventDefault();
-      $("ville").value = btn.dataset.ville;
-      villeResults.hidden = true;
-      refreshHotels();
-    });
-  });
-}
-function refreshVilles(){
-  // La liste est maintenant générée à la demande dans le menu personnalisé.
-}
-function refreshHotels(){
- const v=norm($("ville").value); const list=allHotels().filter(x=>norm(x.ville)===v).sort((a,b)=>a.hotel.localeCompare(b.hotel,"fr"));
- $("hotel").innerHTML='<option value="">Choisir un hébergement...</option>'+list.map(x=>`<option>${x.hotel}</option>`).join("");
-}
-$("ville").addEventListener("input",()=>{
-  showVilleResults();
-  refreshHotels();
-});
+  if(!resultats.length){
 
-$("ville").addEventListener("focus",showVilleResults);
+    cont.innerHTML =
+      '<div class="agent-search-empty">Aucun agent trouvé.</div>';
 
-$("ville").addEventListener("blur",()=>{
-  setTimeout(()=>{
-    villeResults.hidden = true;
-  },150);
-});
-installerRechercheVilleHotel("modVille","modVilleResults","modHotel");
-installerRechercheVilleHotel("newVille","newVilleResults","newHotel");
-
-$("pdjOui").onclick=()=>{pdj=true;$("pdjOui").classList.add("active");$("pdjNon").classList.remove("active")};
-$("pdjNon").onclick=()=>{pdj=false;$("pdjNon").classList.add("active");$("pdjOui").classList.remove("active")};
-const fr=d=>d?new Date(d+"T12:00:00").toLocaleDateString("fr-FR"):"";
-function nights(){
- const a=new Date($("arrivee").value+"T12:00:00"),d=new Date($("depart").value+"T12:00:00");
- return Math.round((d-a)/86400000);
-}
-
-function currentStay(){
-  return {
-    arrivee: $("arrivee").value,
-    heureArrivee: $("heureArrivee").value,
-    depart: $("depart").value,
-    heureDepart: $("heureDepart").value,
-    ville: $("ville").value.trim(),
-    hotel: $("hotel").value,
-    pdj: pdj
-  };
-}
-
-function stayNights(stay){
-  if(!stay.arrivee || !stay.depart) return 0;
-  const a=new Date(stay.arrivee+"T12:00:00");
-  const d=new Date(stay.depart+"T12:00:00");
-  return Math.round((d-a)/86400000);
-}
-
-function validateStay(stay){
-  if(!stay.arrivee || !stay.heureArrivee || !stay.depart || !stay.ville || !stay.hotel){
-    alert("Complétez la ville, l’hôtel, l’arrivée, l’heure et le départ.");
-    return false;
-  }
-
-  const n=stayNights(stay);
-
-  if(n < 1){
-    alert("La date de départ doit être après la date d’arrivée.");
-    return false;
-  }
-
-  return true;
-}
-
-function clearStayForm(){
-  $("arrivee").value = dateDepartMemorisee || "";
-  $("heureArrivee").value="";
-  $("depart").value="";
-  $("depart").min="";
-  $("heureDepart").value="";
-  $("ville").value="";
-  $("hotel").innerHTML='<option value="">Choisir un hébergement...</option>';
-
-  pdj=true;
-  $("pdjOui").classList.add("active");
-  $("pdjNon").classList.remove("active");
-}
-
-function renderStays(){
-
-  $("staysCard").hidden = stays.length === 0;
-
-  if($("staysCount")){
-    $("staysCount").textContent =
-      stays.length +
-      (stays.length > 1 ? " hébergements" : " hébergement");
-  }
-
-  if(!stays.length){
-    $("staysList").innerHTML="";
     return;
   }
 
-  $("staysList").innerHTML = stays.map((s,i)=>{
-    const n=stayNights(s);
+  cont.innerHTML =
+    resultats
+      .map(item=>`
+        <div class="agent-admin-row agent-search-row">
+          <strong class="agent-search-name">${item.nom}</strong>
 
-    return `
-      <div class="stay-compact">
-
-        <div class="stay-compact-nights">
-          <div class="stay-compact-number">${n}</div>
-          <div class="stay-compact-label">${n>1?"NUITÉES":"NUITÉE"}</div>
+          <button
+            type="button"
+            class="agent-trash-btn"
+            data-delete-agent="${item.index}"
+            aria-label="Supprimer ${item.nom.replace(/"/g,"&quot;")}"
+            title="Supprimer"
+          >
+            🗑️
+          </button>
         </div>
+      `)
+      .join("");
 
-        <div class="stay-compact-content">
-          <div class="stay-compact-title">
-            ${s.ville} — ${s.hotel}
-          </div>
-
-          <div class="stay-compact-line">
-            Arrivée :
-            <strong>${fr(s.arrivee)} à ${s.heureArrivee}</strong>
-            <br>
-            Départ :
-            <strong>${fr(s.depart)} à ${s.heureDepart || "--:--"}</strong>
-          </div>
-
-          <div class="stay-compact-line">
-            Petit-déjeuner :
-            <strong>${s.pdj ? "OUI" : "NON"}</strong>
-          </div>
-        </div>
-
-        <button
-          type="button"
-          class="stay-compact-delete"
-          data-remove-stay="${i}"
-          aria-label="Supprimer cet hébergement"
-        >
-          🗑
-        </button>
-
-      </div>
-    `;
-  }).join("");
-
-  $("staysList")
-    .querySelectorAll("[data-remove-stay]")
+  cont
+    .querySelectorAll(
+      "[data-delete-agent]"
+    )
     .forEach(btn=>{
-      btn.addEventListener("click",()=>{
-        const i=Number(btn.dataset.removeStay);
-        stays.splice(i,1);
-        renderStays();
-      });
+
+      btn.onclick=()=>{
+
+        const i =
+          Number(
+            btn.dataset.deleteAgent
+          );
+
+        const nom =
+          hotelAgents[i] || "";
+
+        if(
+          !confirm(
+            "Supprimer " +
+            nom +
+            " ?"
+          )
+        ){
+          return;
+        }
+
+        hotelAgents.splice(i,1);
+
+        save(
+          LS_AGENTS,
+          hotelAgents
+        );
+
+        renderHotelAgentsAdmin();
+        renderModificationAgents();
+      };
     });
 }
 
-function preparerRecapDepuisSejours(){
 
-  if(!stays.length){
-    alert("Ajoutez au moins un hébergement avec le bouton +.");
-    return false;
+let selectedHotelAgents = [];
+let draftHotelAgents = [];
+let agentsPickerContext = "";
+
+function texteCompteurAgentsHotel(n){
+  return `${n} sélectionné${n>1?"s":""}`;
+}
+
+function actualiserCompteursAgentsHotel(){
+
+  const normal =
+    document.getElementById("normalAgentsCount");
+
+  const mod =
+    document.getElementById("modAgentsCount");
+
+  const texte =
+    texteCompteurAgentsHotel(
+      selectedHotelAgents.length
+    );
+
+  if(normal){
+    normal.textContent = texte;
   }
 
-  window.__recapStays = [...stays];
+  if(mod){
+    mod.textContent = texte;
+  }
+}
 
-  $("recap").innerHTML = `
-    <div class="recap-row">
-      <span>Agent(s)</span>
-      <strong>${texteAgentsPourMailHotel()||"Non renseigné"}</strong>
-    </div>
+function renderModificationAgents(){
+  actualiserCompteursAgentsHotel();
+}
 
-    ${stays.map((s,i)=>{
-      const n=stayNights(s);
+function agentsModificationSelectionnes(){
+  return [...selectedHotelAgents];
+}
+
+function renderAgentsPickerHotel(){
+
+  const list =
+    document.getElementById("agentsPickerList");
+
+  const search =
+    document.getElementById("agentsPickerSearch");
+
+  if(!list) return;
+
+  const q =
+    search
+      ? normaliserAgentHotel(search.value)
+          .toLocaleUpperCase("fr-FR")
+      : "";
+
+  const results =
+    hotelAgents.filter(nom =>
+      !q ||
+      String(nom)
+        .toLocaleUpperCase("fr-FR")
+        .includes(q)
+    );
+
+  if(!results.length){
+    list.innerHTML =
+      '<div class="hotel-agents-picker-empty">Aucun agent trouvé.</div>';
+    return;
+  }
+
+  list.innerHTML =
+    results.map(nom=>{
+
+      const checked =
+        draftHotelAgents.includes(nom)
+          ? "checked"
+          : "";
 
       return `
-        <div class="recap-stay">
-          <div class="recap-stay-title">
-            Hébergement ${i+1} —
-            <span class="nights">${n} NUIT${n>1?"S":""}</span>
-          </div>
-
-          <div class="recap-row">
-            <span>Ville</span>
-            <strong>${s.ville}</strong>
-          </div>
-
-          <div class="recap-row">
-            <span>Hôtel</span>
-            <strong>${s.hotel}</strong>
-          </div>
-
-          <div class="recap-row">
-            <span>Arrivée</span>
-            <strong>${fr(s.arrivee)} à ${s.heureArrivee}</strong>
-          </div>
-
-          <div class="recap-row">
-            <span>Départ</span>
-            <strong>${fr(s.depart)}${s.heureDepart?" à "+s.heureDepart:""}</strong>
-          </div>
-
-          <div class="recap-row">
-            <span>Petit-déjeuner</span>
-            <strong>${s.pdj?"OUI":"NON"}</strong>
-          </div>
-        </div>
+        <label class="hotel-agents-picker-row">
+          <input
+            type="checkbox"
+            class="hotel-agent-picker-check"
+            value="${nom.replace(/"/g,"&quot;")}"
+            ${checked}
+          >
+          <span>${nom}</span>
+        </label>
       `;
-    }).join("")}
-  `;
+    }).join("");
 
-  $("recapCard").hidden=false;
-  $("recapCard").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
+  list
+    .querySelectorAll(".hotel-agent-picker-check")
+    .forEach(check=>{
 
-  return true;
+      check.addEventListener("change",()=>{
+
+        const nom = check.value;
+
+        if(check.checked){
+
+          if(!draftHotelAgents.includes(nom)){
+            draftHotelAgents.push(nom);
+          }
+
+        }else{
+
+          draftHotelAgents =
+            draftHotelAgents.filter(
+              x=>x!==nom
+            );
+        }
+      });
+    });
 }
 
-$("addStay").onclick=()=>{
-  const s=currentStay();
+function ouvrirSelectionAgentsHotel(contexte){
 
-  if(!validateStay(s)) return;
+  agentsPickerContext = contexte || "";
 
-  stays.push(s);
+  draftHotelAgents =
+    [...selectedHotelAgents];
 
-  // La date de départ devient automatiquement
-  // la date d'arrivée du prochain hébergement.
-  dateDepartMemorisee = s.depart;
+  const overlay =
+    document.getElementById("hotelAgentsPicker");
 
-  renderStays();
-  clearStayForm();
+  const search =
+    document.getElementById("agentsPickerSearch");
 
-  $("form").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-};
-
-$("createMailBtn").onclick=()=>{
-  if(!stays.length){
-    alert("Ajoutez au moins un hébergement.");
-    return;
+  if(search){
+    search.value = "";
   }
 
-  window.__recapStays = [...stays];
-  dateDepartMemorisee = "";
+  renderAgentsPickerHotel();
 
-  // Le bouton vert crée directement le mail.
-  creerMailDirect();
-};
+  if(overlay){
+    overlay.hidden = false;
+  }
+}
 
-$("reset").onclick=()=>{
+function fermerSelectionAgentsHotel(){
 
-  // Efface uniquement le cadre de saisie du haut.
-  // Les hébergements déjà ajoutés restent dans la demande.
-  $("ville").value="";
-  $("hotel").innerHTML='<option value="">Choisir un hébergement...</option>';
-  $("arrivee").value="";
-  $("heureArrivee").value="";
-  $("depart").value="";
-  $("heureDepart").value="";
+  const overlay =
+    document.getElementById("hotelAgentsPicker");
 
-  // On oublie aussi la date mémorisée du dernier départ.
-  dateDepartMemorisee="";
+  if(overlay){
+    overlay.hidden = true;
+  }
 
-  pdj=true;
-  $("pdjOui").classList.add("active");
-  $("pdjNon").classList.remove("active");
-};
+  draftHotelAgents = [];
+  agentsPickerContext = "";
+}
+
 function agentsPourMailHotel(){
 
   if(selectedHotelAgents.length){
@@ -1160,6 +1327,7 @@ function agentsPourMailHotel(){
     : [];
 }
 
+
 function texteAgentsPourMailHotel(){
 
   const agents =
@@ -1170,198 +1338,485 @@ function texteAgentsPourMailHotel(){
     : "";
 }
 
+
 function buildEmailHtml(list){
 
   const aujourdhui =
     new Date().toLocaleDateString("fr-FR");
 
   const rows = list.map(s=>{
-    const n = stayNights(s);
+
+    const n =
+      stayNights(s);
 
     return `
       <tr>
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;
-                   color:#e11d48;font-weight:800;">
-          <div style="font-size:22px;line-height:1;">${n}</div>
-          <div style="font-size:12px;margin-top:4px;">
-            ${n>1 ? "NUITÉES" : "NUITÉE"}
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+            color:#e11d48;
+            font-weight:800;
+          "
+        >
+
+          <div
+            style="
+              font-size:22px;
+              line-height:1;
+            "
+          >
+            ${n}
           </div>
+
+          <div
+            style="
+              font-size:12px;
+              margin-top:4px;
+            "
+          >
+            ${n > 1 ? "NUITÉES" : "NUITÉE"}
+          </div>
+
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;
-                   font-weight:800;color:#111827;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+            font-weight:800;
+            color:#111827;
+          "
+        >
           ${s.ville}
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+          "
+        >
           ${s.hotel}
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+          "
+        >
           ${fr(s.arrivee)}
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+          "
+        >
           ${s.heureArrivee}
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+          "
+        >
           ${fr(s.depart)}
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+          "
+        >
           ${s.heureDepart || "--:--"}
         </td>
 
-        <td style="border:1px solid #555;padding:12px 8px;text-align:center;
-                   font-weight:800;">
+
+        <td
+          style="
+            border:1px solid #555;
+            padding:12px 8px;
+            text-align:center;
+            font-weight:800;
+          "
+        >
           ${s.pdj ? "OUI" : "NON"}
         </td>
+
       </tr>
     `;
+
   }).join("");
 
+
   return `
-    <div style="font-family:Arial,Helvetica,sans-serif;color:#111827;
-                max-width:1000px;margin:0 auto;">
-      <h1 style="text-align:center;font-size:26px;margin:0 0 24px;">
+
+    <div
+      style="
+        font-family:Arial,Helvetica,sans-serif;
+        color:#111827;
+        max-width:1000px;
+        margin:0 auto;
+      "
+    >
+
+      <h1
+        style="
+          text-align:center;
+          font-size:26px;
+          margin:0 0 24px;
+        "
+      >
         DEMANDE D’HÉBERGEMENT
       </h1>
 
-      <p style="margin:0 0 8px;">
-        <strong>Agent(s) :</strong> ${texteAgentsPourMailHotel()}
+
+      <p
+        style="
+          margin:0 0 8px;
+        "
+      >
+        <strong>
+          Agent(s) :
+        </strong>
+
+        ${texteAgentsPourMailHotel()}
       </p>
 
-      <p style="margin:0 0 20px;">
-        <strong>Demande faite le :</strong> ${aujourdhui}
+
+      <p
+        style="
+          margin:0 0 20px;
+        "
+      >
+        <strong>
+          Demande faite le :
+        </strong>
+
+        ${aujourdhui}
       </p>
 
-      <div style="border-top:1px solid #444;margin-bottom:18px;"></div>
 
-      <table cellpadding="0" cellspacing="0"
-             style="border-collapse:collapse;width:100%;font-size:13px;">
+      <div
+        style="
+          border-top:1px solid #444;
+          margin-bottom:18px;
+        "
+      ></div>
+
+
+      <table
+        cellpadding="0"
+        cellspacing="0"
+        style="
+          border-collapse:collapse;
+          width:100%;
+          font-size:13px;
+        "
+      >
+
         <thead>
-          <tr style="background:#f3f4f6;">
-            <th style="border:1px solid #555;padding:10px 6px;">NUITÉES</th>
-            <th style="border:1px solid #555;padding:10px 6px;">VILLE</th>
-            <th style="border:1px solid #555;padding:10px 6px;">HÔTEL</th>
-            <th style="border:1px solid #555;padding:10px 6px;">ARRIVÉE</th>
-            <th style="border:1px solid #555;padding:10px 6px;">HEURE<br>ARRIVÉE</th>
-            <th style="border:1px solid #555;padding:10px 6px;">DÉPART</th>
-            <th style="border:1px solid #555;padding:10px 6px;">HEURE<br>DÉPART</th>
-            <th style="border:1px solid #555;padding:10px 6px;">PETIT-DÉJEUNER</th>
+
+          <tr
+            style="
+              background:#f3f4f6;
+            "
+          >
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              NUITÉES
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              VILLE
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              HÔTEL
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              ARRIVÉE
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              HEURE
+              <br>
+              ARRIVÉE
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              DÉPART
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              HEURE
+              <br>
+              DÉPART
+            </th>
+
+            <th
+              style="
+                border:1px solid #555;
+                padding:10px 6px;
+              "
+            >
+              PETIT-DÉJEUNER
+            </th>
+
           </tr>
+
         </thead>
-        <tbody>${rows}</tbody>
+
+        <tbody>
+          ${rows}
+        </tbody>
+
       </table>
 
-      <p style="margin-top:22px;">
+
+      <p
+        style="
+          margin-top:22px;
+        "
+      >
         Merci d’effectuer les réservations selon ces informations.
       </p>
 
-      <p>Cordialement.</p>
 
-      <p style="margin-top:26px;">
-        <strong>${profil.nom || ""}</strong>
+      <p>
+        Cordialement.
       </p>
+
+
+      <p
+        style="
+          margin-top:26px;
+        "
+      >
+        <strong>
+          ${profil.nom || ""}
+        </strong>
+      </p>
+
     </div>
+
   `;
+
 }
+
 
 function buildEmailText(list){
 
   const aujourdhui =
     new Date().toLocaleDateString("fr-FR");
 
+
   const lines = [
+
     "DEMANDE D’HÉBERGEMENT",
+
     "",
+
     `Agent(s) : ${texteAgentsPourMailHotel()}`,
+
     `Demande faite le : ${aujourdhui}`,
+
     ""
+
   ];
 
+
   list.forEach((s,i)=>{
-    const n = stayNights(s);
+
+    const n =
+      stayNights(s);
 
     lines.push(
-      `${n} ${n>1 ? "NUITÉES" : "NUITÉE"} À ${s.ville}`,
+
+      `${n} ${n > 1 ? "NUITÉES" : "NUITÉE"} À ${s.ville}`,
+
       s.hotel,
+
       `Arrivée : ${fr(s.arrivee)} à ${s.heureArrivee}`,
+
       `Départ : ${fr(s.depart)} à ${s.heureDepart || "--:--"}`,
+
       `Petit-déjeuner : ${s.pdj ? "OUI" : "NON"}`,
+
       ""
+
     );
+
   });
 
+
   lines.push(
+
     "Merci d’effectuer les réservations selon ces informations.",
+
     "",
+
     "Cordialement.",
+
     "",
+
     profil.nom || ""
+
   );
 
+
   return lines.join("\r\n");
+
 }
+
 
 async function copyRichEmail(html, text){
 
-  try {
+  try{
 
     if(
       navigator.clipboard &&
       window.ClipboardItem
     ){
-      const item = new ClipboardItem({
-        "text/html": new Blob(
-          [html],
-          {type:"text/html"}
-        ),
 
-        "text/plain": new Blob(
-          [text],
-          {type:"text/plain"}
-        )
-      });
+      const item =
+        new ClipboardItem({
 
-      await navigator.clipboard.write([item]);
+          "text/html":
+            new Blob(
+              [html],
+              {
+                type:"text/html"
+              }
+            ),
+
+          "text/plain":
+            new Blob(
+              [text],
+              {
+                type:"text/plain"
+              }
+            )
+
+        });
+
+
+      await navigator.clipboard.write(
+        [item]
+      );
+
       return true;
     }
 
-    await navigator.clipboard.writeText(text);
+
+    await navigator.clipboard.writeText(
+      text
+    );
+
     return true;
 
-  } catch(err){
+  }catch(err){
+
     return false;
+
   }
+
 }
 
 
 /* ==========================================================
-  SEMAINES ISO POUR LE MAIL
+   SEMAINES ISO POUR LE MAIL
    ========================================================== */
 
-function numeroSemaineISO(dateISO) {
+function numeroSemaineISO(dateISO){
 
-  if (!dateISO) return null;
+  if(!dateISO){
+    return null;
+  }
 
-  const p = dateISO.split("-").map(Number);
 
-  const date = new Date(
-    Date.UTC(
-      p[0],
-      p[1] - 1,
-      p[2]
-    )
-  );
+  const p =
+    dateISO
+      .split("-")
+      .map(Number);
+
+
+  const date =
+    new Date(
+      Date.UTC(
+        p[0],
+        p[1]-1,
+        p[2]
+      )
+    );
+
 
   // Jeudi de la semaine ISO
-  const jour = date.getUTCDay() || 7;
+  const jour =
+    date.getUTCDay() || 7;
+
 
   date.setUTCDate(
-    date.getUTCDate() + 4 - jour
+    date.getUTCDate() +
+    4 -
+    jour
   );
+
 
   const debutAnnee =
     new Date(
@@ -1372,73 +1827,135 @@ function numeroSemaineISO(dateISO) {
       )
     );
 
+
   return Math.ceil(
     (
       (
-        date - debutAnnee
-      ) / 86400000 + 1
-    ) / 7
+        date -
+        debutAnnee
+      ) /
+      86400000 +
+      1
+    ) /
+    7
   );
+
 }
 
-function semainesDesSejours(list) {
 
-  const semaines = new Set();
+function semainesDesSejours(list){
 
-  list.forEach(s => {
+  const semaines =
+    new Set();
 
-    if (!s.arrivee || !s.depart) return;
+
+  list.forEach(s=>{
+
+    if(
+      !s.arrivee ||
+      !s.depart
+    ){
+      return;
+    }
+
 
     const debut =
-      new Date(s.arrivee + "T12:00:00");
+      new Date(
+        s.arrivee+
+        "T12:00:00"
+      );
+
 
     const fin =
-      new Date(s.depart + "T12:00:00");
+      new Date(
+        s.depart+
+        "T12:00:00"
+      );
+
 
     const d =
       new Date(debut);
 
-    while (d <= fin) {
 
-      const iso =
-        [
-          d.getFullYear(),
-          String(
-            d.getMonth() + 1
-          ).padStart(2, "0"),
-          String(
-            d.getDate()
-          ).padStart(2, "0")
-        ].join("-");
+    while(d <= fin){
+
+      const iso = [
+
+        d.getFullYear(),
+
+        String(
+          d.getMonth()+1
+        ).padStart(
+          2,
+          "0"
+        ),
+
+        String(
+          d.getDate()
+        ).padStart(
+          2,
+          "0"
+        )
+
+      ].join("-");
+
 
       const sem =
-        numeroSemaineISO(iso);
+        numeroSemaineISO(
+          iso
+        );
 
-      if (sem !== null) {
-        semaines.add(sem);
+
+      if(sem !== null){
+
+        semaines.add(
+          sem
+        );
+
       }
 
+
       d.setDate(
-        d.getDate() + 1
+        d.getDate()+1
       );
+
     }
+
   });
 
+
   return [...semaines]
-    .sort((a, b) => a - b);
+    .sort(
+      (a,b)=>a-b
+    );
+
 }
 
-function texteSemaines(list) {
+
+function texteSemaines(list){
 
   const semaines =
-    semainesDesSejours(list);
+    semainesDesSejours(
+      list
+    );
 
-  if (!semaines.length) {
+
+  if(!semaines.length){
+
     return "";
+
   }
 
+
   return semaines.join("/");
+
 }
+
+
+/* ==========================================================
+   CREATION DU MAIL
+   VERSION CORRIGEE
+   ========================================================== */
 
 function creerMailDirect(){
 
@@ -1447,83 +1964,141 @@ function creerMailDirect(){
     stays ||
     [];
 
+
   if(!list.length){
+
     alert(
       "Aucun hébergement à envoyer."
     );
+
     return;
+
   }
 
+
   const nomAgent =
-    ($("profilNom")?.value || profil.nom || "").trim() || "Agent";
+    (
+      $("profilNom")?.value ||
+      profil.nom ||
+      ""
+    ).trim() ||
+    "Agent";
+
 
   const semaines =
-    texteSemaines(list);
+    texteSemaines(
+      list
+    );
+
 
   const sujet =
     `DEMANDE S${semaines} Mr ${nomAgent}`;
 
+
   const lignes = [];
 
-  lignes.push("Bonjour,");
-  lignes.push("");
+
+  lignes.push(
+    "Bonjour,"
+  );
+
+
+  lignes.push(
+    ""
+  );
+
 
   lignes.push(
     `Ci-joint ma demande d’hébergements pour la S.${semaines}`
   );
 
-  lignes.push("");
+
+  lignes.push(
+    ""
+  );
+
 
   lignes.push(
     `Agent : ${nomAgent}`
   );
 
+
   lignes.push(
     "────────────────────────"
   );
 
-  list.forEach((s, i) => {
 
-    const n =
-      stayNights(s);
+  list.forEach(
+    (s,i)=>{
 
-    lignes.push(
-      `${s.ville} — ${s.hotel}`
-    );
+      const n =
+        stayNights(s);
 
-    lignes.push(
-      `${n} ${n > 1 ? "nuitées" : "nuitée"}`
-    );
 
-    lignes.push(
-      `Arrivée : ${fr(s.arrivee)} à ${s.heureArrivee}`
-    );
-
-    lignes.push(
-      `Départ : ${fr(s.depart)} à ${s.heureDepart || "--:--"}`
-    );
-
-    lignes.push(
-      `Petit-déjeuner : ${s.pdj ? "OUI" : "NON"}`
-    );
-
-    if (i < list.length - 1) {
       lignes.push(
-        "────────────────────────"
+        `${s.ville} — ${s.hotel}`
       );
-    }
-  });
 
-  lignes.push("");
-  lignes.push("Cordialement.");
-  lignes.push(nomAgent);
+
+      lignes.push(
+        `${n} ${n > 1 ? "nuitées" : "nuitée"}`
+      );
+
+
+      lignes.push(
+        `Arrivée : ${fr(s.arrivee)} à ${s.heureArrivee}`
+      );
+
+
+      lignes.push(
+        `Départ : ${fr(s.depart)} à ${s.heureDepart || "--:--"}`
+      );
+
+
+      lignes.push(
+        `Petit-déjeuner : ${s.pdj ? "OUI" : "NON"}`
+      );
+
+
+      if(
+        i <
+        list.length-1
+      ){
+
+        lignes.push(
+          "────────────────────────"
+        );
+
+      }
+
+    }
+  );
+
+
+  lignes.push(
+    ""
+  );
+
+
+  lignes.push(
+    "Cordialement."
+  );
+
+
+  lignes.push(
+    nomAgent
+  );
+
 
   const corps =
-    lignes.join("\r\n");
+    lignes.join(
+      "\r\n"
+    );
+
 
   const to =
-    dest.email || "";
-
+    dest.email ||
+    "";
 
 
   const mailto =
@@ -1531,1627 +2106,597 @@ function creerMailDirect(){
     `?subject=${encodeURIComponent(sujet)}` +
     `&body=${encodeURIComponent(corps)}`;
 
+
+  // =========================================================
+  // EFFACER LA DEMANDE EN COURS
+  // =========================================================
+
+  stays = [];
+
+  window.__recapStays = [];
+
   dateDepartMemorisee = "";
 
-  let hidden = false;
 
-  document.addEventListener(
-    "visibilitychange",
-    () => {
-      if(document.hidden) {
-        hidden = true;
-      }
-    },
-    { once:true }
-  );
+  renderStays();
+
+  clearStayForm();
+
+
+  // =========================================================
+  // OUVRIR LE MAIL
+  // =========================================================
+
+  location.href =
+    mailto;
 
 }
 
+
 $("manageBtn").onclick=()=>{
+
   ouvrirMenuParametresHotel();
+
 };
+
 
 $("closeManage").onclick=()=>{
+
   $("manage").hidden=true;
+
 };
 
-function fillSettings(){ $("profilNom").value=profil.nom||"";$("destNom").value=dest.nom||"";$("destMail").value=dest.email||""}
+
+function fillSettings(){
+
+  $("profilNom").value =
+    profil.nom ||
+    "";
+
+  $("destNom").value =
+    dest.nom ||
+    "";
+
+  $("destMail").value =
+    dest.email ||
+    "";
+
+}
+
 
 if($("addAgent")){
+
   $("addAgent").onclick=()=>{
 
-    const nom=
+    const nom =
       normaliserAgentHotel(
         $("agentNom").value
       );
 
+
     if(!nom){
-      alert("Saisissez le nom de l’agent.");
+
+      alert(
+        "Saisissez le nom de l’agent."
+      );
+
       return;
+
     }
+
 
     if(
       hotelAgents.some(
-        x=>norm(x)===norm(nom)
+        x=>
+          norm(x) ===
+          norm(nom)
       )
     ){
-      alert("Cet agent est déjà enregistré.");
+
+      alert(
+        "Cet agent est déjà enregistré."
+      );
+
       return;
+
     }
 
-    hotelAgents.push(nom);
+
+    hotelAgents.push(
+      nom
+    );
+
 
     hotelAgents.sort(
-      (a,b)=>a.localeCompare(b,"fr")
+      (a,b)=>
+        a.localeCompare(
+          b,
+          "fr"
+        )
     );
+
 
     save(
       LS_AGENTS,
       hotelAgents
     );
 
+
     $("agentNom").value="";
+
 
     renderHotelAgentsAdmin();
+
     renderModificationAgents();
+
   };
+
 }
 
+
 if($("clearAgent")){
+
   $("clearAgent").onclick=()=>{
+
     $("agentNom").value="";
+
   };
+
 }
+
 
 if($("importAgentsBtn")){
 
   $("importAgentsBtn").onclick=()=>{
 
-    const input=
+    const input =
       $("importAgentsFile");
 
-    if(!input) return;
+
+    if(!input){
+      return;
+    }
+
 
     /*
       Permet de réimporter le même fichier
       deux fois de suite si nécessaire.
     */
+
     input.value="";
+
     input.click();
+
   };
+
 }
+
 
 if($("importAgentsFile")){
 
-  $("importAgentsFile").onchange=
+  $("importAgentsFile").onchange =
     async event=>{
 
-      const fichier=
+      const fichier =
         event.target.files &&
         event.target.files[0];
 
-      if(!fichier) return;
+
+      if(!fichier){
+        return;
+      }
+
 
       await importerAgentsDepuisFichierHotel(
         fichier
       );
+
     };
+
 }
+
 
 $("saveProfil").onclick=()=>{
 
   const nom =
-    $("profilNom").value.trim();
+    $("profilNom")
+      .value
+      .trim();
+
 
   if(!nom){
-    alert("Renseignez le nom de l’agent.");
+
+    alert(
+      "Renseignez le nom de l’agent."
+    );
+
     return;
+
   }
 
+
   profil = {
-    nom: nom
+    nom:nom
   };
+
 
   save(
     LS_P,
     profil
   );
 
-  alert("Profil enregistré.");
+
+  alert(
+    "Profil enregistré."
+  );
+
 };
+
+
 $("cancelHotel").onclick=()=>{
 
-  $("adminVille").value = "";
-  $("adminHotel").value = "";
+  $("adminVille").value="";
 
-  adminVilleResults.hidden = true;
-  adminHotelsFound.hidden = true;
-  adminHotelsList.innerHTML = "";
+  $("adminHotel").value="";
+
+
+  adminVilleResults.hidden =
+    true;
+
+
+  adminHotelsFound.hidden =
+    true;
+
+
+  adminHotelsList.innerHTML =
+    "";
+
 };
 
-$("saveDest").onclick=()=>{const nom=$("destNom").value.trim(),email=$("destMail").value.trim();if(!email)return alert("Renseignez l’adresse e-mail.");dest={nom,email};save(LS_D,dest);alert("Destinataire enregistré.")};
-$("cancelDest").onclick=()=>{$("destNom").value=dest.nom||"";$("destMail").value=dest.email||""};
-$("deleteDest").onclick=()=>{if(!dest.email)return alert("Aucun destinataire.");if(confirm("Supprimer le destinataire ?")){dest={};save(LS_D,dest);fillSettings()}};
+
+$("saveDest").onclick=()=>{
+
+  const nom =
+    $("destNom")
+      .value
+      .trim();
+
+
+  const email =
+    $("destMail")
+      .value
+      .trim();
+
+
+  if(!email){
+
+    return alert(
+      "Renseignez l’adresse e-mail."
+    );
+
+  }
+
+
+  dest = {
+    nom,
+    email
+  };
+
+
+  save(
+    LS_D,
+    dest
+  );
+
+
+  alert(
+    "Destinataire enregistré."
+  );
+
+};
+
+
+$("cancelDest").onclick=()=>{
+
+  $("destNom").value =
+    dest.nom ||
+    "";
+
+
+  $("destMail").value =
+    dest.email ||
+    "";
+
+};
+
+
+$("deleteDest").onclick=()=>{
+
+  if(!dest.email){
+
+    return alert(
+      "Aucun destinataire."
+    );
+
+  }
+
+
+  if(
+    confirm(
+      "Supprimer le destinataire ?"
+    )
+  ){
+
+    dest={};
+
+
+    save(
+      LS_D,
+      dest
+    );
+
+
+    fillSettings();
+
+  }
+
+};
+
 
 /* ==========================================================
    APPARENCE
    ========================================================== */
 
 const appearanceDefaults = {
-  primary: "#111827",
-  mail: "#079447",
-  nights: "#dc2626",
-  background: "#f3f4f6",
-  card: "#ffffff",
-  theme: "classic"
+
+  primary:"#111827",
+
+  mail:"#079447",
+
+  nights:"#dc2626",
+
+  background:"#f3f4f6",
+
+  card:"#ffffff",
+
+  theme:"classic"
+
 };
 
+
 const themePresets = {
-  classic: {
-    primary: "#111827",
-    mail: "#079447",
-    nights: "#dc2626",
-    background: "#f3f4f6",
-    card: "#ffffff"
+
+  classic:{
+
+    primary:"#111827",
+
+    mail:"#079447",
+
+    nights:"#dc2626",
+
+    background:"#f3f4f6",
+
+    card:"#ffffff"
+
   },
 
-  blue: {
-    primary: "#0b63d8",
-    mail: "#0b63d8",
-    nights: "#dc2626",
-    background: "#eef5ff",
-    card: "#ffffff"
+
+  blue:{
+
+    primary:"#0b63d8",
+
+    mail:"#0b63d8",
+
+    nights:"#dc2626",
+
+    background:"#eef5ff",
+
+    card:"#ffffff"
+
   },
 
-  green: {
-    primary: "#047857",
-    mail: "#079447",
-    nights: "#dc2626",
-    background: "#eefbf5",
-    card: "#ffffff"
+
+  green:{
+
+    primary:"#047857",
+
+    mail:"#079447",
+
+    nights:"#dc2626",
+
+    background:"#eefbf5",
+
+    card:"#ffffff"
+
   },
 
-  orange: {
-    primary: "#c2410c",
-    mail: "#ea580c",
-    nights: "#dc2626",
-    background: "#fff7ed",
-    card: "#ffffff"
+
+  orange:{
+
+    primary:"#c2410c",
+
+    mail:"#ea580c",
+
+    nights:"#dc2626",
+
+    background:"#fff7ed",
+
+    card:"#ffffff"
+
   },
 
-  red: {
-    primary: "#b91c1c",
-    mail: "#b91c1c",
-    nights: "#dc2626",
-    background: "#fff1f2",
-    card: "#ffffff"
+
+  red:{
+
+    primary:"#b91c1c",
+
+    mail:"#b91c1c",
+
+    nights:"#dc2626",
+
+    background:"#fff1f2",
+
+    card:"#ffffff"
+
   },
 
-  dark: {
-    primary: "#3b82f6",
-    mail: "#16a34a",
-    nights: "#f87171",
-    background: "#111827",
-    card: "#1f2937"
+
+  dark:{
+
+    primary:"#3b82f6",
+
+    mail:"#16a34a",
+
+    nights:"#f87171",
+
+    background:"#111827",
+
+    card:"#1f2937"
+
   }
+
 };
 
 
 /* ==========================================================
-  SYNCHRONISATION DU MODE SOMBRE
+   SYNCHRONISATION DU MODE SOMBRE
    ========================================================== */
-function synchroniserThemeHotel() {
+
+function synchroniserThemeHotel(){
+
   const nomTheme =
-    (appearance && appearance.theme
-      ? String(appearance.theme)
-      : "").toLowerCase();
+
+    (
+      appearance &&
+      appearance.theme
+        ? String(
+            appearance.theme
+          )
+        : ""
+    ).toLowerCase();
+
 
   document.body.classList.toggle(
+
     "theme-dark",
+
     nomTheme === "dark" ||
     nomTheme === "sombre"
+
   );
+
 }
 
-document.addEventListener("DOMContentLoaded", synchroniserThemeHotel);
+
+document.addEventListener(
+
+  "DOMContentLoaded",
+
+  synchroniserThemeHotel
+
+);
+
 
 function applyAppearance(values){
 
   const a = {
+
     ...appearanceDefaults,
+
     ...values
+
   };
 
+
   document.documentElement.style.setProperty(
+
     "--app-primary",
+
     a.primary
+
   );
 
+
   document.documentElement.style.setProperty(
+
     "--app-mail",
+
     a.mail
+
   );
 
+
   document.documentElement.style.setProperty(
+
     "--app-nights",
+
     a.nights
+
   );
 
+
   document.documentElement.style.setProperty(
+
     "--app-background",
+
     a.background
+
   );
+
 
   document.documentElement.style.setProperty(
+
     "--app-card",
+
     a.card
+
   );
 
-  $("colorPrimary").value = a.primary;
-  $("colorMail").value = a.mail;
-  $("colorNights").value = a.nights;
-  $("colorBackground").value = a.background;
-  $("colorCard").value = a.card;
 
-  document.querySelectorAll(".theme-choice").forEach(btn=>{
-    btn.classList.toggle(
-      "active",
-      btn.dataset.theme === a.theme
-    );
-  });
+  $("colorPrimary").value =
+    a.primary;
 
-  setTimeout(synchroniserThemeHotel, 0);
-}
 
-document.querySelectorAll(".theme-choice").forEach(btn=>{
+  $("colorMail").value =
+    a.mail;
 
-  btn.addEventListener("click",()=>{
 
-    const name = btn.dataset.theme;
-    const preset = themePresets[name];
+  $("colorNights").value =
+    a.nights;
 
-    if(!preset) return;
 
-    appearance = {
-      ...preset,
-      theme: name
-    };
+  $("colorBackground").value =
+    a.background;
 
-    save(LS_A,appearance);
-    applyAppearance(appearance);
-  });
-});
 
-$("saveAppearance").onclick=()=>{
+  $("colorCard").value =
+    a.card;
 
-  appearance = {
-    primary: $("colorPrimary").value,
-    mail: $("colorMail").value,
-    nights: $("colorNights").value,
-    background: $("colorBackground").value,
-    card: $("colorCard").value,
-    theme: "custom"
-  };
-
-  save(LS_A,appearance);
-  applyAppearance(appearance);
-
-  alert("Couleurs enregistrées.");
-};
-
-$("resetAppearance").onclick=()=>{
-
-  appearance = {
-    ...appearanceDefaults
-  };
-
-  save(LS_A,appearance);
-  applyAppearance(appearance);
-
-  alert("Couleurs réinitialisées.");
-};
-
-applyAppearance(appearance);
-
-
-
-if($("modeNouvelle")){
-  $("modeNouvelle").onclick=()=>
-    afficherModeDemandeHotel("nouvelle");
-}
-
-if($("modeModification")){
-  $("modeModification").onclick=()=>
-    afficherModeDemandeHotel("modification");
-}
-
-if($("modActionAnnuler")){
-  $("modActionAnnuler").onclick=()=>
-    afficherActionModificationHotel("annuler");
-}
-
-if($("modActionRemplacer")){
-  $("modActionRemplacer").onclick=()=>
-    afficherActionModificationHotel("remplacer");
-}
-
-if($("newPdjOui")){
-  $("newPdjOui").onclick=()=>{
-    newPdjHotel=true;
-    $("newPdjOui").classList.add("active");
-    $("newPdjNon").classList.remove("active");
-  };
-}
-
-if($("newPdjNon")){
-  $("newPdjNon").onclick=()=>{
-    newPdjHotel=false;
-    $("newPdjNon").classList.add("active");
-    $("newPdjOui").classList.remove("active");
-  };
-}
-
-if($("createModificationMail")){
-  $("createModificationMail").onclick=
-    construireMailModificationHotel;
-}
-
-renderHotelAgentsAdmin();
-renderModificationAgents();
-
-refreshVilles();fillSettings();renderStays();
-
-
-/* ==========================================================
-  MISE A JOUR SIMPLE ET UNIQUE
-   ========================================================== */
-
-let derniereVersionDisponible = "";
-
-function numeroVersionHotel(v){
-  const n = parseInt(
-    String(v || "").replace(/\D/g, ""),
-    10
-  );
-  return Number.isFinite(n) ? n : 0;
-}
-
-function afficherVersionChargeeHotel(){
-  const el = document.getElementById("appVersion");
-  if(el){
-    el.textContent = `À JOUR ${APP_VERSION.toUpperCase()}`;
-  }
-}
-
-function masquerIndicateurMiseAJourHotel(){
-  derniereVersionDisponible = "";
-
-  const badge = document.getElementById("settingsUpdateBadge");
-  const card = document.getElementById("settingsUpdateCard");
-  const popup = document.getElementById("hotelPopupUpdateCard");
-
-  if(badge){
-    badge.hidden = true;
-    badge.classList.remove("badge-update-visible");
-  }
-
-  if(card) card.hidden = true;
-  if(popup) popup.hidden = true;
-}
-
-function afficherIndicateurMiseAJourHotel(version){
-  derniereVersionDisponible = String(version || "").trim();
-
-  const badge = document.getElementById("settingsUpdateBadge");
-  const card = document.getElementById("settingsUpdateCard");
-  const popup = document.getElementById("hotelPopupUpdateCard");
-  const text = document.getElementById("settingsUpdateText");
-  const popupText = document.getElementById("hotelPopupUpdateText");
-
-  if(badge){
-    badge.hidden = false;
-    badge.classList.add("badge-update-visible");
-  }
-
-  if(card) card.hidden = false;
-  if(popup) popup.hidden = false;
-
-  const message = `Version ${derniereVersionDisponible} disponible`;
-
-  if(text) text.textContent = message;
-  if(popupText) popupText.textContent = message;
-}
-
-async function verifierMiseAJourHotel(){
-  try{
-    const url = new URL("./version.json", window.location.href);
-    url.searchParams.set("_", Date.now().toString());
-
-    const response = await fetch(url.href, { cache: "no-store" });
-    if(!response.ok) return;
-
-    const info = await response.json();
-
-    const serveur = numeroVersionHotel(info.version);
-    const chargee = numeroVersionHotel(APP_VERSION);
-
-    if(serveur > chargee){
-      afficherIndicateurMiseAJourHotel(info.version);
-    }else{
-      masquerIndicateurMiseAJourHotel();
-    }
-  }catch(err){
-    console.log("Contrôle mise à jour :", err);
-  }
-}
-
-async function appliquerMiseAJourHotel(){
-  const cible =
-    String(
-      derniereVersionDisponible || ""
-    ).trim();
-
-  masquerIndicateurMiseAJourHotel();
-
-  const boutons = [
-    document.getElementById("settingsUpdateBtn"),
-    document.getElementById("hotelPopupUpdateBtn")
-  ].filter(Boolean);
-
-  boutons.forEach(btn => {
-    btn.disabled = true;
-    btn.textContent = "Mise à jour en cours…";
-  });
-
-  const url = new URL(
-    window.location.origin + window.location.pathname
-  );
-
-  url.searchParams.set(
-    "maj",
-    cible || Date.now().toString()
-  );
-
-  url.searchParams.set(
-    "_",
-    Date.now().toString()
-  );
-
-  window.location.replace(url.href);
-}
-
-function installerControleMiseAJourHotel(){
-  afficherVersionChargeeHotel();
-  masquerIndicateurMiseAJourHotel();
-
-  const btn = document.getElementById("settingsUpdateBtn");
-  const popupBtn = document.getElementById("hotelPopupUpdateBtn");
-
-  if(btn) btn.onclick = appliquerMiseAJourHotel;
-  if(popupBtn) popupBtn.onclick = appliquerMiseAJourHotel;
-
-  setTimeout(verifierMiseAJourHotel, 1500);
-
-  setInterval(() => {
-    if(!document.hidden){
-      verifierMiseAJourHotel();
-    }
-  }, 300000);
-}
-
-if(document.readyState === "loading"){
-  document.addEventListener(
-    "DOMContentLoaded",
-    installerControleMiseAJourHotel,
-    { once: true }
-  );
-}else{
-  installerControleMiseAJourHotel();
-}
-
-
-/* ==========================================================
-   MODIFICATION / ANNULATION
-   ========================================================== */
-
-let modeDemandeHotel="nouvelle";
-let modActionHotel="annuler";
-let newPdjHotel=true;
-
-function afficherModeDemandeHotel(mode){
-
-  modeDemandeHotel=mode;
-
-  const normal=
-    document.getElementById("normalRequestZone");
-
-  const modification=
-    document.getElementById("modificationRequestZone");
-
-  const btnNew=
-    document.getElementById("modeNouvelle");
-
-  const btnMod=
-    document.getElementById("modeModification");
-
-  if(normal){
-    normal.hidden =
-      mode!=="nouvelle";
-  }
-
-  if(modification){
-    modification.hidden =
-      mode!=="modification";
-  }
-
-  if(btnNew){
-    btnNew.classList.toggle(
-      "active",
-      mode==="nouvelle"
-    );
-  }
-
-  if(btnMod){
-    btnMod.classList.toggle(
-      "active",
-      mode==="modification"
-    );
-  }
-
-  if(mode==="modification"){
-    renderModificationAgents();
-  }
-}
-
-function afficherActionModificationHotel(action){
-
-  modActionHotel=action;
-
-  const annuler=
-    document.getElementById("modActionAnnuler");
-
-  const remplacer=
-    document.getElementById("modActionRemplacer");
-
-  const zone=
-    document.getElementById("replacementZone");
-
-  if(annuler){
-    annuler.classList.toggle(
-      "active",
-      action==="annuler"
-    );
-  }
-
-  if(remplacer){
-    remplacer.classList.toggle(
-      "active",
-      action==="remplacer"
-    );
-  }
-
-  if(zone){
-    zone.hidden =
-      action!=="remplacer";
-  }
-}
-
-function texteDateHotelISO(v){
-  if(!v) return "";
-  const [y,m,d]=v.split("-");
-  return `${d}/${m}/${y}`;
-}
-
-function construireMailModificationHotel(){
-
-  const agents=
-    agentsModificationSelectionnes();
-
-  if(!agents.length){
-    alert(
-      "Sélectionnez au moins un agent concerné."
-    );
-    return;
-  }
-
-  const ville=
-    $("modVille").value.trim();
-
-  const hotel=
-    $("modHotel").value.trim();
-
-  const arrivee=
-    $("modArrivee").value;
-
-  const depart=
-    $("modDepart").value;
-
-  if(!ville || !hotel || !arrivee || !depart){
-    alert(
-      "Renseignez la ville, l’hôtel, l’arrivée et le départ à modifier."
-    );
-    return;
-  }
-
-  const nomAgent=
-    profil.nom || "Agent";
-
-  const lignes=[];
-
-  lignes.push("Bonjour,");
-  lignes.push("");
-
-  if(modActionHotel==="annuler"){
-    lignes.push(
-      "Merci d’annuler l’hébergement suivant."
-    );
-  }else{
-    lignes.push(
-      "Suite à une modification de service, merci d’annuler l’hébergement suivant et de réserver le nouvel hébergement indiqué ci-dessous."
-    );
-  }
-
-  lignes.push("");
-  lignes.push(
-    `AGENTS CONCERNÉS : ${agents.length}`
-  );
-
-  agents.forEach(
-    (a,i)=>
-      lignes.push(`${i+1}. ${a}`)
-  );
-
-  lignes.push("");
-  lignes.push("HÉBERGEMENT À ANNULER");
-  lignes.push(`${ville.toUpperCase()} — ${hotel.toUpperCase()}`);
-  lignes.push(
-    `Arrivée : ${texteDateHotelISO(arrivee)} à ${$("modHeureArrivee").value || "--:--"}`
-  );
-  lignes.push(
-    `Départ : ${texteDateHotelISO(depart)} à ${$("modHeureDepart").value || "--:--"}`
-  );
-
-  if(modActionHotel==="remplacer"){
-
-    const newVille=
-      $("newVille").value.trim();
-
-    const newHotel=
-      $("newHotel").value.trim();
-
-    const newArrivee=
-      $("newArrivee").value;
-
-    const newDepart=
-      $("newDepart").value;
-
-    if(
-      !newVille ||
-      !newHotel ||
-      !newArrivee ||
-      !newDepart
-    ){
-      alert(
-        "Renseignez complètement le nouvel hébergement."
-      );
-      return;
-    }
-
-    lignes.push("");
-    lignes.push(
-      "NOUVEL HÉBERGEMENT À RÉSERVER"
-    );
-    lignes.push(
-      `${newVille.toUpperCase()} — ${newHotel.toUpperCase()}`
-    );
-    lignes.push(
-      `Arrivée : ${texteDateHotelISO(newArrivee)} à ${$("newHeureArrivee").value || "--:--"}`
-    );
-    lignes.push(
-      `Départ : ${texteDateHotelISO(newDepart)} à ${$("newHeureDepart").value || "--:--"}`
-    );
-    lignes.push(
-      `Petit-déjeuner : ${newPdjHotel ? "OUI" : "NON"}`
-    );
-  }
-
-  lignes.push("");
-  lignes.push("Cordialement.");
-  lignes.push(nomAgent);
-
-  const sujet=
-    modActionHotel==="annuler"
-      ? `Annulation hébergement - ${nomAgent}`
-      : `Modification hébergement - ${nomAgent}`;
-
-  const to=
-    dest.email || "";
-
-  const corps=
-    lignes.join("\r\n");
-
-  const outlook=
-    `ms-outlook://compose?to=${encodeURIComponent(to)}`+
-    `&subject=${encodeURIComponent(sujet)}`+
-    `&body=${encodeURIComponent(corps)}`;
-
-  const mailto=
-    `mailto:${encodeURIComponent(to)}`+
-    `?subject=${encodeURIComponent(sujet)}`+
-    `&body=${encodeURIComponent(corps)}`;
-
-  const estAndroid=
-    /Android/i.test(navigator.userAgent);
-
-  if(estAndroid){
-    location.href=mailto;
-    return;
-  }
-
-  let hidden=false;
-
-  document.addEventListener(
-    "visibilitychange",
-    ()=>{
-      if(document.hidden){
-        hidden=true;
-      }
-    },
-    {once:true}
-  );
-
-  location.href=outlook;
-
-  setTimeout(()=>{
-    if(!hidden){
-      location.href=mailto;
-    }
-  },1200);
-}
-
-/* ==========================================================
-   APERCU HTML OUTLOOK CONSERVE
-   ========================================================== */
-
-function ouvrirApercuMailHtmlOutlook(list) {
-
-  const htmlMail =
-    buildEmailHtml(list);
-
-  const sujet =
-    `Demande d'hébergement - ${profil.nom || "Agent"} - ${fr(list[0].arrivee)}`;
-
-  const to =
-    dest.email || "";
-
-  const page =
-    window.open("", "_blank");
-
-  if (!page) {
-    alert(
-      "Le navigateur a bloqué la fenêtre d’aperçu."
-    );
-    return;
-  }
-
-  page.document.open();
-
-  page.document.write(`
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-      content="width=device-width,initial-scale=1">
-
-<title>Aperçu mail Outlook</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 24px;
-  background: #f3f4f6;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111827;
-}
-
-.toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-
-  margin: -24px -24px 20px;
-  padding: 14px 24px;
-
-  background: #ffffff;
-  border-bottom: 1px solid #d1d5db;
-}
-
-.toolbar button {
-  min-height: 44px;
-  padding: 10px 16px;
-
-  border: 0;
-  border-radius: 10px;
-
-  font: inherit;
-  font-weight: 800;
-
-  cursor: pointer;
-}
-
-#copyRenderedBtn {
-  background: #111827;
-  color: #ffffff;
-}
-
-#openOutlookBtn {
-  background: #2563eb;
-  color: #ffffff;
-}
-
-.help {
-  width: 100%;
-  margin: 0;
-
-  color: #667085;
-  font-size: 13px;
-}
-
-#mailRendered {
-  max-width: 1100px;
-  margin: 0 auto;
-
-  padding: 26px;
-
-  background: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 12px;
-}
-
-@media (max-width: 700px) {
-
-  body {
-    padding: 12px;
-  }
-
-  .toolbar {
-    margin: -12px -12px 14px;
-    padding: 10px 12px;
-  }
-
-  #mailRendered {
-    padding: 14px;
-    overflow-x: auto;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="toolbar">
-
-  <button
-    type="button"
-    id="copyRenderedBtn"
-  >
-    Copier la présentation
-  </button>
-
-  <button
-    type="button"
-    id="openOutlookBtn"
-  >
-    Ouvrir Outlook
-  </button>
-
-  <p class="help">
-    1. Copier la présentation
-    &nbsp;→&nbsp;
-    2. Ouvrir Outlook
-    &nbsp;→&nbsp;
-    3. Coller dans le corps du message.
-  </p>
-
-</div>
-
-<div id="mailRendered">
-  ${htmlMail}
-</div>
-
-<script>
-(function(){
-
-  const sujet =
-    ${JSON.stringify(sujet)};
-
-  const to =
-    ${JSON.stringify(to)};
 
   document
-    .getElementById(
-      "copyRenderedBtn"
+    .querySelectorAll(
+      ".theme-choice"
     )
-    .addEventListener(
-      "click",
-      function(){
-
-        const zone =
-          document.getElementById(
-            "mailRendered"
-          );
-
-        const range =
-          document.createRange();
-
-        range.selectNodeContents(
-          zone
-        );
-
-        const selection =
-          window.getSelection();
-
-        selection.removeAllRanges();
-        selection.addRange(range);
-
-        let ok = false;
-
-        try {
-          ok =
-            document.execCommand(
-              "copy"
-            );
-        } catch (e) {
-          ok = false;
-        }
-
-        selection.removeAllRanges();
-
-        if (ok) {
-          alert(
-            "Présentation copiée. Ouvrez Outlook puis collez dans le corps du mail."
-          );
-        } else {
-          alert(
-            "Copie automatique impossible. Sélectionnez le tableau manuellement puis copiez-le."
-          );
-        }
-      }
-    );
-
-  document
-    .getElementById(
-      "openOutlookBtn"
-    )
-    .addEventListener(
-      "click",
-      function(){
-
-        const outlook =
-          "ms-outlook://compose?to=" +
-          encodeURIComponent(to) +
-          "&subject=" +
-          encodeURIComponent(sujet);
-
-        const mailto =
-          "mailto:" +
-          encodeURIComponent(to) +
-          "?subject=" +
-          encodeURIComponent(sujet);
-
-        let hidden = false;
-
-        document.addEventListener(
-          "visibilitychange",
-          function(){
-            if (
-              document.hidden
-            ) {
-              hidden = true;
-            }
-          },
-          { once:true }
-        );
-
-        location.href =
-          outlook;
-
-        setTimeout(
-          function(){
-            if (
-              !hidden
-            ) {
-              location.href =
-                mailto;
-            }
-          },
-          1200
-        );
-      }
-    );
-
-})();
-<\/script>
-
-</body>
-</html>
-  `);
-
-  page.document.close();
-}
-
-$("previewHtmlMailBtn").onclick = () => {
-
-  if (!stays.length) {
-
-    alert(
-      "Ajoutez au moins un hébergement."
-    );
-
-    return;
-  }
-
-  ouvrirApercuMailHtmlOutlook(
-    [...stays]
-  );
-};
-
-
-/* ==========================================================
-    PARAMETRES HOTEL
-   Meme principe que l'application Taxi
-   ========================================================== */
-
-const hotelSettingsMenu =
-  document.getElementById(
-    "hotelSettingsMenu"
-  );
-
-const hotelQuickProfil =
-  document.getElementById(
-    "hotelQuickProfil"
-  );
-
-const hotelQuickAgents =
-  document.getElementById(
-    "hotelQuickAgents"
-  );
-
-const hotelQuickHotels =
-  document.getElementById(
-    "hotelQuickHotels"
-  );
-
-const hotelQuickAppearance =
-  document.getElementById(
-    "hotelQuickAppearance"
-  );
-
-const hotelQuickCancel =
-  document.getElementById(
-    "hotelQuickCancel"
-  );
-
-function ouvrirMenuParametresHotel(){
-
-  hotelSettingsMenu.hidden = false;
-}
-
-function fermerMenuParametresHotel(){
-
-  hotelSettingsMenu.hidden = true;
-}
-
-function ouvrirAdministrationHotelSur(cible){
-
-  fermerMenuParametresHotel();
-
-  const manage =
-    document.getElementById("manage");
-
-  if(!manage){
-    return;
-  }
-
-  manage.hidden = false;
-
-  const titres = {
-    profil:"Profil / Réservation",
-    agents:"Agents",
-    hotels:"Hôtels",
-    appearance:"Apparence"
-  };
-
-  const manageTitle =
-    document.getElementById("manageTitle");
-
-  if(manageTitle){
-    manageTitle.textContent =
-      titres[cible] || "Paramètres";
-  }
-
-  ["profil","agents","hotels","appearance"]
-    .forEach(id=>{
-
-      const panel =
-        document.getElementById(id);
-
-      if(panel){
-        panel.hidden =
-          id !== cible;
-      }
-    });
-
-  if(
-    cible === "agents" &&
-    typeof renderHotelAgentsAdmin === "function"
-  ){
-    renderHotelAgentsAdmin();
-  }
-
-  manage.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-}
-
-hotelQuickProfil.addEventListener(
-  "click",
-  () => {
-    ouvrirAdministrationHotelSur(
-      "profil"
-    );
-  }
-);
-
-hotelQuickAgents.addEventListener(
-  "click",
-  () => {
-    ouvrirAdministrationHotelSur(
-      "agents"
-    );
-  }
-);
-
-hotelQuickHotels.addEventListener(
-  "click",
-  () => {
-    ouvrirAdministrationHotelSur(
-      "hotels"
-    );
-  }
-);
-
-hotelQuickAppearance.addEventListener(
-  "click",
-  () => {
-    ouvrirAdministrationHotelSur(
-      "appearance"
-    );
-  }
-);
-
-hotelQuickCancel.addEventListener(
-  "click",
-  fermerMenuParametresHotel
-);
-
-hotelSettingsMenu.addEventListener(
-  "click",
-  event => {
-
-    if(
-      event.target ===
-      hotelSettingsMenu
-    ){
-      fermerMenuParametresHotel();
-    }
-  }
-);
-
-
-/* ==========================================================
-  INITIALISATION APRES DECLARATION DES VARIABLES
-   ========================================================== */
-
-afficherModeDemandeHotel(
-  "nouvelle"
-);
-
-afficherActionModificationHotel(
-  "annuler"
-);
-
-
-/* ==========================================================
-  RECHERCHE D'UN AGENT
-   ========================================================== */
-function initialiserRechercheAgentHotel(){
-
-  const input =
-    document.getElementById(
-      "agentNom"
-    );
-
-  if(!input){
-    return;
-  }
-
-  input.addEventListener(
-    "input",
-    renderHotelAgentsAdmin
-  );
-}
-
-if(document.readyState === "loading"){
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    initialiserRechercheAgentHotel,
-    {once:true}
-  );
-
-}else{
-
-  initialiserRechercheAgentHotel();
-}
-
-
-/* ==========================================================
- POPUP SELECTION AGENTS
-========================================================== */
-function initialiserSelectionAgentsHotel(){
-
-  const normalBtn =
-    document.getElementById("chooseNormalAgents");
-
-  const modBtn =
-    document.getElementById("chooseModAgents");
-
-  const closeBtn =
-    document.getElementById("closeAgentsPicker");
-
-  const cancelBtn =
-    document.getElementById("cancelAgentsPicker");
-
-  const validateBtn =
-    document.getElementById("validateAgentsPicker");
-
-  const search =
-    document.getElementById("agentsPickerSearch");
-
-  const overlay =
-    document.getElementById("hotelAgentsPicker");
-
-  if(normalBtn){
-    normalBtn.addEventListener(
-      "click",
-      ()=>ouvrirSelectionAgentsHotel("normal")
-    );
-  }
-
-  if(modBtn){
-    modBtn.addEventListener(
-      "click",
-      ()=>ouvrirSelectionAgentsHotel("modification")
-    );
-  }
-
-  if(closeBtn){
-    closeBtn.addEventListener(
-      "click",
-      fermerSelectionAgentsHotel
-    );
-  }
-
-  if(cancelBtn){
-    cancelBtn.addEventListener(
-      "click",
-      fermerSelectionAgentsHotel
-    );
-  }
-
-  if(validateBtn){
-    validateBtn.addEventListener(
-      "click",
-      validerSelectionAgentsHotel
-    );
-  }
-
-  if(search){
-    search.addEventListener(
-      "input",
-      renderAgentsPickerHotel
-    );
-  }
-
-  if(overlay){
-    overlay.addEventListener(
-      "click",
-      event=>{
-        if(event.target===overlay){
-          fermerSelectionAgentsHotel();
-        }
-      }
-    );
-  }
-
-  actualiserCompteursAgentsHotel();
-}
-
-if(document.readyState==="loading"){
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    initialiserSelectionAgentsHotel,
-    {once:true}
-  );
-
-}else{
-
-  initialiserSelectionAgentsHotel();
-}
-
-
-/* ==========================================================
-  RECUPERATION ET CONSOLIDATION DES AGENTS LOCAUX
-   ========================================================== */
-function resynchroniserAgentsHotelApresChargement(){
-
-  hotelAgents =
-    chargerAgentsHotelAvecRecuperation();
-
-  if(
-    Array.isArray(
-      selectedHotelAgents
-    )
-  ){
-    selectedHotelAgents =
-      selectedHotelAgents.filter(
-        nom =>
-          hotelAgents.includes(nom)
-      );
-  }
-
-  if(
-    typeof renderHotelAgentsAdmin ===
-      "function"
-  ){
-    renderHotelAgentsAdmin();
-  }
-
-  if(
-    typeof renderModificationAgents ===
-      "function"
-  ){
-    renderModificationAgents();
-  }
-
-  if(
-    typeof actualiserCompteursAgentsHotel ===
-      "function"
-  ){
-    actualiserCompteursAgentsHotel();
-  }
-}
-
-if(document.readyState==="loading"){
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    resynchroniserAgentsHotelApresChargement,
-    {once:true}
-  );
-
-}else{
-
-  resynchroniserAgentsHotelApresChargement();
-}
-
-
-/* ==========================================================
-    NETTOYAGE ANCIENS CACHES / SERVICE WORKERS
-   La détection de mise à jour reste active via version.json.
-   ========================================================== */
-async function nettoyerAncienCacheHotel(){
-  try{
-    if("serviceWorker" in navigator){
-      const regs = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(
-        regs.map(reg => reg.unregister())
-      );
-    }
-  }catch(err){
-    console.log("Nettoyage Service Worker :", err);
-  }
-
-  try{
-    if("caches" in window){
-      const noms = await caches.keys();
-      await Promise.all(
-        noms.map(nom => caches.delete(nom))
-      );
-    }
-  }catch(err){
-    console.log("Nettoyage caches :", err);
-  }
-}
-
-if(document.readyState === "loading"){
-  document.addEventListener(
-    "DOMContentLoaded",
-    nettoyerAncienCacheHotel,
-    { once:true }
-  );
-}else{
-  nettoyerAncienCacheHotel();
-}
-
-
-/* ==========================================================
-   Petit-déjeuner Modification / Annulation
-   ========================================================== */
-function installerPetitDejeunerModificationV120(){
-  const oui = document.getElementById("modBreakfastYes");
-  const non = document.getElementById("modBreakfastNo");
-
-  if(!oui || !non) return;
-
-  function choisir(valeur){
-    oui.classList.toggle("active", valeur === "OUI");
-    non.classList.toggle("active", valeur === "NON");
-
-    try{
-      sessionStorage.setItem(
-        "hotel_modification_petit_dejeuner",
-        valeur
-      );
-    }catch(e){}
-  }
-
-  oui.onclick = () => choisir("OUI");
-  non.onclick = () => choisir("NON");
-
-  let valeur = "OUI";
-  try{
-    valeur =
-      sessionStorage.getItem(
-        "hotel_modification_petit_dejeuner"
-      ) || "OUI";
-  }catch(e){}
-
-  choisir(valeur);
-}
-
-if(document.readyState === "loading"){
-  document.addEventListener(
-    "DOMContentLoaded",
-    installerPetitDejeunerModificationV120,
-    {once:true}
-  );
-}else{
-  installerPetitDejeunerModificationV120();
-}
-
-/* POSITION PAGE A L'OUVERTURE */
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant"
-        });
-    }, 100);
-});
-
-function actualiserListeProfilAgents(){
-
-  const liste =
-    document.getElementById("profilAgentsList");
-
-  const input =
-    document.getElementById("profilNom");
-
-  if(!liste || !input) return;
-
-  const recherche =
-    normaliserAgentHotel(input.value)
-      .toLocaleUpperCase("fr-FR");
-
-  let agents =
-    hotelAgents.slice();
-
-  if(recherche){
-    agents =
-      agents.filter(nom =>
-        String(nom)
-          .toLocaleUpperCase("fr-FR")
-          .includes(recherche)
-      );
-  }
-
-  agents.sort(
-    (a,b)=>a.localeCompare(b,"fr")
-  );
-
-  if(!agents.length){
-
-    liste.innerHTML =
-      '<div class="search-empty">Aucun agent trouvé</div>';
-
-    liste.hidden = false;
-    return;
-  }
-
-  liste.innerHTML =
-    agents.map(nom=>`
-      <button
-        type="button"
-        class="search-result"
-        data-agent="${nom.replace(/"/g,"&quot;")}"
-      >
-        ${nom}
-      </button>
-    `).join("");
-
-  liste.hidden = false;
-
-  liste
-    .querySelectorAll(".search-result")
     .forEach(btn=>{
 
-      btn.addEventListener(
-        "mousedown",
-        event=>{
+      btn.classList.toggle(
 
-          event.preventDefault();
+        "active",
 
-          input.value =
-            btn.dataset.agent;
+        btn.dataset.theme ===
+        a.theme
 
-          liste.hidden = true;
-        }
       );
 
     });
+
+
+  setTimeout(
+
+    synchroniserThemeHotel,
+
+    0
+
+  );
+
 }
-
-const profilNomInput =
-  document.getElementById("profilNom");
-
-if(profilNomInput){
-
-  profilNomInput.addEventListener(
-    "focus",
-    actualiserListeProfilAgents
-  );
-
-  profilNomInput.addEventListener(
-    "input",
-    actualiserListeProfilAgents
-  );
-
-  profilNomInput.addEventListener(
-    "blur",
-    ()=>{
-      setTimeout(()=>{
-        const liste =
-          document.getElementById("profilAgentsList");
-
-        if(liste){
-          liste.hidden = true;
-        }
-      },150);
-    }
-  );
-}
-
