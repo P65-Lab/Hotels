@@ -151,7 +151,10 @@ function chargerAgentsHotelAvecRecuperation(){
 let hotelAgents =
   chargerAgentsHotelAvecRecuperation();
 
-
+setTimeout(
+  actualiserListeProfilAgents,
+  0
+);
 /* ==========================================================
    v68 - AGENTS LOCAUX
    ========================================================== */
@@ -351,7 +354,7 @@ async function importerAgentsDepuisFichierHotel(fichier){
       LS_AGENTS,
       hotelAgents
     );
-
+actualiserListeProfilAgents();
     renderHotelAgentsAdmin();
     renderModificationAgents();
 
@@ -3067,3 +3070,20 @@ window.addEventListener("load", function () {
         });
     }, 100);
 });
+
+function actualiserListeProfilAgents(){
+
+  const liste =
+    document.getElementById("profilAgentsList");
+
+  if(!liste) return;
+
+  liste.innerHTML =
+    hotelAgents
+      .slice()
+      .sort((a,b)=>a.localeCompare(b,"fr"))
+      .map(nom =>
+        `<option value="${nom.replace(/"/g,"&quot;")}"></option>`
+      )
+      .join("");
+}
