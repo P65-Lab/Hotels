@@ -1524,10 +1524,7 @@ function creerMailDirect(){
   const to =
     dest.email || "";
 
-  const outlook =
-    `ms-outlook://compose?to=${encodeURIComponent(to)}` +
-    `&subject=${encodeURIComponent(sujet)}` +
-    `&body=${encodeURIComponent(corps)}`;
+
 
   const mailto =
     `mailto:${encodeURIComponent(to)}` +
@@ -1548,37 +1545,6 @@ function creerMailDirect(){
     { once:true }
   );
 
-  const estAndroid =
-    /Android/i.test(navigator.userAgent);
-
- if (estAndroid) {
-
-  sessionStorage.setItem(
-    "hotelMailOuvert",
-    "1"
-  );
-
-  location.href = mailto;
-  return;
-}
-
-location.href = outlook;
-
-setTimeout(() => {
-
-  // On vide la demande après l'ouverture du mail
-  stays = [];
-  window.__recapStays = [];
-  dateDepartMemorisee = "";
-
-  renderStays();
-  clearStayForm();
-
-  if(!hidden){
-    location.href = mailto;
-  }
-
-}, 1500);
 }
 
 $("manageBtn").onclick=()=>{
