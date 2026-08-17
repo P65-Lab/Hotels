@@ -2700,3 +2700,1303 @@ function applyAppearance(values){
   );
 
 }
+document.querySelectorAll(".theme-choice").forEach(btn=>{
+
+  btn.addEventListener("click",()=>{
+
+    const name =
+      btn.dataset.theme;
+
+    const preset =
+      themePresets[name];
+
+    if(!preset){
+      return;
+    }
+
+    appearance = {
+      ...preset,
+      theme:name
+    };
+
+    save(
+      LS_A,
+      appearance
+    );
+
+    applyAppearance(
+      appearance
+    );
+
+  });
+
+});
+
+
+$("saveAppearance").onclick=()=>{
+
+  appearance = {
+
+    primary:
+      $("colorPrimary").value,
+
+    mail:
+      $("colorMail").value,
+
+    nights:
+      $("colorNights").value,
+
+    background:
+      $("colorBackground").value,
+
+    card:
+      $("colorCard").value,
+
+    theme:
+      "custom"
+
+  };
+
+
+  save(
+    LS_A,
+    appearance
+  );
+
+
+  applyAppearance(
+    appearance
+  );
+
+
+  alert(
+    "Couleurs enregistrées."
+  );
+
+};
+
+
+$("resetAppearance").onclick=()=>{
+
+  appearance = {
+    ...appearanceDefaults
+  };
+
+
+  save(
+    LS_A,
+    appearance
+  );
+
+
+  applyAppearance(
+    appearance
+  );
+
+
+  alert(
+    "Couleurs réinitialisées."
+  );
+
+};
+
+
+applyAppearance(
+  appearance
+);
+
+
+
+if($("modeNouvelle")){
+
+  $("modeNouvelle").onclick=()=>
+    afficherModeDemandeHotel(
+      "nouvelle"
+    );
+
+}
+
+
+if($("modeModification")){
+
+  $("modeModification").onclick=()=>
+    afficherModeDemandeHotel(
+      "modification"
+    );
+
+}
+
+
+if($("modActionAnnuler")){
+
+  $("modActionAnnuler").onclick=()=>
+    afficherActionModificationHotel(
+      "annuler"
+    );
+
+}
+
+
+if($("modActionRemplacer")){
+
+  $("modActionRemplacer").onclick=()=>
+    afficherActionModificationHotel(
+      "remplacer"
+    );
+
+}
+
+
+if($("newPdjOui")){
+
+  $("newPdjOui").onclick=()=>{
+
+    newPdjHotel=true;
+
+    $("newPdjOui")
+      .classList.add(
+        "active"
+      );
+
+    $("newPdjNon")
+      .classList.remove(
+        "active"
+      );
+
+  };
+
+}
+
+
+if($("newPdjNon")){
+
+  $("newPdjNon").onclick=()=>{
+
+    newPdjHotel=false;
+
+    $("newPdjNon")
+      .classList.add(
+        "active"
+      );
+
+    $("newPdjOui")
+      .classList.remove(
+        "active"
+      );
+
+  };
+
+}
+
+
+if($("createModificationMail")){
+
+  $("createModificationMail").onclick =
+    construireMailModificationHotel;
+
+}
+
+
+renderHotelAgentsAdmin();
+
+renderModificationAgents();
+
+refreshVilles();
+
+fillSettings();
+
+renderStays();
+
+
+
+/* ==========================================================
+   MISE A JOUR SIMPLE ET UNIQUE
+   ========================================================== */
+
+let derniereVersionDisponible = "";
+
+
+function numeroVersionHotel(v){
+
+  const n =
+    parseInt(
+      String(v || "")
+        .replace(
+          /\D/g,
+          ""
+        ),
+      10
+    );
+
+
+  return Number.isFinite(n)
+    ? n
+    : 0;
+
+}
+
+
+function afficherVersionChargeeHotel(){
+
+  const el =
+    document.getElementById(
+      "appVersion"
+    );
+
+
+  if(el){
+
+    el.textContent =
+      `À JOUR ${APP_VERSION.toUpperCase()}`;
+
+  }
+
+}
+
+
+function masquerIndicateurMiseAJourHotel(){
+
+  derniereVersionDisponible = "";
+
+
+  const badge =
+    document.getElementById(
+      "settingsUpdateBadge"
+    );
+
+
+  const card =
+    document.getElementById(
+      "settingsUpdateCard"
+    );
+
+
+  const popup =
+    document.getElementById(
+      "hotelPopupUpdateCard"
+    );
+
+
+  if(badge){
+
+    badge.hidden=true;
+
+    badge.classList.remove(
+      "badge-update-visible"
+    );
+
+  }
+
+
+  if(card){
+
+    card.hidden=true;
+
+  }
+
+
+  if(popup){
+
+    popup.hidden=true;
+
+  }
+
+}
+
+
+function afficherIndicateurMiseAJourHotel(version){
+
+  derniereVersionDisponible =
+    String(
+      version || ""
+    ).trim();
+
+
+  const badge =
+    document.getElementById(
+      "settingsUpdateBadge"
+    );
+
+
+  const card =
+    document.getElementById(
+      "settingsUpdateCard"
+    );
+
+
+  const popup =
+    document.getElementById(
+      "hotelPopupUpdateCard"
+    );
+
+
+  const text =
+    document.getElementById(
+      "settingsUpdateText"
+    );
+
+
+  const popupText =
+    document.getElementById(
+      "hotelPopupUpdateText"
+    );
+
+
+  if(badge){
+
+    badge.hidden=false;
+
+    badge.classList.add(
+      "badge-update-visible"
+    );
+
+  }
+
+
+  if(card){
+
+    card.hidden=false;
+
+  }
+
+
+  if(popup){
+
+    popup.hidden=false;
+
+  }
+
+
+  const message =
+    `Version ${derniereVersionDisponible} disponible`;
+
+
+  if(text){
+
+    text.textContent =
+      message;
+
+  }
+
+
+  if(popupText){
+
+    popupText.textContent =
+      message;
+
+  }
+
+}
+
+
+async function verifierMiseAJourHotel(){
+
+  try{
+
+    const url =
+      new URL(
+        "./version.json",
+        window.location.href
+      );
+
+
+    url.searchParams.set(
+      "_",
+      Date.now().toString()
+    );
+
+
+    const response =
+      await fetch(
+        url.href,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+      return;
+    }
+
+
+    const info =
+      await response.json();
+
+
+    const serveur =
+      numeroVersionHotel(
+        info.version
+      );
+
+
+    const chargee =
+      numeroVersionHotel(
+        APP_VERSION
+      );
+
+
+    if(
+      serveur >
+      chargee
+    ){
+
+      afficherIndicateurMiseAJourHotel(
+        info.version
+      );
+
+    }else{
+
+      masquerIndicateurMiseAJourHotel();
+
+    }
+
+  }catch(err){
+
+    console.log(
+      "Contrôle mise à jour :",
+      err
+    );
+
+  }
+
+}
+
+
+async function appliquerMiseAJourHotel(){
+
+  const cible =
+    String(
+      derniereVersionDisponible ||
+      ""
+    ).trim();
+
+
+  masquerIndicateurMiseAJourHotel();
+
+
+  const boutons = [
+
+    document.getElementById(
+      "settingsUpdateBtn"
+    ),
+
+    document.getElementById(
+      "hotelPopupUpdateBtn"
+    )
+
+  ].filter(Boolean);
+
+
+  boutons.forEach(btn=>{
+
+    btn.disabled=true;
+
+    btn.textContent =
+      "Mise à jour en cours…";
+
+  });
+
+
+  const url =
+    new URL(
+      window.location.origin +
+      window.location.pathname
+    );
+
+
+  url.searchParams.set(
+    "maj",
+    cible ||
+    Date.now().toString()
+  );
+
+
+  url.searchParams.set(
+    "_",
+    Date.now().toString()
+  );
+
+
+  window.location.replace(
+    url.href
+  );
+
+}
+
+
+function installerControleMiseAJourHotel(){
+
+  afficherVersionChargeeHotel();
+
+  masquerIndicateurMiseAJourHotel();
+
+
+  const btn =
+    document.getElementById(
+      "settingsUpdateBtn"
+    );
+
+
+  const popupBtn =
+    document.getElementById(
+      "hotelPopupUpdateBtn"
+    );
+
+
+  if(btn){
+
+    btn.onclick =
+      appliquerMiseAJourHotel;
+
+  }
+
+
+  if(popupBtn){
+
+    popupBtn.onclick =
+      appliquerMiseAJourHotel;
+
+  }
+
+
+  setTimeout(
+    verifierMiseAJourHotel,
+    1500
+  );
+
+
+  setInterval(
+    ()=>{
+
+      if(!document.hidden){
+
+        verifierMiseAJourHotel();
+
+      }
+
+    },
+    300000
+  );
+
+}
+
+
+if(
+  document.readyState ===
+  "loading"
+){
+
+  document.addEventListener(
+
+    "DOMContentLoaded",
+
+    installerControleMiseAJourHotel,
+
+    {
+      once:true
+    }
+
+  );
+
+}else{
+
+  installerControleMiseAJourHotel();
+
+}
+
+
+
+/* ==========================================================
+   MODIFICATION / ANNULATION
+   ========================================================== */
+
+let modeDemandeHotel =
+  "nouvelle";
+
+let modActionHotel =
+  "annuler";
+
+let newPdjHotel =
+  true;
+
+
+function afficherModeDemandeHotel(mode){
+
+  modeDemandeHotel =
+    mode;
+
+
+  const normal =
+    document.getElementById(
+      "normalRequestZone"
+    );
+
+
+  const modification =
+    document.getElementById(
+      "modificationRequestZone"
+    );
+
+
+  const btnNew =
+    document.getElementById(
+      "modeNouvelle"
+    );
+
+
+  const btnMod =
+    document.getElementById(
+      "modeModification"
+    );
+
+
+  if(normal){
+
+    normal.hidden =
+      mode !==
+      "nouvelle";
+
+  }
+
+
+  if(modification){
+
+    modification.hidden =
+      mode !==
+      "modification";
+
+  }
+
+
+  if(btnNew){
+
+    btnNew.classList.toggle(
+
+      "active",
+
+      mode ===
+      "nouvelle"
+
+    );
+
+  }
+
+
+  if(btnMod){
+
+    btnMod.classList.toggle(
+
+      "active",
+
+      mode ===
+      "modification"
+
+    );
+
+  }
+
+
+  if(
+    mode ===
+    "modification"
+  ){
+
+    renderModificationAgents();
+
+  }
+
+}
+
+
+function afficherActionModificationHotel(action){
+
+  modActionHotel =
+    action;
+
+
+  const annuler =
+    document.getElementById(
+      "modActionAnnuler"
+    );
+
+
+  const remplacer =
+    document.getElementById(
+      "modActionRemplacer"
+    );
+
+
+  const zone =
+    document.getElementById(
+      "replacementZone"
+    );
+
+
+  if(annuler){
+
+    annuler.classList.toggle(
+
+      "active",
+
+      action ===
+      "annuler"
+
+    );
+
+  }
+
+
+  if(remplacer){
+
+    remplacer.classList.toggle(
+
+      "active",
+
+      action ===
+      "remplacer"
+
+    );
+
+  }
+
+
+  if(zone){
+
+    zone.hidden =
+      action !==
+      "remplacer";
+
+  }
+
+}
+
+
+function texteDateHotelISO(v){
+
+  if(!v){
+    return "";
+  }
+
+
+  const [
+    y,
+    m,
+    d
+  ] =
+    v.split("-");
+
+
+  return `${d}/${m}/${y}`;
+
+}
+
+
+function construireMailModificationHotel(){
+
+  const agents =
+    agentsModificationSelectionnes();
+
+
+  if(!agents.length){
+
+    alert(
+      "Sélectionnez au moins un agent concerné."
+    );
+
+    return;
+
+  }
+
+
+  const ville =
+    $("modVille")
+      .value
+      .trim();
+
+
+  const hotel =
+    $("modHotel")
+      .value
+      .trim();
+
+
+  const arrivee =
+    $("modArrivee")
+      .value;
+
+
+  const depart =
+    $("modDepart")
+      .value;
+
+
+  if(
+    !ville ||
+    !hotel ||
+    !arrivee ||
+    !depart
+  ){
+
+    alert(
+      "Renseignez la ville, l’hôtel, l’arrivée et le départ à modifier."
+    );
+
+    return;
+
+  }
+
+
+  const nomAgent =
+    profil.nom ||
+    "Agent";
+
+
+  const lignes = [];
+
+
+  lignes.push(
+    "Bonjour,"
+  );
+
+
+  lignes.push(
+    ""
+  );
+
+
+  if(
+    modActionHotel ===
+    "annuler"
+  ){
+
+    lignes.push(
+      "Merci d’annuler l’hébergement suivant."
+    );
+
+  }else{
+
+    lignes.push(
+      "Suite à une modification de service, merci d’annuler l’hébergement suivant et de réserver le nouvel hébergement indiqué ci-dessous."
+    );
+
+  }
+
+
+  lignes.push(
+    ""
+  );
+
+
+  lignes.push(
+    `AGENTS CONCERNÉS : ${agents.length}`
+  );
+
+
+  agents.forEach(
+    (a,i)=>
+      lignes.push(
+        `${i+1}. ${a}`
+      )
+  );
+
+
+  lignes.push(
+    ""
+  );
+
+
+  lignes.push(
+    "HÉBERGEMENT À ANNULER"
+  );
+
+
+  lignes.push(
+    `${ville.toUpperCase()} — ${hotel.toUpperCase()}`
+  );
+
+
+  lignes.push(
+
+    `Arrivée : ${texteDateHotelISO(arrivee)} à ${$("modHeureArrivee").value || "--:--"}`
+
+  );
+
+
+  lignes.push(
+
+    `Départ : ${texteDateHotelISO(depart)} à ${$("modHeureDepart").value || "--:--"}`
+
+  );
+
+
+  if(
+    modActionHotel ===
+    "remplacer"
+  ){
+
+    const newVille =
+      $("newVille")
+        .value
+        .trim();
+
+
+    const newHotel =
+      $("newHotel")
+        .value
+        .trim();
+
+
+    const newArrivee =
+      $("newArrivee")
+        .value;
+
+
+    const newDepart =
+      $("newDepart")
+        .value;
+
+
+    if(
+      !newVille ||
+      !newHotel ||
+      !newArrivee ||
+      !newDepart
+    ){
+
+      alert(
+        "Renseignez complètement le nouvel hébergement."
+      );
+
+      return;
+
+    }
+
+
+    lignes.push(
+      ""
+    );
+
+
+    lignes.push(
+      "NOUVEL HÉBERGEMENT À RÉSERVER"
+    );
+
+
+    lignes.push(
+      `${newVille.toUpperCase()} — ${newHotel.toUpperCase()}`
+    );
+
+
+    lignes.push(
+
+      `Arrivée : ${texteDateHotelISO(newArrivee)} à ${$("newHeureArrivee").value || "--:--"}`
+
+    );
+
+
+    lignes.push(
+
+      `Départ : ${texteDateHotelISO(newDepart)} à ${$("newHeureDepart").value || "--:--"}`
+
+    );
+
+
+    lignes.push(
+
+      `Petit-déjeuner : ${newPdjHotel ? "OUI" : "NON"}`
+
+    );
+
+  }
+
+
+  lignes.push(
+    ""
+  );
+
+
+  lignes.push(
+    "Cordialement."
+  );
+
+
+  lignes.push(
+    nomAgent
+  );
+
+
+  const sujet =
+
+    modActionHotel ===
+    "annuler"
+
+      ? `Annulation hébergement - ${nomAgent}`
+
+      : `Modification hébergement - ${nomAgent}`;
+
+
+  const to =
+    dest.email ||
+    "";
+
+
+  const corps =
+    lignes.join(
+      "\r\n"
+    );
+
+
+  const outlook =
+
+    `ms-outlook://compose?to=${encodeURIComponent(to)}` +
+
+    `&subject=${encodeURIComponent(sujet)}` +
+
+    `&body=${encodeURIComponent(corps)}`;
+
+
+  const mailto =
+
+    `mailto:${encodeURIComponent(to)}` +
+
+    `?subject=${encodeURIComponent(sujet)}` +
+
+    `&body=${encodeURIComponent(corps)}`;
+
+
+  const estAndroid =
+    /Android/i.test(
+      navigator.userAgent
+    );
+
+
+  if(estAndroid){
+
+    location.href =
+      mailto;
+
+    return;
+
+  }
+
+
+  let hidden =
+    false;
+
+
+  document.addEventListener(
+
+    "visibilitychange",
+
+    ()=>{
+
+      if(document.hidden){
+
+        hidden=true;
+
+      }
+
+    },
+
+    {
+      once:true
+    }
+
+  );
+
+
+  location.href =
+    outlook;
+
+
+  setTimeout(
+
+    ()=>{
+
+      if(!hidden){
+
+        location.href =
+          mailto;
+
+      }
+
+    },
+
+    1200
+
+  );
+
+}
+
+
+/* ==========================================================
+   APERCU HTML OUTLOOK CONSERVE
+   ========================================================== */
+
+function ouvrirApercuMailHtmlOutlook(list){
+
+  const htmlMail =
+    buildEmailHtml(
+      list
+    );
+
+
+  const sujet =
+
+    `Demande d'hébergement - ${profil.nom || "Agent"} - ${fr(list[0].arrivee)}`;
+
+
+  const to =
+    dest.email ||
+    "";
+
+
+  const page =
+    window.open(
+      "",
+      "_blank"
+    );
+
+
+  if(!page){
+
+    alert(
+      "Le navigateur a bloqué la fenêtre d’aperçu."
+    );
+
+    return;
+
+  }
+
+
+  page.document.open();
+
+
+  page.document.write(`
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+
+<title>
+  Aperçu mail Outlook
+</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  padding:24px;
+  background:#f3f4f6;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#111827;
+}
+
+.toolbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+
+  margin:-24px -24px 20px;
+  padding:14px 24px;
+
+  background:#ffffff;
+  border-bottom:1px solid #d1d5db;
+}
+
+.toolbar button{
+  min-height:44px;
+  padding:10px 16px;
+
+  border:0;
+  border-radius:10px;
+
+  font:inherit;
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+#copyRenderedBtn{
+  background:#111827;
+  color:#ffffff;
+}
+
+#openOutlookBtn{
+  background:#2563eb;
+  color:#ffffff;
+}
+
+.help{
+  width:100%;
+  margin:0;
+
+  color:#667085;
+  font-size:13px;
+}
+
+#mailRendered{
+  max-width:1100px;
+  margin:0 auto;
+
+  padding:26px;
+
+  background:#ffffff;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+}
+
+@media(max-width:700px){
+
+  body{
+    padding:12px;
+  }
+
+  .toolbar{
+    margin:-12px -12px 14px;
+    padding:10px 12px;
+  }
+
+  #mailRendered{
+    padding:14px;
+    overflow-x:auto;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="toolbar">
+
+  <button
+    type="button"
+    id="copyRenderedBtn"
+  >
+    Copier la présentation
+  </button>
+
+  <button
+    type="button"
+    id="openOutlookBtn"
+  >
