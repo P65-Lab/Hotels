@@ -935,14 +935,21 @@
     <label>
       Nom de l'agent
 
-<input
-  id="profilNom"
-  list="profilAgentsList"
-  autocomplete="off"
-  placeholder="Choisir un agent..."
->
+<div class="search-wrap">
 
-<datalist id="profilAgentsList"></datalist>
+  <input
+    id="profilNom"
+    autocomplete="off"
+    placeholder="Choisir un agent..."
+  >
+
+  <div
+    id="profilAgentsList"
+    class="search-results"
+    hidden
+  ></div>
+
+</div>
       >
     </label>
 
