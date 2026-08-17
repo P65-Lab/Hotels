@@ -1452,7 +1452,7 @@ function creerMailDirect(){
   }
 
   const nomAgent =
-    (profil.nom || "Agent").trim();
+    ($("profilNom")?.value || profil.nom || "").trim() || "Agent";
 
   const semaines =
     texteSemaines(list);
