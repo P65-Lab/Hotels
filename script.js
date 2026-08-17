@@ -3076,14 +3076,99 @@ function actualiserListeProfilAgents(){
   const liste =
     document.getElementById("profilAgentsList");
 
-  if(!liste) return;
+  const input =
+    document.getElementById("profilNom");
+
+  if(!liste || !input) return;
+
+  const recherche =
+    normaliserAgentHotel(input.value)
+      .toLocaleUpperCase("fr-FR");
+
+  let agents =
+    hotelAgents.slice();
+
+  if(recherche){
+    agents =
+      agents.filter(nom =>
+        String(nom)
+          .toLocaleUpperCase("fr-FR")
+          .includes(recherche)
+      );
+  }
+
+  agents.sort(
+    (a,b)=>a.localeCompare(b,"fr")
+  );
+
+  if(!agents.length){
+
+    liste.innerHTML =
+      '<div class="search-empty">Aucun agent trouvé</div>';
+
+    liste.hidden = false;
+    return;
+  }
 
   liste.innerHTML =
-    hotelAgents
-      .slice()
-      .sort((a,b)=>a.localeCompare(b,"fr"))
-      .map(nom =>
-        `<option value="${nom.replace(/"/g,"&quot;")}"></option>`
-      )
-      .join("");
+    agents.map(nom=>`
+      <button
+        type="button"
+        class="search-result"
+        data-agent="${nom.replace(/"/g,"&quot;")}"
+      >
+        ${nom}
+      </button>
+    `).join("");
+
+  liste.hidden = false;
+
+  liste
+    .querySelectorAll(".search-result")
+    .forEach(btn=>{
+
+      btn.addEventListener(
+        "mousedown",
+        event=>{
+
+          event.preventDefault();
+
+          input.value =
+            btn.dataset.agent;
+
+          liste.hidden = true;
+        }
+      );
+
+    });
+}
+
+const profilNomInput =
+  document.getElementById("profilNom");
+
+if(profilNomInput){
+
+  profilNomInput.addEventListener(
+    "focus",
+    actualiserListeProfilAgents
+  );
+
+  profilNomInput.addEventListener(
+    "input",
+    actualiserListeProfilAgents
+  );
+
+  profilNomInput.addEventListener(
+    "blur",
+    ()=>{
+      setTimeout(()=>{
+        const liste =
+          document.getElementById("profilAgentsList");
+
+        if(liste){
+          liste.hidden = true;
+        }
+      },150);
+    }
+  );
 }
