@@ -1551,18 +1551,34 @@ function creerMailDirect(){
   const estAndroid =
     /Android/i.test(navigator.userAgent);
 
-  if (estAndroid) {
+ if (estAndroid) {
+
+  sessionStorage.setItem(
+    "hotelMailOuvert",
+    "1"
+  );
+
+  location.href = mailto;
+  return;
+}
+
+location.href = outlook;
+
+setTimeout(() => {
+
+  // On vide la demande après l'ouverture du mail
+  stays = [];
+  window.__recapStays = [];
+  dateDepartMemorisee = "";
+
+  renderStays();
+  clearStayForm();
+
+  if(!hidden){
     location.href = mailto;
-    return;
   }
 
-  location.href = outlook;
-
-  setTimeout(() => {
-    if(!hidden){
-      location.href = mailto;
-    }
-  }, 1200);
+}, 1500);
 }
 
 $("manageBtn").onclick=()=>{
@@ -2625,7 +2641,7 @@ $("previewHtmlMailBtn").onclick = () => {
 
 
 /* ==========================================================
-   v78 - PARAMETRES HOTEL
+    PARAMETRES HOTEL
    Meme principe que l'application Taxi
    ========================================================== */
 
@@ -2778,7 +2794,7 @@ hotelSettingsMenu.addEventListener(
 
 
 /* ==========================================================
-   v80 - INITIALISATION APRES DECLARATION DES VARIABLES
+  INITIALISATION APRES DECLARATION DES VARIABLES
    ========================================================== */
 
 afficherModeDemandeHotel(
@@ -2791,7 +2807,7 @@ afficherActionModificationHotel(
 
 
 /* ==========================================================
-   v83 - RECHERCHE D'UN AGENT
+  RECHERCHE D'UN AGENT
    ========================================================== */
 function initialiserRechercheAgentHotel(){
 
@@ -2825,8 +2841,8 @@ if(document.readyState === "loading"){
 
 
 /* ==========================================================
-   v87 - POPUP SELECTION AGENTS
-   ========================================================== */
+ POPUP SELECTION AGENTS
+========================================================== */
 function initialiserSelectionAgentsHotel(){
 
   const normalBtn =
@@ -2921,7 +2937,7 @@ if(document.readyState==="loading"){
 
 
 /* ==========================================================
-   v93 - RECUPERATION ET CONSOLIDATION DES AGENTS LOCAUX
+  RECUPERATION ET CONSOLIDATION DES AGENTS LOCAUX
    ========================================================== */
 function resynchroniserAgentsHotelApresChargement(){
 
@@ -2977,7 +2993,7 @@ if(document.readyState==="loading"){
 
 
 /* ==========================================================
-   V110 - NETTOYAGE ANCIENS CACHES / SERVICE WORKERS
+    NETTOYAGE ANCIENS CACHES / SERVICE WORKERS
    La détection de mise à jour reste active via version.json.
    ========================================================== */
 async function nettoyerAncienCacheHotel(){
@@ -3016,7 +3032,7 @@ if(document.readyState === "loading"){
 
 
 /* ==========================================================
-   V120 - Petit-déjeuner Modification / Annulation
+   Petit-déjeuner Modification / Annulation
    ========================================================== */
 function installerPetitDejeunerModificationV120(){
   const oui = document.getElementById("modBreakfastYes");
@@ -3172,3 +3188,4 @@ if(profilNomInput){
     }
   );
 }
+
