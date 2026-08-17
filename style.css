@@ -5202,6 +5202,17 @@ header {
     display: none !important;
 }
    
+#profilAgentsList[hidden] {
+  display: none !important;
+}
 
+#profilAgentsList {
+  width: 100%;
+  margin-top: 6px;
+}
+
+#profilAgentsList:empty {
+  display: none !important;
+}
 
 
