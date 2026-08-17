@@ -1658,11 +1658,18 @@ $("saveProfil").onclick=()=>{
   const nom =
     $("profilNom").value.trim();
 
-  localStorage.setItem(
-    KEY_PROFIL,
-    JSON.stringify({
-      nom: nom
-    })
+  if(!nom){
+    alert("Renseignez le nom de l’agent.");
+    return;
+  }
+
+  profil = {
+    nom: nom
+  };
+
+  save(
+    LS_P,
+    profil
   );
 
   alert("Profil enregistré.");
