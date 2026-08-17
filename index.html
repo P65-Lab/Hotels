@@ -935,9 +935,14 @@
     <label>
       Nom de l'agent
 
-      <input
-        id="profilNom"
-        placeholder="NOM Prénom"
+<input
+  id="profilNom"
+  list="profilAgentsList"
+  autocomplete="off"
+  placeholder="Choisir un agent..."
+>
+
+<datalist id="profilAgentsList"></datalist>
       >
     </label>
 
