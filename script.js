@@ -156,7 +156,7 @@ setTimeout(
   0
 );
 /* ==========================================================
-   v68 - AGENTS LOCAUX
+AGENTS LOCAUX
    ========================================================== */
 
 function normaliserAgentHotel(nom){
@@ -1339,7 +1339,7 @@ async function copyRichEmail(html, text){
 
 
 /* ==========================================================
-   v42 - SEMAINES ISO POUR LE MAIL
+  SEMAINES ISO POUR LE MAIL
    ========================================================== */
 
 function numeroSemaineISO(dateISO) {
@@ -1772,7 +1772,7 @@ const themePresets = {
 
 
 /* ==========================================================
-   v29 - SYNCHRONISATION DU MODE SOMBRE
+  SYNCHRONISATION DU MODE SOMBRE
    ========================================================== */
 function synchroniserThemeHotel() {
   const nomTheme =
@@ -1937,7 +1937,7 @@ refreshVilles();fillSettings();renderStays();
 
 
 /* ==========================================================
-   v104 - MISE A JOUR SIMPLE ET UNIQUE
+  MISE A JOUR SIMPLE ET UNIQUE
    ========================================================== */
 
 let derniereVersionDisponible = "";
@@ -2085,7 +2085,7 @@ if(document.readyState === "loading"){
 
 
 /* ==========================================================
-   v68 - MODIFICATION / ANNULATION
+   MODIFICATION / ANNULATION
    ========================================================== */
 
 let modeDemandeHotel="nouvelle";
