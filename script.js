@@ -904,7 +904,7 @@ $("ville").addEventListener("blur",()=>{
   },150);
 });
 installerRechercheVilleHotel("modVille","modVilleResults","modHotel");
-installerRechercheVilleHotel("newVille","newVilleResults","newHotel");
+installerRechercheVilleNouvelHotel();
 
 $("pdjOui").onclick=()=>{pdj=true;$("pdjOui").classList.add("active");$("pdjNon").classList.remove("active")};
 $("pdjNon").onclick=()=>{pdj=false;$("pdjNon").classList.add("active");$("pdjOui").classList.remove("active")};
