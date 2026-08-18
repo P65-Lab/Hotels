@@ -2113,34 +2113,34 @@ function afficherModeDemandeHotel(mode){
 
 function afficherActionModificationHotel(action){
 
-  modActionHotel=action;
+  modActionHotel = action;
 
-  const annuler=
+  const annuler =
     document.getElementById("modActionAnnuler");
 
-  const remplacer=
+  const remplacer =
     document.getElementById("modActionRemplacer");
 
-  const zone=
+  const zone =
     document.getElementById("replacementZone");
 
   if(annuler){
     annuler.classList.toggle(
       "active",
-      action==="annuler"
+      action === "annuler"
     );
   }
 
   if(remplacer){
     remplacer.classList.toggle(
       "active",
-      action==="remplacer"
+      action === "remplacer"
     );
   }
 
   if(zone){
     zone.hidden =
-      action!=="remplacer";
+      action !== "remplacer";
   }
 }
 
