@@ -5158,6 +5158,8 @@ header {
     color: #111827 !important;
     margin-top: 4px !important;
     margin-bottom: 0 !important;
+}
+
 #modificationRequestZone .mod-sejour-title + .travel-grid {
     margin-top: 4px !important;
 }
@@ -5215,14 +5217,6 @@ header {
   display: none !important;
 }
 
-/* PETIT-DEJEUNER : MEME POLICE QUE VILLE / HOTEL / SEJOUR */
-#normalRequestZone .pdj > span,
-#modificationRequestZone .mod-pdj > span {
-  font-family: inherit !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  line-height: inherit !important;
-}
 /* ==========================================================
    CORRECTION FINALE - LIBELLES PETIT-DEJEUNER
    MEME STYLE QUE VILLE / HOTEL / SEJOUR
