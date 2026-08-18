@@ -5554,3 +5554,114 @@ header {
 }
   box-shadow: none !important;
 }
+/* ==========================================================
+   POPUP MODIFICATION - VERSION COMPACTE
+   ========================================================== */
+
+/* Contenu général */
+#modificationDetailsZone .modification-popup-card {
+  padding: 10px 14px 14px !important;
+}
+
+
+/* Entête MODIFICATION */
+#modificationDetailsZone .modification-popup-header {
+  margin-bottom: 6px !important;
+}
+
+#modificationDetailsZone .modification-popup-title {
+  font-size: 18px !important;
+}
+
+
+/* TOUS LES CADRES */
+#modificationDetailsZone .mod-section-card {
+  margin-top: 10px !important;
+  padding: 12px !important;
+  border-radius: 15px !important;
+}
+
+
+/* CADRE AGENTS */
+#modificationDetailsZone .mod-agents-card {
+  margin-top: 4px !important;
+}
+
+#modificationDetailsZone .hotel-agent-picker-head {
+  margin-bottom: 6px !important;
+}
+
+#modificationDetailsZone .hotel-agent-picker-btn {
+  min-height: 48px !important;
+}
+
+
+/* Information profil */
+#modificationDetailsZone .mod-agent-info {
+  margin-top: 8px !important;
+  padding: 8px 10px !important;
+
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+}
+
+
+/* TITRES */
+#modificationDetailsZone .mod-section-title {
+  margin-bottom: 8px !important;
+
+  font-size: 16px !important;
+}
+
+
+/* NOUVEL HEBERGEMENT */
+#modificationDetailsZone #replacementZone {
+  margin-top: 0 !important;
+}
+
+#modificationDetailsZone label {
+  margin-bottom: 8px !important;
+}
+
+#modificationDetailsZone input,
+#modificationDetailsZone select {
+  min-height: 48px !important;
+}
+
+
+/* SEJOUR */
+#modificationDetailsZone .mod-stay-card {
+  margin-top: 10px !important;
+}
+
+#modificationDetailsZone .travel-grid {
+  gap: 8px !important;
+}
+
+#modificationDetailsZone .travel-card {
+  padding: 8px !important;
+}
+
+#modificationDetailsZone .travel-title {
+  margin-bottom: 4px !important;
+}
+
+
+/* PETIT DEJEUNER */
+#modificationDetailsZone .mod-new-pdj {
+  margin-top: 8px !important;
+  padding-top: 8px !important;
+}
+
+#modificationDetailsZone .mod-new-pdj .choice {
+  min-height: 44px !important;
+}
+
+
+/* BOUTON CREER LE MAIL */
+#modificationDetailsZone .mod-mail-btn {
+  min-height: 58px !important;
+  margin-top: 10px !important;
+
+  font-size: 17px !important;
+}
