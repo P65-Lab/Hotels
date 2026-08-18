@@ -791,21 +791,24 @@ function remplirSelectHotelPourVille(villeId,hotelId){
 
 
   /* ==========================================
-     HOTEL MODIFICATION : LISTE PERSONNALISEE
+     HOTEL PERSONNALISE :
+     modHotel + newHotel
      ========================================== */
 
- if(
-  hotelId === "modHotel" ||
-  hotelId === "newHotel"
-){
+  if(
+    hotelId === "modHotel" ||
+    hotelId === "newHotel"
+  ){
 
-   const results =
-  document.getElementById(
-    hotelId + "Results"
-  );
+    const results =
+      document.getElementById(
+        hotelId + "Results"
+      );
+
     hotel.value = "";
 
     if(!results) return;
+
 
     results.innerHTML =
       list.map(x => `
@@ -818,37 +821,32 @@ function remplirSelectHotelPourVille(villeId,hotelId){
         </button>
       `).join("");
 
+
     results.hidden = true;
 
-    hotel.onclick = () => {
 
-      if(!ville.value.trim()){
-        return;
-      }
-
-      results.hidden = false;
-    };
-
-   results
-  .querySelectorAll("[data-hotel]")
+    results
+      .querySelectorAll("[data-hotel]")
       .forEach(btn => {
 
         btn.onclick = () => {
 
-        hotel.value =
-  btn.dataset.hotel;
+          hotel.value =
+            btn.dataset.hotel;
 
           results.hidden = true;
+
         };
 
       });
+
 
     return;
   }
 
 
   /* ==========================================
-     AUTRES HOTELS : SELECT NORMAL
+     ANCIENS SELECTS
      ========================================== */
 
   hotel.innerHTML =
