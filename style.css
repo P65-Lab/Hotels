@@ -5665,3 +5665,64 @@ header {
 
   font-size: 17px !important;
 }
+/* ==========================================================
+   POPUP MODIFICATION - COMPACTAGE SUPPLEMENTAIRE
+   ========================================================== */
+
+/* Remonter légèrement le titre */
+#modificationDetailsZone .modification-popup-header {
+  margin-top: -4px !important;
+  margin-bottom: 4px !important;
+}
+
+/* Moins d'espace entre les cadres */
+#modificationDetailsZone .mod-section-card {
+  margin-top: 6px !important;
+}
+
+/* Cadre agents encore plus proche du titre */
+#modificationDetailsZone .mod-agents-card {
+  margin-top: 2px !important;
+}
+
+/* Réduire l'espace interne général */
+#modificationDetailsZone .mod-section-card {
+  padding: 10px !important;
+}
+
+/* Information profil plus compacte */
+#modificationDetailsZone .mod-agent-info {
+  margin-top: 6px !important;
+  padding: 7px 9px !important;
+}
+
+/* Nouvel hébergement */
+#modificationDetailsZone #replacementZone {
+  margin-top: 0 !important;
+}
+
+#modificationDetailsZone #replacementZone > .mod-section-card:first-child {
+  margin-top: 6px !important;
+}
+
+/* Séjour plus proche du cadre précédent */
+#modificationDetailsZone .mod-stay-card {
+  margin-top: 6px !important;
+}
+
+/* Titres dans les cadres */
+#modificationDetailsZone .mod-section-title {
+  margin-top: 0 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Réduire les espaces des labels */
+#modificationDetailsZone label {
+  margin-bottom: 5px !important;
+}
+
+/* Petit-déjeuner plus proche */
+#modificationDetailsZone .mod-new-pdj {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
