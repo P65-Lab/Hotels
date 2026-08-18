@@ -256,48 +256,62 @@
   <div id="normalRequestZone">
 
 
-    <!-- VILLE / HOTEL -->
+<!-- VILLE / HOTEL -->
 
-    <div class="hotel-grid">
+<div class="hotel-grid">
 
-      <label>
-        Ville
+  <!-- VILLE -->
 
-        <div class="search-wrap">
+  <label>
+    Ville
 
-          <input
-            id="ville"
-            autocomplete="off"
-            placeholder="Tapez une ville..."
-            required
-          >
+    <div class="search-wrap">
 
-          <div
-            id="villeResults"
-            class="search-results"
-            hidden
-          ></div>
+      <input
+        id="ville"
+        autocomplete="off"
+        placeholder="Tapez une ville..."
+        required
+      >
 
-        </div>
-
-      </label>
-
-
-      <label>
-        Hôtel
-
-        <select
-          id="hotel"
-          required
-        >
-          <option value="">
-            Choisir un hébergement...
-          </option>
-        </select>
-
-      </label>
+      <div
+        id="villeResults"
+        class="search-results"
+        hidden
+      ></div>
 
     </div>
+
+  </label>
+
+
+  <!-- HOTEL -->
+
+  <label>
+    Hôtel
+
+    <div class="search-wrap">
+
+      <input
+        id="hotel"
+        type="text"
+        autocomplete="off"
+        readonly
+        placeholder="Choisir un hébergement..."
+        required
+      >
+
+      <div
+        id="hotelResults"
+        class="search-results"
+        hidden
+      ></div>
+
+    </div>
+
+  </label>
+
+</div>
 
 
     <!-- SEJOUR -->
