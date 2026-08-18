@@ -5297,3 +5297,145 @@ header {
   }
 
 }
+/* ==========================================================
+   POPUP MODIFICATION HOTEL
+   ========================================================== */
+
+.modification-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 18px 14px;
+
+  overflow-y: auto;
+
+  background: rgba(15, 23, 42, 0.58);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modification-popup-overlay[hidden] {
+  display: none !important;
+}
+
+.modification-popup-card {
+  width: 100%;
+  max-width: 520px;
+
+  margin: auto 0;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ENTETE */
+
+.modification-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.modification-popup-title {
+  font-size: 19px;
+  font-weight: 900;
+
+  color: var(--app-primary, #111827);
+}
+
+.modification-popup-close {
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #eef2f7;
+  color: #111827;
+
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+
+/* CADRES */
+
+.modification-popup-card .mod-section-card {
+  margin-top: 14px;
+  padding: 16px;
+
+  border: 1.5px solid #d9e0e8;
+  border-radius: 16px;
+
+  background: #ffffff;
+}
+
+
+/* PREMIER CADRE */
+
+.modification-popup-card .mod-agents-card {
+  margin-top: 0;
+}
+
+
+/* TITRES */
+
+.modification-popup-card .mod-section-title {
+  margin-bottom: 14px;
+
+  font-size: 17px;
+  font-weight: 900;
+
+  color: var(--app-primary, #111827);
+}
+
+
+/* INFO PROFIL */
+
+.modification-popup-card .mod-agent-info {
+  margin-top: 12px;
+  padding: 11px 12px;
+
+  border-radius: 11px;
+
+  background: #f3f6fa;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* PETIT DEJEUNER */
+
+.modification-popup-card .mod-new-pdj {
+  margin-top: 16px;
+  padding-top: 14px;
+
+  border-top: 1px solid #d9e0e8;
+}
+
+
+/* BOUTON MAIL */
+
+.modification-popup-card .mod-mail-btn {
+  width: 100%;
+  margin-top: 18px !important;
+}
