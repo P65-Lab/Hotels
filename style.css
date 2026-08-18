@@ -524,19 +524,18 @@
     gap: 8px !important;
   }
 
-  .travel-card {
-    padding: 10px !important;
-  }
+.travel-card {
+  padding: 6px !important;
+}
 
-  .travel-card input[type="date"],
-  .travel-card input[type="time"] {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    padding-left: 9px !important;
-    padding-right: 9px !important;
-    font-size: 14px !important;
-  }
+.travel-card input[type="date"],
+.travel-card input[type="time"] {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 56px !important;
+  padding: 4px 7px !important;
+  font-size: 14px !important;
 }
 
 @media (max-width: 360px) {
