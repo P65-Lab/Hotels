@@ -2580,7 +2580,6 @@ body.theme-dark .import-agents-status.error{
   font-weight:900;
 }
 
-
 /* ==========================================================
    v81 - PROFIL + RESERVATION REGROUPES
    ========================================================== */
@@ -2608,6 +2607,7 @@ body.theme-dark .settings-section-separator{
 #manage .tabs{
   display:none !important;
 }
+
 
 
 /* ==========================================================
