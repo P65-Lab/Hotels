@@ -5747,3 +5747,12 @@ header {
   color: #111827 !important;
   -webkit-text-fill-color: #111827 !important;
 }
+#newHotel:placeholder-shown{
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+}
+
+#newHotel:not(:placeholder-shown){
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
