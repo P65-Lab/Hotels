@@ -4567,16 +4567,17 @@ div{
     border-radius:11px !important;
   }
 
-  /* Texte "Choisir un hôtel..." en gris */
-  #normalRequestZone #hotel:required:invalid{
-    color:#9ca3af !important;
-    -webkit-text-fill-color:#9ca3af !important;
-  }
+ /* Hôtel vide = texte du placeholder en gris */
+#normalRequestZone #hotel:placeholder-shown{
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+}
 
-  #normalRequestZone #hotel option{
-    color:#111827;
-    -webkit-text-fill-color:#111827;
-  }
+/* Hôtel choisi = nom en noir */
+#normalRequestZone #hotel:not(:placeholder-shown){
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
 
   /* Petit-déjeuner : OUI / NON vraiment réduits */
   #normalRequestZone .pdj{
