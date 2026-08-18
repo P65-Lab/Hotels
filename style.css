@@ -5732,21 +5732,8 @@ header {
   text-align-last: center !important;
 }
 
-
-/* HOTEL VIDE EN GRIS */
-
-#modificationDetailsZone #newHotel {
-  color: #9ca3af !important;
-  -webkit-text-fill-color: #9ca3af !important;
-}
-
-
 /* HOTEL SELECTIONNE EN NOIR */
 
-#modificationDetailsZone #newHotel:valid {
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-}
 #newHotel:placeholder-shown{
   color:#9ca3af !important;
   -webkit-text-fill-color:#9ca3af !important;
