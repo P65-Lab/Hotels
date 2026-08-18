@@ -625,174 +625,154 @@
 
 
 
-  <!-- =====================================================
-       CADRE 2 - NOUVEL HEBERGEMENT
-       ===================================================== -->
+<!-- =====================================================
+     NOUVEL HEBERGEMENT + SEJOUR
+     DANS UN SEUL CADRE
+     ===================================================== -->
 
-  <div
-    id="replacementZone"
-    class="replacement-zone"
-  >
+<div
+  id="replacementZone"
+  class="replacement-zone"
+>
 
-    <div class="mod-section-card">
+  <div class="mod-section-card">
 
 
-      <div class="mod-section-title">
-        Nouvel hébergement
+    <div class="mod-section-title">
+      Nouvel hébergement
+    </div>
+
+
+    <!-- VILLE -->
+
+    <label>
+      Ville
+
+      <div class="search-wrap">
+
+        <input
+          id="newVille"
+          autocomplete="off"
+          placeholder="Rechercher une ville..."
+        >
+
+        <div
+          id="newVilleResults"
+          class="search-results"
+          hidden
+        ></div>
+
       </div>
 
+    </label>
 
-      <!-- VILLE -->
 
-      <label>
-        Ville
+    <!-- HOTEL -->
 
-        <div class="search-wrap">
+    <label>
+      Hôtel
+
+      <select id="newHotel">
+
+        <option value="">
+          Choisir un hébergement...
+        </option>
+
+      </select>
+
+    </label>
+
+
+    <!-- ARRIVEE / DEPART -->
+
+    <div class="travel-grid">
+
+      <div class="travel-card">
+
+        <div class="travel-title">
+          ARRIVÉE
+        </div>
+
+        <label>
+          Date
 
           <input
-            id="newVille"
-            autocomplete="off"
-            placeholder="Rechercher une ville..."
+            id="newArrivee"
+            type="date"
           >
+        </label>
 
-          <div
-            id="newVilleResults"
-            class="search-results"
-            hidden
-          ></div>
+        <label>
+          Heure
 
+          <input
+            id="newHeureArrivee"
+            type="time"
+          >
+        </label>
+
+      </div>
+
+
+      <div class="travel-card">
+
+        <div class="travel-title">
+          DÉPART
         </div>
 
-      </label>
+        <label>
+          Date
 
+          <input
+            id="newDepart"
+            type="date"
+          >
+        </label>
 
-      <!-- HOTEL -->
+        <label>
+          Heure
 
-      <label>
-        Hôtel
+          <input
+            id="newHeureDepart"
+            type="time"
+          >
+        </label>
 
-        <select id="newHotel">
-
-          <option value="">
-            Choisir un hébergement...
-          </option>
-
-        </select>
-
-      </label>
-
+      </div>
 
     </div>
 
 
+    <!-- PETIT DEJEUNER -->
 
-    <!-- ===================================================
-         CADRE 3 - SEJOUR
-         =================================================== -->
+    <div class="pdj mod-new-pdj">
 
-    <div class="mod-section-card mod-stay-card">
+      <span>
+        Petit-déjeuner
+      </span>
 
+      <button
+        type="button"
+        id="newPdjOui"
+        class="choice active"
+      >
+        OUI
+      </button>
 
-      <div class="mod-section-title">
-        Séjour
-      </div>
-
-
-      <div class="travel-grid">
-
-
-        <!-- ARRIVEE -->
-
-        <div class="travel-card">
-
-          <div class="travel-title">
-            ARRIVÉE
-          </div>
-
-          <label>
-            Date
-
-            <input
-              id="newArrivee"
-              type="date"
-            >
-          </label>
-
-          <label>
-            Heure
-
-            <input
-              id="newHeureArrivee"
-              type="time"
-            >
-          </label>
-
-        </div>
-
-
-        <!-- DEPART -->
-
-        <div class="travel-card">
-
-          <div class="travel-title">
-            DÉPART
-          </div>
-
-          <label>
-            Date
-
-            <input
-              id="newDepart"
-              type="date"
-            >
-          </label>
-
-          <label>
-            Heure
-
-            <input
-              id="newHeureDepart"
-              type="time"
-            >
-          </label>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- PETIT DEJEUNER -->
-
-      <div class="pdj mod-new-pdj">
-
-        <span>
-          Petit-déjeuner
-        </span>
-
-        <button
-          type="button"
-          id="newPdjOui"
-          class="choice active"
-        >
-          OUI
-        </button>
-
-        <button
-          type="button"
-          id="newPdjNon"
-          class="choice"
-        >
-          NON
-        </button>
-
-      </div>
-
+      <button
+        type="button"
+        id="newPdjNon"
+        class="choice"
+      >
+        NON
+      </button>
 
     </div>
+
 
   </div>
 
+</div>
 
 
   <!-- =====================================================
