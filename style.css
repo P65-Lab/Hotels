@@ -2770,6 +2770,7 @@ body:not(.theme-dark) .search-results > *.active{
 #modHotel,
 #newHotel{
   width:100%;
+  font-size:16px;
 }
 
 #modVilleResults,
