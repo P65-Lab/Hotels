@@ -4937,273 +4937,142 @@ header {
 }
 
 /* ==========================================================
-   MODIFICATION / ANNULATION UNIQUEMENT
-   AJUSTEMENT DES ESPACEMENTS
-   ========================================================== */
-
-/* Rapproche Petit-déjeuner du bloc Arrivée / Départ */
-#modificationRequestZone .mod-pdj {
-    margin-top: 24px !important;
-    margin-bottom: 28px !important;
-}
-
-/* Rapproche Agents concernés de Petit-déjeuner */
-#modificationRequestZone .hotel-agent-picker-block {
-    margin-top: 0 !important;
-    margin-bottom: 28px !important;
-}
-
-/* Rapproche ACTION du bloc Agents */
-#modificationRequestZone .appearance-title {
-    margin-top: 0 !important;
-    margin-bottom: 14px !important;
-}
-
-/* ==========================================================
    MODIFICATION / ANNULATION
-   REMONTER L'ENSEMBLE POUR VOIR LES BOUTONS DU BAS
+   VERSION PROPRE
    ========================================================== */
 
-/* Ville / Hôtel plus rapprochés */
-#modificationRequestZone .mod-card > label {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
+
+/* ----------------------------------------------------------
+   VILLE / HOTEL
+   ---------------------------------------------------------- */
+
+#modificationRequestZone .mod-card > label:first-of-type {
+  margin-top: 0 !important;
+  margin-bottom: 6px !important;
 }
 
-/* Arrivée / Départ plus proche du cadre Hôtel */
-#modificationRequestZone .travel-grid {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
+#modificationRequestZone .mod-card > label:nth-of-type(2) {
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
 }
 
-/* Petit-déjeuner juste sous Arrivée / Départ */
-#modificationRequestZone .mod-pdj {
-    margin-top: 8px !important;
-    margin-bottom: 10px !important;
-}
 
-/* Agents juste sous Petit-déjeuner */
-#modificationRequestZone .hotel-agent-picker-block {
-    margin-top: 6px !important;
-    margin-bottom: 12px !important;
-}
+/* ----------------------------------------------------------
+   HOTEL
+   ---------------------------------------------------------- */
 
-/* ACTION juste sous Agents */
-#modificationRequestZone .appearance-title {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
-}
-
-/* Annuler / Remplacer */
-#modificationRequestZone .mod-action-switch {
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-}
-
-/* Bouton créer le mail plus proche */
-#modificationRequestZone .mod-mail-btn {
-    margin-top: 10px !important;
-}
-
-/* ==========================================================
-   MODIFICATION / ANNULATION
-   VERSION PLUS COMPACTE
-   ========================================================== */
-
-/* Ville */
-#modificationRequestZone .mod-card > label:first-of-type{
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* Hôtel */
-#modificationRequestZone .mod-card > label:nth-of-type(2){
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* Arrivée / Départ */
-#modificationRequestZone .travel-grid{
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* Petit-déjeuner */
-#modificationRequestZone .mod-pdj{
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* Agents concernés */
-#modificationRequestZone .hotel-agent-picker-block{
-    margin-top: 0 !important;
-    margin-bottom: 4px !important;
-}
-
-/* Action juste derrière */
-#modificationRequestZone .appearance-title{
-    margin-top: 4px !important;
-    margin-bottom: 4px !important;
-}
-
-/* ==========================================================
-   MODIFICATION / ANNULATION
-   COMPACTER ENCORE POUR FAIRE REMONTER LE BOUTON MAIL
-   ========================================================== */
-
-/* Réduire la hauteur des cartes Arrivée / Départ */
-#modificationRequestZone .travel-card {
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-}
-
-/* Titre ARRIVÉE / DÉPART plus compact */
-#modificationRequestZone .travel-title {
-    margin-bottom: 4px !important;
-    padding-bottom: 4px !important;
-}
-
-/* Rapprocher Date et Heure */
-#modificationRequestZone .travel-card label {
-    margin-top: 4px !important;
-    margin-bottom: 4px !important;
-}
-
-/* Champs Date / Heure un peu moins hauts */
-#modificationRequestZone .travel-card input {
-    min-height: 42px !important;
-    height: 42px !important;
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-}
-
-/* Petit-déjeuner plus proche */
-#modificationRequestZone .mod-pdj {
-    margin-top: 2px !important;
-    margin-bottom: 4px !important;
-}
-
-/* Agents plus proche */
-#modificationRequestZone .hotel-agent-picker-block {
-    margin-top: 0 !important;
-    margin-bottom: 2px !important;
-}
-
-/* ACTION plus proche */
-#modificationRequestZone .appearance-title {
-    margin-top: 0 !important;
-    margin-bottom: 2px !important;
-}
-
-/* ==========================================================
-   MODIFICATION / ANNULATION
-   REMONTER UNIQUEMENT LES ACTIONS DU BAS
-   ========================================================== */
-
-/* Titre ACTION */
-#modificationRequestZone .appearance-title {
-    margin-top: -14px !important;
-    margin-bottom: 4px !important;
-}
-
-/* Boutons ANNULER / REMPLACER */
-#modificationRequestZone .mod-action-switch {
-    margin-top: 0 !important;
-    margin-bottom: 4px !important;
-    transform: translateY(-10px) !important;
-}
-
-/* Bouton CREER LE MAIL */
-#modificationRequestZone .mod-mail-btn {
-    margin-top: 0 !important;
-    transform: translateY(-18px) !important;
-}
-
-/* ==========================================================
-   MODIFICATION / ANNULATION
-   BOUTONS DU BAS PLUS PETITS
-   ========================================================== */
-
-/* ANNULER + REMPLACER */
-#modificationRequestZone .mod-action-switch button {
-    height: 40px !important;
-    min-height: 40px !important;
-    max-height: 40px !important;
-
-    padding: 0 12px !important;
-    font-size: 16px !important;
-    border-radius: 12px !important;
-}
-
-/* CREER LE MAIL - MODIFICATION */
-#modificationRequestZone .mod-mail-btn {
-    height: 40px !important;
-    min-height: 40px !important;
-    max-height: 40px !important;
-
-    padding: 0 12px !important;
-    font-size: 16px !important;
-    border-radius: 12px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-#modificationRequestZone .mod-sejour-title {
-    font-size: 13px !important;
-    font-weight: 800 !important;
-    color: #111827 !important;
-    margin-top: 4px !important;
-    margin-bottom: 0 !important;
-}
-
-#modificationRequestZone .mod-sejour-title + .travel-grid {
-    margin-top: 4px !important;
-}
-
-/* PETIT-DEJEUNER - MODIFICATION / ANNULATION */
-#modificationRequestZone .mod-pdj > span {
-    font-size: 14px !important;
-    font-weight: 800 !important;
-    line-height: normal !important;
-}
-
-/* HOTEL - MODIFICATION / ANNULATION */
 #modificationRequestZone #modHotel {
-    font-size: 14px !important;
-    font-weight: 700 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
 }
 
 /* "Choisir un hébergement..." en gris */
 #modificationRequestZone #modHotel:invalid {
-    color: #9aa3af !important;
-    -webkit-text-fill-color: #9aa3af !important;
+  color: #9aa3af !important;
+  -webkit-text-fill-color: #9aa3af !important;
 }
 
 /* Hôtel choisi = noir */
 #modificationRequestZone #modHotel:valid {
-    color: #111827 !important;
-    -webkit-text-fill-color: #111827 !important;
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
 }
 
 #modificationRequestZone #modHotel option {
-    color: #111827 !important;
-    -webkit-text-fill-color: #111827 !important;
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
 }
-/* ==========================================================
-   MODIFICATION / ANNULATION
-   CACHER SEJOUR + ARRIVEE + DEPART
-   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   SEJOUR / ARRIVEE / DEPART
+   Masqués dans Modification / Annulation
+   ---------------------------------------------------------- */
 
 #modificationRequestZone .mod-sejour-title {
-    display: none !important;
+  display: none !important;
 }
 
 #modificationRequestZone .mod-sejour-title + .travel-grid {
-    display: none !important;
+  display: none !important;
 }
-   
+
+
+/* ----------------------------------------------------------
+   PETIT-DEJEUNER
+   ---------------------------------------------------------- */
+
+#modificationRequestZone .mod-pdj {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+#modificationRequestZone .mod-pdj > span {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: normal !important;
+}
+
+
+/* ----------------------------------------------------------
+   AGENTS CONCERNES
+   ---------------------------------------------------------- */
+
+#modificationRequestZone .hotel-agent-picker-block {
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+}
+
+
+/* ----------------------------------------------------------
+   ANNULER / REMPLACER
+   Un peu plus bas pour aérer
+   ---------------------------------------------------------- */
+
+#modificationRequestZone .mod-action-switch {
+  margin-top: 14px !important;
+  margin-bottom: 10px !important;
+  transform: none !important;
+}
+
+#modificationRequestZone .mod-action-switch button {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+
+  padding: 0 12px !important;
+  font-size: 16px !important;
+  border-radius: 12px !important;
+}
+
+
+/* ----------------------------------------------------------
+   CREER LE MAIL
+   ---------------------------------------------------------- */
+
+#modificationRequestZone .mod-mail-btn {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+
+  margin-top: 10px !important;
+  padding: 0 12px !important;
+
+  font-size: 16px !important;
+  border-radius: 12px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  transform: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   LISTE DES AGENTS DU PROFIL
+   ---------------------------------------------------------- */
+
 #profilAgentsList[hidden] {
   display: none !important;
 }
@@ -5216,5 +5085,3 @@ header {
 #profilAgentsList:empty {
   display: none !important;
 }
-
-
