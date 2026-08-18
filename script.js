@@ -953,8 +953,53 @@ function refreshVilles(){
   // La liste est maintenant générée à la demande dans le menu personnalisé.
 }
 function refreshHotels(){
- const v=norm($("ville").value); const list=allHotels().filter(x=>norm(x.ville)===v).sort((a,b)=>a.hotel.localeCompare(b.hotel,"fr"));
- $("hotel").innerHTML='<option value="">Choisir un hébergement...</option>'+list.map(x=>`<option>${x.hotel}</option>`).join("");
+
+  const ville = $("ville").value.trim();
+  const hotel = $("hotel");
+  const results = $("hotelResults");
+
+  if(!hotel || !results){
+    return;
+  }
+
+  hotel.value = "";
+  results.innerHTML = "";
+  results.hidden = true;
+
+  if(!ville){
+    return;
+  }
+
+  const list =
+    allHotels()
+      .filter(x =>
+        norm(x.ville) === norm(ville)
+      )
+      .sort((a,b) =>
+        a.hotel.localeCompare(b.hotel,"fr")
+      );
+
+  results.innerHTML =
+    list.map(x => `
+      <button
+        type="button"
+        class="search-result"
+        data-hotel="${x.hotel.replace(/"/g,"&quot;")}"
+      >
+        ${x.hotel}
+      </button>
+    `).join("");
+
+  results
+    .querySelectorAll("[data-hotel]")
+    .forEach(btn => {
+
+      btn.onclick = () => {
+        hotel.value = btn.dataset.hotel;
+        results.hidden = true;
+      };
+
+    });
 }
 $("ville").addEventListener("input",()=>{
   showVilleResults();
