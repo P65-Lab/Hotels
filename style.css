@@ -4612,9 +4612,7 @@ div{
     line-height:28px !important;
   }
 
-  #normalRequestZone .pdj > span{
-    font-size:13px !important;
-  }
+
 }
 
 
@@ -4928,9 +4926,9 @@ header {
 
 /* TEXTE PETIT-DEJEUNER - NOUVELLE DEMANDE */
 #normalRequestZone .pdj > span {
-    font-size: 23px !important;
+    font-size: 14px !important;
     font-weight: 800 !important;
-    line-height: 1 !important;
+    line-height: normal !important;
 }
 
 /* ESPACE SOUS LE TITRE DEMANDE HOTEL */
@@ -5164,9 +5162,11 @@ header {
     margin-top: 4px !important;
 }
 
-/* Petit-déjeuner : juste en gras */
+/* PETIT-DEJEUNER - MODIFICATION / ANNULATION */
 #modificationRequestZone .mod-pdj > span {
+    font-size: 14px !important;
     font-weight: 800 !important;
+    line-height: normal !important;
 }
 
 /* HOTEL - MODIFICATION / ANNULATION */
@@ -5217,15 +5217,4 @@ header {
   display: none !important;
 }
 
-/* ==========================================================
-   CORRECTION FINALE - LIBELLES PETIT-DEJEUNER
-   MEME STYLE QUE VILLE / HOTEL / SEJOUR
-   ========================================================== */
 
-#normalRequestZone .pdj > span,
-#modificationRequestZone .mod-pdj > span {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 800 !important;
-  line-height: normal !important;
-}
