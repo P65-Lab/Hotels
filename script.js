@@ -2467,12 +2467,12 @@ function construireMailModificationHotel(){
   const depart=
     $("modDepart").value;
 
-  if(!ville || !hotel || !arrivee || !depart){
-    alert(
-      "Renseignez la ville, l’hôtel, l’arrivée et le départ à modifier."
-    );
-    return;
-  }
+if(!ville || !hotel){
+  alert(
+    "Renseignez la ville et l’hôtel à modifier."
+  );
+  return;
+}
 
   const nomAgent=
     profil.nom || "Agent";
