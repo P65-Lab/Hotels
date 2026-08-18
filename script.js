@@ -794,11 +794,15 @@ function remplirSelectHotelPourVille(villeId,hotelId){
      HOTEL MODIFICATION : LISTE PERSONNALISEE
      ========================================== */
 
-  if(hotelId === "modHotel"){
+ if(
+  hotelId === "modHotel" ||
+  hotelId === "newHotel"
+){
 
-    const results =
-      document.getElementById("modHotelResults");
-
+   const results =
+  document.getElementById(
+    hotelId + "Results"
+  );
     hotel.value = "";
 
     if(!results) return;
@@ -808,7 +812,7 @@ function remplirSelectHotelPourVille(villeId,hotelId){
         <button
           type="button"
           class="search-result"
-          data-mod-hotel="${x.hotel.replace(/"/g,"&quot;")}"
+          data-hotel="${x.hotel.replace(/"/g,"&quot;")}"
         >
           ${x.hotel}
         </button>
@@ -825,14 +829,14 @@ function remplirSelectHotelPourVille(villeId,hotelId){
       results.hidden = false;
     };
 
-    results
-      .querySelectorAll("[data-mod-hotel]")
+   results
+  .querySelectorAll("[data-hotel]")
       .forEach(btn => {
 
         btn.onclick = () => {
 
-          hotel.value =
-            btn.dataset.modHotel;
+        hotel.value =
+  btn.dataset.hotel;
 
           results.hidden = true;
         };
