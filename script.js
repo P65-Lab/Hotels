@@ -1874,13 +1874,29 @@ if($("modeModification")){
 }
 
 if($("modActionAnnuler")){
-  $("modActionAnnuler").onclick=()=>
-    afficherActionModificationHotel("annuler");
+  $("modActionAnnuler").onclick=()=>{
+    const details =
+      document.getElementById("modificationDetailsZone");
+
+    if(details){
+      details.hidden = true;
+    }
+
+    alert("Fenêtre d'annulation à ajouter à l'étape suivante.");
+  };
 }
 
 if($("modActionRemplacer")){
-  $("modActionRemplacer").onclick=()=>
+  $("modActionRemplacer").onclick=()=>{
+    const details =
+      document.getElementById("modificationDetailsZone");
+
+    if(details){
+      details.hidden = false;
+    }
+
     afficherActionModificationHotel("remplacer");
+  };
 }
 
 if($("newPdjOui")){
