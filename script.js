@@ -856,59 +856,135 @@ function remplirSelectHotelPourVille(villeId,hotelId){
 }
 
 function installerRechercheVilleHotel(villeId,resultsId,hotelId){
-  const input=document.getElementById(villeId);
-  const results=document.getElementById(resultsId);
 
-  if(!input||!results)return;
+  const input = document.getElementById(villeId);
+  const results = document.getElementById(resultsId);
+  const hotel = document.getElementById(hotelId);
+  const hotelResults = document.getElementById(hotelId + "Results");
+
+  if(!input || !results) return;
+
 
   function afficher(){
-    const q=norm(input.value);
-    let list=villes();
+
+    const q = norm(input.value);
+    let list = villes();
 
     if(q){
-      list=list.filter(v=>norm(v).includes(q));
+      list = list.filter(v =>
+        norm(v).includes(q)
+      );
     }
 
-    list=list.slice(0,10);
+    list = list.slice(0,10);
 
     if(!list.length){
-      results.innerHTML='<div class="search-empty">Aucune ville trouvée</div>';
-      results.hidden=false;
+      results.innerHTML =
+        '<div class="search-empty">Aucune ville trouvée</div>';
+      results.hidden = false;
       return;
     }
 
-    results.innerHTML=list.map(v=>`
+    results.innerHTML = list.map(v => `
       <button
         type="button"
         class="search-result"
         data-ville="${v.replace(/"/g,"&quot;")}"
-      >${v}</button>
+      >
+        ${v}
+      </button>
     `).join("");
 
-    results.hidden=false;
+    results.hidden = false;
 
-    results.querySelectorAll(".search-result").forEach(btn=>{
-      btn.addEventListener("mousedown",e=>{
-        e.preventDefault();
-        input.value=btn.dataset.ville;
-        results.hidden=true;
-        remplirSelectHotelPourVille(villeId,hotelId);
+    results
+      .querySelectorAll(".search-result")
+      .forEach(btn => {
+
+        btn.onclick = () => {
+
+          input.value = btn.dataset.ville;
+          results.hidden = true;
+
+          if(hotel && hotelResults){
+            hotel.value = "";
+            hotelResults.hidden = true;
+          }
+
+          remplirSelectHotelPourVille(
+            villeId,
+            hotelId
+          );
+        };
+
       });
-    });
   }
 
-  input.addEventListener("input",()=>{
+
+  input.addEventListener("input", () => {
+
     afficher();
-    remplirSelectHotelPourVille(villeId,hotelId);
+
+    if(hotel && hotelResults){
+      hotel.value = "";
+      hotelResults.hidden = true;
+    }
+
+    remplirSelectHotelPourVille(
+      villeId,
+      hotelId
+    );
   });
 
-  input.addEventListener("focus",afficher);
 
-  input.addEventListener("blur",()=>{
-    setTimeout(()=>{
-      results.hidden=true;
+  input.addEventListener(
+    "focus",
+    afficher
+  );
+
+
+  input.addEventListener("blur", () => {
+
+    setTimeout(() => {
+      results.hidden = true;
     },150);
+
   });
+
+
+  /* HOTEL */
+
+  if(hotel && hotelResults){
+
+    hotel.onclick = () => {
+
+      if(!input.value.trim()){
+        return;
+      }
+
+      remplirSelectHotelPourVille(
+        villeId,
+        hotelId
+      );
+
+      hotelResults.hidden = false;
+
+      hotelResults
+        .querySelectorAll(".search-result")
+        .forEach(btn => {
+
+          btn.onclick = () => {
+
+            hotel.value =
+              btn.dataset.hotel ||
+              btn.textContent.trim();
+
+            hotelResults.hidden = true;
+          };
+
+        });
+    };
+  }
 }
 
 const villeResults = $("villeResults");
