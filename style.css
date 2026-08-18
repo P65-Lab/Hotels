@@ -443,11 +443,13 @@
   cursor: pointer;
 }
 
-.create-mail-final small {
-  font-size: 11px;
-  font-weight: 700;
-  opacity: .95;
+.create-mail-final,
+.create-mail-bottom,
+.create-mail-btn {
+  background: var(--app-mail) !important;
+  color: #ffffff !important;
 }
+
 
 @media (max-width: 480px) {
   .stay-item {
