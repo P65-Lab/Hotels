@@ -461,38 +461,30 @@
       </label>
 
 
-      <!-- HOTEL -->
+<!-- HOTEL -->
 
-      <label>
-        Hôtel
+<label>
+  Hôtel
 
-        <select
-          id="modHotel"
-          required
-          style="
-            color:#9ca3af !important;
-            -webkit-text-fill-color:#9ca3af !important;
-          "
-          onchange="
-            this.style.setProperty(
-              'color',
-              this.value ? '#111827' : '#9ca3af',
-              'important'
-            );
+  <div class="search-wrap">
 
-            this.style.setProperty(
-              '-webkit-text-fill-color',
-              this.value ? '#111827' : '#9ca3af',
-              'important'
-            );
-          "
-        >
-          <option value="">
-            Choisir un hébergement...
-          </option>
-        </select>
+    <input
+      id="modHotel"
+      type="text"
+      autocomplete="off"
+      readonly
+      placeholder="Choisir un hébergement..."
+    >
 
-      </label>
+    <div
+      id="modHotelResults"
+      class="search-results"
+      hidden
+    ></div>
+
+  </div>
+
+</label>
 
 
       <!-- =================================================
