@@ -4287,11 +4287,9 @@ div{
     border-radius:12px !important;
   }
 
-  #hotel{
-    color:#8a94a3 !important;
-    -webkit-text-fill-color:#8a94a3 !important;
-    font-weight:700 !important;
-  }
+ #hotel{
+  font-weight:700 !important;
+}
 
   #hotel option{
     color:#111827 !important;
