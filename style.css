@@ -5030,8 +5030,8 @@ header {
    ---------------------------------------------------------- */
 
 #modificationRequestZone .mod-action-switch {
-  margin-top: 14px !important;
-  margin-bottom: 10px !important;
+  margin-top: 24px !important;
+  margin-bottom: 14px !important;
   transform: none !important;
 }
 
@@ -5055,7 +5055,7 @@ header {
   min-height: 40px !important;
   max-height: 40px !important;
 
-  margin-top: 10px !important;
+  margin-top: 14px !important;
   padding: 0 12px !important;
 
   font-size: 16px !important;
