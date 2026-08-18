@@ -790,12 +790,14 @@ function remplirSelectHotelPourVille(villeId,hotelId){
     hotelsPourVilleHotel(ville.value);
 
 
-  /* NOUVEL HOTEL : champ personnalisé */
+  /* ==========================================
+     HOTEL MODIFICATION : LISTE PERSONNALISEE
+     ========================================== */
 
-  if(hotelId === "newHotel"){
+  if(hotelId === "modHotel"){
 
     const results =
-      document.getElementById("newHotelResults");
+      document.getElementById("modHotelResults");
 
     hotel.value = "";
 
@@ -806,7 +808,7 @@ function remplirSelectHotelPourVille(villeId,hotelId){
         <button
           type="button"
           class="search-result"
-          data-new-hotel="${x.hotel.replace(/"/g,"&quot;")}"
+          data-mod-hotel="${x.hotel.replace(/"/g,"&quot;")}"
         >
           ${x.hotel}
         </button>
@@ -814,11 +816,36 @@ function remplirSelectHotelPourVille(villeId,hotelId){
 
     results.hidden = true;
 
+    hotel.onclick = () => {
+
+      if(!ville.value.trim()){
+        return;
+      }
+
+      results.hidden = false;
+    };
+
+    results
+      .querySelectorAll("[data-mod-hotel]")
+      .forEach(btn => {
+
+        btn.onclick = () => {
+
+          hotel.value =
+            btn.dataset.modHotel;
+
+          results.hidden = true;
+        };
+
+      });
+
     return;
   }
 
 
-  /* AUTRES HOTELS : SELECT NORMAL */
+  /* ==========================================
+     AUTRES HOTELS : SELECT NORMAL
+     ========================================== */
 
   hotel.innerHTML =
     '<option value="">Choisir un hébergement...</option>' +
