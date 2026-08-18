@@ -777,17 +777,55 @@ function hotelsPourVilleHotel(ville){
 }
 
 function remplirSelectHotelPourVille(villeId,hotelId){
-  const ville=document.getElementById(villeId);
-  const hotel=document.getElementById(hotelId);
-  if(!ville||!hotel)return;
 
-  const list=hotelsPourVilleHotel(ville.value);
+  const ville =
+    document.getElementById(villeId);
 
-  hotel.innerHTML=
-    '<option value="">Choisir un hébergement...</option>'+
-    list.map(x=>
+  const hotel =
+    document.getElementById(hotelId);
+
+  if(!ville || !hotel) return;
+
+  const list =
+    hotelsPourVilleHotel(ville.value);
+
+
+  /* NOUVEL HOTEL : champ personnalisé */
+
+  if(hotelId === "newHotel"){
+
+    const results =
+      document.getElementById("newHotelResults");
+
+    hotel.value = "";
+
+    if(!results) return;
+
+    results.innerHTML =
+      list.map(x => `
+        <button
+          type="button"
+          class="search-result"
+          data-new-hotel="${x.hotel.replace(/"/g,"&quot;")}"
+        >
+          ${x.hotel}
+        </button>
+      `).join("");
+
+    results.hidden = true;
+
+    return;
+  }
+
+
+  /* AUTRES HOTELS : SELECT NORMAL */
+
+  hotel.innerHTML =
+    '<option value="">Choisir un hébergement...</option>' +
+    list.map(x =>
       `<option value="${x.hotel.replace(/"/g,"&quot;")}">${x.hotel}</option>`
     ).join("");
+
 }
 
 function installerRechercheVilleHotel(villeId,resultsId,hotelId){
