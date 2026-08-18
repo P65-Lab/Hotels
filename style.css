@@ -4472,15 +4472,7 @@ div{
     font-weight:700 !important;
   }
 
-  body #hotel:invalid{
-    color:#9aa3af !important;
-    -webkit-text-fill-color:#9aa3af !important;
-  }
 
-  body #hotel:valid{
-    color:#111827 !important;
-    -webkit-text-fill-color:#111827 !important;
-  }
 
   body.theme-dark #hotel:invalid{
     color:#aab4c3 !important;
