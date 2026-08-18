@@ -672,13 +672,23 @@
     <label>
       Hôtel
 
-    <select id="newHotel">
+<div class="search-wrap">
 
-  <option value="" selected disabled>
-    Choisir un hébergement...
-  </option>
+  <input
+    id="newHotel"
+    type="text"
+    autocomplete="off"
+    readonly
+    placeholder="Choisir un hébergement..."
+  >
 
-</select>
+  <div
+    id="newHotelResults"
+    class="search-results"
+    hidden
+  ></div>
+
+</div>
     </label>
 
 
