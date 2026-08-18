@@ -1367,13 +1367,24 @@ $("reset").onclick=()=>{
 };
 function agentsPourMailHotel(){
 
-  if(selectedHotelAgents.length){
-    return [...selectedHotelAgents];
+  const agents = [];
+
+  if(profil.nom){
+    agents.push(profil.nom);
   }
 
-  return profil.nom
-    ? [profil.nom]
-    : [];
+  selectedHotelAgents.forEach(nom => {
+    if(
+      nom &&
+      !agents.some(
+        x => norm(x) === norm(nom)
+      )
+    ){
+      agents.push(nom);
+    }
+  });
+
+  return agents;
 }
 
 function texteAgentsPourMailHotel(){
@@ -2428,8 +2439,8 @@ function texteDateHotelISO(v){
 
 function construireMailModificationHotel(){
 
-  const agents=
-    agentsModificationSelectionnes();
+ const agents=
+  agentsPourMailHotel();
 
   if(!agents.length){
     alert(
