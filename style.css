@@ -5732,8 +5732,6 @@ header {
   text-align-last: center !important;
 }
 
-/* HOTEL SELECTIONNE EN NOIR */
-
 #newHotel:placeholder-shown{
   color:#9ca3af !important;
   -webkit-text-fill-color:#9ca3af !important;
