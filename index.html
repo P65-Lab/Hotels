@@ -544,17 +544,212 @@
 </div>
 
 <div id="modificationDetailsZone" hidden>
-      <!-- PETIT DEJEUNER -->
 
-      <div class="pdj mod-pdj">
+
+  <!-- =====================================================
+       CADRE 1 - AGENTS CONCERNES
+       ===================================================== -->
+
+  <div class="mod-section-card mod-agents-card">
+
+    <div class="hotel-agent-picker-head">
+
+      <strong>
+        Agents concernés
+      </strong>
+
+      <span
+        id="modAgentsCount"
+        class="hotel-agent-count"
+      >
+        0 sélectionné
+      </span>
+
+    </div>
+
+
+    <button
+      type="button"
+      id="chooseModAgents"
+      class="hotel-agent-picker-btn"
+    >
 
       <span>
-        Petit-déjeuner
+        Choisir les agents
       </span>
+
+      <span class="hotel-agent-chevron">
+        ›
+      </span>
+
+    </button>
+
+
+    <div class="mod-agent-info">
+
+      <span class="mod-agent-info-icon">
+        ⓘ
+      </span>
+
+      <span>
+        Si aucun agent n'est sélectionné,
+        la modification concerne uniquement votre profil.
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       CADRE 2 - NOUVEL HEBERGEMENT
+       ===================================================== -->
+
+  <div
+    id="replacementZone"
+    class="replacement-zone"
+  >
+
+    <div class="mod-section-card">
+
+
+      <div class="mod-section-title">
+        Nouvel hébergement
+      </div>
+
+
+      <!-- VILLE -->
+
+      <label>
+        Ville
+
+        <div class="search-wrap">
+
+          <input
+            id="newVille"
+            autocomplete="off"
+            placeholder="Rechercher une ville..."
+          >
+
+          <div
+            id="newVilleResults"
+            class="search-results"
+            hidden
+          ></div>
+
+        </div>
+
+      </label>
+
+
+      <!-- HOTEL -->
+
+      <label>
+        Hôtel
+
+        <select id="newHotel">
+
+          <option value="">
+            Choisir un hébergement...
+          </option>
+
+        </select>
+
+      </label>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         CADRE 3 - SEJOUR
+         =================================================== -->
+
+    <div class="mod-section-card mod-stay-card">
+
+
+      <div class="mod-section-title">
+        Séjour
+      </div>
+
+
+      <div class="travel-grid">
+
+
+        <!-- ARRIVEE -->
+
+        <div class="travel-card">
+
+          <div class="travel-title">
+            ARRIVÉE
+          </div>
+
+          <label>
+            Date
+
+            <input
+              id="newArrivee"
+              type="date"
+            >
+          </label>
+
+          <label>
+            Heure
+
+            <input
+              id="newHeureArrivee"
+              type="time"
+            >
+          </label>
+
+        </div>
+
+
+        <!-- DEPART -->
+
+        <div class="travel-card">
+
+          <div class="travel-title">
+            DÉPART
+          </div>
+
+          <label>
+            Date
+
+            <input
+              id="newDepart"
+              type="date"
+            >
+          </label>
+
+          <label>
+            Heure
+
+            <input
+              id="newHeureDepart"
+              type="time"
+            >
+          </label>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- PETIT DEJEUNER -->
+
+      <div class="pdj mod-new-pdj">
+
+        <span>
+          Petit-déjeuner
+        </span>
 
         <button
           type="button"
-          id="modBreakfastYes"
+          id="newPdjOui"
           class="choice active"
         >
           OUI
@@ -562,7 +757,7 @@
 
         <button
           type="button"
-          id="modBreakfastNo"
+          id="newPdjNon"
           class="choice"
         >
           NON
@@ -571,206 +766,24 @@
       </div>
 
 
-      <!-- AGENTS CONCERNES -->
+    </div>
 
-      <div class="hotel-agent-picker-block">
-
-        <div class="hotel-agent-picker-head">
-
-          <strong>
-            Agents concernés
-          </strong>
-
-          <span
-            id="modAgentsCount"
-            class="hotel-agent-count"
-          >
-            0 sélectionné
-          </span>
-
-        </div>
-
-
-        <button
-          type="button"
-          id="chooseModAgents"
-          class="hotel-agent-picker-btn"
-        >
-          <span>
-            Choisir les agents
-          </span>
-
-          <span class="hotel-agent-chevron">
-            ›
-          </span>
-        </button>
-
-      </div>
-
-      
-      
+  </div>
 
 
 
+  <!-- =====================================================
+       CREER LE MAIL
+       ===================================================== -->
 
-      <!-- =================================================
-           NOUVEL HEBERGEMENT
-           APPARAIT UNIQUEMENT SI REMPLACER EST SELECTIONNE
-           ================================================= -->
+  <button
+    type="button"
+    id="createModificationMail"
+    class="create-mail-final mod-mail-btn"
+  >
+    ✉ Créer le mail de modification
+  </button>
 
-      <div
-        id="replacementZone"
-        class="replacement-zone"
-        hidden
-      >
-
-
-        <div class="section-title">
-          Nouvel hébergement à réserver
-        </div>
-
-
-        <!-- NOUVELLE VILLE -->
-
-        <label>
-          Ville
-
-          <div class="search-wrap">
-
-            <input
-              id="newVille"
-              autocomplete="off"
-              placeholder="Rechercher une ville..."
-            >
-
-            <div
-              id="newVilleResults"
-              class="search-results"
-              hidden
-            ></div>
-
-          </div>
-
-        </label>
-
-
-        <!-- NOUVEL HOTEL -->
-
-        <label>
-          Hôtel
-
-          <select id="newHotel">
-
-            <option value="">
-              Choisir une ville...
-            </option>
-
-          </select>
-
-        </label>
-
-
-        <!--
-          ON GARDE POUR L'INSTANT LES DATES DU NOUVEL
-          HEBERGEMENT CAR TON JAVASCRIPT LES UTILISE ENCORE.
-        -->
-
-        <div class="travel-grid">
-
-          <div class="travel-card">
-
-            <div class="travel-title">
-              ARRIVÉE
-            </div>
-
-            <label>
-              Date
-
-              <input
-                id="newArrivee"
-                type="date"
-              >
-            </label>
-
-            <label>
-              Heure
-
-              <input
-                id="newHeureArrivee"
-                type="time"
-              >
-            </label>
-
-          </div>
-
-
-          <div class="travel-card">
-
-            <div class="travel-title">
-              DÉPART
-            </div>
-
-            <label>
-              Date
-
-              <input
-                id="newDepart"
-                type="date"
-              >
-            </label>
-
-            <label>
-              Heure
-
-              <input
-                id="newHeureDepart"
-                type="time"
-              >
-            </label>
-
-          </div>
-
-        </div>
-
-
-        <!-- PETIT DEJEUNER NOUVEL HEBERGEMENT -->
-
-        <div class="pdj">
-
-          <span>
-            Petit-déjeuner
-          </span>
-
-          <button
-            type="button"
-            id="newPdjOui"
-            class="choice active"
-          >
-            OUI
-          </button>
-
-          <button
-            type="button"
-            id="newPdjNon"
-            class="choice"
-          >
-            NON
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!-- CREER LE MAIL -->
-
-      <button
-        type="button"
-        id="createModificationMail"
-        class="create-mail-final mod-mail-btn"
-      >
-        ✉ Créer le mail de modification
-      </button>
 
 </div>
     </div>
