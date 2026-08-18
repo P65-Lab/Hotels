@@ -543,7 +543,30 @@
 
 </div>
 
-<div id="modificationDetailsZone" hidden>
+<div
+  id="modificationDetailsZone"
+  class="modification-popup-overlay"
+  hidden
+>
+
+  <div class="modification-popup-card">
+
+    <div class="modification-popup-header">
+
+      <div class="modification-popup-title">
+        MODIFICATION
+      </div>
+
+      <button
+        type="button"
+        id="closeModificationPopup"
+        class="modification-popup-close"
+        aria-label="Fermer"
+      >
+        ×
+      </button>
+
+    </div>
 
 
   <!-- =====================================================
@@ -776,19 +799,26 @@
        CREER LE MAIL
        ===================================================== -->
 
-  <button
-    type="button"
-    id="createModificationMail"
-    class="create-mail-final mod-mail-btn"
-  >
-    ✉ Créer le mail de modification
-  </button>
+<button
+  type="button"
+  id="createModificationMail"
+  class="create-mail-final mod-mail-btn"
+>
+  ✉ Créer le mail de modification
+</button>
 
 
-</div>
-    </div>
-
+  <!-- FIN CARTE POPUP -->
   </div>
+
+<!-- FIN POPUP -->
+</div>
+
+<!-- FIN mod-card -->
+</div>
+
+<!-- FIN modificationRequestZone -->
+</div>
 
 </form>
 
