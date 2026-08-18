@@ -5726,3 +5726,33 @@ header {
   margin-top: 6px !important;
   padding-top: 6px !important;
 }
+
+/* ==========================================================
+   FINITIONS POPUP MODIFICATION
+   ========================================================== */
+
+/* CENTRER DATE ET HEURE */
+
+#modificationDetailsZone #newArrivee,
+#modificationDetailsZone #newDepart,
+#modificationDetailsZone #newHeureArrivee,
+#modificationDetailsZone #newHeureDepart {
+  text-align: center !important;
+  text-align-last: center !important;
+}
+
+
+/* HOTEL VIDE EN GRIS */
+
+#modificationDetailsZone #newHotel {
+  color: #9ca3af !important;
+  -webkit-text-fill-color: #9ca3af !important;
+}
+
+
+/* HOTEL SELECTIONNE EN NOIR */
+
+#modificationDetailsZone #newHotel:valid {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+}
