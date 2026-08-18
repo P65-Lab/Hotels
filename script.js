@@ -1887,18 +1887,59 @@ if($("modActionAnnuler")){
 }
 
 if($("modActionRemplacer")){
-  $("modActionRemplacer").onclick=()=>{
-    const details =
-      document.getElementById("modificationDetailsZone");
 
-    if(details){
-      details.hidden = false;
+  $("modActionRemplacer").onclick=()=>{
+
+    const ville =
+      document.getElementById("modVille");
+
+    const hotel =
+      document.getElementById("modHotel");
+
+    if(
+      !ville ||
+      !hotel ||
+      !ville.value.trim() ||
+      !hotel.value.trim()
+    ){
+      alert(
+        "Choisissez d'abord la ville et l'hôtel à modifier."
+      );
+
+      return;
     }
 
     afficherActionModificationHotel("remplacer");
+
+    const popup =
+      document.getElementById(
+        "modificationDetailsZone"
+      );
+
+    if(popup){
+      popup.hidden = false;
+    }
+
   };
+
 }
 
+if($("closeModificationPopup")){
+
+  $("closeModificationPopup").onclick=()=>{
+
+    const popup =
+      document.getElementById(
+        "modificationDetailsZone"
+      );
+
+    if(popup){
+      popup.hidden = true;
+    }
+
+  };
+
+}
 if($("newPdjOui")){
   $("newPdjOui").onclick=()=>{
     newPdjHotel=true;
