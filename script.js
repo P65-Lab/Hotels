@@ -1001,6 +1001,23 @@ function refreshHotels(){
 
     });
 }
+$("hotel").onclick = () => {
+
+  const results = $("hotelResults");
+
+  if(!results){
+    return;
+  }
+
+  if(!$("ville").value.trim()){
+    return;
+  }
+
+  refreshHotels();
+
+  results.hidden = false;
+};
+
 $("ville").addEventListener("input",()=>{
   showVilleResults();
   refreshHotels();
