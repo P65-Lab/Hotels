@@ -1074,6 +1074,20 @@ function refreshHotels(){
 
       btn.onclick = () => {
         hotel.value = btn.dataset.hotel;
+
+hotel.style.setProperty(
+  "color",
+  "#111827",
+  "important"
+);
+
+hotel.style.setProperty(
+  "-webkit-text-fill-color",
+  "#111827",
+  "important"
+);
+
+results.hidden = true;
         results.hidden = true;
       };
 
