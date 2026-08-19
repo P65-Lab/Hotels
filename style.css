@@ -5747,25 +5747,30 @@ header {
    ========================================================== */
 
 .hotel-home-menu{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
   margin:28px 0 24px;
 }
 
 .hotel-home-btn{
   width:100%;
-  min-height:64px;
+  aspect-ratio:1 / 1;
+  min-height:0;
+  padding:8px 4px;
   border:none;
-  border-radius:16px;
+  border-radius:12px;
   background:var(--app-primary);
   color:#ffffff;
-  font-size:18px;
+  font-size:14px;
   font-weight:800;
+  line-height:1.25;
+  text-align:center;
   letter-spacing:.2px;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  box-shadow:0 5px 14px rgba(0,0,0,.12);
 }
 
 .hotel-home-btn:active{
   transform:scale(.985);
+}
 }
