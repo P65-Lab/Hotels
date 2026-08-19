@@ -3096,30 +3096,30 @@ function afficherAccueilHotel(){
 
 function ouvrirNouvelleDemandeHotel(){
 
-  const accueil =
-    document.getElementById("hotelHomeMenu");
+  const popup =
+    document.getElementById("newRequestPopup");
 
-  if(accueil){
-    accueil.hidden = true;
+  const normal =
+    document.getElementById("normalRequestZone");
+
+  if(normal){
+    normal.hidden = false;
   }
 
-  afficherModeDemandeHotel("nouvelle");
-}
-
-
-function ouvrirAnnulationHotel(){
-
-  const accueil =
-    document.getElementById("hotelHomeMenu");
-
-  if(accueil){
-    accueil.hidden = true;
+  if(popup){
+    popup.hidden = false;
   }
-
-  afficherModeDemandeHotel("modification");
-  afficherActionModificationHotel("annuler");
 }
 
+function fermerNouvelleDemandeHotel(){
+
+  const popup =
+    document.getElementById("newRequestPopup");
+
+  if(popup){
+    popup.hidden = true;
+  }
+}
 
 function ouvrirModificationHotel(){
 
@@ -3135,11 +3135,16 @@ function ouvrirModificationHotel(){
 }
 
 
+
 if($("homeNewRequest")){
   $("homeNewRequest").onclick =
     ouvrirNouvelleDemandeHotel;
 }
 
+if($("closeNewRequestPopup")){
+  $("closeNewRequestPopup").onclick =
+    fermerNouvelleDemandeHotel;
+}
 if($("homeCancelRequest")){
   $("homeCancelRequest").onclick =
     ouvrirAnnulationHotel;
