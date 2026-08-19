@@ -1469,9 +1469,9 @@ function buildEmailHtml(list){
         DEMANDE D’HÉBERGEMENT
       </h1>
 
-      <p style="margin:0 0 8px;">
-        <strong>Agent(s) :</strong> ${texteAgentsPourMailHotel()}
-      </p>
+   <p style="margin:0 0 8px;">
+  Agent : ${profil.nom || "Agent"}
+</p>
 
       <p style="margin:0 0 20px;">
         <strong>Demande faite le :</strong> ${aujourdhui}
@@ -1716,18 +1716,7 @@ function creerMailDirect(){
   lignes.push("");
 
   lignes.push(
-    `Agent : ${nomAgent}`
-  );
-
-  lignes.push(
-    "────────────────────────"
-  );
-
-  list.forEach((s, i) => {
-
-    const n =
-      stayNights(s);
-
+ Agent :
     lignes.push(
       `${s.ville} — ${s.hotel}`
     );
