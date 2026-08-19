@@ -1206,7 +1206,8 @@ function clearStayForm(){
   $("depart").min="";
   $("heureDepart").value="";
   $("ville").value="";
-  $("hotel").innerHTML='<option value="">Choisir un hébergement...</option>';
+  $("hotel").value = "";
+$("hotel").textContent = "Choisir un hébergement...";
 
   pdj=true;
   $("pdjOui").classList.add("active");
@@ -1383,7 +1384,8 @@ $("reset").onclick=()=>{
   // Efface uniquement le cadre de saisie du haut.
   // Les hébergements déjà ajoutés restent dans la demande.
   $("ville").value="";
-  $("hotel").innerHTML='<option value="">Choisir un hébergement...</option>';
+ $("hotel").value = "";
+$("hotel").textContent = "Choisir un hébergement...";
   $("arrivee").value="";
   $("heureArrivee").value="";
   $("depart").value="";
