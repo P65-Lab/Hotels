@@ -504,10 +504,3 @@ const BASE_HOTELS = [
     "ville": "VILLENEUVE ST GEORGES"
   }
 ];
-/* ==========================================================
-   ACCUEIL HOTEL - FOND BLANC
-   ========================================================== */
-
-body{
-  background:#ffffff !important;
-}
