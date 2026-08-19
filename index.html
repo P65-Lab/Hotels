@@ -968,58 +968,60 @@
     </button>
 
   </div>
+<!-- =====================================================
+     PROFIL & AGENTS
+     ===================================================== -->
 
+<div
+  id="profil"
+  class="panel"
+>
 
-  <!-- =====================================================
-       PROFIL
-       ===================================================== -->
+  <div class="profil-agents-panel">
 
-  <div
-    id="profil"
-    class="panel"
-  >
+    <!-- MON PROFIL -->
 
-    <div class="settings-section-title">
-      Agent
-    </div>
+    <div class="settings-subcard">
 
-    <label>
-      Nom de l'agent
-
-      <div class="search-wrap">
-
-        <input
-          id="profilNom"
-          autocomplete="off"
-          placeholder="Choisir un agent..."
-        >
-
-        <div
-          id="profilAgentsList"
-          class="search-results"
-          hidden
-        ></div>
-
+      <div class="settings-section-title">
+        Mon profil
       </div>
-      
-    </label>
 
-    <button
-      id="saveProfil"
-      class="primary"
-    >
-      Enregistrer
-    </button>
+      <label>
+        Nom de l'agent
 
+        <div class="search-wrap">
 
-    <div class="settings-section-separator"></div>
+          <input
+            id="profilNom"
+            autocomplete="off"
+            placeholder="Choisir un agent..."
+          >
+
+          <div
+            id="profilAgentsList"
+            class="search-results"
+            hidden
+          ></div>
+
+        </div>
+      </label>
+
+      <button
+        id="saveProfil"
+        class="primary"
+      >
+        Enregistrer
+      </button>
+
+    </div>
 
 
     <!-- RESERVATION -->
 
     <div
       id="dest"
-      class="settings-inline-section"
+      class="settings-subcard settings-inline-section"
     >
 
       <div class="settings-section-title">
@@ -1044,6 +1046,7 @@
           placeholder="reservation@..."
         >
       </label>
+
       <div class="actions3">
 
         <button
@@ -1071,92 +1074,83 @@
 
     </div>
 
-  </div>
 
+    <!-- AGENTS -->
 
-  <!-- =====================================================
-       AGENTS
-       ===================================================== -->
-
-  <div
-    id="agents"
-    class="panel"
-    hidden
-  >
-
-    <div class="appearance-title">
-      Agents de l’équipage
-    </div>
-
-    <p class="hint">
-      Les agents sont enregistrés uniquement sur ce téléphone.
-    </p>
-
-
-    <label>
-      Nom de l’agent
-
-      <input
-        id="agentNom"
-        autocomplete="off"
-        placeholder="Ajouter ou rechercher un agent..."
-      >
-
-    </label>
-
-
-    <div class="actions3 agents-import-actions">
-
-      <button
-        type="button"
-        id="addAgent"
-        class="primary"
-      >
-        Ajouter
-      </button>
-
-      <button
-        type="button"
-        id="importAgentsBtn"
-        class="secondary"
-      >
-        Importer
-      </button>
-
-      <button
-        type="button"
-        id="clearAgent"
-        class="secondary"
-      >
-        Effacer
-      </button>
-
-    </div>
-
-
-    <input
-      id="importAgentsFile"
-      type="file"
-      accept=".json,.txt,.csv,application/json,text/plain,text/csv"
-      hidden
+    <div
+      id="agents"
+      class="settings-subcard"
     >
 
+      <div class="settings-section-title">
+        Agents de l’équipage
+      </div>
 
-    <div
-      id="importAgentsStatus"
-      class="import-agents-status"
-      aria-live="polite"
-    ></div>
+      <p class="hint">
+        Les agents sont enregistrés uniquement sur ce téléphone.
+      </p>
 
+      <label>
+        Nom de l’agent
 
-    <div
-      id="agentsAdminList"
-      class="agents-admin-list"
-    ></div>
+        <input
+          id="agentNom"
+          autocomplete="off"
+          placeholder="Ajouter ou rechercher un agent..."
+        >
+      </label>
+
+      <div class="actions3 agents-import-actions">
+
+        <button
+          type="button"
+          id="addAgent"
+          class="primary"
+        >
+          Ajouter
+        </button>
+
+        <button
+          type="button"
+          id="importAgentsBtn"
+          class="secondary"
+        >
+          Importer
+        </button>
+
+        <button
+          type="button"
+          id="clearAgent"
+          class="secondary"
+        >
+          Effacer
+        </button>
+
+      </div>
+
+      <input
+        id="importAgentsFile"
+        type="file"
+        accept=".json,.txt,.csv,application/json,text/plain,text/csv"
+        hidden
+      >
+
+      <div
+        id="importAgentsStatus"
+        class="import-agents-status"
+        aria-live="polite"
+      ></div>
+
+      <div
+        id="agentsAdminList"
+        class="agents-admin-list"
+      ></div>
+
+    </div>
 
   </div>
 
-
+</div>
   <!-- =====================================================
        HOTELS
        ===================================================== -->
