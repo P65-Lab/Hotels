@@ -3837,17 +3837,12 @@ div{
     overflow-x:hidden !important;
   }
 
- .card{
+.card{
   width:100% !important;
   max-width:100% !important;
-  min-height:calc(100vh - 85px) !important;
   margin-left:0 !important;
   margin-right:0 !important;
-
-  display:flex !important;
-  flex-direction:column !important;
 }
-
   .hotel-settings-menu,
   .hotel-agents-picker-card{
     width:100% !important;
@@ -4429,7 +4424,7 @@ div{
 
   /* Réduit l'espace du bas */
   .app-version{
-   margin:auto 0 10px !important;
+   margin:18px 0 10px !important;
     padding:2px 0 !important;
     font-size:11px !important;
   }
