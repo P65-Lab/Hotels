@@ -1715,11 +1715,22 @@ function creerMailDirect(){
 
   lignes.push("");
 
+ lignes.push(
+  `Agent : ${nomAgent}`
+);
+
+lignes.push(
+  "────────────────────────"
+);
+
+list.forEach((s, i) => {
+
+  const n =
+    stayNights(s);
+
   lignes.push(
- Agent :
-    lignes.push(
-      `${s.ville} — ${s.hotel}`
-    );
+    `${s.ville} — ${s.hotel}`
+  );
 
     lignes.push(
       `${n} ${n > 1 ? "nuitées" : "nuitée"}`
