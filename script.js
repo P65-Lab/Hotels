@@ -1041,6 +1041,8 @@ function refreshHotels(){
   }
 
   hotel.value = "";
+  hotel.textContent = "Choisir un hébergement...";
+
   results.innerHTML = "";
   results.hidden = true;
 
@@ -1073,21 +1075,22 @@ function refreshHotels(){
     .forEach(btn => {
 
       btn.onclick = () => {
+
         hotel.value = btn.dataset.hotel;
+        hotel.textContent = btn.dataset.hotel;
 
-hotel.style.setProperty(
-  "color",
-  "#111827",
-  "important"
-);
+        hotel.style.setProperty(
+          "color",
+          "#111827",
+          "important"
+        );
 
-hotel.style.setProperty(
-  "-webkit-text-fill-color",
-  "#111827",
-  "important"
-);
+        hotel.style.setProperty(
+          "-webkit-text-fill-color",
+          "#111827",
+          "important"
+        );
 
-results.hidden = true;
         results.hidden = true;
       };
 
