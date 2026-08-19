@@ -3563,10 +3563,21 @@ const profilNomInput =
 
 if(profilNomInput){
 
-  profilNomInput.addEventListener(
-    "focus",
-    actualiserListeProfilAgents
-  );
+profilNomInput.addEventListener(
+  "focus",
+  ()=>{
+
+    const valeurActuelle =
+      profilNomInput.value;
+
+    profilNomInput.value = "";
+
+    actualiserListeProfilAgents();
+
+    profilNomInput.value =
+      valeurActuelle;
+  }
+);
 
   profilNomInput.addEventListener(
     "input",
