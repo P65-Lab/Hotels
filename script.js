@@ -3058,19 +3058,103 @@ hotelSettingsMenu.addEventListener(
     }
   }
 );
+/* ==========================================================
+   ACCUEIL HOTEL - 3 CHOIX
+   ========================================================== */
 
+function afficherAccueilHotel(){
+
+  const accueil =
+    document.getElementById("hotelHomeMenu");
+
+  const nouvelle =
+    document.getElementById("normalRequestZone");
+
+  const modification =
+    document.getElementById("modificationRequestZone");
+
+  const details =
+    document.getElementById("modificationDetailsZone");
+
+  if(accueil){
+    accueil.hidden = false;
+  }
+
+  if(nouvelle){
+    nouvelle.hidden = true;
+  }
+
+  if(modification){
+    modification.hidden = true;
+  }
+
+  if(details){
+    details.hidden = true;
+  }
+}
+
+
+function ouvrirNouvelleDemandeHotel(){
+
+  const accueil =
+    document.getElementById("hotelHomeMenu");
+
+  if(accueil){
+    accueil.hidden = true;
+  }
+
+  afficherModeDemandeHotel("nouvelle");
+}
+
+
+function ouvrirAnnulationHotel(){
+
+  const accueil =
+    document.getElementById("hotelHomeMenu");
+
+  if(accueil){
+    accueil.hidden = true;
+  }
+
+  afficherModeDemandeHotel("modification");
+  afficherActionModificationHotel("annuler");
+}
+
+
+function ouvrirModificationHotel(){
+
+  const accueil =
+    document.getElementById("hotelHomeMenu");
+
+  if(accueil){
+    accueil.hidden = true;
+  }
+
+  afficherModeDemandeHotel("modification");
+  afficherActionModificationHotel("remplacer");
+}
+
+
+if($("homeNewRequest")){
+  $("homeNewRequest").onclick =
+    ouvrirNouvelleDemandeHotel;
+}
+
+if($("homeCancelRequest")){
+  $("homeCancelRequest").onclick =
+    ouvrirAnnulationHotel;
+}
+
+if($("homeModifyRequest")){
+  $("homeModifyRequest").onclick =
+    ouvrirModificationHotel;
+}
 
 /* ==========================================================
    v80 - INITIALISATION APRES DECLARATION DES VARIABLES
    ========================================================== */
 
-afficherModeDemandeHotel(
-  "nouvelle"
-);
-
-afficherActionModificationHotel(
-  "annuler"
-);
+afficherAccueilHotel();
 
 
 /* ==========================================================
