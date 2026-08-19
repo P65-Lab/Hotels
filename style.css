@@ -5953,3 +5953,25 @@ body:has(#hotelHomeMenu:not([hidden])){
   transform:none !important;
   outline:none !important;
 }
+.profil-agents-panel{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.settings-subcard{
+  padding:18px;
+  border:1px solid #d9e0e8;
+  border-radius:18px;
+  background:#ffffff;
+}
+
+.settings-subcard .settings-section-title{
+  margin-bottom:14px;
+}
+
+.settings-subcard .primary,
+.settings-subcard .secondary,
+.settings-subcard .danger{
+  margin-top:10px;
+}
