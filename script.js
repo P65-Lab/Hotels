@@ -150,12 +150,12 @@ function chargerAgentsHotelAvecRecuperation(){
 
 let hotelAgents =
   chargerAgentsHotelAvecRecuperation();
-alert(
-  "Agents chargés : " +
-  hotelAgents.length +
-  "\n" +
-  hotelAgents.join("\n")
-);
+
+
+/* ==========================================================
+   v68 - AGENTS LOCAUX
+   ========================================================== */
+
 
 /* ==========================================================
    v68 - AGENTS LOCAUX
