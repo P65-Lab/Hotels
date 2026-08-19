@@ -3571,13 +3571,6 @@ if(profilNomInput){
 profilNomInput.addEventListener(
   "focus",
   ()=>{
-
-    alert(
-      "PROFIL : " +
-      hotelAgents.length +
-      " agents"
-    );
-
     actualiserListeProfilAgents(true);
   }
 );
