@@ -3479,7 +3479,7 @@ if(document.readyState === "loading"){
   installerPetitDejeunerModificationV120();
 }
 
-function actualiserListeProfilAgents(){
+function actualiserListeProfilAgents(afficherTout = false){
 
   const liste =
     document.getElementById("profilAgentsList");
@@ -3498,7 +3498,9 @@ function actualiserListeProfilAgents(){
   let agents =
     hotelAgents.slice();
 
-  if(recherche){
+  /* Quand on clique dans Profil :
+     on affiche TOUS les agents */
+  if(!afficherTout && recherche){
 
     agents =
       agents.filter(nom =>
@@ -3506,7 +3508,6 @@ function actualiserListeProfilAgents(){
           .toLocaleUpperCase("fr-FR")
           .includes(recherche)
       );
-
   }
 
   agents.sort(
@@ -3519,7 +3520,6 @@ function actualiserListeProfilAgents(){
       '<div class="search-empty">Aucun agent trouvé</div>';
 
     liste.hidden = false;
-
     return;
   }
 
@@ -3537,71 +3537,60 @@ function actualiserListeProfilAgents(){
   liste.hidden = false;
 
   liste
-    .querySelectorAll(".search-result")
+    .querySelectorAll("[data-agent]")
     .forEach(btn=>{
 
-      btn.addEventListener(
-        "mousedown",
-        event=>{
+      btn.onclick = ()=>{
 
-          event.preventDefault();
+        input.value =
+          btn.dataset.agent;
 
-          input.value =
-            btn.dataset.agent;
-
-          liste.hidden = true;
-
-        }
-      );
+        liste.hidden = true;
+      };
 
     });
 }
 
+
+/* ==========================================================
+   PROFIL - LISTE DES AGENTS
+   ========================================================== */
 
 const profilNomInput =
   document.getElementById("profilNom");
 
 if(profilNomInput){
 
-profilNomInput.addEventListener(
-  "focus",
-  ()=>{
+  /* Clic dans le champ = liste complète */
+  profilNomInput.addEventListener(
+    "focus",
+    ()=>{
+      actualiserListeProfilAgents(true);
+    }
+  );
 
-    const valeurActuelle =
-      profilNomInput.value;
-
-    profilNomInput.value = "";
-
-    actualiserListeProfilAgents();
-
-    profilNomInput.value =
-      valeurActuelle;
-  }
-);
-
+  /* Quand on tape = filtrage */
   profilNomInput.addEventListener(
     "input",
-    actualiserListeProfilAgents
+    ()=>{
+      actualiserListeProfilAgents(false);
+    }
   );
 
   profilNomInput.addEventListener(
     "blur",
     ()=>{
-
       setTimeout(
         ()=>{
-
           const liste =
             document.getElementById("profilAgentsList");
 
           if(liste){
             liste.hidden = true;
           }
-
         },
-        150
+        250
       );
-
     }
   );
 }
