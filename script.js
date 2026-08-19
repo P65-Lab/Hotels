@@ -2769,7 +2769,13 @@ body {
   >
     Ouvrir Outlook
   </button>
-
+<button
+  type="button"
+  id="closePreviewBtn"
+  aria-label="Fermer"
+>
+  ×
+</button>
   <p class="help">
     1. Copier la présentation
     &nbsp;→&nbsp;
