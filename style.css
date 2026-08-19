@@ -5741,3 +5741,31 @@ header {
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+
+/* ==========================================================
+   ACCUEIL HOTEL
+   ========================================================== */
+
+.hotel-home-menu{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  margin:28px 0 24px;
+}
+
+.hotel-home-btn{
+  width:100%;
+  min-height:64px;
+  border:none;
+  border-radius:16px;
+  background:var(--app-primary);
+  color:#ffffff;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:.2px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+
+.hotel-home-btn:active{
+  transform:scale(.985);
+}
