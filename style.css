@@ -5812,7 +5812,7 @@ body:has(#hotelHomeMenu:not([hidden])){
 }
 
 /* ==========================================================
-   POPUP NOUVELLE DEMANDE HOTEL
+   POPUP NOUVELLE DEMANDE HOTEL - PLEIN ECRAN
    ========================================================== */
 
 .hotel-request-popup[hidden]{
@@ -5822,102 +5822,45 @@ body:has(#hotelHomeMenu:not([hidden])){
 .hotel-request-popup{
   position:fixed !important;
   inset:0 !important;
-  z-index:5000 !important;
 
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
+  width:100vw !important;
+  height:100dvh !important;
 
-  padding:12px !important;
-
-  background:rgba(0,0,0,.45) !important;
-}
-
-.hotel-request-popup-card{
-  width:100% !important;
-  max-width:430px !important;
- max-height:none !important;
-
-overflow:visible !important;
-
-  padding:16px !important;
-
-  background:#ffffff !important;
-  border-radius:18px !important;
-  box-shadow:0 12px 35px rgba(0,0,0,.25) !important;
-}
-
-.hotel-request-popup-header{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-
-  margin-bottom:14px !important;
-}
-
-.hotel-request-popup-header h2{
   margin:0 !important;
-  font-size:20px !important;
-  font-weight:900 !important;
-  color:#111827 !important;
-}
-
-.hotel-request-popup-close{
-  width:40px !important;
-  height:40px !important;
-  min-width:40px !important;
-
   padding:0 !important;
-  border:0 !important;
-  border-radius:50% !important;
 
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-
-  background:#e5e7eb !important;
-  color:#111827 !important;
-
-  font-size:28px !important;
-  line-height:1 !important;
-  font-weight:700 !important;
-}
-
-/* ==========================================================
-   POPUP NOUVELLE DEMANDE HOTEL
-   ========================================================== */
-
-.hotel-request-popup[hidden]{
-  display:none !important;
-}
-
-.hotel-request-popup{
-  position:fixed !important;
-  inset:0 !important;
   z-index:5000 !important;
 
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
+  background:#ffffff !important;
 
-  padding:12px !important;
-  background:rgba(0,0,0,.45) !important;
+  overflow:hidden !important;
 }
- overflow-y:auto !important;
-}
+
 .hotel-request-popup-card{
   width:100% !important;
-  max-width:430px !important;
-  max-height:calc(100dvh - 24px) !important;
+  max-width:none !important;
 
-  overflow-y:auto !important;
-  -webkit-overflow-scrolling:touch;
+  height:100% !important;
+  max-height:none !important;
 
-  padding:16px !important;
+  margin:0 !important;
+
+  padding:
+    calc(14px + env(safe-area-inset-top))
+    16px
+    calc(14px + env(safe-area-inset-bottom))
+    16px !important;
+
+  border:0 !important;
+  border-radius:0 !important;
 
   background:#ffffff !important;
-  border-radius:18px !important;
-  box-shadow:0 12px 35px rgba(0,0,0,.25) !important;
+  box-shadow:none !important;
+
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+
+  -webkit-overflow-scrolling:touch !important;
 }
 
 .hotel-request-popup-header{
