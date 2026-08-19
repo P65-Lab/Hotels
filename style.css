@@ -568,7 +568,7 @@
   margin-bottom: 14px;
 }
 
-.stays-header h2 {
+.stays- h2 {
   margin: 3px 0 0 !important;
   font-size: 26px;
 }
@@ -705,7 +705,7 @@
     height: 40px;
   }
 
-  .stays-header h2 {
+  .stays- h2 {
     font-size: 24px;
   }
 
@@ -4867,6 +4867,13 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: 1;
+}
+
+.header-title h1 {
+    flex: 1;
+    text-align: center;
+    margin: 0 !important;
 }
 
 .header-logo {
