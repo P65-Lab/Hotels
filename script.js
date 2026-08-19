@@ -2680,9 +2680,10 @@ body {
   top: 0;
   z-index: 20;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) 44px;
   gap: 10px;
+  align-items: center;
 
   margin: -24px -24px 20px;
   padding: 14px 24px;
@@ -2713,8 +2714,26 @@ body {
   background: #2563eb;
   color: #ffffff;
 }
+#closePreviewBtn {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
 
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 50% !important;
+
+  background: #e5e7eb !important;
+  color: #111827 !important;
+
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
 .help {
+  grid-column: 1 / -1;
   width: 100%;
   margin: 0;
 
@@ -2792,7 +2811,14 @@ body {
 
 <script>
 (function(){
+const closePreviewBtn =
+  document.getElementById("closePreviewBtn");
 
+if(closePreviewBtn){
+  closePreviewBtn.onclick = function(){
+    window.close();
+  };
+}
   const sujet =
     ${JSON.stringify(sujet)};
 
