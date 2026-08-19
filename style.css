@@ -5754,7 +5754,7 @@ header {
    ACCUEIL HOTEL
    ========================================================== */
 
-.hotel-home-menu{
+{
   display:flex;
   flex-direction:column;
   align-items:center;
