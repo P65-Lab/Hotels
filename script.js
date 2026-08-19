@@ -1408,7 +1408,7 @@ function agentsPourMailHotel(){
 }
 function texteAgentsPourMailHotel(){
 
-  
+  const agents =
     agentsPourMailHotel();
 
   return agents.length
