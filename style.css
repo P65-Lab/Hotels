@@ -5836,10 +5836,9 @@ body:has(#hotelHomeMenu:not([hidden])){
 .hotel-request-popup-card{
   width:100% !important;
   max-width:430px !important;
-  max-height:calc(100dvh - 24px) !important;
+ max-height:none !important;
 
-  overflow-y:auto !important;
-  -webkit-overflow-scrolling:touch;
+overflow:visible !important;
 
   padding:16px !important;
 
@@ -5904,7 +5903,8 @@ body:has(#hotelHomeMenu:not([hidden])){
   padding:12px !important;
   background:rgba(0,0,0,.45) !important;
 }
-
+ overflow-y:auto !important;
+}
 .hotel-request-popup-card{
   width:100% !important;
   max-width:430px !important;
