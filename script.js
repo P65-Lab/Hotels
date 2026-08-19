@@ -1098,11 +1098,8 @@ function refreshHotels(){
 }
 function ouvrirListeHotelPrincipale(){
 
-  const hotel =
-    $("hotel");
-
-  const results =
-    $("hotelResults");
+  const hotel = $("hotel");
+  const results = $("hotelResults");
 
   if(!hotel || !results){
     return;
@@ -1118,29 +1115,14 @@ function ouvrirListeHotelPrincipale(){
 }
 
 
-/* iPHONE :
-   empêche le champ HOTEL de prendre le focus
-   donc évite le zoom Safari */
-$("hotel").addEventListener(
-  "pointerdown",
-  event => {
+/* OUVERTURE LISTE HOTEL */
+$("hotel").addEventListener("click", event => {
 
-    event.preventDefault();
-
-    ouvrirListeHotelPrincipale();
-
-  }
-);
-
-
-/* Sécurité ordinateur */
-$("hotel").onclick = () => {
-
-  $("hotel").blur();
+  event.preventDefault();
 
   ouvrirListeHotelPrincipale();
 
-};
+});
 $("ville").addEventListener("input",()=>{
   showVilleResults();
   refreshHotels();
