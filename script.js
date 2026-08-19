@@ -359,7 +359,7 @@ async function importerAgentsDepuisFichierHotel(fichier){
 
     renderHotelAgentsAdmin();
     renderModificationAgents();
-
+actualiserListeProfilAgents(true);
     if(statut){
 
       statut.className =
