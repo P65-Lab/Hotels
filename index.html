@@ -11,7 +11,8 @@
 <meta name="apple-mobile-web-Aapp-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
-
+<section
+  id="staysCard"
 <body>
 
 <div id="hotelAgentsPicker" class="hotel-agents-picker-overlay" hidden>
@@ -475,6 +476,65 @@
 
 
   </div>
+    <!-- =====================================================
+     HEBERGEMENTS AJOUTES
+     ===================================================== -->
+
+<section
+  id="staysCard"
+  class="card"
+  hidden
+>
+
+  <div class="stays-header">
+
+    <div>
+
+      <div class="kicker">
+        HÉBERGEMENTS AJOUTÉS
+      </div>
+
+      <h2>
+        Demande en cours
+      </h2>
+
+    </div>
+
+    <div
+      id="staysCount"
+      class="stays-count"
+    >
+      0 hébergement
+    </div>
+
+  </div>
+
+
+  <div id="staysList"></div>
+
+
+  <button
+    type="button"
+    id="createMailBtn"
+    class="create-mail-final"
+  >
+    ✉ Créer le mail
+
+    <small>
+      Demande complète avec tous les hébergements
+    </small>
+  </button>
+
+
+  <button
+    type="button"
+    id="previewHtmlMailBtn"
+    class="secondary html-preview-test"
+  >
+    TEST PRÉSENTATION OUTLOOK
+  </button>
+
+</section>
   </div>
 </div>
   <!-- =====================================================
@@ -855,65 +915,6 @@
 </section>
 
 
-<!-- =====================================================
-     HEBERGEMENTS AJOUTES
-     ===================================================== -->
-
-<section
-  id="staysCard"
-  class="card"
-  hidden
->
-
-  <div class="stays-header">
-
-    <div>
-
-      <div class="kicker">
-        HÉBERGEMENTS AJOUTÉS
-      </div>
-
-      <h2>
-        Demande en cours
-      </h2>
-
-    </div>
-
-    <div
-      id="staysCount"
-      class="stays-count"
-    >
-      0 hébergement
-    </div>
-
-  </div>
-
-
-  <div id="staysList"></div>
-
-
-  <button
-    type="button"
-    id="createMailBtn"
-    class="create-mail-final"
-  >
-    ✉ Créer le mail
-
-    <small>
-      Demande complète avec tous les hébergements
-    </small>
-  </button>
-
-
-  <button
-    type="button"
-    id="previewHtmlMailBtn"
-    class="secondary html-preview-test"
-  >
-    TEST PRÉSENTATION OUTLOOK
-  </button>
-
-</section>
 
   <!-- =====================================================
      PARAMETRES
