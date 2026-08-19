@@ -2974,10 +2974,7 @@ const hotelQuickProfil =
     "hotelQuickProfil"
   );
 
-const hotelQuickAgents =
-  document.getElementById(
-    "hotelQuickAgents"
-  );
+
 
 const hotelQuickHotels =
   document.getElementById(
