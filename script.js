@@ -1200,11 +1200,11 @@ function renderStays(){
 
   $("staysCard").hidden = stays.length === 0;
 
-  if($("staysCount")){
-    $("staysCount").textContent =
-      stays.length +
-      (stays.length > 1 ? " hébergements" : " hébergement");
-  }
+if($("staysCount")){
+  $("staysCount").textContent =
+    stays.length +
+    (stays.length > 1 ? " hôtels" : " hôtel");
+}
 
   if(!stays.length){
     $("staysList").innerHTML="";
