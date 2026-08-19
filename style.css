@@ -5758,8 +5758,11 @@ header {
   align-items:center;
   justify-content:center;
   gap:24px;
-  min-height:calc(100vh - 230px);
+
+  min-height:calc(100vh - 250px);
+
   margin:0;
+  padding:20px 0 10px;
 }
 
 .hotel-home-btn{
