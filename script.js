@@ -3568,12 +3568,19 @@ const profilNomInput =
 if(profilNomInput){
 
   /* Clic dans le champ = liste complète */
-  profilNomInput.addEventListener(
-    "focus",
-    ()=>{
-      actualiserListeProfilAgents(true);
-    }
-  );
+profilNomInput.addEventListener(
+  "focus",
+  ()=>{
+
+    alert(
+      "PROFIL : " +
+      hotelAgents.length +
+      " agents"
+    );
+
+    actualiserListeProfilAgents(true);
+  }
+);
 
   /* Quand on tape = filtrage */
   profilNomInput.addEventListener(
