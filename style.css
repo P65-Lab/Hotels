@@ -5758,13 +5758,14 @@ header {
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
+  padding-top:40px;
   gap:24px;
 
-  min-height:calc(100vh - 250px);
+  height:calc(100vh - 250px);
 
   margin:0;
   padding:20px 0 10px;
+  box-sizing:border-box;
 }
 
 .hotel-home-btn{
@@ -5785,4 +5786,14 @@ header {
 
 .hotel-home-btn:active{
   transform:scale(.985);
+}
+.hotel-home-version{
+  width:100%;
+  margin-top:auto;
+  padding-top:12px;
+  text-align:center;
+  color:#667085;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
 }
