@@ -5954,3 +5954,21 @@ overflow:visible !important;
   line-height:1 !important;
   font-weight:700 !important;
 }
+/* ==========================================================
+   IPHONE - EVITER LE ZOOM SUR HOTEL DANS LE POPUP
+   ========================================================== */
+
+#newRequestPopup #hotel,
+#newRequestPopup #ville{
+  font-size:16px !important;
+  -webkit-text-size-adjust:100% !important;
+}
+
+@supports (-webkit-touch-callout:none){
+
+  #newRequestPopup #hotel,
+  #newRequestPopup #ville{
+    font-size:16px !important;
+    transform:none !important;
+  }
+}
