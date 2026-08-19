@@ -3031,9 +3031,6 @@ function ouvrirAdministrationHotelSur(cible){
   const profil =
     document.getElementById("profil");
 
-  const agents =
-    document.getElementById("agents");
-
   const hotels =
     document.getElementById("hotels");
 
@@ -3042,11 +3039,6 @@ function ouvrirAdministrationHotelSur(cible){
 
   if(profil){
     profil.hidden =
-      cible !== "profilAgents";
-  }
-
-  if(agents){
-    agents.hidden =
       cible !== "profilAgents";
   }
 
@@ -3072,7 +3064,6 @@ function ouvrirAdministrationHotelSur(cible){
     block:"start"
   });
 }
-
 hotelQuickProfil.addEventListener(
   "click",
   () => {
@@ -3081,7 +3072,6 @@ hotelQuickProfil.addEventListener(
     );
   }
 );
-
 hotelQuickHotels.addEventListener(
   "click",
   () => {
