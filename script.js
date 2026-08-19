@@ -3485,7 +3485,8 @@ if(document.readyState === "loading"){
 }
 
 function actualiserListeProfilAgents(afficherTout = false){
-
+hotelAgents =
+  chargerAgentsHotelAvecRecuperation();
   const liste =
     document.getElementById("profilAgentsList");
 
