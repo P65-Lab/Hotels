@@ -3015,8 +3015,7 @@ function ouvrirAdministrationHotelSur(cible){
   manage.hidden = false;
 
   const titres = {
-    profil:"Profil / Réservation",
-    agents:"Agents",
+    profilAgents:"Profil & Agents",
     hotels:"Hôtels",
     appearance:"Apparence"
   };
@@ -3029,20 +3028,40 @@ function ouvrirAdministrationHotelSur(cible){
       titres[cible] || "Paramètres";
   }
 
-  ["profil","agents","hotels","appearance"]
-    .forEach(id=>{
+  const profil =
+    document.getElementById("profil");
 
-      const panel =
-        document.getElementById(id);
+  const agents =
+    document.getElementById("agents");
 
-      if(panel){
-        panel.hidden =
-          id !== cible;
-      }
-    });
+  const hotels =
+    document.getElementById("hotels");
+
+  const appearance =
+    document.getElementById("appearance");
+
+  if(profil){
+    profil.hidden =
+      cible !== "profilAgents";
+  }
+
+  if(agents){
+    agents.hidden =
+      cible !== "profilAgents";
+  }
+
+  if(hotels){
+    hotels.hidden =
+      cible !== "hotels";
+  }
+
+  if(appearance){
+    appearance.hidden =
+      cible !== "appearance";
+  }
 
   if(
-    cible === "agents" &&
+    cible === "profilAgents" &&
     typeof renderHotelAgentsAdmin === "function"
   ){
     renderHotelAgentsAdmin();
@@ -3058,16 +3077,7 @@ hotelQuickProfil.addEventListener(
   "click",
   () => {
     ouvrirAdministrationHotelSur(
-      "profil"
-    );
-  }
-);
-
-hotelQuickAgents.addEventListener(
-  "click",
-  () => {
-    ouvrirAdministrationHotelSur(
-      "agents"
+      "profilAgents"
     );
   }
 );
