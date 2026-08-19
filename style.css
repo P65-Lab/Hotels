@@ -5797,3 +5797,15 @@ header {
   font-weight:900;
   letter-spacing:.08em;
 }
+
+/* ==========================================================
+   ACCUEIL HOTEL - FOND BLANC PLEIN ECRAN
+   ========================================================== */
+
+#hotelHomeMenu{
+  background:#ffffff !important;
+}
+
+body:has(#hotelHomeMenu:not([hidden])){
+  background:#ffffff !important;
+}
