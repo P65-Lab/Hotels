@@ -5972,3 +5972,40 @@ overflow:visible !important;
     transform:none !important;
   }
 }
+/* ==========================================================
+   BOUTON SELECTION HOTEL
+   Remplace l'ancien input readonly
+   ========================================================== */
+
+#hotel.hotel-select-button{
+  width:100% !important;
+  min-width:0 !important;
+  height:48px !important;
+
+  padding:10px 12px !important;
+
+  border:1px solid #d0d5dd !important;
+  border-radius:10px !important;
+
+  background:#ffffff !important;
+  color:#667085 !important;
+  -webkit-text-fill-color:#667085 !important;
+
+  font-size:16px !important;
+  font-weight:400 !important;
+
+  text-align:left !important;
+
+  display:block !important;
+
+  appearance:none !important;
+  -webkit-appearance:none !important;
+}
+
+#hotel.hotel-select-button:focus{
+  outline:none !important;
+}
+
+#hotel.hotel-select-button:active{
+  transform:none !important;
+}
