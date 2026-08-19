@@ -5883,3 +5883,74 @@ body:has(#hotelHomeMenu:not([hidden])){
   line-height:1 !important;
   font-weight:700 !important;
 }
+
+/* ==========================================================
+   POPUP NOUVELLE DEMANDE HOTEL
+   ========================================================== */
+
+.hotel-request-popup[hidden]{
+  display:none !important;
+}
+
+.hotel-request-popup{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:5000 !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  padding:12px !important;
+  background:rgba(0,0,0,.45) !important;
+}
+
+.hotel-request-popup-card{
+  width:100% !important;
+  max-width:430px !important;
+  max-height:calc(100dvh - 24px) !important;
+
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch;
+
+  padding:16px !important;
+
+  background:#ffffff !important;
+  border-radius:18px !important;
+  box-shadow:0 12px 35px rgba(0,0,0,.25) !important;
+}
+
+.hotel-request-popup-header{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  margin-bottom:14px !important;
+}
+
+.hotel-request-popup-header h2{
+  margin:0 !important;
+  font-size:20px !important;
+  font-weight:900 !important;
+  color:#111827 !important;
+}
+
+.hotel-request-popup-close{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+
+  padding:0 !important;
+  border:0 !important;
+  border-radius:50% !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  background:#e5e7eb !important;
+  color:#111827 !important;
+
+  font-size:28px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+}
