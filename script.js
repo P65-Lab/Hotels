@@ -150,7 +150,7 @@ function chargerAgentsHotelAvecRecuperation(){
 
 let hotelAgents =
   chargerAgentsHotelAvecRecuperation();
-
+console.log("HOTEL AGENTS =", hotelAgents);
 
 /* ==========================================================
    v68 - AGENTS LOCAUX
