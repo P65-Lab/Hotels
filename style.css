@@ -1870,7 +1870,7 @@ body.theme-dark #addStay.add-hotel-final {
   grid-template-columns:24px 110px !important;
   column-gap:10px !important;
   align-items:center !important;
-  justify-content:center !important;
+  justify-content:flex-start !important;
   text-align:left !important;
 }
 
@@ -5758,13 +5758,13 @@ header {
   display:flex !important;
   flex-direction:column !important;
   align-items:center !important;
-  justify-content:center !important;
+  justify-content:flex-start !important;
   gap:24px !important;
 
   height:calc(100dvh - 190px);
 
   margin:0;
-  padding:20px 0 10px;
+  padding:100px 0 10px !important;
   box-sizing:border-box;
 }
 
