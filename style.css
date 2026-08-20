@@ -5970,36 +5970,90 @@ body:has(#hotelHomeMenu:not([hidden])){
   margin-bottom:14px;
 }
 /* ==========================================================
-   PROFIL & AGENTS - VERSION PLUS COMPACTE EN HAUTEUR
+   PROFIL & AGENTS - UN SEUL CADRE
    ========================================================== */
 
-.manage-popup-card{
-  max-height:92vh !important;
-  overflow-y:auto !important;
-  padding:14px !important;
+/* Conteneur général des 3 parties */
+#profil .profil-agents-panel{
+  display:block !important;
+
+  background:#ffffff !important;
+  border:1px solid #d1d5db !important;
+  border-radius:22px !important;
+
+  padding:18px !important;
+  margin:0 !important;
 }
 
-.profil-agents-panel{
-  gap:10px !important;
+
+/* SUPPRIME VISUELLEMENT LES 3 SOUS-CARTES */
+#profil .settings-subcard{
+  background:transparent !important;
+
+  border:none !important;
+  border-radius:0 !important;
+
+  box-shadow:none !important;
+
+  padding:0 !important;
+  margin:0 !important;
 }
 
-.settings-subcard{
-  padding:14px !important;
-  border-radius:16px !important;
+
+/* ==========================================================
+   MON PROFIL
+   ========================================================== */
+
+#profil .settings-subcard:first-child{
+  padding-bottom:16px !important;
 }
 
-.settings-subcard label{
-  margin:8px 0 !important;
+
+/* ==========================================================
+   RESERVATION
+   ========================================================== */
+
+#dest{
+  padding-top:16px !important;
+  padding-bottom:16px !important;
+
+  border-top:1px solid #e5e7eb !important;
 }
 
-.settings-subcard input{
-  min-height:48px !important;
-  padding:10px 12px !important;
+
+/* ==========================================================
+   AGENTS DE L'EQUIPAGE
+   ========================================================== */
+
+#agents{
+  padding-top:16px !important;
+
+  border-top:1px solid #e5e7eb !important;
 }
 
-.settings-section-title{
+
+/* TITRES */
+#profil .settings-section-title{
+  margin:0 0 12px !important;
+}
+
+
+/* LABELS */
+#profil label{
+  margin-top:10px !important;
   margin-bottom:8px !important;
 }
+
+
+/* CHAMPS */
+#profil input{
+  min-height:48px !important;
+}
+
+
+/* ==========================================================
+   BOUTONS
+   ========================================================== */
 
 #saveProfil{
   min-height:48px !important;
@@ -6007,24 +6061,32 @@ body:has(#hotelHomeMenu:not([hidden])){
 }
 
 #dest .actions3{
-  margin-top:8px !important;
-}
-
-#agents .actions3{
-  margin-top:8px !important;
-}
-
-#toggleAgentsList{
   margin-top:10px !important;
-  min-height:46px !important;
+  gap:8px !important;
 }
 
-#agents .hint{
-  margin:4px 0 8px !important;
+#agents .agents-import-actions{
+  margin-top:10px !important;
+  gap:8px !important;
 }
-   
-.settings-subcard .primary,
-.settings-subcard .secondary,
-.settings-subcard .danger{
-  margin-top:10px;
+
+
+/* Voir les agents */
+#toggleAgentsList{
+  width:100% !important;
+  min-height:48px !important;
+
+  margin-top:12px !important;
+}
+
+
+/* Texte explicatif agents */
+#agents .hint{
+  margin:0 0 10px !important;
+}
+
+
+/* Liste cachée = aucun espace */
+#agentsAdminList[hidden]{
+  display:none !important;
 }
