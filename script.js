@@ -3610,3 +3610,36 @@ profilNomInput.addEventListener(
     }
   );
 }
+
+/* ==========================================================
+   PROFIL & AGENTS - AFFICHER / MASQUER LA LISTE
+   ========================================================== */
+
+const toggleAgentsList =
+  document.getElementById("toggleAgentsList");
+
+const agentsAdminListToggle =
+  document.getElementById("agentsAdminList");
+
+if(
+  toggleAgentsList &&
+  agentsAdminListToggle
+){
+
+  toggleAgentsList.addEventListener(
+    "click",
+    () => {
+
+      const estCache =
+        agentsAdminListToggle.hidden;
+
+      agentsAdminListToggle.hidden =
+        !estCache;
+
+      toggleAgentsList.textContent =
+        estCache
+          ? "Masquer les agents"
+          : "👥 Voir les agents";
+    }
+  );
+}
