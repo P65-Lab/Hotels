@@ -1,4 +1,4 @@
-const APP_VERSION = "v121-test2";
+const APP_VERSION = "v121-test3";
 alert("SCRIPT : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
 
@@ -3262,8 +3262,9 @@ if($("closeNewRequestPopup")){
     fermerNouvelleDemandeHotel;
 }
 if($("homeCancelRequest")){
-  $("homeCancelRequest").onclick =
-    ouvrirAnnulationHotel;
+  $("homeCancelRequest").onclick = () => {
+    alert("Annulation à venir");
+  };
 }
 
 if($("homeModifyRequest")){
