@@ -2,6 +2,27 @@ const APP_VERSION = "v121";
 const APP_VERSION_DATE = "19/08/2026 21:50";
 
 const $=id=>document.getElementById(id);
+/* ==========================================================
+   SECURITE BOUTON PARAMETRES
+   ========================================================== */
+
+const manageBtnSafe =
+  document.getElementById("manageBtn");
+
+const hotelSettingsMenuSafe =
+  document.getElementById("hotelSettingsMenu");
+
+if(
+  manageBtnSafe &&
+  hotelSettingsMenuSafe
+){
+  manageBtnSafe.addEventListener(
+    "click",
+    () => {
+      hotelSettingsMenuSafe.hidden = false;
+    }
+  );
+}
 
 function afficherVersionChargeeHotel() {
 
