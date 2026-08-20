@@ -185,12 +185,6 @@ function chargerAgentsHotelAvecRecuperation(){
 let hotelAgents =
   chargerAgentsHotelAvecRecuperation();
 
-
-/* ==========================================================
-   v68 - AGENTS LOCAUX
-   ========================================================== */
-
-
 /* ==========================================================
    v68 - AGENTS LOCAUX
    ========================================================== */
@@ -200,7 +194,6 @@ function normaliserAgentHotel(nom){
     .trim()
     .replace(/\s+/g," ");
 }
-
 
 function nettoyerNomAgentImporteHotel(valeur){
 
@@ -3292,10 +3285,12 @@ function initialiserRechercheAgentHotel(){
     return;
   }
 
-  input.addEventListener(
-    "input",
-    renderHotelAgentsAdmin
-  );
+ input.addEventListener(
+  "input",
+  () => {
+    renderHotelAgentsAdmin(false);
+  }
+);
 }
 
 if(document.readyState === "loading"){
