@@ -3127,65 +3127,50 @@ function ouvrirAdministrationHotelSur(cible){
    BOUTONS POPUP PARAMETRES
    ========================================================== */
 
-if(hotelQuickProfil){
-
-  hotelQuickProfil.onclick = () => {
-
+hotelQuickProfil.addEventListener(
+  "click",
+  () => {
     ouvrirAdministrationHotelSur(
       "profilAgents"
     );
-  };
-}
+  }
+);
 
-
-if(hotelQuickHotels){
-
-  hotelQuickHotels.onclick = () => {
-
+hotelQuickHotels.addEventListener(
+  "click",
+  () => {
     ouvrirAdministrationHotelSur(
       "hotels"
     );
-  };
-}
+  }
+);
 
-
-if(hotelQuickAppearance){
-
-  hotelQuickAppearance.onclick = () => {
-
+hotelQuickAppearance.addEventListener(
+  "click",
+  () => {
     ouvrirAdministrationHotelSur(
       "appearance"
     );
-  };
-}
+  }
+);
 
+hotelQuickCancel.addEventListener(
+  "click",
+  fermerMenuParametresHotel
+);
 
-if(hotelQuickCancel){
+hotelSettingsMenu.addEventListener(
+  "click",
+  event => {
 
-  hotelQuickCancel.onclick = () => {
-
-    fermerMenuParametresHotel();
-  };
-}
-
-
-/* CLIC EN DEHORS DE LA CARTE = FERMETURE */
-
-if(hotelSettingsMenu){
-
-  hotelSettingsMenu.addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target ===
-        hotelSettingsMenu
-      ){
-        fermerMenuParametresHotel();
-      }
+    if(
+      event.target ===
+      hotelSettingsMenu
+    ){
+      fermerMenuParametresHotel();
     }
-  );
-}
+  }
+);
 /* ==========================================================
    ACCUEIL HOTEL - 3 CHOIX
    ========================================================== */
