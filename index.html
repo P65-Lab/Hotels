@@ -980,85 +980,97 @@
 
   <div class="profil-agents-panel">
 
-    <!-- MON PROFIL -->
+
+    <!-- =================================================
+         MON PROFIL
+         ================================================= -->
 
     <div class="settings-subcard">
 
-      <div class="settings-section-title">
-        Mon profil
+      <div class="settings-title-row">
+
+        <div class="settings-section-title">
+          Mon profil
+        </div>
+
+        <button
+          type="button"
+          id="deleteProfil"
+          class="settings-trash"
+          aria-label="Effacer mon profil"
+          title="Effacer mon profil"
+        >
+          🗑️
+        </button>
+
       </div>
 
-    <div class="search-wrap">
 
-  <input
-    id="profilNom"
-    autocomplete="off"
-    placeholder="Choisir un agent..."
-  >
+      <div class="search-wrap">
 
-  <div
-    id="profilAgentsList"
-    class="search-results"
-    hidden
-  ></div>
+        <input
+          id="profilNom"
+          autocomplete="off"
+          placeholder="Choisir un agent..."
+        >
 
-</div>
+        <div
+          id="profilAgentsList"
+          class="search-results"
+          hidden
+        ></div>
 
-      <button
-        id="saveProfil"
-        class="primary"
-      >
-        Enregistrer
-      </button>
+      </div>
 
     </div>
 
 
-    <!-- RESERVATION -->
+    <!-- =================================================
+         RESERVATION
+         ================================================= -->
 
     <div
       id="dest"
       class="settings-subcard settings-inline-section"
     >
 
-      <div class="settings-section-title">
-        Réservation
-      </div>
+      <div class="settings-title-row">
 
-<input
-  id="destNom"
-  placeholder="Service logement"
->
-
-    <input
-  id="destMail"
-  type="email"
-  placeholder="Adresse e-mail"
->
-      <div class="actions3">
+        <div class="settings-section-title">
+          Réservation
+        </div>
 
         <button
-          id="saveDest"
-          class="primary"
-        >
-          Enregistrer le service
-        </button>
-
-      
-
-        <button
+          type="button"
           id="deleteDest"
-          class="danger"
+          class="settings-trash"
+          aria-label="Supprimer la réservation"
+          title="Supprimer la réservation"
         >
-          Supprimer le service
+          🗑️
         </button>
 
       </div>
+
+
+      <input
+        id="destNom"
+        placeholder="Service logement"
+      >
+
+
+      <input
+        id="destMail"
+        type="email"
+        placeholder="Adresse e-mail"
+      >
 
     </div>
 
 
-    <!-- AGENTS -->
+    <!-- =================================================
+         AGENTS DE L'EQUIPAGE
+         ================================================= -->
 
     <div
       id="agents"
@@ -1069,25 +1081,24 @@
         Agents de l’équipage
       </div>
 
-      <p class="hint">
-        Les agents sont enregistrés uniquement sur ce téléphone.
-      </p>
 
- <input
-  id="agentNom"
-  autocomplete="off"
-  placeholder="Ajouter ou rechercher un agent..."
->
+      <input
+        id="agentNom"
+        autocomplete="off"
+        placeholder="Ajouter ou rechercher un agent..."
+      >
 
-      <div class="actions3 agents-import-actions">
+
+      <div class="agents-compact-actions">
 
         <button
           type="button"
           id="addAgent"
           class="primary"
         >
-          Ajouter
+          + Ajouter
         </button>
+
 
         <button
           type="button"
@@ -1097,9 +1108,17 @@
           Importer
         </button>
 
-       
+
+        <button
+          type="button"
+          id="toggleAgentsList"
+          class="secondary"
+        >
+          👥 Voir les agents
+        </button>
 
       </div>
+
 
       <input
         id="importAgentsFile"
@@ -1108,26 +1127,34 @@
         hidden
       >
 
+
       <div
         id="importAgentsStatus"
         class="import-agents-status"
         aria-live="polite"
       ></div>
 
-      <button
-  type="button"
-  id="toggleAgentsList"
-  class="secondary"
->
-  👥 Voir les agents
-</button>
 
-<div
-  id="agentsAdminList"
-  class="agents-admin-list"
-  hidden
-></div>
+      <div
+        id="agentsAdminList"
+        class="agents-admin-list"
+        hidden
+      ></div>
+
     </div>
+
+
+    <!-- =================================================
+         ENREGISTREMENT GENERAL
+         ================================================= -->
+
+    <button
+      type="button"
+      id="saveProfil"
+      class="primary settings-save-all"
+    >
+      Enregistrer
+    </button>
 
 
   </div>
