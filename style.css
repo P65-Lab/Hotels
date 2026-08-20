@@ -6252,3 +6252,29 @@ body:has(#hotelHomeMenu:not([hidden])){
   -webkit-overflow-scrolling:touch;
   padding-right:4px;
 }
+/* ==========================================================
+   LISTE HOTELS - VERSION COMPACTE
+   ========================================================== */
+
+#adminHotelsFound:not([hidden]){
+  max-height:320px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+}
+
+#adminHotelsList{
+  display:grid;
+  gap:5px;
+}
+
+#adminHotelsList .admin-hotel-row{
+  min-height:0 !important;
+  padding:7px 12px !important;
+  border-radius:10px !important;
+}
+
+#adminHotelsList .admin-hotel-row-name{
+  font-size:14px !important;
+  line-height:1.15 !important;
+}
