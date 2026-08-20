@@ -5969,7 +5969,60 @@ body:has(#hotelHomeMenu:not([hidden])){
 .settings-subcard .settings-section-title{
   margin-bottom:14px;
 }
+/* ==========================================================
+   PROFIL & AGENTS - VERSION PLUS COMPACTE EN HAUTEUR
+   ========================================================== */
 
+.manage-popup-card{
+  max-height:92vh !important;
+  overflow-y:auto !important;
+  padding:14px !important;
+}
+
+.profil-agents-panel{
+  gap:10px !important;
+}
+
+.settings-subcard{
+  padding:14px !important;
+  border-radius:16px !important;
+}
+
+.settings-subcard label{
+  margin:8px 0 !important;
+}
+
+.settings-subcard input{
+  min-height:48px !important;
+  padding:10px 12px !important;
+}
+
+.settings-section-title{
+  margin-bottom:8px !important;
+}
+
+#saveProfil{
+  min-height:48px !important;
+  margin-top:8px !important;
+}
+
+#dest .actions3{
+  margin-top:8px !important;
+}
+
+#agents .actions3{
+  margin-top:8px !important;
+}
+
+#toggleAgentsList{
+  margin-top:10px !important;
+  min-height:46px !important;
+}
+
+#agents .hint{
+  margin:4px 0 8px !important;
+}
+   
 .settings-subcard .primary,
 .settings-subcard .secondary,
 .settings-subcard .danger{
