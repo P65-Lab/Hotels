@@ -1981,8 +1981,7 @@ $("saveProfil").onclick=()=>{
   );
 };
 
-  alert("Profil enregistré.");
-};
+
 $("cancelHotel").onclick=()=>{
 
   $("adminVille").value = "";
