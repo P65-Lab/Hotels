@@ -429,7 +429,7 @@ if(listeProfil){
   }
 }
 
-function renderHotelAgentsAdmin(){
+function renderHotelAgentsAdmin(afficherTout = false){
 
   const cont =
     document.getElementById(
@@ -454,24 +454,25 @@ function renderHotelAgentsAdmin(){
     Rien saisi :
     la liste reste totalement cachée.
   */
-  if(!recherche){
+ if(!recherche && !afficherTout){
 
-    cont.innerHTML = "";
-    cont.hidden = true;
-    return;
-  }
+  cont.innerHTML = "";
+  cont.hidden = true;
+  return;
+}
 
-  const resultats =
-    hotelAgents
-      .map((nom,index)=>({
-        nom,
-        index
-      }))
-      .filter(item =>
-        String(item.nom)
-          .toLocaleUpperCase("fr-FR")
-          .includes(recherche)
-      );
+const resultats =
+  hotelAgents
+    .map((nom,index)=>({
+      nom,
+      index
+    }))
+    .filter(item =>
+      afficherTout ||
+      String(item.nom)
+        .toLocaleUpperCase("fr-FR")
+        .includes(recherche)
+    );
 
   cont.hidden = false;
 
@@ -535,7 +536,7 @@ function renderHotelAgentsAdmin(){
           hotelAgents
         );
 
-        renderHotelAgentsAdmin();
+        renderHotelAgentsAdmin(true);
         renderModificationAgents();
       };
     });
@@ -3688,18 +3689,7 @@ if(
         hotelAgents =
           chargerAgentsHotelAvecRecuperation();
 
-        agentsAdminListToggle.innerHTML =
-          hotelAgents
-            .slice()
-            .sort((a,b)=>a.localeCompare(b,"fr"))
-            .map(nom => `
-              <div class="agent-admin-row">
-                <strong>${nom}</strong>
-              </div>
-            `)
-            .join("");
-
-        agentsAdminListToggle.hidden = false;
+        renderHotelAgentsAdmin(true);
 
         toggleAgentsList.textContent =
           "Masquer les agents";
@@ -3713,6 +3703,7 @@ if(
       }
     }
   );
+
 }
 /* ==========================================================
    SUPPRIMER MON PROFIL
