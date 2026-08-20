@@ -3683,16 +3683,34 @@ if(
     "click",
     () => {
 
-      const estCache =
-        agentsAdminListToggle.hidden;
+      if(agentsAdminListToggle.hidden){
 
-      agentsAdminListToggle.hidden =
-        !estCache;
+        hotelAgents =
+          chargerAgentsHotelAvecRecuperation();
 
-      toggleAgentsList.textContent =
-        estCache
-          ? "Masquer les agents"
-          : "👥 Voir les agents";
+        agentsAdminListToggle.innerHTML =
+          hotelAgents
+            .slice()
+            .sort((a,b)=>a.localeCompare(b,"fr"))
+            .map(nom => `
+              <div class="agent-admin-row">
+                <strong>${nom}</strong>
+              </div>
+            `)
+            .join("");
+
+        agentsAdminListToggle.hidden = false;
+
+        toggleAgentsList.textContent =
+          "Masquer les agents";
+
+      }else{
+
+        agentsAdminListToggle.hidden = true;
+
+        toggleAgentsList.textContent =
+          "👥 Voir les agents";
+      }
     }
   );
 }
