@@ -1993,9 +1993,6 @@ $("cancelHotel").onclick=()=>{
 };
 
 
-
-$("deleteDest").onclick=()=>{if(!dest.email)return alert("Aucun destinataire.");if(confirm("Supprimer le destinataire ?")){dest={};save(LS_D,dest);fillSettings()}};
-
 /* ==========================================================
    APPARENCE
    ========================================================== */
