@@ -1,4 +1,4 @@
-const APP_VERSION = "v121-test3";
+const APP_VERSION = "v121-test4";
 alert("SCRIPT : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
 
@@ -1987,6 +1987,59 @@ $("saveProfil").onclick=()=>{
   );
 };
 
+
+/* ==========================================================
+   HOTELS - AJOUTER
+   ========================================================== */
+
+if($("addHotel")){
+
+  $("addHotel").onclick = () => {
+
+    const ville =
+      $("adminVille").value.trim();
+
+    const hotel =
+      $("adminHotel").value.trim();
+
+    if(!ville){
+      alert("Renseignez une ville.");
+      return;
+    }
+
+    if(!hotel){
+      alert("Renseignez un hôtel.");
+      return;
+    }
+
+    const existe =
+      allHotels().some(x =>
+        norm(x.ville) === norm(ville) &&
+        norm(x.hotel) === norm(hotel)
+      );
+
+    if(existe){
+      alert("Cet hôtel existe déjà pour cette ville.");
+      return;
+    }
+
+    custom.push({
+      ville: ville,
+      hotel: hotel
+    });
+
+    save(
+      LS_H,
+      custom
+    );
+
+    $("adminHotel").value = "";
+
+    alert("Hôtel ajouté.");
+
+    refreshVilles();
+  };
+}
 
 $("cancelHotel").onclick=()=>{
 
