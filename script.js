@@ -1941,8 +1941,19 @@ $("saveProfil").onclick=()=>{
   const nom =
     $("profilNom").value.trim();
 
+  const destNom =
+    $("destNom").value.trim();
+
+  const destMail =
+    $("destMail").value.trim();
+
   if(!nom){
-    alert("Renseignez votre nom.");
+    alert("Choisissez votre nom.");
+    return;
+  }
+
+  if(!destMail){
+    alert("Renseignez l’adresse e-mail du service logement.");
     return;
   }
 
@@ -1950,10 +1961,25 @@ $("saveProfil").onclick=()=>{
     nom: nom
   };
 
+  dest = {
+    nom: destNom,
+    email: destMail
+  };
+
   save(
     LS_P,
     profil
   );
+
+  save(
+    LS_D,
+    dest
+  );
+
+  alert(
+    "Profil et réservation enregistrés."
+  );
+};
 
   alert("Profil enregistré.");
 };
@@ -1967,7 +1993,7 @@ $("cancelHotel").onclick=()=>{
   adminHotelsList.innerHTML = "";
 };
 
-$("saveDest").onclick=()=>{const nom=$("destNom").value.trim(),email=$("destMail").value.trim();if(!email)return alert("Renseignez l’adresse e-mail.");dest={nom,email};save(LS_D,dest);alert("Destinataire enregistré.")};
+
 
 $("deleteDest").onclick=()=>{if(!dest.email)return alert("Aucun destinataire.");if(confirm("Supprimer le destinataire ?")){dest={};save(LS_D,dest);fillSettings()}};
 
@@ -3663,4 +3689,38 @@ if(
           : "👥 Voir les agents";
     }
   );
+}
+/* ==========================================================
+   SUPPRIMER MON PROFIL
+   ========================================================== */
+
+const deleteProfil =
+  document.getElementById("deleteProfil");
+
+if(deleteProfil){
+
+  deleteProfil.onclick = () => {
+
+    if(
+      !confirm(
+        "Effacer le profil enregistré ?"
+      )
+    ){
+      return;
+    }
+
+    profil = {};
+
+    save(
+      LS_P,
+      profil
+    );
+
+    const champ =
+      document.getElementById("profilNom");
+
+    if(champ){
+      champ.value = "";
+    }
+  };
 }
