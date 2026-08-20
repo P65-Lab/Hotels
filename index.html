@@ -900,13 +900,15 @@
      PARAMETRES
      ===================================================== -->
 
-<section
+<div
   id="manage"
-  class="card"
+  class="hotel-settings-overlay"
   hidden
 >
 
-  <div class="admin-head">
+  <div class="hotel-settings-menu manage-popup-card">
+
+    <div class="admin-head">
 
     <div>
       <div class="kicker">
@@ -1139,12 +1141,21 @@
         aria-live="polite"
       ></div>
 
-      <div
-        id="agentsAdminList"
-        class="agents-admin-list"
-      ></div>
+      <button
+  type="button"
+  id="toggleAgentsList"
+  class="secondary"
+>
+  👥 Voir les agents
+</button>
 
+<div
+  id="agentsAdminList"
+  class="agents-admin-list"
+  hidden
+></div>
     </div>
+
 
   </div>
 
@@ -1425,14 +1436,15 @@
 <div
   class="app-version"
   id="appVersion"
->
-  À JOUR V120
+></div>
+
+  <!-- FIN CARTE POPUP -->
+  </div>
+
+<!-- FIN POPUP PARAMETRES -->
 </div>
 
-</section>
-
 </main>
-
 
 <script src="database.js?v=121"></script>
 <script src="script.js?v=126"></script>
