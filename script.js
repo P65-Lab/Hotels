@@ -1947,7 +1947,7 @@ $("cancelHotel").onclick=()=>{
 };
 
 $("saveDest").onclick=()=>{const nom=$("destNom").value.trim(),email=$("destMail").value.trim();if(!email)return alert("Renseignez l’adresse e-mail.");dest={nom,email};save(LS_D,dest);alert("Destinataire enregistré.")};
-$("cancelDest").onclick=()=>{$("destNom").value=dest.nom||"";$("destMail").value=dest.email||""};
+
 $("deleteDest").onclick=()=>{if(!dest.email)return alert("Aucun destinataire.");if(confirm("Supprimer le destinataire ?")){dest={};save(LS_D,dest);fillSettings()}};
 
 /* ==========================================================
