@@ -2180,6 +2180,57 @@ if(adminVilleFiltre){
   );
 }
 
+
+if(toggleHotelsList){
+
+  toggleHotelsList.onclick = () => {
+
+    const cont =
+      document.getElementById("adminHotelsFound");
+
+    if(!cont){
+      return;
+    }
+
+    if(!cont.hidden){
+
+      cont.hidden = true;
+
+      toggleHotelsList.textContent =
+        "👁 Voir les hôtels";
+
+    }else{
+
+      afficherListeHotelsAdmin();
+
+      toggleHotelsList.textContent =
+        "Masquer les hôtels";
+    }
+  };
+}
+
+
+if(adminVilleFiltre){
+
+  adminVilleFiltre.addEventListener(
+    "input",
+    () => {
+
+      const cont =
+        document.getElementById("adminHotelsFound");
+
+      if(
+        !cont ||
+        cont.hidden
+      ){
+        return;
+      }
+
+      afficherListeHotelsAdmin();
+    }
+  );
+}
+
 $("cancelHotel").onclick=()=>{
 
   $("adminVille").value = "";
