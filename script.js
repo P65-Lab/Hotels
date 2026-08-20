@@ -393,7 +393,12 @@ async function importerAgentsDepuisFichierHotel(fichier){
 
     renderHotelAgentsAdmin();
     renderModificationAgents();
-actualiserListeProfilAgents(true);
+const listeProfil =
+  document.getElementById("profilAgentsList");
+
+if(listeProfil){
+  listeProfil.hidden = true;
+}
     if(statut){
 
       statut.className =
