@@ -2041,6 +2041,77 @@ if($("addHotel")){
   };
 }
 
+/* ==========================================================
+   HOTELS - VOIR / MASQUER LA LISTE
+   ========================================================== */
+
+const toggleHotelsList =
+  document.getElementById("toggleHotelsList");
+
+if(toggleHotelsList){
+
+  toggleHotelsList.onclick = () => {
+
+    const cont =
+      document.getElementById("adminHotelsFound");
+
+    const liste =
+      document.getElementById("adminHotelsList");
+
+    if(!cont || !liste){
+      return;
+    }
+
+    if(!cont.hidden){
+
+      cont.hidden = true;
+
+      toggleHotelsList.textContent =
+        "👁 Voir les hôtels";
+
+      return;
+    }
+
+    const hotels =
+      allHotels()
+        .slice()
+        .sort((a,b) => {
+
+          const ville =
+            a.ville.localeCompare(
+              b.ville,
+              "fr"
+            );
+
+          if(ville !== 0){
+            return ville;
+          }
+
+          return a.hotel.localeCompare(
+            b.hotel,
+            "fr"
+          );
+        });
+
+    liste.innerHTML =
+      hotels.map(x => `
+        <div class="admin-hotel-row">
+
+          <div class="admin-hotel-row-name">
+            <strong>${x.ville}</strong><br>
+            ${x.hotel}
+          </div>
+
+        </div>
+      `).join("");
+
+    cont.hidden = false;
+
+    toggleHotelsList.textContent =
+      "Masquer les hôtels";
+  };
+}
+
 $("cancelHotel").onclick=()=>{
 
   $("adminVille").value = "";
