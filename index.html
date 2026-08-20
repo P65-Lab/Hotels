@@ -981,91 +981,101 @@
   <div class="profil-agents-panel">
 
 
-    <!-- =================================================
-         MON PROFIL
-         ================================================= -->
+<!-- =================================================
+     MON PROFIL
+     ================================================= -->
 
-    <div class="settings-subcard">
+<div class="settings-subcard">
 
-      <div class="settings-title-row">
+  <div class="settings-section-title">
+    Mon profil
+  </div>
 
-        <div class="settings-section-title">
-          Mon profil
-        </div>
+  <div class="settings-field-trash-row">
 
-        <button
-          type="button"
-          id="deleteProfil"
-          class="settings-trash"
-          aria-label="Effacer mon profil"
-          title="Effacer mon profil"
-        >
-          🗑️
-        </button>
+    <div class="search-wrap">
 
-      </div>
+      <input
+        id="profilNom"
+        autocomplete="off"
+        placeholder="Choisir un agent..."
+      >
 
-
-      <div class="search-wrap">
-
-        <input
-          id="profilNom"
-          autocomplete="off"
-          placeholder="Choisir un agent..."
-        >
-
-        <div
-          id="profilAgentsList"
-          class="search-results"
-          hidden
-        ></div>
-
-      </div>
+      <div
+        id="profilAgentsList"
+        class="search-results"
+        hidden
+      ></div>
 
     </div>
 
+    <button
+      type="button"
+      id="deleteProfil"
+      class="settings-trash-small"
+      aria-label="Effacer le profil"
+    >
+      🗑️
+    </button>
 
-    <!-- =================================================
-         RESERVATION
-         ================================================= -->
+  </div>
 
-    <div
-      id="dest"
-      class="settings-subcard settings-inline-section"
+</div>
+
+
+<!-- =================================================
+     RESERVATION
+     ================================================= -->
+
+<div
+  id="dest"
+  class="settings-subcard settings-inline-section"
+>
+
+  <div class="settings-section-title">
+    Réservation
+  </div>
+
+
+  <div class="settings-field-trash-row">
+
+    <input
+      id="destNom"
+      placeholder="Service logement"
     >
 
-      <div class="settings-title-row">
+    <button
+      type="button"
+      id="clearDestNom"
+      class="settings-trash-small"
+      aria-label="Effacer le service logement"
+    >
+      🗑️
+    </button>
 
-        <div class="settings-section-title">
-          Réservation
-        </div>
-
-        <button
-          type="button"
-          id="deleteDest"
-          class="settings-trash"
-          aria-label="Supprimer la réservation"
-          title="Supprimer la réservation"
-        >
-          🗑️
-        </button>
-
-      </div>
+  </div>
 
 
-      <input
-        id="destNom"
-        placeholder="Service logement"
-      >
+  <div class="settings-field-trash-row">
 
+    <input
+      id="destMail"
+      type="email"
+      placeholder="Adresse e-mail"
+    >
 
-      <input
-        id="destMail"
-        type="email"
-        placeholder="Adresse e-mail"
-      >
+    <button
+      type="button"
+      id="clearDestMail"
+      class="settings-trash-small"
+      aria-label="Effacer l'adresse e-mail"
+    >
+      🗑️
+    </button>
 
-    </div>
+  </div>
+
+</div>
 
 
     <!-- =================================================
