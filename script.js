@@ -3632,7 +3632,7 @@ if(profilNomInput){
 
   /* Clic dans le champ = liste complète */
 profilNomInput.addEventListener(
-  "focus",
+  "click",
   ()=>{
     actualiserListeProfilAgents(true);
   }
