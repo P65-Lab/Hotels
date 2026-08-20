@@ -2042,56 +2042,75 @@ if($("addHotel")){
 }
 
 /* ==========================================================
-   HOTELS - VOIR / MASQUER LA LISTE
+   HOTELS - VOIR / MASQUER + FILTRER LA LISTE
    ========================================================== */
 
 const toggleHotelsList =
   document.getElementById("toggleHotelsList");
 
-if(toggleHotelsList){
+const adminVilleFiltre =
+  document.getElementById("adminVille");
 
-  toggleHotelsList.onclick = () => {
 
-    const cont =
-      document.getElementById("adminHotelsFound");
+function afficherListeHotelsAdmin(){
 
-    const liste =
-      document.getElementById("adminHotelsList");
+  const cont =
+    document.getElementById("adminHotelsFound");
 
-    if(!cont || !liste){
-      return;
-    }
+  const liste =
+    document.getElementById("adminHotelsList");
 
-    if(!cont.hidden){
+  if(!cont || !liste){
+    return;
+  }
 
-      cont.hidden = true;
+  const recherche =
+    norm(
+      adminVilleFiltre
+        ? adminVilleFiltre.value
+        : ""
+    );
 
-      toggleHotelsList.textContent =
-        "👁 Voir les hôtels";
+  const hotels =
+    allHotels()
+      .filter(x => {
 
-      return;
-    }
+        if(!recherche){
+          return true;
+        }
 
-    const hotels =
-      allHotels()
-        .slice()
-        .sort((a,b) => {
+        return (
+          norm(x.ville).includes(recherche) ||
+          norm(x.hotel).includes(recherche)
+        );
 
-          const ville =
-            a.ville.localeCompare(
-              b.ville,
-              "fr"
-            );
+      })
+      .slice()
+      .sort((a,b) => {
 
-          if(ville !== 0){
-            return ville;
-          }
-
-          return a.hotel.localeCompare(
-            b.hotel,
+        const ville =
+          a.ville.localeCompare(
+            b.ville,
             "fr"
           );
-        });
+
+        if(ville !== 0){
+          return ville;
+        }
+
+        return a.hotel.localeCompare(
+          b.hotel,
+          "fr"
+        );
+      });
+
+
+  if(!hotels.length){
+
+    liste.innerHTML =
+      '<div class="search-empty">Aucun hôtel trouvé</div>';
+
+  }else{
 
     liste.innerHTML =
       hotels.map(x => `
@@ -2105,11 +2124,60 @@ if(toggleHotelsList){
         </div>
       `).join("");
 
-    cont.hidden = false;
+  }
 
-    toggleHotelsList.textContent =
-      "Masquer les hôtels";
+  cont.hidden = false;
+}
+
+
+if(toggleHotelsList){
+
+  toggleHotelsList.onclick = () => {
+
+    const cont =
+      document.getElementById("adminHotelsFound");
+
+    if(!cont){
+      return;
+    }
+
+    if(!cont.hidden){
+
+      cont.hidden = true;
+
+      toggleHotelsList.textContent =
+        "👁 Voir les hôtels";
+
+    }else{
+
+      afficherListeHotelsAdmin();
+
+      toggleHotelsList.textContent =
+        "Masquer les hôtels";
+    }
   };
+}
+
+
+if(adminVilleFiltre){
+
+  adminVilleFiltre.addEventListener(
+    "input",
+    () => {
+
+      const cont =
+        document.getElementById("adminHotelsFound");
+
+      if(
+        !cont ||
+        cont.hidden
+      ){
+        return;
+      }
+
+      afficherListeHotelsAdmin();
+    }
+  );
 }
 
 $("cancelHotel").onclick=()=>{
