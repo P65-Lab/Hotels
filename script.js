@@ -1,7 +1,14 @@
 const APP_VERSION = "v121-test2";
 alert("SCRIPT CHARGÉ : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
+const APP_VERSION = "v121-test2";
+const APP_VERSION_DATE = "20/08/2026 14:05";
 
+/* ==========================================================
+   VERSION SCRIPT
+   ========================================================== */
+
+window.HOTEL_SCRIPT_BUILD = 129;
 const $=id=>document.getElementById(id);
 /* ==========================================================
    SECURITE BOUTON PARAMETRES
