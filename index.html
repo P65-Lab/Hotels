@@ -988,25 +988,21 @@
         Mon profil
       </div>
 
-      <label>
-        Nom de l'agent
+    <div class="search-wrap">
 
-        <div class="search-wrap">
+  <input
+    id="profilNom"
+    autocomplete="off"
+    placeholder="Choisir un agent..."
+  >
 
-          <input
-            id="profilNom"
-            autocomplete="off"
-            placeholder="Choisir un agent..."
-          >
+  <div
+    id="profilAgentsList"
+    class="search-results"
+    hidden
+  ></div>
 
-          <div
-            id="profilAgentsList"
-            class="search-results"
-            hidden
-          ></div>
-
-        </div>
-      </label>
+</div>
 
       <button
         id="saveProfil"
@@ -1029,25 +1025,16 @@
         Réservation
       </div>
 
-      <label>
-        Logement
+<input
+  id="destNom"
+  placeholder="Service logement"
+>
 
-        <input
-          id="destNom"
-          placeholder="Service logement"
-        >
-      </label>
-
-      <label>
-        Adresse e-mail
-
-        <input
-          id="destMail"
-          type="email"
-          placeholder="reservation@..."
-        >
-      </label>
-
+    <input
+  id="destMail"
+  type="email"
+  placeholder="Adresse e-mail"
+>
       <div class="actions3">
 
         <button
@@ -1086,15 +1073,11 @@
         Les agents sont enregistrés uniquement sur ce téléphone.
       </p>
 
-      <label>
-        Nom de l’agent
-
-        <input
-          id="agentNom"
-          autocomplete="off"
-          placeholder="Ajouter ou rechercher un agent..."
-        >
-      </label>
+ <input
+  id="agentNom"
+  autocomplete="off"
+  placeholder="Ajouter ou rechercher un agent..."
+>
 
       <div class="actions3 agents-import-actions">
 
