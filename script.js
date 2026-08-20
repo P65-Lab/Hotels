@@ -1,4 +1,4 @@
-const APP_VERSION = "v121-test1";
+const APP_VERSION = "v121-test2";
 const APP_VERSION_DATE = "20/08/2026 14:05";
 
 const $=id=>document.getElementById(id);
@@ -3855,3 +3855,120 @@ if(btnClearDestMail){
     save(LS_D, dest);
   };
 }
+/* ==========================================================
+   V121-TEST2 - GESTION CENTRALISEE PROFIL / AGENTS
+   ========================================================== */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    /* -----------------------------------------------
+       PROFIL : CLIC = OUVRIR LISTE
+       ----------------------------------------------- */
+
+    if(event.target.id === "profilNom"){
+
+      actualiserListeProfilAgents(true);
+      return;
+    }
+
+
+    /* -----------------------------------------------
+       VOIR / MASQUER LES AGENTS
+       ----------------------------------------------- */
+
+    if(event.target.id === "toggleAgentsList"){
+
+      const liste =
+        document.getElementById("agentsAdminList");
+
+      const bouton =
+        document.getElementById("toggleAgentsList");
+
+      if(!liste || !bouton){
+        return;
+      }
+
+      if(liste.hidden){
+
+        hotelAgents =
+          chargerAgentsHotelAvecRecuperation();
+
+        renderHotelAgentsAdmin(true);
+
+        liste.hidden = false;
+
+        bouton.textContent =
+          "Masquer les agents";
+
+      }else{
+
+        liste.hidden = true;
+
+        bouton.textContent =
+          "👥 Voir les agents";
+      }
+
+      return;
+    }
+
+  }
+);
+
+
+
+/* ==========================================================
+   V121-TEST2 - EVENEMENTS PROFIL / AGENTS
+   ========================================================== */
+
+document.addEventListener("click", event => {
+
+  /* CHOISIR MON PROFIL */
+  if(event.target.id === "profilNom"){
+
+    actualiserListeProfilAgents(true);
+
+    return;
+  }
+
+
+  /* VOIR TOUS LES AGENTS */
+  if(event.target.id === "toggleAgentsList"){
+
+    const liste =
+      document.getElementById("agentsAdminList");
+
+    const bouton =
+      document.getElementById("toggleAgentsList");
+
+    if(!liste || !bouton){
+      return;
+    }
+
+    if(liste.hidden){
+
+      hotelAgents =
+        chargerAgentsHotelAvecRecuperation();
+
+      renderHotelAgentsAdmin(true);
+
+      liste.hidden = false;
+
+      bouton.textContent =
+        "Masquer les agents";
+
+    }else{
+
+      liste.hidden = true;
+
+      bouton.textContent =
+        "👥 Voir les agents";
+    }
+
+    return;
+  }
+
+});
+
+
