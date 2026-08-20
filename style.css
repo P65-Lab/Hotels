@@ -6179,3 +6179,18 @@ body:has(#hotelHomeMenu:not([hidden])){
   margin-bottom:4px !important;
   transform:translateY(10px) !important;
 }
+/* PLACE POUR LES POUBELLES */
+
+#profil .settings-field-trash-row{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 36px !important;
+  gap:8px !important;
+}
+
+#profil .settings-trash-small{
+  width:36px !important;
+  height:36px !important;
+  min-width:36px !important;
+  min-height:36px !important;
+  padding:0 !important;
+}
