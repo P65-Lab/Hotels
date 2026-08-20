@@ -3776,3 +3776,68 @@ if(clearDestMail){
   };
 }
 
+/* ==========================================================
+   POUBELLES PROFIL / RESERVATION
+   ========================================================== */
+
+/* MON PROFIL */
+const btnDeleteProfil =
+  document.getElementById("deleteProfil");
+
+if(btnDeleteProfil){
+
+  btnDeleteProfil.onclick = () => {
+
+    const champ =
+      document.getElementById("profilNom");
+
+    if(champ){
+      champ.value = "";
+    }
+
+    profil = {};
+    save(LS_P, profil);
+  };
+}
+
+
+/* SERVICE LOGEMENT */
+const btnClearDestNom =
+  document.getElementById("clearDestNom");
+
+if(btnClearDestNom){
+
+  btnClearDestNom.onclick = () => {
+
+    const champ =
+      document.getElementById("destNom");
+
+    if(champ){
+      champ.value = "";
+    }
+
+    dest.nom = "";
+    save(LS_D, dest);
+  };
+}
+
+
+/* ADRESSE E-MAIL */
+const btnClearDestMail =
+  document.getElementById("clearDestMail");
+
+if(btnClearDestMail){
+
+  btnClearDestMail.onclick = () => {
+
+    const champ =
+      document.getElementById("destMail");
+
+    if(champ){
+      champ.value = "";
+    }
+
+    dest.email = "";
+    save(LS_D, dest);
+  };
+}
