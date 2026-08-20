@@ -3723,3 +3723,54 @@ if(deleteProfil){
     }
   };
 }
+/* ==========================================================
+   RESERVATION - PETITES POUBELLES
+   ========================================================== */
+
+const clearDestNom =
+  document.getElementById("clearDestNom");
+
+if(clearDestNom){
+
+  clearDestNom.onclick = () => {
+
+    const champ =
+      document.getElementById("destNom");
+
+    if(champ){
+      champ.value = "";
+    }
+
+    dest.nom = "";
+
+    save(
+      LS_D,
+      dest
+    );
+  };
+}
+
+
+const clearDestMail =
+  document.getElementById("clearDestMail");
+
+if(clearDestMail){
+
+  clearDestMail.onclick = () => {
+
+    const champ =
+      document.getElementById("destMail");
+
+    if(champ){
+      champ.value = "";
+    }
+
+    dest.email = "";
+
+    save(
+      LS_D,
+      dest
+    );
+  };
+}
+
