@@ -4,11 +4,24 @@ const APP_VERSION_DATE = "19/08/2026 21:50";
 const $=id=>document.getElementById(id);
 
 function afficherVersionChargeeHotel() {
-  const el = document.getElementById("appVersion");
-  if (!el) return;
-  el.textContent = `À JOUR ${String(APP_VERSION).toUpperCase()}`;
-}
 
+  const texteVersion =
+    `À JOUR ${String(APP_VERSION).toUpperCase()}`;
+
+  const appVersion =
+    document.getElementById("appVersion");
+
+  if(appVersion){
+    appVersion.textContent = texteVersion;
+  }
+
+  const hotelHomeVersion =
+    document.getElementById("hotelHomeVersion");
+
+  if(hotelHomeVersion){
+    hotelHomeVersion.textContent = texteVersion;
+  }
+}
 
 const LS_H="hotelCustom",LS_HDEL="hotelDeleted",LS_P="hotelProfil",LS_D="hotelDest";
 const LS_A="hotelAppearance";
