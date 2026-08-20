@@ -6194,3 +6194,46 @@ body:has(#hotelHomeMenu:not([hidden])){
   min-height:36px !important;
   padding:0 !important;
 }
+
+   /* ==========================================================
+   CHAMP + POUBELLE TOUJOURS SUR LA MEME LIGNE
+   ========================================================== */
+
+#profil .settings-field-trash-row{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  flex-wrap:nowrap !important;
+
+  width:100% !important;
+  gap:8px !important;
+}
+
+/* LE CHAMP */
+#profil .settings-field-trash-row > input,
+#profil .settings-field-trash-row > .search-wrap{
+  flex:1 1 auto !important;
+  width:auto !important;
+  min-width:0 !important;
+  margin:0 !important;
+}
+
+/* CAS CHOISIR UN AGENT */
+#profil .settings-field-trash-row .search-wrap input{
+  width:100% !important;
+  box-sizing:border-box !important;
+  margin:0 !important;
+}
+
+/* LA POUBELLE */
+#profil .settings-field-trash-row > .settings-trash-small{
+  flex:0 0 34px !important;
+
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  min-height:34px !important;
+
+  margin:0 !important;
+  padding:0 !important;
+}
