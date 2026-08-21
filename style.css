@@ -6507,13 +6507,12 @@ function appliquerCouleurDateHeureHotel(){
   );
 });
 /* ==========================================================
-   STYLE FINAL DES CHAMPS
-   TITRES = COULEUR DU THEME
-   CONTENU = NOIR
-   PLACEHOLDER = GRIS
+   STYLE FINAL HOTEL
+   LIBELLES = COULEUR DU THEME
+   INTERIEUR DES CHAMPS = NOIR
    ========================================================== */
 
-/* TITRES : Ville, Hôtel, Date, Heure */
+/* Ville - Hôtel - Date - Heure */
 label{
   color:var(--app-primary, #111827) !important;
 }
@@ -6523,24 +6522,11 @@ label{
   color:#111827 !important;
 }
 
-/* CONTENU DES CHAMPS */
+/* TOUT CE QUI EST DANS LES CHAMPS = NOIR */
 input,
 select,
 textarea,
-body #hotel{
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
-
-/* PLACEHOLDERS */
-input::placeholder,
-textarea::placeholder{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-  opacity:1 !important;
-}
-
-/* DATE ET HEURE */
+body #hotel,
 #arrivee,
 #heureArrivee,
 #depart,
@@ -6548,14 +6534,11 @@ textarea::placeholder{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
-/* HOTEL VIDE = GRIS */
-body #hotel:invalid{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-}
 
-/* HOTEL CHOISI = NOIR */
-body #hotel:valid{
+/* PLACEHOLDERS = NOIR */
+input::placeholder,
+textarea::placeholder{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
+  opacity:1 !important;
 }
