@@ -6346,13 +6346,27 @@ if(toggleCustomColors && customColorsPanel){
   transform:scale(.98);
 }
 /* ==========================================================
-   COULEUR DES TEXTES SELON LE THEME
+   TITRES NOIRS - CONTENU DES CADRES COULEUR DU THEME
    ========================================================== */
 
-.hotel-grid label,
-.travel-title,
+/* TITRES / LIBELLES */
+label,
 .section-title,
-.settings-section-title,
+.travel-title,
 .stay-compact-title{
+  color:#111827 !important;
+}
+
+/* TEXTE A L'INTERIEUR DES CHAMPS */
+input,
+select,
+textarea{
   color:var(--app-primary, #111827) !important;
+}
+
+/* PLACEHOLDER */
+input::placeholder,
+textarea::placeholder{
+  color:var(--app-primary, #111827) !important;
+  opacity:1;
 }
