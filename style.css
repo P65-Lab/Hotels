@@ -6384,12 +6384,7 @@ if(toggleCustomColors && customColorsPanel){
   -webkit-text-fill-color:#111827 !important;
 }
 
-/* PLACEHOLDERS = NOIR */
-#ville::placeholder{
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-  opacity:1 !important;
-}
+
 /* ==========================================================
    PLACEHOLDERS VILLE + HOTEL = GRIS
    VALEURS CHOISIES = NOIR
