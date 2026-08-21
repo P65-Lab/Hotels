@@ -2380,10 +2380,7 @@ if($("fontCards")){
     a.fontCards || "system-ui";
 }
 
-   document.documentElement.style.setProperty(
-  "--app-card-font",
-  a.fontCards || "system-ui"
-);
+ 
   document.querySelectorAll(".theme-choice").forEach(btn=>{
     btn.classList.toggle(
       "active",
@@ -2415,15 +2412,14 @@ document.querySelectorAll(".theme-choice").forEach(btn=>{
 
 $("saveAppearance").onclick=()=>{
 
-  appearance = {
-    primary: $("colorPrimary").value,
-    mail: $("colorMail").value,
-    nights: $("colorNights").value,
-    background: $("colorBackground").value,
-    card: $("colorCard").value,
-    fontCards: $("fontCards").value,
-    theme: "custom"
-  };
+appearance = {
+  primary: $("colorPrimary").value,
+  mail: $("colorMail").value,
+  nights: $("colorNights").value,
+  background: $("colorBackground").value,
+  card: $("colorCard").value,
+  theme: "custom"
+};
 
   save(LS_A,appearance);
   applyAppearance(appearance);
