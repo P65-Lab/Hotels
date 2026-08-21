@@ -6279,18 +6279,35 @@ body:has(#hotelHomeMenu:not([hidden])){
   line-height:1.15 !important;
 }
 /* ==========================================================
-   POLICE PERSONNALISEE DES CADRES
+   APPARENCE - OUVRIR / FERMER COULEURS PERSONNALISEES
    ========================================================== */
 
-.card,
-.travel-card,
-.settings-subcard,
-.admin-hotel-row,
-.agent-admin-row,
-.theme-choice,
-.color-field,
-.stay-compact,
-.hotel-request-popup-card,
-.manage-popup-card{
-  font-family:var(--app-card-font, system-ui) !important;
+const toggleCustomColors =
+  document.getElementById("toggleCustomColors");
+
+const customColorsPanel =
+  document.getElementById("customColorsPanel");
+
+if(toggleCustomColors && customColorsPanel){
+
+  toggleCustomColors.addEventListener(
+    "click",
+    () => {
+
+      if(customColorsPanel.hasAttribute("hidden")){
+
+        customColorsPanel.removeAttribute("hidden");
+
+        toggleCustomColors.textContent =
+          "🎨 Masquer les couleurs personnalisées";
+
+      }else{
+
+        customColorsPanel.setAttribute("hidden","");
+
+        toggleCustomColors.textContent =
+          "🎨 Couleurs personnalisées";
+      }
+    }
+  );
 }
