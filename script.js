@@ -1,7 +1,7 @@
 const APP_VERSION = "v121-test10";
 alert("SCRIPT : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
-$("saveAppearance").onclick=()=>{
+
 
 /* ==========================================================
    VERSION SCRIPT
@@ -12,7 +12,14 @@ const $=id=>document.getElementById(id);
 /* ==========================================================
    SECURITE BOUTON PARAMETRES
    ========================================================== */
-
+const appearanceDefaults = {
+  primary: "#111827",
+  mail: "#079447",
+  nights: "#dc2626",
+  background: "#f3f4f6",
+  card: "#ffffff",
+  theme: "classic"
+};
 const manageBtnSafe =
   document.getElementById("manageBtn");
 
