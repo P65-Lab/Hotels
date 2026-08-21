@@ -6413,3 +6413,31 @@ if(toggleCustomColors && customColorsPanel){
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+/* ==========================================================
+   HOTEL PRINCIPAL - COULEUR FINALE
+   ========================================================== */
+
+/* Hôtel choisi = NOIR */
+body #normalRequestZone #hotel:not(:placeholder-shown){
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
+
+/* "Choisir un hébergement..." = GRIS */
+body #normalRequestZone #hotel:placeholder-shown{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+}
+
+/* Ville vide = GRIS */
+body #normalRequestZone #ville::placeholder{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+  opacity:1 !important;
+}
+
+/* Ville saisie = NOIR */
+body #normalRequestZone #ville{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
