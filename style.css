@@ -6548,3 +6548,14 @@ textarea::placeholder{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+/* HOTEL VIDE = GRIS */
+body #hotel:invalid{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+}
+
+/* HOTEL CHOISI = NOIR */
+body #hotel:valid{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
