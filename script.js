@@ -1,7 +1,7 @@
 const APP_VERSION = "v121-test8";
 alert("SCRIPT : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
-
+$("saveAppearance").onclick=()=>{
 
 /* ==========================================================
    VERSION SCRIPT
@@ -2421,11 +2421,29 @@ $("saveAppearance").onclick=()=>{
     nights: $("colorNights").value,
     background: $("colorBackground").value,
     card: $("colorCard").value,
+    fontCards: $("fontCards").value,
     theme: "custom"
   };
 
   save(LS_A,appearance);
   applyAppearance(appearance);
+
+  alert("Couleurs et police enregistrées.");
+};
+
+$("resetAppearance").onclick=()=>{
+
+  appearance = {
+    ...appearanceDefaults
+  };
+
+  save(LS_A,appearance);
+  applyAppearance(appearance);
+
+  alert("Couleurs et police réinitialisées.");
+};
+
+applyAppearance(appearance);
 
   alert("Couleurs enregistrées.");
 };
