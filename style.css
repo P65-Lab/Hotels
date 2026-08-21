@@ -6390,3 +6390,31 @@ if(toggleCustomColors && customColorsPanel){
   -webkit-text-fill-color:#111827 !important;
   opacity:1 !important;
 }
+/* ==========================================================
+   PLACEHOLDERS VILLE + HOTEL = GRIS
+   VALEURS CHOISIES = NOIR
+   ========================================================== */
+
+/* Tapez une ville... = GRIS */
+#ville::placeholder{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+  opacity:1 !important;
+}
+
+/* Valeur réellement saisie dans Ville = NOIR */
+#ville{
+  color:#111827 !important;
+}
+
+/* Choisir un hébergement... = GRIS */
+#hotel:invalid{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+}
+
+/* Hôtel choisi, par exemple ORFEA = NOIR */
+#hotel:valid{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
