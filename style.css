@@ -6407,3 +6407,31 @@ input[type="time"]{
   color:var(--app-primary, #111827) !important;
   -webkit-text-fill-color:var(--app-primary, #111827) !important;
 }
+/* ==========================================================
+   DATE + HEURE : COULEUR DU THEME SUR IPHONE
+   ========================================================== */
+
+#arrivee,
+#heureArrivee,
+#depart,
+#heureDepart{
+  color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
+
+/* Texte interne Safari / iPhone */
+#arrivee::-webkit-datetime-edit,
+#heureArrivee::-webkit-datetime-edit,
+#depart::-webkit-datetime-edit,
+#heureDepart::-webkit-datetime-edit{
+  color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
+
+/* Parties internes date / heure */
+#arrivee::-webkit-datetime-edit-fields-wrapper,
+#heureArrivee::-webkit-datetime-edit-fields-wrapper,
+#depart::-webkit-datetime-edit-fields-wrapper,
+#heureDepart::-webkit-datetime-edit-fields-wrapper{
+  color:var(--app-primary, #111827) !important;
+}
