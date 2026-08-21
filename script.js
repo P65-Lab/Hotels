@@ -1124,16 +1124,16 @@ function refreshHotels(){
         hotel.textContent = btn.dataset.hotel;
 
         hotel.style.setProperty(
-          "color",
-          "#111827",
-          "important"
-        );
+  "color",
+  "var(--app-primary, #111827)",
+  "important"
+);
 
-        hotel.style.setProperty(
-          "-webkit-text-fill-color",
-          "#111827",
-          "important"
-        );
+hotel.style.setProperty(
+  "-webkit-text-fill-color",
+  "var(--app-primary, #111827)",
+  "important"
+);
 
         results.hidden = true;
       };
