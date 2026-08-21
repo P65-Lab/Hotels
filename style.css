@@ -6311,3 +6311,37 @@ if(toggleCustomColors && customColorsPanel){
     }
   );
 }
+/* ==========================================================
+   BOUTON COULEURS PERSONNALISEES
+   ========================================================== */
+
+.appearance-custom-toggle{
+  width:100%;
+  min-height:64px;
+  margin-top:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:14px 18px;
+
+  border:2px solid #d0d5dd;
+  border-radius:18px;
+
+  background:#ffffff;
+  color:#344054;
+
+  font-size:18px;
+  font-weight:900;
+
+  box-sizing:border-box;
+
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+.appearance-custom-toggle:active{
+  transform:scale(.98);
+}
