@@ -2264,7 +2264,7 @@ const appearanceDefaults = {
   nights: "#dc2626",
   background: "#f3f4f6",
   card: "#ffffff",
-  fontCards: "system-ui",
+
   theme: "classic"
 };
 
