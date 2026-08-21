@@ -4471,8 +4471,10 @@ div{
 
     font-size:14px !important;
     font-weight:700 !important;
-  }
-
+     
+   color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
 
 
   body.theme-dark #hotel:invalid{
@@ -6391,6 +6393,17 @@ input[type="date"]{
 
 /* Heures arrivée / départ */
 input[type="time"]{
+  color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
+/* ==========================================================
+   DATES + HEURES = COULEUR DU THEME
+   ========================================================== */
+
+#arrivee,
+#heureArrivee,
+#depart,
+#heureDepart{
   color:var(--app-primary, #111827) !important;
   -webkit-text-fill-color:var(--app-primary, #111827) !important;
 }
