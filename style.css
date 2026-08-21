@@ -6345,3 +6345,18 @@ if(toggleCustomColors && customColorsPanel){
 .appearance-custom-toggle:active{
   transform:scale(.98);
 }
+/* ==========================================================
+   COULEUR PERSONNALISEE DES CARTES / CADRES
+   ========================================================== */
+
+.card,
+.travel-card,
+.settings-subcard,
+.admin-hotel-row,
+.agent-admin-row,
+.theme-choice,
+.color-field,
+.stay-compact,
+.hotel-request-popup-card{
+  background:var(--app-card, #ffffff) !important;
+}
