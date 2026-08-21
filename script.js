@@ -2264,6 +2264,7 @@ const appearanceDefaults = {
   nights: "#dc2626",
   background: "#f3f4f6",
   card: "#ffffff",
+  fontCards: "system-ui",
   theme: "classic"
 };
 
@@ -2373,7 +2374,16 @@ function applyAppearance(values){
   $("colorNights").value = a.nights;
   $("colorBackground").value = a.background;
   $("colorCard").value = a.card;
+/* POLICE DES CADRES */
+if($("fontCards")){
+  $("fontCards").value =
+    a.fontCards || "system-ui";
+}
 
+   document.documentElement.style.setProperty(
+  "--app-card-font",
+  a.fontCards || "system-ui"
+);
   document.querySelectorAll(".theme-choice").forEach(btn=>{
     btn.classList.toggle(
       "active",
