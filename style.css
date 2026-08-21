@@ -6347,34 +6347,7 @@ if(toggleCustomColors && customColorsPanel){
 .appearance-custom-toggle:active{
   transform:scale(.98);
 }
-/* ==========================================================
-   TITRES NOIRS
-   CONTENU DES CHAMPS = COULEUR DU THEME
-   ========================================================== */
 
-/* TITRES ET LIBELLES */
-label,
-.section-title,
-.travel-title,
-.stay-compact-title{
-  color:#111827 !important;
-}
-
-/* VILLE - HOTEL - DATE - HEURE - AUTRES SAISIES */
-input,
-select,
-textarea{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
-
-/* TEXTE AVANT SELECTION */
-input::placeholder,
-textarea::placeholder{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-  opacity:1 !important;
-}
 /* ==========================================================
    VALEURS HOTEL + DATES + HEURES = COULEUR DU THEME
    ========================================================== */
