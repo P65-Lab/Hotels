@@ -6346,17 +6346,13 @@ if(toggleCustomColors && customColorsPanel){
   transform:scale(.98);
 }
 /* ==========================================================
-   COULEUR PERSONNALISEE DES CARTES / CADRES
+   COULEUR DES TEXTES SELON LE THEME
    ========================================================== */
 
-.card,
-.travel-card,
-.settings-subcard,
-.admin-hotel-row,
-.agent-admin-row,
-.theme-choice,
-.color-field,
-.stay-compact,
-.hotel-request-popup-card{
-  background:var(--app-card, #ffffff) !important;
+.hotel-grid label,
+.travel-title,
+.section-title,
+.settings-section-title,
+.stay-compact-title{
+  color:var(--app-primary, #111827) !important;
 }
