@@ -6368,9 +6368,9 @@ if(toggleCustomColors && customColorsPanel){
   color:var(--app-primary, #111827) !important;
 }
 
-/* ARRIVEE + DEPART restent noirs */
 .travel-title{
-  color:#111827 !important;
+  color:var(--app-primary, #111827) !important;
+}
 }
 
 /* CONTENU DES CHAMPS = NOIR */
