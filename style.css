@@ -6435,3 +6435,74 @@ input[type="time"]{
 #heureDepart::-webkit-datetime-edit-fields-wrapper{
   color:var(--app-primary, #111827) !important;
 }
+/* ==========================================================
+   DATE / HEURE - GARDER LA COULEUR DU THEME
+   ========================================================== */
+
+function appliquerCouleurDateHeureHotel(){
+
+  const couleur =
+    getComputedStyle(
+      document.documentElement
+    )
+    .getPropertyValue("--app-primary")
+    .trim() || "#111827";
+
+  [
+    "arrivee",
+    "heureArrivee",
+    "depart",
+    "heureDepart"
+  ].forEach(id => {
+
+    const champ =
+      document.getElementById(id);
+
+    if(!champ){
+      return;
+    }
+
+    champ.style.setProperty(
+      "color",
+      couleur,
+      "important"
+    );
+
+    champ.style.setProperty(
+      "-webkit-text-fill-color",
+      couleur,
+      "important"
+    );
+  });
+}
+
+
+[
+  "arrivee",
+  "heureArrivee",
+  "depart",
+  "heureDepart"
+].forEach(id => {
+
+  const champ =
+    document.getElementById(id);
+
+  if(!champ){
+    return;
+  }
+
+  champ.addEventListener(
+    "input",
+    appliquerCouleurDateHeureHotel
+  );
+
+  champ.addEventListener(
+    "change",
+    appliquerCouleurDateHeureHotel
+  );
+
+  champ.addEventListener(
+    "blur",
+    appliquerCouleurDateHeureHotel
+  );
+});
