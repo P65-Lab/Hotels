@@ -6346,10 +6346,11 @@ if(toggleCustomColors && customColorsPanel){
   transform:scale(.98);
 }
 /* ==========================================================
-   TITRES NOIRS - CONTENU DES CADRES COULEUR DU THEME
+   TITRES NOIRS
+   CONTENU DES CHAMPS = COULEUR DU THEME
    ========================================================== */
 
-/* TITRES / LIBELLES */
+/* TITRES ET LIBELLES */
 label,
 .section-title,
 .travel-title,
@@ -6357,16 +6358,18 @@ label,
   color:#111827 !important;
 }
 
-/* TEXTE A L'INTERIEUR DES CHAMPS */
+/* VILLE - HOTEL - DATE - HEURE - AUTRES SAISIES */
 input,
 select,
 textarea{
   color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
 }
 
-/* PLACEHOLDER */
+/* TEXTE AVANT SELECTION */
 input::placeholder,
 textarea::placeholder{
   color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
   opacity:1;
 }
