@@ -4122,3 +4122,29 @@ if(btnClearDestMail){
     save(LS_D, dest);
   };
 }
+/* ==========================================================
+   APPARENCE - OUVRIR / FERMER COULEURS PERSONNALISEES
+   ========================================================== */
+
+const toggleCustomColors =
+  document.getElementById("toggleCustomColors");
+
+const customColorsPanel =
+  document.getElementById("customColorsPanel");
+
+if(toggleCustomColors && customColorsPanel){
+
+  toggleCustomColors.onclick = () => {
+
+    const estFerme =
+      customColorsPanel.hidden;
+
+    customColorsPanel.hidden =
+      !estFerme;
+
+    toggleCustomColors.textContent =
+      estFerme
+        ? "🎨 Masquer les couleurs personnalisées"
+        : "🎨 Couleurs personnalisées";
+  };
+}
