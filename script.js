@@ -2245,7 +2245,19 @@ $("cancelHotel").onclick=()=>{
 /* ==========================================================
    APPARENCE
    ========================================================== */
+const closeAppearance =
+  document.getElementById("closeAppearance");
 
+if(closeAppearance){
+
+  closeAppearance.onclick = () => {
+
+    document.getElementById("appearance").hidden = true;
+    document.getElementById("manage").hidden = true;
+
+  };
+
+}
 const appearanceDefaults = {
   primary: "#111827",
   mail: "#079447",
