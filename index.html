@@ -1368,119 +1368,79 @@
     </div>
 
 
-    <div class="appearance-title">
-      Couleurs personnalisées
-    </div>
+<button
+  type="button"
+  id="toggleCustomColors"
+  class="appearance-custom-toggle"
+>
+  🎨 Couleurs personnalisées
+</button>
 
 
-    <div class="color-grid">
+<div
+  id="customColorsPanel"
+  class="color-grid"
+  hidden
+>
 
-    <label class="color-field">
-
-  <span>
-    Couleur principale
-  </span>
-
-  <input
-    id="colorPrimary"
-    type="color"
-    value="#111827"
-  >
-
-</label>
-
-
-<label class="color-field">
-
-  <span>
-    Bouton Créer le mail
-  </span>
-
-  <input
-    id="colorMail"
-    type="color"
-    value="#079447"
-  >
-
-</label>
+  <label class="color-field">
+    <span>Couleur principale</span>
+    <input
+      id="colorPrimary"
+      type="color"
+      value="#111827"
+    >
+  </label>
 
 
-<label class="color-field">
-
-  <span>
-    Nuitées
-  </span>
-
-  <input
-    id="colorNights"
-    type="color"
-    value="#dc2626"
-  >
-
-</label>
+  <label class="color-field">
+    <span>Bouton Créer le mail</span>
+    <input
+      id="colorMail"
+      type="color"
+      value="#079447"
+    >
+  </label>
 
 
-<label class="color-field">
-
-  <span>
-    Fond de l’application
-  </span>
-
-  <input
-    id="colorBackground"
-    type="color"
-    value="#f3f4f6"
-  >
-
-</label>
+  <label class="color-field">
+    <span>Nuitées</span>
+    <input
+      id="colorNights"
+      type="color"
+      value="#dc2626"
+    >
+  </label>
 
 
-<label class="color-field">
-
-  <span>
-    Cartes / cadres
-  </span>
-
-  <input
-    id="colorCard"
-    type="color"
-    value="#ffffff"
-  >
-
-</label>
+  <label class="color-field">
+    <span>Fond de l’application</span>
+    <input
+      id="colorBackground"
+      type="color"
+      value="#f3f4f6"
+    >
+  </label>
 
 
-<label class="color-field">
+  <label class="color-field">
+    <span>Cartes / cadres</span>
+    <input
+      id="colorCard"
+      type="color"
+      value="#ffffff"
+    >
+  </label>
 
-  <span>
-    Police des cadres
-  </span>
 
-  <select id="fontCards">
-
-    <option value="system-ui">
-      Police iPhone
-    </option>
-
-    <option value="Arial">
-      Arial
-    </option>
-
-    <option value="Verdana">
-      Verdana
-    </option>
-
-    <option value="Trebuchet MS">
-      Trebuchet MS
-    </option>
-
-    <option value="Georgia">
-      Georgia
-    </option>
-
-  </select>
-
-</label>
+  <label class="color-field">
+    <span>Couleur du texte des cadres</span>
+    <input
+      id="colorCardText"
+      type="color"
+      value="#111827"
+    >
+  </label>
 
 </div>
 
