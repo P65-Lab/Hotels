@@ -4134,17 +4134,24 @@ const customColorsPanel =
 
 if(toggleCustomColors && customColorsPanel){
 
-  toggleCustomColors.onclick = () => {
+  toggleCustomColors.addEventListener(
+    "click",
+    () => {
 
-    const estFerme =
-      customColorsPanel.hidden;
+      if(customColorsPanel.hasAttribute("hidden")){
 
-    customColorsPanel.hidden =
-      !estFerme;
+        customColorsPanel.removeAttribute("hidden");
 
-    toggleCustomColors.textContent =
-      estFerme
-        ? "🎨 Masquer les couleurs personnalisées"
-        : "🎨 Couleurs personnalisées";
-  };
+        toggleCustomColors.textContent =
+          "🎨 Masquer les couleurs personnalisées";
+
+      }else{
+
+        customColorsPanel.setAttribute("hidden","");
+
+        toggleCustomColors.textContent =
+          "🎨 Couleurs personnalisées";
+      }
+    }
+  );
 }
