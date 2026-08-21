@@ -6506,3 +6506,45 @@ function appliquerCouleurDateHeureHotel(){
     appliquerCouleurDateHeureHotel
   );
 });
+/* ==========================================================
+   STYLE FINAL DES CHAMPS
+   TITRES = COULEUR DU THEME
+   CONTENU = NOIR
+   PLACEHOLDER = GRIS
+   ========================================================== */
+
+/* TITRES : Ville, Hôtel, Date, Heure */
+label{
+  color:var(--app-primary, #111827) !important;
+}
+
+/* ARRIVEE / DEPART restent noirs */
+.travel-title{
+  color:#111827 !important;
+}
+
+/* CONTENU DES CHAMPS */
+input,
+select,
+textarea,
+body #hotel{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
+
+/* PLACEHOLDERS */
+input::placeholder,
+textarea::placeholder{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+  opacity:1 !important;
+}
+
+/* DATE ET HEURE */
+#arrivee,
+#heureArrivee,
+#depart,
+#heureDepart{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
