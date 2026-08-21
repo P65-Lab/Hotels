@@ -2440,22 +2440,8 @@ $("resetAppearance").onclick=()=>{
 
 applyAppearance(appearance);
 
-  alert("Couleurs enregistrées.");
-};
 
-$("resetAppearance").onclick=()=>{
 
-  appearance = {
-    ...appearanceDefaults
-  };
-
-  save(LS_A,appearance);
-  applyAppearance(appearance);
-
-  alert("Couleurs réinitialisées.");
-};
-
-applyAppearance(appearance);
 
 
 
