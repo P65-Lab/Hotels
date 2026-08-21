@@ -6369,7 +6369,7 @@ textarea{
 /* TEXTE AVANT SELECTION */
 input::placeholder,
 textarea::placeholder{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-  opacity:1;
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+  opacity:1 !important;
 }
