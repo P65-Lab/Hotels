@@ -6348,88 +6348,34 @@ if(toggleCustomColors && customColorsPanel){
   transform:scale(.98);
 }
 
-/* ==========================================================
-   VALEURS HOTEL + DATES + HEURES = COULEUR DU THEME
-   ========================================================== */
 
-/* Hôtel sélectionné */
-select{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
 
-/* Dates arrivée / départ */
-input[type="date"]{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
 
-/* Heures arrivée / départ */
-input[type="time"]{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
-/* ==========================================================
-   DATES + HEURES = COULEUR DU THEME
-   ========================================================== */
-
-#arrivee,
-#heureArrivee,
-#depart,
-#heureDepart{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
-/* ==========================================================
-   DATE + HEURE : COULEUR DU THEME SUR IPHONE
-   ========================================================== */
-
-#arrivee,
-#heureArrivee,
-#depart,
-#heureDepart{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
-
-/* Texte interne Safari / iPhone */
-#arrivee::-webkit-datetime-edit,
-#heureArrivee::-webkit-datetime-edit,
-#depart::-webkit-datetime-edit,
-#heureDepart::-webkit-datetime-edit{
-  color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
-}
-
-/* Parties internes date / heure */
-#arrivee::-webkit-datetime-edit-fields-wrapper,
-#heureArrivee::-webkit-datetime-edit-fields-wrapper,
-#depart::-webkit-datetime-edit-fields-wrapper,
-#heureDepart::-webkit-datetime-edit-fields-wrapper{
-  color:var(--app-primary, #111827) !important;
-}
 
 /* ==========================================================
-   STYLE FINAL HOTEL
+   STYLE FINAL CHAMPS HOTEL
    LIBELLES = COULEUR DU THEME
-   INTERIEUR DES CHAMPS = NOIR
+   CONTENU = NOIR
    ========================================================== */
 
-/* Ville - Hôtel - Date - Heure */
-label{
+/* VILLE + HOTEL */
+.hotel-grid > label{
   color:var(--app-primary, #111827) !important;
 }
 
-/* ARRIVEE / DEPART restent noirs */
+/* DATE + HEURE */
+.travel-card label{
+  color:var(--app-primary, #111827) !important;
+}
+
+/* ARRIVEE + DEPART restent noirs */
 .travel-title{
   color:#111827 !important;
 }
 
-/* TOUT CE QUI EST DANS LES CHAMPS = NOIR */
-input,
-select,
-textarea,
-body #hotel,
+/* CONTENU DES CHAMPS = NOIR */
+#ville,
+#hotel,
 #arrivee,
 #heureArrivee,
 #depart,
@@ -6439,8 +6385,7 @@ body #hotel,
 }
 
 /* PLACEHOLDERS = NOIR */
-input::placeholder,
-textarea::placeholder{
+#ville::placeholder{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
   opacity:1 !important;
