@@ -6373,3 +6373,24 @@ textarea::placeholder{
   -webkit-text-fill-color:#98a2b3 !important;
   opacity:1 !important;
 }
+/* ==========================================================
+   VALEURS HOTEL + DATES + HEURES = COULEUR DU THEME
+   ========================================================== */
+
+/* Hôtel sélectionné */
+select{
+  color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
+
+/* Dates arrivée / départ */
+input[type="date"]{
+  color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
+
+/* Heures arrivée / départ */
+input[type="time"]{
+  color:var(--app-primary, #111827) !important;
+  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+}
