@@ -1,4 +1,4 @@
-const APP_VERSION = "v121-test19";
+const APP_VERSION = "v121-test20";
 alert("SCRIPT : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
 
