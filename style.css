@@ -6278,3 +6278,19 @@ body:has(#hotelHomeMenu:not([hidden])){
   font-size:14px !important;
   line-height:1.15 !important;
 }
+/* ==========================================================
+   POLICE PERSONNALISEE DES CADRES
+   ========================================================== */
+
+.card,
+.travel-card,
+.settings-subcard,
+.admin-hotel-row,
+.agent-admin-row,
+.theme-choice,
+.color-field,
+.stay-compact,
+.hotel-request-popup-card,
+.manage-popup-card{
+  font-family:var(--app-card-font, system-ui) !important;
+}
