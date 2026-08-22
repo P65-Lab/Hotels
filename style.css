@@ -6414,10 +6414,12 @@ body #normalRequestZone #ville{
    FOND DES CHAMPS = COULEUR CLAIRE DU THEME
    ========================================================== */
 
-#ville,
-#hotel,
-.travel-card input[type="date"],
-.travel-card input[type="time"]{
+#newRequestPopup #ville,
+#newRequestPopup #hotel,
+#newRequestPopup #arrivee,
+#newRequestPopup #heureArrivee,
+#newRequestPopup #depart,
+#newRequestPopup #heureDepart{
   background:var(--app-field, #ffffff) !important;
   background-color:var(--app-field, #ffffff) !important;
 }
