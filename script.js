@@ -2341,7 +2341,7 @@ function applyAppearance(values){
   };
 
   document.documentElement.style.setProperty(
-    "--app-primary",
+   "--theme-primary",
     a.primary
   );
 
