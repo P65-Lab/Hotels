@@ -4930,7 +4930,11 @@ height:auto !important;
   padding-left:34px !important;
   padding-right:34px !important;
 
+  padding-top:4px !important;
+  padding-bottom:4px !important;
+   
   margin-bottom:14px !important;
+  background:#dbeafe !important;
   box-sizing:border-box !important;
 }
 .hotel-request-popup-header h2{
