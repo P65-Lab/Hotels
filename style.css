@@ -5542,3 +5542,74 @@ body{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+/* ==========================================================
+   NOUVELLE DEMANDE - DEUX GRANDS CADRES
+   ========================================================== */
+
+#newRequestPopup #normalRequestZone{
+  background:#dbeafe !important;
+  padding:14px !important;
+  border-radius:20px !important;
+}
+
+/* GRANDS CADRES */
+#newRequestPopup .request-section-card{
+  background:#eff6ff !important;
+  border:1.5px solid #93c5fd !important;
+  border-radius:18px !important;
+  padding:16px !important;
+  margin-bottom:14px !important;
+}
+
+/* TITRES DES GRANDS CADRES */
+#newRequestPopup .request-section-title{
+  margin:0 0 14px !important;
+
+  color:#1d4ed8 !important;
+  -webkit-text-fill-color:#1d4ed8 !important;
+
+  font-size:15px !important;
+  font-weight:900 !important;
+  letter-spacing:.04em !important;
+}
+
+/* VILLE / HOTEL */
+#newRequestPopup .request-section-card .hotel-grid{
+  margin-bottom:8px !important;
+}
+
+/* PETIT-DEJEUNER */
+#newRequestPopup .request-section-card .pdj{
+  margin:8px 0 0 !important;
+}
+
+/* CARTES ARRIVEE / DEPART */
+#newRequestPopup .request-section-card .travel-card{
+  background:#ffffff !important;
+  border:1px solid #bfdbfe !important;
+}
+
+/* PETITS CHAMPS TOUJOURS BLANCS */
+#newRequestPopup #ville,
+#newRequestPopup #hotel,
+#newRequestPopup #arrivee,
+#newRequestPopup #heureArrivee,
+#newRequestPopup #depart,
+#newRequestPopup #heureDepart{
+  background:#ffffff !important;
+  background-color:#ffffff !important;
+}
+
+/* ARRIVEE / DEPART */
+#newRequestPopup .travel-title{
+  color:#1d4ed8 !important;
+  -webkit-text-fill-color:#1d4ed8 !important;
+}
+
+/* LIBELLES */
+#newRequestPopup .hotel-grid label,
+#newRequestPopup .travel-card label,
+#newRequestPopup .pdj > span{
+  color:#2563eb !important;
+  -webkit-text-fill-color:#2563eb !important;
+}
