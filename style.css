@@ -537,7 +537,7 @@
   padding: 4px 7px !important;
   font-size: 14px !important;
 }
-
+}
 @media (max-width: 360px) {
   .travel-grid {
     gap: 6px !important;
@@ -6339,7 +6339,7 @@ body:has(#hotelHomeMenu:not([hidden])){
 .travel-title{
   color:var(--app-primary, #111827) !important;
 }
-}
+
 
 /* CONTENU DES CHAMPS = NOIR */
 #ville,
