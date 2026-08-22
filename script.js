@@ -2281,13 +2281,14 @@ const themePresets = {
     card: "#ffffff"
   },
 
-  orange: {
-    primary: "#c2410c",
-    mail: "#ea580c",
-    nights: "#dc2626",
-    background: "#fff7ed",
-    card: "#ffffff"
-  },
+orange: {
+  primary: "#c2410c",
+  mail: "#ea580c",
+  nights: "#dc2626",
+  background: "#fff7ed",
+  card: "#ffffff",
+  field: "#ffedd5"
+},
 
   red: {
     primary: "#b91c1c",
@@ -2356,7 +2357,10 @@ function applyAppearance(values){
     "--app-card",
     a.card
   );
-
+document.documentElement.style.setProperty(
+  "--app-field",
+  a.field || "#ffffff"
+);
   $("colorPrimary").value = a.primary;
   $("colorMail").value = a.mail;
   $("colorNights").value = a.nights;
