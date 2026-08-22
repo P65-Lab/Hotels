@@ -5645,3 +5645,17 @@ body{
   color:var(--theme-primary) !important;
 -webkit-text-fill-color:var(--theme-primary) !important;
 }
+#newRequestPopup #pdjOui.active,
+#newRequestPopup #pdjNon.active{
+  background:var(--theme-primary) !important;
+  border-color:var(--theme-primary) !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+#newRequestPopup #pdjOui:not(.active),
+#newRequestPopup #pdjNon:not(.active){
+  background:#ffffff !important;
+  color:var(--theme-primary) !important;
+  -webkit-text-fill-color:var(--theme-primary) !important;
+  border:1px solid var(--theme-primary) !important;
+}
