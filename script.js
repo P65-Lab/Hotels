@@ -2346,26 +2346,26 @@ function applyAppearance(values){
   );
 
   document.documentElement.style.setProperty(
-    "--app-mail",
+    "--theme-mail",
     a.mail
   );
 
   document.documentElement.style.setProperty(
-    "--app-nights",
+    "--theme-danger",
     a.nights
   );
 
   document.documentElement.style.setProperty(
-    "--app-background",
+    "--theme-background",
     a.background
   );
 
   document.documentElement.style.setProperty(
-    "--app-card",
+    "--theme-card",
     a.card
   );
 document.documentElement.style.setProperty(
-  "--app-field",
+  "--theme-field",
   a.field || "#ffffff"
 );
    /* FOND DES CHAMPS SELON LE THEME */
