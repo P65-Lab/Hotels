@@ -6446,11 +6446,12 @@ body #normalRequestZone #ville{
    FOND DES CHAMPS = COULEUR CLAIRE DU THEME
    ========================================================== */
 
-#ville,
-#hotel,
-#arrivee,
-#heureArrivee,
-#depart,
-#heureDepart{
+body #normalRequestZone #ville,
+body #normalRequestZone #hotel,
+body #normalRequestZone #arrivee,
+body #normalRequestZone #heureArrivee,
+body #normalRequestZone #depart,
+body #normalRequestZone #heureDepart{
+  background:var(--app-field, #ffffff) !important;
   background-color:var(--app-field, #ffffff) !important;
 }
