@@ -2332,10 +2332,7 @@ function applyAppearance(values){
     ...appearanceDefaults,
     ...values
   };
-alert(
-  "THEME = " + a.theme +
-  "\nFIELD = " + a.field
-);
+
   document.documentElement.style.setProperty(
     "--app-primary",
     a.primary
