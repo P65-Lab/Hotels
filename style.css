@@ -446,7 +446,7 @@
 .create-mail-final,
 .create-mail-bottom,
 .create-mail-btn {
-  background: var(--app-mail) !important;
+  background: #079447 !important;
   color: #ffffff !important;
 }
 
@@ -4971,7 +4971,7 @@ body:has(#hotelHomeMenu:not([hidden])){
   border:1px solid #d0d5dd !important;
   border-radius:12px !important;
 
- background:var(--app-field, #ffffff) !important;
+background:#ffffff !important;
 
   color:#667085 !important;
   -webkit-text-fill-color:#667085 !important;
@@ -4991,7 +4991,7 @@ body:has(#hotelHomeMenu:not([hidden])){
 
 #hotel.hotel-select-button:focus,
 #hotel.hotel-select-button:active{
-  background:var(--app-field, #ffffff) !important;
+ background:#ffffff !important;
   transform:none !important;
   outline:none !important;
 }
