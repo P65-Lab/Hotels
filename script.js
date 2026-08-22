@@ -2312,15 +2312,22 @@ orange: {
    v29 - SYNCHRONISATION DU MODE SOMBRE
    ========================================================== */
 function synchroniserThemeHotel() {
+
   const nomTheme =
     (appearance && appearance.theme
       ? String(appearance.theme)
-      : "").toLowerCase();
+      : ""
+    ).toLowerCase();
 
   document.body.classList.toggle(
     "theme-dark",
     nomTheme === "dark" ||
     nomTheme === "sombre"
+  );
+
+  document.body.classList.toggle(
+    "theme-orange",
+    nomTheme === "orange"
   );
 }
 
