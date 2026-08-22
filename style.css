@@ -89,21 +89,21 @@
 
 .travel-card input[type="date"],
 .travel-card input[type="time"] {
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  box-sizing: border-box;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+
+  height:52px !important;
+  min-height:52px !important;
+
+  padding:0 8px !important;
+
+  text-align:center !important;
+  text-align-last:center !important;
+
+  line-height:52px !important;
 }
-
-@media (max-width: 430px) {
-  .travel-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .travel-card {
-    padding: 10px;
-  }
 
   .travel-card input[type="date"],
   .travel-card input[type="time"] {
@@ -474,88 +474,104 @@
 
 /* ==========================================================
    CORRECTION SAFARI IPHONE - ARRIVEE / DEPART
-   Empêche date et heure de dépasser des cartes.
    ========================================================== */
 
 .travel-grid {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
 }
 
 .travel-card {
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  overflow:hidden;
+  box-sizing:border-box;
 }
 
 .travel-card label {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  box-sizing: border-box;
+  display:block;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
 }
 
 .travel-card input,
 .travel-card input[type="date"],
 .travel-card input[type="time"] {
-  display: block;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-  -webkit-appearance: none;
-  appearance: none;
+  display:block;
+
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+
+  height:48px !important;
+  min-height:48px !important;
+
+  padding:0 6px !important;
+
+  box-sizing:border-box !important;
+
+  font-size:14px !important;
+  line-height:48px !important;
+
+  text-align:center !important;
+  text-align-last:center !important;
+
+  -webkit-appearance:none;
+  appearance:none;
 }
 
-/* Safari iOS garde parfois une largeur intrinsèque sur date/time */
+/* CENTRAGE SAFARI IPHONE */
 .travel-card input[type="date"]::-webkit-date-and-time-value,
 .travel-card input[type="time"]::-webkit-date-and-time-value {
-  text-align: left;
-  min-width: 0;
+  width:100% !important;
+  min-width:0 !important;
+  text-align:center !important;
 }
 
-@media (max-width: 480px) {
+@media (max-width:480px) {
+
   .travel-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    gap: 8px !important;
-  }
-
-.travel-card {
-  padding: 6px !important;
-}
-
-.travel-card input[type="date"],
-.travel-card input[type="time"] {
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  height: 56px !important;
-  padding: 4px 7px !important;
-  font-size: 14px !important;
-}
-}
-@media (max-width: 360px) {
-  .travel-grid {
-    gap: 6px !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:8px !important;
   }
 
   .travel-card {
-    padding: 8px !important;
+    padding:6px !important;
   }
 
   .travel-card input[type="date"],
   .travel-card input[type="time"] {
-    padding-left: 7px !important;
-    padding-right: 7px !important;
-    font-size: 13px !important;
+    height:48px !important;
+    min-height:48px !important;
+    padding:0 5px !important;
+    font-size:14px !important;
+    line-height:48px !important;
   }
 }
 
+@media (max-width:360px) {
 
+  .travel-grid {
+    gap:6px !important;
+  }
+
+  .travel-card {
+    padding:6px !important;
+  }
+
+  .travel-card input[type="date"],
+  .travel-card input[type="time"] {
+    height:46px !important;
+    min-height:46px !important;
+    padding:0 4px !important;
+    font-size:13px !important;
+    line-height:46px !important;
+  }
+}
 /* ==========================================================
    HEBERGEMENTS AJOUTES - PRESENTATION COMPACTE
    ========================================================== */
