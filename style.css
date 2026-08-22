@@ -5420,5 +5420,118 @@ body #normalRequestZone #ville{
   -webkit-text-fill-color:#111827 !important;
 }
 
+/* ==========================================================
+   NOUVEAU SYSTEME DE THEMES
+   BASE BLEUE
+   ========================================================== */
 
+:root{
+  --theme-primary:#2563eb;
+  --theme-primary-soft:#eff6ff;
+
+  --theme-background:#ffffff;
+  --theme-card:#ffffff;
+  --theme-field:#eff6ff;
+
+  --theme-text:#111827;
+  --theme-muted:#667085;
+
+  --theme-border:#bfdbfe;
+
+  --theme-mail:#079447;
+  --theme-danger:#dc2626;
+}
+
+/* PAGE */
+body{
+  background:var(--theme-background) !important;
+  color:var(--theme-text) !important;
+}
+
+/* CARTES */
+.card,
+.travel-card,
+.stay-compact,
+.admin-hotel-row,
+.quick-add-menu{
+  background:var(--theme-card) !important;
+}
+
+/* PETITS CHAMPS */
+#ville,
+#hotel,
+#arrivee,
+#heureArrivee,
+#depart,
+#heureDepart{
+  background:var(--theme-field) !important;
+  border-color:var(--theme-border) !important;
+
+  color:var(--theme-text) !important;
+  -webkit-text-fill-color:var(--theme-text) !important;
+}
+
+/* PLACEHOLDERS */
+#ville::placeholder,
+#hotel::placeholder{
+  color:var(--theme-muted) !important;
+  -webkit-text-fill-color:var(--theme-muted) !important;
+  opacity:1 !important;
+}
+
+/* HOTEL VIDE */
+#hotel:placeholder-shown,
+#hotel:invalid{
+  color:var(--theme-muted) !important;
+  -webkit-text-fill-color:var(--theme-muted) !important;
+}
+
+/* HOTEL CHOISI */
+#hotel:not(:placeholder-shown),
+#hotel:valid{
+  color:var(--theme-text) !important;
+  -webkit-text-fill-color:var(--theme-text) !important;
+}
+
+/* LIBELLES */
+.hotel-grid > label,
+.travel-card label{
+  color:var(--theme-primary) !important;
+}
+
+/* ARRIVEE / DEPART */
+.travel-title{
+  color:var(--theme-text) !important;
+}
+
+/* BOUTONS PRINCIPAUX */
+.primary,
+.round,
+.tab.active,
+.choice.active,
+.plus-stay-btn,
+.add-hotel-final,
+.hotel-home-btn,
+.request-mode-btn.active{
+  background:var(--theme-primary) !important;
+  border-color:var(--theme-primary) !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+
+/* MAIL */
+.create-mail-final,
+.create-mail-bottom,
+.create-mail-btn{
+  background:var(--theme-mail) !important;
+  color:#ffffff !important;
+}
+
+/* ROUGE */
+.danger,
+.stay-nights,
+.nights,
+.stays-count{
+  color:var(--theme-danger) !important;
+}
 
