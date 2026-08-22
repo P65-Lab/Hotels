@@ -5493,10 +5493,13 @@ body{
   -webkit-text-fill-color:var(--theme-text) !important;
 }
 
-/* LIBELLES */
+/* LIBELLES DU THEME */
 .hotel-grid > label,
-.travel-card label{
+.travel-card label,
+.stays-section > h2,
+.pdj > span{
   color:var(--theme-primary) !important;
+  -webkit-text-fill-color:var(--theme-primary) !important;
 }
 
 /* ARRIVEE / DEPART */
