@@ -6280,39 +6280,7 @@ body:has(#hotelHomeMenu:not([hidden])){
   font-size:14px !important;
   line-height:1.15 !important;
 }
-/* ==========================================================
-   APPARENCE - OUVRIR / FERMER COULEURS PERSONNALISEES
-   ========================================================== */
 
-const toggleCustomColors =
-  document.getElementById("toggleCustomColors");
-
-const customColorsPanel =
-  document.getElementById("customColorsPanel");
-
-if(toggleCustomColors && customColorsPanel){
-
-  toggleCustomColors.addEventListener(
-    "click",
-    () => {
-
-      if(customColorsPanel.hasAttribute("hidden")){
-
-        customColorsPanel.removeAttribute("hidden");
-
-        toggleCustomColors.textContent =
-          "🎨 Masquer les couleurs personnalisées";
-
-      }else{
-
-        customColorsPanel.setAttribute("hidden","");
-
-        toggleCustomColors.textContent =
-          "🎨 Couleurs personnalisées";
-      }
-    }
-  );
-}
 /* ==========================================================
    BOUTON COULEURS PERSONNALISEES
    ========================================================== */
@@ -6454,4 +6422,14 @@ body #normalRequestZone #depart,
 body #normalRequestZone #heureDepart{
   background:var(--app-field, #ffffff) !important;
   background-color:var(--app-field, #ffffff) !important;
+}
+/* ==========================================================
+   TEST FOND ORANGE CLAIR - NOUVELLE DEMANDE
+   ========================================================== */
+
+#hotelRequestPopup,
+.hotel-request-popup,
+.hotel-request-popup-card,
+.hotel-request-popup-content {
+  background: #fff3e8 !important;
 }
