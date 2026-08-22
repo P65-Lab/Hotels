@@ -4941,7 +4941,7 @@ height:auto !important;
   margin:0 !important;
   font-size:20px !important;
   font-weight:900 !important;
-  color:#1d4ed8 !important;
+  color:var(--theme-primary) !important;
 }
 
 .hotel-request-popup-close{
@@ -4958,7 +4958,7 @@ height:auto !important;
   justify-content:center !important;
 
  background:#dbeafe !important;
-color:#2563eb !important;
+ color:var(--theme-primary) !important;
 
   font-size:28px !important;
   line-height:1 !important;
@@ -5587,7 +5587,7 @@ body{
 /* GRANDS CADRES */
 #newRequestPopup .request-section-card{
   background:#eff6ff !important;
-  border:1.5px solid #93c5fd !important;
+ border:1.5px solid var(--theme-primary) !important;
   border-radius:18px !important;
   padding:16px !important;
   margin-bottom:14px !important;
@@ -5597,8 +5597,8 @@ body{
 #newRequestPopup .request-section-title{
   margin:0 0 14px !important;
 
-  color:#1d4ed8 !important;
-  -webkit-text-fill-color:#1d4ed8 !important;
+  color:var(--theme-primary) !important;
+-webkit-text-fill-color:var(--theme-primary) !important;
 
   font-size:15px !important;
   font-weight:900 !important;
@@ -5618,7 +5618,7 @@ body{
 /* CARTES ARRIVEE / DEPART */
 #newRequestPopup .request-section-card .travel-card{
   background:#ffffff !important;
-  border:1px solid #bfdbfe !important;
+ border:1px solid var(--theme-primary) !important;
 }
 
 /* PETITS CHAMPS TOUJOURS BLANCS */
@@ -5634,14 +5634,14 @@ body{
 
 /* ARRIVEE / DEPART */
 #newRequestPopup .travel-title{
-  color:#1d4ed8 !important;
-  -webkit-text-fill-color:#1d4ed8 !important;
+  color:var(--theme-primary) !important;
+-webkit-text-fill-color:var(--theme-primary) !important;
 }
 
 /* LIBELLES */
 #newRequestPopup .hotel-grid label,
 #newRequestPopup .travel-card label,
 #newRequestPopup .pdj > span{
-  color:#2563eb !important;
-  -webkit-text-fill-color:#2563eb !important;
+  color:var(--theme-primary) !important;
+-webkit-text-fill-color:var(--theme-primary) !important;
 }
