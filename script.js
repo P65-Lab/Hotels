@@ -2332,7 +2332,10 @@ function applyAppearance(values){
     ...appearanceDefaults,
     ...values
   };
-
+alert(
+  "THEME = " + a.theme +
+  "\nFIELD = " + a.field
+);
   document.documentElement.style.setProperty(
     "--app-primary",
     a.primary
@@ -2366,7 +2369,8 @@ document.documentElement.style.setProperty(
   $("colorNights").value = a.nights;
   $("colorBackground").value = a.background;
   $("colorCard").value = a.card;
-/* POLICE DES CADRES */
+
+   /* POLICE DES CADRES */
 if($("fontCards")){
   $("fontCards").value =
     a.fontCards || "system-ui";
