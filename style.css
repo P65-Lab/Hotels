@@ -5539,14 +5539,36 @@ body{
 }
 
 /* ==========================================================
-   FOND PRINCIPAL DU THEME
+   FOND NOUVELLE DEMANDE
    ========================================================== */
 
-body,
-#newRequestPopup,
-.hotel-request-popup,
-.hotel-request-popup-card,
-#normalRequestZone{
-  background:var(--theme-background) !important;
-  background-color:var(--theme-background) !important;
+#newRequestPopup.hotel-request-popup,
+#newRequestPopup .hotel-request-popup-card,
+#newRequestPopup #normalRequestZone{
+  background:#eff6ff !important;
+  background-color:#eff6ff !important;
+}
+/* CHAMPS BLANCS */
+
+#newRequestPopup #ville,
+#newRequestPopup #hotel,
+#newRequestPopup #arrivee,
+#newRequestPopup #heureArrivee,
+#newRequestPopup #depart,
+#newRequestPopup #heureDepart{
+  background:#ffffff !important;
+  background-color:#ffffff !important;
+}
+
+/* CARTES ARRIVEE / DEPART BLANCHES */
+
+#newRequestPopup .travel-card{
+  background:#ffffff !important;
+}
+
+/* SEJOUR EN BLEU */
+
+#newRequestPopup .section-title{
+  color:var(--theme-primary) !important;
+  -webkit-text-fill-color:var(--theme-primary) !important;
 }
