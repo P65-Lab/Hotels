@@ -4873,7 +4873,7 @@ body:has(#hotelHomeMenu:not([hidden])){
 
   z-index:5000 !important;
 
-  background:#ffffff !important;
+  background:#eff6ff !important;
 
   overflow:hidden !important;
 }
@@ -4889,14 +4889,14 @@ body:has(#hotelHomeMenu:not([hidden])){
 
   padding:
     calc(14px + env(safe-area-inset-top))
-    16px
+    0
     calc(14px + env(safe-area-inset-bottom))
-    16px !important;
+    0 !important;
 
   border:0 !important;
   border-radius:0 !important;
 
-  background:#ffffff !important;
+  background:#eff6ff !important;
   box-shadow:none !important;
 
   overflow-x:hidden !important;
@@ -4909,9 +4909,14 @@ body:has(#hotelHomeMenu:not([hidden])){
   display:flex !important;
   align-items:center !important;
   justify-content:space-between !important;
-  margin-bottom:14px !important;
-}
 
+  width:100% !important;
+  padding-left:34px !important;
+  padding-right:34px !important;
+
+  margin-bottom:14px !important;
+  box-sizing:border-box !important;
+}
 .hotel-request-popup-header h2{
   margin:0 !important;
   font-size:20px !important;
