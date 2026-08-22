@@ -507,15 +507,15 @@
   min-width:0 !important;
   max-width:100% !important;
 
-  height:48px !important;
-  min-height:48px !important;
+  height:42px !important;
+  min-height:42px !important;
 
   padding:0 6px !important;
 
   box-sizing:border-box !important;
 
   font-size:14px !important;
-  line-height:48px !important;
+  line-height:42px !important;
 
   text-align:center !important;
   text-align-last:center !important;
@@ -545,11 +545,11 @@
 
   .travel-card input[type="date"],
   .travel-card input[type="time"] {
-    height:48px !important;
-    min-height:48px !important;
+    height:42px !important;
+    min-height:42px !important;
     padding:0 5px !important;
     font-size:14px !important;
-    line-height:48px !important;
+    line-height:42px !important;
   }
 }
 
@@ -565,11 +565,11 @@
 
   .travel-card input[type="date"],
   .travel-card input[type="time"] {
-    height:46px !important;
-    min-height:46px !important;
+    height:42px !important;
+    min-height:42px !important;
     padding:0 4px !important;
     font-size:13px !important;
-    line-height:46px !important;
+    line-height:42px !important;
   }
 }
 /* ==========================================================
