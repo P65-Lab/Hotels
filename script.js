@@ -2252,10 +2252,10 @@ const appearanceDefaults = {
   nights: "#dc2626",
   background: "#f3f4f6",
   card: "#ffffff",
+  field: "#ffffff",
   cardText: "#111827",
   theme: "classic"
 };
-
 const themePresets = {
   classic: {
     primary: "#111827",
