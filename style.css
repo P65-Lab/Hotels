@@ -5429,14 +5429,14 @@ body #normalRequestZone #ville{
   --theme-primary:#2563eb;
   --theme-primary-soft:#eff6ff;
 
-  --theme-background:#ffffff;
-  --theme-card:#ffffff;
-  --theme-field:#eff6ff;
+  --theme-background:#eff6ff;
+--theme-card:#ffffff;
+--theme-field:#ffffff;
 
   --theme-text:#111827;
   --theme-muted:#667085;
 
-  --theme-border:#bfdbfe;
+  --theme-border:#d0d5dd;
 
   --theme-mail:#079447;
   --theme-danger:#dc2626;
