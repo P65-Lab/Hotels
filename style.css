@@ -5538,3 +5538,15 @@ body{
   color:var(--theme-danger) !important;
 }
 
+/* ==========================================================
+   FOND PRINCIPAL DU THEME
+   ========================================================== */
+
+body,
+#newRequestPopup,
+.hotel-request-popup,
+.hotel-request-popup-card,
+#normalRequestZone{
+  background:var(--theme-background) !important;
+  background-color:var(--theme-background) !important;
+}
