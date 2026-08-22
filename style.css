@@ -6410,17 +6410,19 @@ body #normalRequestZone #ville{
   -webkit-text-fill-color:#111827 !important;
 }
 
+
+
 /* ==========================================================
-   FOND DES CHAMPS = COULEUR CLAIRE DU THEME
+   THEME ORANGE
+   PETITS CHAMPS UNIQUEMENT
    ========================================================== */
 
-#newRequestPopup #ville,
-#newRequestPopup #hotel,
-#newRequestPopup #arrivee,
-#newRequestPopup #heureArrivee,
-#newRequestPopup #depart,
-#newRequestPopup #heureDepart{
-  background:var(--app-field, #ffffff) !important;
-  background-color:var(--app-field, #ffffff) !important;
+body.theme-orange #normalRequestZone #ville,
+body.theme-orange #normalRequestZone #hotel,
+body.theme-orange #normalRequestZone #arrivee,
+body.theme-orange #normalRequestZone #heureArrivee,
+body.theme-orange #normalRequestZone #depart,
+body.theme-orange #normalRequestZone #heureDepart{
+  background:#ffedd5 !important;
+  background-color:#ffedd5 !important;
 }
-
