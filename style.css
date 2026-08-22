@@ -4918,7 +4918,7 @@ body:has(#hotelHomeMenu:not([hidden])){
   overflow-x:hidden !important;
   overflow-y:auto !important;
 
-  -webkit-overflow-scrolling:touch !important;
+  -webkit-overflow-scrolling:auto !important;
 }
 
 .hotel-request-popup-header{
