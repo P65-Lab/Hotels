@@ -5363,62 +5363,7 @@ background:#ffffff !important;
 
 
 
-/* ==========================================================
-   PLACEHOLDERS VILLE + HOTEL = GRIS
-   VALEURS CHOISIES = NOIR
-   ========================================================== */
 
-/* Tapez une ville... = GRIS */
-#ville::placeholder{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-  opacity:1 !important;
-}
-
-/* Valeur réellement saisie dans Ville = NOIR */
-#ville{
-  color:#111827 !important;
-}
-
-/* Choisir un hébergement... = GRIS */
-#hotel:invalid{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-}
-
-/* Hôtel choisi, par exemple ORFEA = NOIR */
-#hotel:valid{
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
-/* ==========================================================
-   HOTEL PRINCIPAL - COULEUR FINALE
-   ========================================================== */
-
-/* Hôtel choisi = NOIR */
-body #normalRequestZone #hotel:not(:placeholder-shown){
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
-
-/* "Choisir un hébergement..." = GRIS */
-body #normalRequestZone #hotel:placeholder-shown{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-}
-
-/* Ville vide = GRIS */
-body #normalRequestZone #ville::placeholder{
-  color:#98a2b3 !important;
-  -webkit-text-fill-color:#98a2b3 !important;
-  opacity:1 !important;
-}
-
-/* Ville saisie = NOIR */
-body #normalRequestZone #ville{
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
 
 /* ==========================================================
    NOUVEAU SYSTEME DE THEMES
@@ -5571,4 +5516,29 @@ body{
 #newRequestPopup .section-title{
   color:var(--theme-primary) !important;
   -webkit-text-fill-color:var(--theme-primary) !important;
+}
+/* ==========================================================
+   VILLE + HOTEL
+   PLACEHOLDERS = MEME GRIS
+   VALEURS = NOIR
+   ========================================================== */
+
+#newRequestPopup #ville::placeholder,
+#newRequestPopup #hotel::placeholder{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+  opacity:1 !important;
+}
+
+/* HOTEL VIDE */
+#newRequestPopup #hotel:placeholder-shown{
+  color:#98a2b3 !important;
+  -webkit-text-fill-color:#98a2b3 !important;
+}
+
+/* VILLE SAISIE + HOTEL CHOISI */
+#newRequestPopup #ville:not(:placeholder-shown),
+#newRequestPopup #hotel:not(:placeholder-shown){
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
 }
