@@ -6441,3 +6441,16 @@ body #normalRequestZone #ville{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+
+/* ==========================================================
+   FOND DES CHAMPS = COULEUR CLAIRE DU THEME
+   ========================================================== */
+
+#ville,
+#hotel,
+#arrivee,
+#heureArrivee,
+#depart,
+#heureDepart{
+  background-color:var(--app-field, #ffffff) !important;
+}
