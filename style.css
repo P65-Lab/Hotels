@@ -5422,17 +5422,3 @@ body #normalRequestZone #ville{
 
 
 
-/* ==========================================================
-   THEME ORANGE
-   PETITS CHAMPS UNIQUEMENT
-   ========================================================== */
-
-body.theme-orange #normalRequestZone #ville,
-body.theme-orange #normalRequestZone #hotel,
-body.theme-orange #normalRequestZone #arrivee,
-body.theme-orange #normalRequestZone #heureArrivee,
-body.theme-orange #normalRequestZone #depart,
-body.theme-orange #normalRequestZone #heureDepart{
-  background:#ffedd5 !important;
-  background-color:#ffedd5 !important;
-}
