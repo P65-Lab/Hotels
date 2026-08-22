@@ -790,60 +790,7 @@
 }
 
 
-/* ==========================================================
-   APPARENCE PERSONNALISABLE
-   ========================================================== */
 
-:root {
-  --app-primary: #111827;
-  --app-mail: #079447;
-  --app-nights: #dc2626;
-  --app-background: #f3f4f6;
-  --app-card: #ffffff;
-  --app-text: #111827;
-}
-
-body {
-  background: var(--app-background) !important;
-  color: var(--app-text) !important;
-}
-
-.card,
-.travel-card,
-.stay-compact,
-.admin-hotel-row,
-.quick-add-menu {
-  background: var(--app-card) !important;
-}
-
-.primary,
-.round,
-.tab.active,
-.choice.active,
-.plus-stay-btn,
-.add-hotel-final {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-}
-
-.create-mail-final,
-.create-mail-bottom,
-.create-mail-btn {
-  background: var(--app-mail) !important;
-  color: #ffffff !important;
-}
-
-.stay-compact-number,
-.stay-compact-label,
-.stay-nights,
-.nights,
-.stays-count {
-  color: var(--app-nights) !important;
-}
-
-.stays-count {
-  background: color-mix(in srgb, var(--app-nights) 13%, white) !important;
-}
 
 /* Fallback Safari ancien si color-mix non supporté */
 @supports not (background: color-mix(in srgb, red 10%, white)) {
@@ -886,7 +833,7 @@ body {
 }
 
 .theme-choice.active {
-  border: 2px solid var(--app-primary);
+  border: 2px solid #0b63d8;
 }
 
 .theme-dot {
@@ -960,302 +907,6 @@ body {
   }
 }
 
-
-/* ==========================================================
-   v29 - THEMES COHERENTS PARTOUT
-   ========================================================== */
-
-/* Variables de secours */
-:root {
-  --hotel-primary: var(--primary, #111827);
-  --hotel-card: var(--card, #ffffff);
-  --hotel-bg: var(--background, #f3f4f6);
-  --hotel-text: var(--text, #111827);
-  --hotel-muted: var(--muted, #667085);
-}
-
-/* Onglets Paramètres : l'actif suit le thème */
-.admin-tab,
-.admin-tabs button {
-  background: var(--hotel-card) !important;
-  color: var(--hotel-text) !important;
-  border-color: color-mix(in srgb, var(--hotel-text) 18%, transparent) !important;
-}
-
-.admin-tab.active,
-.admin-tabs button.active {
-  background: var(--hotel-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--hotel-primary) !important;
-}
-
-/* Mode sombre : textes et fonds cohérents */
-body.theme-dark,
-.theme-dark body,
-html.theme-dark body {
-  background: #0f172a !important;
-  color: #f8fafc !important;
-}
-
-body.theme-dark .card,
-body.theme-dark .admin-panel,
-body.theme-dark .travel-card,
-body.theme-dark .pdj,
-body.theme-dark .update-card,
-body.theme-dark .quick-add-menu,
-body.theme-dark .stays-card,
-body.theme-dark .admin-item,
-body.theme-dark .admin-place-row {
-  background: #111827 !important;
-  color: #f8fafc !important;
-  border-color: #334155 !important;
-}
-
-body.theme-dark h1,
-body.theme-dark h2,
-body.theme-dark h3,
-body.theme-dark label,
-body.theme-dark .section-title,
-body.theme-dark .travel-title,
-body.theme-dark .stays-header,
-body.theme-dark .stays-count,
-body.theme-dark .appearance-title,
-body.theme-dark .admin-header,
-body.theme-dark .admin-title,
-body.theme-dark .pdj span,
-body.theme-dark strong {
-  color: #f8fafc !important;
-}
-
-body.theme-dark p,
-body.theme-dark small,
-body.theme-dark .detail,
-body.theme-dark .kicker,
-body.theme-dark .memory-info,
-body.theme-dark .search-empty,
-body.theme-dark .admin-note,
-body.theme-dark .private-status,
-body.theme-dark .appearance-subtitle {
-  color: #cbd5e1 !important;
-}
-
-body.theme-dark input,
-body.theme-dark select,
-body.theme-dark textarea {
-  background: #0f172a !important;
-  color: #f8fafc !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark input::placeholder,
-body.theme-dark textarea::placeholder {
-  color: #94a3b8 !important;
-}
-
-/* Boutons OUI / NON : état actif = couleur thème, inactif = neutre */
-.choice,
-#pdjOui,
-#pdjNon {
-  background: var(--hotel-card) !important;
-  color: var(--hotel-text) !important;
-  border-color: color-mix(in srgb, var(--hotel-text) 22%, transparent) !important;
-}
-
-.choice.active,
-#pdjOui.active,
-#pdjNon.active {
-  background: var(--hotel-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--hotel-primary) !important;
-}
-
-body.theme-dark .choice,
-body.theme-dark #pdjOui,
-body.theme-dark #pdjNon {
-  background: #0f172a !important;
-  color: #f8fafc !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark .choice.active,
-body.theme-dark #pdjOui.active,
-body.theme-dark #pdjNon.active {
-  background: var(--hotel-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--hotel-primary) !important;
-}
-
-
-/* ==========================================================
-   v29b - CORRECTION PRECISE APPARENCE HOTEL
-   ========================================================== */
-
-/* Les onglets Paramètres suivent exactement --app-primary */
-.tabs .tab {
-  background: var(--app-card) !important;
-  color: var(--app-text) !important;
-  border: 1px solid color-mix(in srgb, var(--app-text) 18%, transparent) !important;
-}
-
-.tabs .tab.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* OUI / NON : actif = couleur thème, inactif = carte */
-.pdj .choice {
-  background: var(--app-card) !important;
-  color: var(--app-text) !important;
-  border: 1px solid color-mix(in srgb, var(--app-text) 18%, transparent) !important;
-}
-
-.pdj .choice.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* Mode sombre : tout le texte doit rester lisible */
-body.theme-dark {
-  background: var(--app-background) !important;
-  color: var(--app-text) !important;
-}
-
-body.theme-dark .card,
-body.theme-dark .travel-card,
-body.theme-dark .stay-compact,
-body.theme-dark .admin-hotel-row,
-body.theme-dark .quick-add-menu,
-body.theme-dark .panel,
-body.theme-dark .pdj {
-  background: var(--app-card) !important;
-  color: var(--app-text) !important;
-  border-color: #334155 !important;
-}
-
-body.theme-dark h1,
-body.theme-dark h2,
-body.theme-dark h3,
-body.theme-dark label,
-body.theme-dark .section-title,
-body.theme-dark .travel-title,
-body.theme-dark .stay-compact-title,
-body.theme-dark .stay-compact-line,
-body.theme-dark .recap-row,
-body.theme-dark .admin-head,
-body.theme-dark .appearance-title,
-body.theme-dark .pdj span,
-body.theme-dark strong,
-body.theme-dark span {
-  color: var(--app-text) !important;
-}
-
-body.theme-dark .hint,
-body.theme-dark small,
-body.theme-dark .kicker,
-body.theme-dark .search-empty {
-  color: #cbd5e1 !important;
-}
-
-body.theme-dark input,
-body.theme-dark select,
-body.theme-dark textarea {
-  background: #0f172a !important;
-  color: #f8fafc !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark input::placeholder,
-body.theme-dark textarea::placeholder {
-  color: #94a3b8 !important;
-}
-
-/* En sombre, boutons inactifs lisibles et actif = couleur principale */
-body.theme-dark .tabs .tab,
-body.theme-dark .pdj .choice {
-  background: #1e293b !important;
-  color: #f8fafc !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark .tabs .tab.active,
-body.theme-dark .pdj .choice.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-
-/* ==========================================================
-   v30 - CORRECTION PRECISE THEME + MODE SOMBRE
-   ========================================================== */
-
-/* PETIT-DEJEUNER : OUI/NON suivent TOUJOURS la couleur du thème */
-#pdjOui.choice,
-#pdjNon.choice {
-  background: var(--app-card) !important;
-  color: var(--app-text) !important;
-  border: 1px solid color-mix(in srgb, var(--app-primary) 35%, transparent) !important;
-}
-
-#pdjOui.choice.active,
-#pdjNon.choice.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* MODE SOMBRE : libellés VILLE / ARRIVEE / DEPART / DATE / HEURE */
-body.theme-dark form > label,
-body.theme-dark .travel-card label,
-body.theme-dark .travel-title,
-body.theme-dark label,
-body.theme-dark .pdj > span {
-  color: #ffffff !important;
-}
-
-/* MODE SOMBRE : texte saisi dans Ville, Date et Heure */
-body.theme-dark #ville,
-body.theme-dark #hotel,
-body.theme-dark #arrivee,
-body.theme-dark #heureArrivee,
-body.theme-dark #depart,
-body.theme-dark #heureDepart,
-body.theme-dark input[type="date"],
-body.theme-dark input[type="time"],
-body.theme-dark input[type="text"],
-body.theme-dark select {
-  background: #0f172a !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #475569 !important;
-  color-scheme: dark !important;
-}
-
-/* Icônes calendrier / heure adaptées au fond sombre */
-body.theme-dark input[type="date"]::-webkit-calendar-picker-indicator,
-body.theme-dark input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) !important;
-  opacity: .9 !important;
-}
-
-/* En sombre, bouton inactif neutre, bouton actif = couleur du thème */
-body.theme-dark #pdjOui.choice,
-body.theme-dark #pdjNon.choice {
-  background: #1e293b !important;
-  color: #ffffff !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark #pdjOui.choice.active,
-body.theme-dark #pdjNon.choice.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-
 /* ==========================================================
    v31 - EVITER LE ZOOM AUTOMATIQUE IPHONE / SAFARI
    Safari zoome sur un champ si sa police est inférieure à 16px.
@@ -1286,295 +937,6 @@ button {
   }
 }
 
-
-/* ==========================================================
-   v32 - DATE / HEURE + CALENDRIER COHERENTS AVEC LE THEME
-   ========================================================== */
-
-/* En thème clair : valeurs DATE / HEURE en noir, pas bleu Safari */
-body:not(.theme-dark) #arrivee,
-body:not(.theme-dark) #depart,
-body:not(.theme-dark) #heureArrivee,
-body:not(.theme-dark) #heureDepart,
-body:not(.theme-dark) input[type="date"],
-body:not(.theme-dark) input[type="time"] {
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-  caret-color: var(--app-primary) !important;
-  accent-color: var(--app-primary) !important;
-  color-scheme: light !important;
-}
-
-/* Parties internes Safari des champs date/heure */
-body:not(.theme-dark) input[type="date"]::-webkit-datetime-edit,
-body:not(.theme-dark) input[type="date"]::-webkit-datetime-edit-fields-wrapper,
-body:not(.theme-dark) input[type="date"]::-webkit-datetime-edit-text,
-body:not(.theme-dark) input[type="date"]::-webkit-datetime-edit-month-field,
-body:not(.theme-dark) input[type="date"]::-webkit-datetime-edit-day-field,
-body:not(.theme-dark) input[type="date"]::-webkit-datetime-edit-year-field,
-body:not(.theme-dark) input[type="time"]::-webkit-datetime-edit,
-body:not(.theme-dark) input[type="time"]::-webkit-datetime-edit-fields-wrapper,
-body:not(.theme-dark) input[type="time"]::-webkit-datetime-edit-text,
-body:not(.theme-dark) input[type="time"]::-webkit-datetime-edit-hour-field,
-body:not(.theme-dark) input[type="time"]::-webkit-datetime-edit-minute-field,
-body:not(.theme-dark) input[type="time"]::-webkit-datetime-edit-ampm-field {
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-}
-
-/* Sélection/focus du champ suit la couleur principale */
-input[type="date"],
-input[type="time"] {
-  accent-color: var(--app-primary) !important;
-}
-
-input[type="date"]:focus,
-input[type="time"]:focus {
-  border-color: var(--app-primary) !important;
-  outline: 2px solid color-mix(in srgb, var(--app-primary) 22%, transparent) !important;
-  outline-offset: 1px !important;
-}
-
-/* Icône calendrier / heure : thème clair */
-body:not(.theme-dark) input[type="date"]::-webkit-calendar-picker-indicator,
-body:not(.theme-dark) input[type="time"]::-webkit-calendar-picker-indicator {
-  opacity: .8 !important;
-  filter: none !important;
-}
-
-/* Mode sombre : valeurs blanches et picker natif sombre */
-body.theme-dark #arrivee,
-body.theme-dark #depart,
-body.theme-dark #heureArrivee,
-body.theme-dark #heureDepart,
-body.theme-dark input[type="date"],
-body.theme-dark input[type="time"] {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  caret-color: var(--app-primary) !important;
-  accent-color: var(--app-primary) !important;
-  color-scheme: dark !important;
-}
-
-body.theme-dark input[type="date"]::-webkit-datetime-edit,
-body.theme-dark input[type="date"]::-webkit-datetime-edit-fields-wrapper,
-body.theme-dark input[type="date"]::-webkit-datetime-edit-text,
-body.theme-dark input[type="date"]::-webkit-datetime-edit-month-field,
-body.theme-dark input[type="date"]::-webkit-datetime-edit-day-field,
-body.theme-dark input[type="date"]::-webkit-datetime-edit-year-field,
-body.theme-dark input[type="time"]::-webkit-datetime-edit,
-body.theme-dark input[type="time"]::-webkit-datetime-edit-fields-wrapper,
-body.theme-dark input[type="time"]::-webkit-datetime-edit-text,
-body.theme-dark input[type="time"]::-webkit-datetime-edit-hour-field,
-body.theme-dark input[type="time"]::-webkit-datetime-edit-minute-field,
-body.theme-dark input[type="time"]::-webkit-datetime-edit-ampm-field {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-body.theme-dark input[type="date"]::-webkit-calendar-picker-indicator,
-body.theme-dark input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) !important;
-  opacity: .9 !important;
-}
-
-
-/* ==========================================================
-   v33 - MODE SOMBRE : TITRE + LOGO/PARAMETRES LISIBLES
-   ========================================================== */
-
-/* "Demande Hôtel" en blanc */
-body.theme-dark header h1,
-body.theme-dark header .title,
-body.theme-dark .app-title {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Bouton/logo paramètres du header : visible en sombre et suit le thème */
-body.theme-dark header #manageBtn,
-body.theme-dark header .round {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Si le header contient une image/logo monochrome */
-body.theme-dark header img,
-body.theme-dark .logo img {
-  filter: brightness(0) invert(1) !important;
-}
-
-
-/* ==========================================================
-   v34 - MODE SOMBRE : HEBERGEMENTS AJOUTES LISIBLES
-   ========================================================== */
-
-body.theme-dark #staysCard,
-body.theme-dark #staysCard .stay-compact,
-body.theme-dark #staysCard .stay-compact-content {
-  background: var(--app-card) !important;
-  color: #ffffff !important;
-}
-
-body.theme-dark #staysCard h2,
-body.theme-dark #staysCard .stays-header,
-body.theme-dark #staysCard .stay-compact-title,
-body.theme-dark #staysCard .stay-compact-line,
-body.theme-dark #staysCard .stay-compact-line strong,
-body.theme-dark #staysCard .stay-compact-content,
-body.theme-dark #staysCard .stay-compact-content div,
-body.theme-dark #staysCard .stay-compact-content span,
-body.theme-dark #staysCard .stay-compact-content strong {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-body.theme-dark #staysCard .stay-compact-number,
-body.theme-dark #staysCard .stay-compact-label,
-body.theme-dark #staysCard .stay-nights,
-body.theme-dark #staysCard .nights,
-body.theme-dark #staysCard .stays-count {
-  color: var(--app-nights) !important;
-  -webkit-text-fill-color: var(--app-nights) !important;
-}
-
-body.theme-dark #staysCard .stay-compact {
-  border-color: #334155 !important;
-}
-
-/* bouton corbeille lisible en sombre */
-body.theme-dark #staysCard .stay-compact-delete {
-  background: #1e293b !important;
-  color: #ffffff !important;
-  border-color: #475569 !important;
-}
-
-
-/* ==========================================================
-   v35 - MODE SOMBRE : COULEURS DES BOUTONS
-   ========================================================== */
-
-/* Paramètres : gris en mode sombre */
-body.theme-dark #manageBtn,
-body.theme-dark header .round {
-  background: #475569 !important;
-  color: #ffffff !important;
-  border-color: #64748b !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Ajouter hébergement : bleu en mode sombre */
-body.theme-dark #addStay,
-body.theme-dark #addStayBtn,
-body.theme-dark .add-stay,
-body.theme-dark .add-stay-btn {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  border-color: #2563eb !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Petit déjeuner OUI / NON :
-   actif bleu, inactif gris en mode sombre */
-body.theme-dark #pdjOui.choice,
-body.theme-dark #pdjNon.choice {
-  background: #475569 !important;
-  color: #ffffff !important;
-  border-color: #64748b !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-body.theme-dark #pdjOui.choice.active,
-body.theme-dark #pdjNon.choice.active {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  border-color: #2563eb !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-
-/* ==========================================================
-   v36 - MODE SOMBRE : OUI/NON ET PARAMETRES
-   ========================================================== */
-
-/* Paramètres : fond gris, symbole blanc */
-body.theme-dark #manageBtn,
-body.theme-dark header #manageBtn.round {
-  background: #6b7280 !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #6b7280 !important;
-}
-
-/* Petit déjeuner :
-   choix actif = GRIS + texte BLANC
-   choix inactif = BLANC + texte NOIR */
-body.theme-dark #pdjOui.choice,
-body.theme-dark #pdjNon.choice {
-  background: #ffffff !important;
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-  border-color: #d1d5db !important;
-}
-
-body.theme-dark #pdjOui.choice.active,
-body.theme-dark #pdjNon.choice.active {
-  background: #6b7280 !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #6b7280 !important;
-}
-
-/* Ajouter cet hébergement reste bleu */
-body.theme-dark #addStay.add-hotel-final {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #2563eb !important;
-}
-
-
-/* ==========================================================
-   v37 - MODE SOMBRE : CHOIX OUI/NON EXACT
-   Sélectionné = gris + noir
-   Non sélectionné = noir + blanc
-   ========================================================== */
-
-body.theme-dark #pdjOui.choice,
-body.theme-dark #pdjNon.choice {
-  background: #000000 !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark #pdjOui.choice.active,
-body.theme-dark #pdjNon.choice.active {
-  background: #9ca3af !important;
-  color: #000000 !important;
-  -webkit-text-fill-color: #000000 !important;
-  border-color: #9ca3af !important;
-}
-
-/* Paramètres : gris + symbole blanc */
-body.theme-dark #manageBtn,
-body.theme-dark header #manageBtn.round {
-  background: #6b7280 !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #6b7280 !important;
-}
-
-/* Ajouter cet hébergement reste bleu */
-body.theme-dark #addStay.add-hotel-final {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #2563eb !important;
-}
-
 /* v38 - popup mise à jour toujours au-dessus de l'application */
 #updateOverlay.update-overlay {
   position: fixed !important;
@@ -1583,96 +945,6 @@ body.theme-dark #addStay.add-hotel-final {
 }
 #updateOverlay.update-overlay:not([hidden]) {
   display: flex !important;
-}
-
-
-/* ==========================================================
-   v39 - COULEUR PRINCIPALE APPLIQUEE A TOUS LES BOUTONS
-   ========================================================== */
-
-/* Boutons d'action principaux */
-.primary,
-button.primary,
-#addStay,
-.add-hotel-final,
-#saveProfil,
-#addHotel,
-#saveDest,
-#saveAppearance,
-#resetAppearance,
-.create-mail-final,
-.create-mail-bottom,
-.create-mail-btn {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* Onglet actif dans Paramètres */
-.tabs .tab.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* OUI / NON en mode clair : actif = couleur principale */
-body:not(.theme-dark) #pdjOui.choice,
-body:not(.theme-dark) #pdjNon.choice {
-  background: var(--app-card) !important;
-  color: var(--app-text) !important;
-  border-color: color-mix(in srgb, var(--app-primary) 35%, transparent) !important;
-}
-
-body:not(.theme-dark) #pdjOui.choice.active,
-body:not(.theme-dark) #pdjNon.choice.active {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* Paramètres en mode clair suit également la couleur principale */
-body:not(.theme-dark) #manageBtn,
-body:not(.theme-dark) header #manageBtn.round {
-  background: var(--app-primary) !important;
-  color: #ffffff !important;
-  border-color: var(--app-primary) !important;
-}
-
-/* ==========================================================
-   MODE SOMBRE : conserver les choix demandés
-   ========================================================== */
-
-/* Paramètres gris */
-body.theme-dark #manageBtn,
-body.theme-dark header #manageBtn.round {
-  background: #6b7280 !important;
-  color: #ffffff !important;
-  border-color: #6b7280 !important;
-}
-
-/* Ajouter hébergement reste bleu */
-body.theme-dark #addStay,
-body.theme-dark #addStay.add-hotel-final {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  border-color: #2563eb !important;
-}
-
-/* OUI/NON : sélectionné gris + noir ; non sélectionné noir + blanc */
-body.theme-dark #pdjOui.choice,
-body.theme-dark #pdjNon.choice {
-  background: #000000 !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  border-color: #475569 !important;
-}
-
-body.theme-dark #pdjOui.choice.active,
-body.theme-dark #pdjNon.choice.active {
-  background: #9ca3af !important;
-  color: #000000 !important;
-  -webkit-text-fill-color: #000000 !important;
-  border-color: #9ca3af !important;
 }
 
 
@@ -1781,83 +1053,6 @@ body.theme-dark #pdjNon.choice.active {
 }
 
 
-/* ==========================================================
-   v48 - MODE SOMBRE : TITRES / LIBELLES TOUJOURS LISIBLES
-   Correction finale, sans modifier les autres fonctions.
-   ========================================================== */
-
-/* Titres principaux et libellés en blanc */
-body.theme-dark h1,
-body.theme-dark h2,
-body.theme-dark h3,
-body.theme-dark h4,
-body.theme-dark label,
-body.theme-dark .section-title,
-body.theme-dark .travel-title,
-body.theme-dark .appearance-title,
-body.theme-dark .appearance-subtitle,
-body.theme-dark .admin-title,
-body.theme-dark .admin-header,
-body.theme-dark .admin-header h2,
-body.theme-dark .admin-header h3,
-body.theme-dark .admin-panel-title,
-body.theme-dark .stays-header,
-body.theme-dark .stays-header h2,
-body.theme-dark .stay-title,
-body.theme-dark .form-title,
-body.theme-dark .settings-title,
-body.theme-dark .themes-title,
-body.theme-dark .color-title,
-body.theme-dark .manage-title {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Cas du titre "Séjour" et autres titres directs dans les cartes */
-body.theme-dark form > h2,
-body.theme-dark form > h3,
-body.theme-dark .card > h2,
-body.theme-dark .card > h3,
-body.theme-dark .travel-card > h2,
-body.theme-dark .travel-card > h3 {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Zone Réglages / Apparence */
-body.theme-dark #adminPanel .kicker,
-body.theme-dark #adminPanel h2,
-body.theme-dark #adminPanel h3,
-body.theme-dark #adminPanel .appearance-title,
-body.theme-dark #adminPanel .section-title,
-body.theme-dark #adminPanel [class*="title"] {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Exceptions : les cartes blanches de choix restent avec texte foncé */
-body.theme-dark .theme-choice,
-body.theme-dark .theme-choice span,
-body.theme-dark .color-field,
-body.theme-dark .color-field span {
-  color: #273449 !important;
-  -webkit-text-fill-color: #273449 !important;
-}
-
-/* Les boutons actifs/sombres restent lisibles */
-body.theme-dark .tabs .tab.active,
-body.theme-dark #addStay,
-body.theme-dark #addStay.add-hotel-final {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-
-
-
-
-
-
 
 
 /* ==========================================================
@@ -1897,11 +1092,7 @@ body.theme-dark #addStay.add-hotel-final {
   line-height:1.1 !important;
 }
 
-/* En mode sombre, les cartes blanches gardent leur texte foncé */
-body.theme-dark .theme-choice .theme-label{
-  color:#273449 !important;
-  -webkit-text-fill-color:#273449 !important;
-}
+
 
 
 /* ==========================================================
@@ -1970,17 +1161,7 @@ body.theme-dark .theme-choice .theme-label{
   display:none;
 }
 
-body.theme-dark .update-status-ok{
-  background:#163521;
-  color:#d1fae5;
-  border-color:#39764f;
-}
 
-body.theme-dark .update-status-available{
-  background:#451a1a;
-  color:#fecaca;
-  border-color:#b91c1c;
-}
 
 
 /* ==========================================================
@@ -2098,25 +1279,6 @@ body.theme-dark .update-status-available{
   font-weight:900 !important;
 }
 
-body.theme-dark .settings-update-card{
-  background:#3b1515 !important;
-  border-color:#7f1d1d !important;
-}
-
-body.theme-dark .settings-update-texts strong{
-  color:#fecaca !important;
-  -webkit-text-fill-color:#fecaca !important;
-}
-
-body.theme-dark .settings-update-texts span{
-  color:#fca5a5 !important;
-  -webkit-text-fill-color:#fca5a5 !important;
-}
-
-body.theme-dark .settings-update-badge{
-  border-color:#0f172a !important;
-}
-
 
 /* ==========================================================
     CONTROLE MANUEL DES MISES A JOUR
@@ -2168,28 +1330,6 @@ body.theme-dark .settings-update-badge{
 .check-update-status.available{
   color:#b91c1c !important;
   -webkit-text-fill-color:#b91c1c !important;
-}
-
-body.theme-dark .check-update-btn{
-  background:#1e293b !important;
-  color:#ffffff !important;
-  -webkit-text-fill-color:#ffffff !important;
-  border-color:#475569 !important;
-}
-
-body.theme-dark .check-update-status{
-  color:#cbd5e1 !important;
-  -webkit-text-fill-color:#cbd5e1 !important;
-}
-
-body.theme-dark .check-update-status.ok{
-  color:#86efac !important;
-  -webkit-text-fill-color:#86efac !important;
-}
-
-body.theme-dark .check-update-status.available{
-  color:#fca5a5 !important;
-  -webkit-text-fill-color:#fca5a5 !important;
 }
 
 
@@ -2246,9 +1386,7 @@ body.theme-dark .check-update-status.available{
   }
 }
 
-body.theme-dark #settingsUpdateBadge{
-  border-color:#111827 !important;
-}
+
 
 
 /* ==========================================================
@@ -2268,11 +1406,6 @@ body.theme-dark #settingsUpdateBadge{
   font-weight:900 !important;
   letter-spacing:.04em !important;
   text-transform:uppercase !important;
-}
-
-body.theme-dark .app-version{
-  color:#cbd5e1 !important;
-  -webkit-text-fill-color:#cbd5e1 !important;
 }
 
 #manageBtn{
@@ -2300,9 +1433,7 @@ body.theme-dark .app-version{
   display:none !important;
 }
 
-body.theme-dark #settingsUpdateBadge{
-  border-color:#111827 !important;
-}
+
 
 
 /* ==========================================================
@@ -2336,22 +1467,9 @@ body.theme-dark #settingsUpdateBadge{
   font-weight:900;
 }
 
-.request-mode-btn.active{
-  background:var(--app-primary);
-  color:#ffffff;
-  border-color:var(--app-primary);
-}
+var(--app-primary
 
-body.theme-dark .request-mode-btn{
-  background:#1e293b;
-  color:#ffffff;
-  border-color:#475569;
-}
 
-body.theme-dark .request-mode-btn.active{
-  background:var(--app-primary);
-  color:#ffffff;
-}
 
 .agents-admin-list,
 .mod-agents-list{
@@ -2433,22 +1551,6 @@ body.theme-dark .request-mode-btn.active{
   margin-top:4px !important;
 }
 
-body.theme-dark .agent-admin-row,
-body.theme-dark .mod-agent-row,
-body.theme-dark .mod-action-btn{
-  background:#1e293b;
-  color:#ffffff;
-  border-color:#475569;
-}
-
-body.theme-dark .mod-action-btn.active{
-  background:#dc2626;
-}
-
-body.theme-dark #modActionRemplacer.active{
-  background:#2563eb;
-}
-
 
 /* ==========================================================
    v69 - IMPORT LOCAL DES AGENTS
@@ -2480,20 +1582,7 @@ body.theme-dark #modActionRemplacer.active{
   -webkit-text-fill-color:#b91c1c;
 }
 
-body.theme-dark .import-agents-status{
-  color:#cbd5e1;
-  -webkit-text-fill-color:#cbd5e1;
-}
 
-body.theme-dark .import-agents-status.ok{
-  color:#86efac;
-  -webkit-text-fill-color:#86efac;
-}
-
-body.theme-dark .import-agents-status.error{
-  color:#fca5a5;
-  -webkit-text-fill-color:#fca5a5;
-}
 
 @media (max-width:520px){
   .agents-import-actions{
@@ -2603,9 +1692,6 @@ body.theme-dark .import-agents-status.error{
   display:block;
 }
 
-body.theme-dark .settings-section-separator{
-  background:#475569;
-}
 
 #manage .tabs{
   display:none !important;
@@ -2661,11 +1747,7 @@ body.theme-dark .settings-section-separator{
   font-weight:800;
 }
 
-body.theme-dark .agent-search-name,
-body.theme-dark .agent-search-empty{
-  color:#ffffff !important;
-  -webkit-text-fill-color:#ffffff !important;
-}
+
 
 
 /* ==========================================================
@@ -2739,30 +1821,6 @@ body.theme-dark .agent-search-empty{
   max-height:220px !important;
 }
 
-/* Mode sombre */
-body.theme-dark .search-results{
-  border-color:#475569 !important;
-  background:#0f172a !important;
-  box-shadow:0 10px 24px rgba(0,0,0,.35) !important;
-}
-
-body.theme-dark .search-results > *{
-  background:#1e293b !important;
-
-  color:#ffffff !important;
-  -webkit-text-fill-color:#ffffff !important;
-}
-
-body.theme-dark .search-results > *:hover,
-body.theme-dark .search-results > *.active{
-  background:#334155 !important;
-}
-
-/* Mode clair */
-body:not(.theme-dark) .search-results > *:hover,
-body:not(.theme-dark) .search-results > *.active{
-  background:#eef2f7 !important;
-}
 
 
 /* ==========================================================
@@ -2992,12 +2050,7 @@ body:not(.theme-dark) .search-results > *.active{
   margin:0 !important;
 }
 
-body.theme-dark .hotel-agent-picker-btn{
-  background:#ffffff !important;
 
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
 
 
 /* ==========================================================
@@ -4475,17 +3528,6 @@ div{
    color:var(--app-primary, #111827) !important;
   -webkit-text-fill-color:var(--app-primary, #111827) !important;
 }
-
-
-  body.theme-dark #hotel:invalid{
-    color:#aab4c3 !important;
-    -webkit-text-fill-color:#aab4c3 !important;
-  }
-
-  body.theme-dark #hotel:valid{
-    color:#ffffff !important;
-    -webkit-text-fill-color:#ffffff !important;
-  }
 
   /* PETIT DEJEUNER : boutons vraiment petits */
   body .pdj{
@@ -6320,37 +5362,7 @@ body:has(#hotelHomeMenu:not([hidden])){
 
 
 
-/* ==========================================================
-   STYLE FINAL CHAMPS HOTEL
-   LIBELLES = COULEUR DU THEME
-   CONTENU = NOIR
-   ========================================================== */
 
-/* VILLE + HOTEL */
-.hotel-grid > label{
-  color:var(--app-primary, #111827) !important;
-}
-
-/* DATE + HEURE */
-.travel-card label{
-  color:var(--app-primary, #111827) !important;
-}
-
-.travel-title{
-  color:var(--app-primary, #111827) !important;
-}
-
-
-/* CONTENU DES CHAMPS = NOIR */
-#ville,
-#hotel,
-#arrivee,
-#heureArrivee,
-#depart,
-#heureDepart{
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
 
 
 /* ==========================================================
