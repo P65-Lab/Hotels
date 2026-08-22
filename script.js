@@ -2361,6 +2361,37 @@ document.documentElement.style.setProperty(
   "--app-field",
   a.field || "#ffffff"
 );
+   /* FOND DES CHAMPS SELON LE THEME */
+const couleurChamp =
+  a.field || a.card || "#ffffff";
+
+[
+  "ville",
+  "hotel",
+  "arrivee",
+  "heureArrivee",
+  "depart",
+  "heureDepart"
+].forEach(id => {
+
+  const champ =
+    document.getElementById(id);
+
+  if(champ){
+    champ.style.setProperty(
+      "background",
+      couleurChamp,
+      "important"
+    );
+
+    champ.style.setProperty(
+      "background-color",
+      couleurChamp,
+      "important"
+    );
+  }
+
+});
   $("colorPrimary").value = a.primary;
   $("colorMail").value = a.mail;
   $("colorNights").value = a.nights;
