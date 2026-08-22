@@ -1467,7 +1467,7 @@ button {
   font-weight:900;
 }
 
-var(--app-primary
+
 
 
 
@@ -3525,8 +3525,8 @@ div{
     font-size:14px !important;
     font-weight:700 !important;
      
-   color:var(--app-primary, #111827) !important;
-  -webkit-text-fill-color:var(--app-primary, #111827) !important;
+ color:#111827 !important;
+-webkit-text-fill-color:#111827 !important;
 }
 
   /* PETIT DEJEUNER : boutons vraiment petits */
@@ -4210,14 +4210,13 @@ header {
 }
 
 .modification-popup-title {
-  color: var(--app-primary, #111827);
+  color: #111827;
 
   font-size: 20px;
   font-weight: 950;
 
   letter-spacing: 0.5px;
 }
-
 .modification-popup-close {
   width: 42px;
   height: 42px;
@@ -4259,7 +4258,7 @@ header {
 .modification-popup-card .mod-section-title {
   margin-bottom: 14px;
 
-  color: var(--app-primary, #111827);
+  color: #111827;
 
   font-size: 17px;
   font-weight: 950;
@@ -4403,7 +4402,7 @@ header {
   font-size: 19px;
   font-weight: 900;
 
-  color: var(--app-primary, #111827);
+  color: #111827;
 }
 
 .modification-popup-close {
@@ -4450,9 +4449,8 @@ header {
   font-size: 17px;
   font-weight: 900;
 
-  color: var(--app-primary, #111827);
+  color: #111827;
 }
-
 
 /* INFO PROFIL */
 
@@ -4819,7 +4817,7 @@ header {
   padding:10px;
   border:none;
   border-radius:12px;
-  background:var(--app-primary);
+  background:#0b63d8;
   color:#ffffff;
   font-size:16px;
   font-weight:800;
