@@ -1842,7 +1842,14 @@ list.forEach((s, i) => {
 $("manageBtn").onclick=()=>{
   ouvrirMenuParametresHotel();
 };
+const hotelHomeSettings =
+  document.getElementById("hotelHomeSettings");
 
+if(hotelHomeSettings){
+  hotelHomeSettings.onclick = () => {
+    ouvrirMenuParametresHotel();
+  };
+}
 $("closeManage").onclick=()=>{
   $("manage").hidden=true;
 };
