@@ -4934,7 +4934,7 @@ height:auto !important;
   padding-bottom:4px !important;
    
   margin-bottom:0 !important;
-  background:#dbeafe !important;
+  background:var(--theme-background) !important;
   box-sizing:border-box !important;
 }
 .hotel-request-popup-header h2{
