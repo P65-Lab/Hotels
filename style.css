@@ -4941,7 +4941,7 @@ height:auto !important;
   margin:0 !important;
   font-size:20px !important;
   font-weight:900 !important;
-  color:var(--theme-primary) !important;
+  color:var(--theme-primary-dark) !important;
 }
 
 .hotel-request-popup-close{
@@ -5397,6 +5397,7 @@ background:#ffffff !important;
 
 :root{
   --theme-primary:#2563eb;
+   --theme-primary-dark:#1d4ed8;
   --theme-primary-soft:#eff6ff;
 
   --theme-background:#eff6ff;
@@ -5597,8 +5598,8 @@ body{
 #newRequestPopup .request-section-title{
   margin:0 0 14px !important;
 
-  color:var(--theme-primary) !important;
--webkit-text-fill-color:var(--theme-primary) !important;
+color:var(--theme-primary-dark) !important;
+-webkit-text-fill-color:var(--theme-primary-dark) !important;
 
   font-size:15px !important;
   font-weight:900 !important;
@@ -5634,8 +5635,8 @@ body{
 
 /* ARRIVEE / DEPART */
 #newRequestPopup .travel-title{
-  color:var(--theme-primary) !important;
--webkit-text-fill-color:var(--theme-primary) !important;
+color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
 }
 
 /* LIBELLES */
