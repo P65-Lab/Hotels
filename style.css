@@ -4957,7 +4957,7 @@ height:auto !important;
   align-items:center !important;
   justify-content:center !important;
 
- background:#dbeafe !important;
+ background:var(--theme-card) !important;
  color:var(--theme-primary) !important;
 
   font-size:28px !important;
