@@ -2613,9 +2613,22 @@ function numeroVersionHotel(v){
 }
 
 function afficherVersionChargeeHotel(){
-  const el = document.getElementById("appVersion");
-  if(el){
-    el.textContent = `À JOUR ${APP_VERSION.toUpperCase()}`;
+
+  const texteVersion =
+    `À JOUR ${String(APP_VERSION).toUpperCase()}`;
+
+  const appVersion =
+    document.getElementById("appVersion");
+
+  if(appVersion){
+    appVersion.textContent = texteVersion;
+  }
+
+  const hotelHomeVersion =
+    document.getElementById("hotelHomeVersion");
+
+  if(hotelHomeVersion){
+    hotelHomeVersion.textContent = texteVersion;
   }
 }
 
