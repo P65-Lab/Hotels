@@ -4819,7 +4819,8 @@ header {
   justify-content:flex-start !important;
   gap:24px !important;
 
-  height:calc(100dvh - 120px);
+ min-height:100dvh;
+height:auto;
 
    
   margin:0;
@@ -4855,7 +4856,7 @@ header {
   font-size:11px;
   font-weight:900;
   letter-spacing:.08em;
-   transform:translateY(20px);
+   
 }
 
 /* ==========================================================
