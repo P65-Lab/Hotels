@@ -5586,7 +5586,7 @@ body{
 
 /* GRANDS CADRES */
 #newRequestPopup .request-section-card{
-  background:#eff6ff !important;
+ background:var(--theme-card) !important;
  border:1.5px solid var(--theme-primary) !important;
   border-radius:18px !important;
   padding:16px !important;
