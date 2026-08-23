@@ -4819,7 +4819,7 @@ header {
   justify-content:flex-start !important;
   gap:24px !important;
 
-  height:calc(100dvh - 190px);
+  height:calc(100dvh - 120px);
 
    
   margin:0;
