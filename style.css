@@ -5898,7 +5898,19 @@ color:var(--theme-primary-dark) !important;
    ========================================================== */
 
 .hotel-settings-menu{
-  background:var(--theme-primary-dark) !important;
+  background:var(--theme-primary-soft) !important;
+  border:2px solid var(--theme-primary) !important;
+}
+
+.hotel-settings-title{
+  color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+}
+
+.hotel-settings-cancel{
+  color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+}
 }
 
 .hotel-settings-title{
