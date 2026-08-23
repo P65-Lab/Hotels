@@ -4819,8 +4819,9 @@ header {
   justify-content:flex-start !important;
   gap:24px !important;
 
- min-height:100dvh;
-height:auto;
+height:100svh !important;
+min-height:100svh !important;
+max-height:100svh !important;
 
    
   margin:0;
