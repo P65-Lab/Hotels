@@ -1,4 +1,4 @@
-const APP_VERSION = "v121-test04";
+const APP_VERSION = "v121-test05";
 alert("SCRIPT : " + APP_VERSION);
 const APP_VERSION_DATE = "20/08/2026 14:05";
 
@@ -2265,24 +2265,26 @@ const themePresets = {
     card: "#ffffff"
   },
 
-  blue: {
-    primary: "#0b63d8",
-    mail: "#0b63d8",
-    nights: "#dc2626",
-    background: "#eef5ff",
-    card: "#ffffff"
-  },
+ blue: {
+  primary: "#0b63d8",
+  primaryDark: "#1d4ed8",
+  mail: "#0b63d8",
+  nights: "#dc2626",
+  background: "#eef5ff",
+  card: "#ffffff"
+},
 
-  green: {
-    primary: "#047857",
-    mail: "#079447",
-    nights: "#dc2626",
-    background: "#eefbf5",
-    card: "#ffffff"
-  },
-
+ green: {
+  primary: "#047857",
+  mail: "#079447",
+  nights: "#dc2626",
+  background: "#eefbf5",
+  card: "#ffffff"
+},
+   
 orange: {
   primary: "#c2410c",
+  primaryDark: "#9a3412",
   mail: "#ea580c",
   nights: "#dc2626",
   background: "#fff7ed",
@@ -2290,21 +2292,23 @@ orange: {
   field: "#ffedd5"
 },
 
-  red: {
-    primary: "#b91c1c",
-    mail: "#b91c1c",
-    nights: "#dc2626",
-    background: "#fff1f2",
-    card: "#ffffff"
-  },
+red: {
+  primary: "#eab308",
+  primaryDark: "#a16207",
+  mail: "#eab308",
+  nights: "#dc2626",
+  background: "#fefce8",
+  card: "#ffffff"
+},
 
-  dark: {
-    primary: "#3b82f6",
-    mail: "#16a34a",
-    nights: "#f87171",
-    background: "#111827",
-    card: "#1f2937"
-  }
+ dark: {
+  primary: "#3b82f6",
+  primaryDark: "#1d4ed8",
+  mail: "#16a34a",
+  nights: "#f87171",
+  background: "#111827",
+  card: "#1f2937"
+}
 };
 
 
@@ -2344,7 +2348,10 @@ function applyAppearance(values){
    "--theme-primary",
     a.primary
   );
-
+  document.documentElement.style.setProperty(
+  "--theme-primary-dark",
+  a.primaryDark || a.primary
+  );
   document.documentElement.style.setProperty(
     "--theme-mail",
     a.mail
