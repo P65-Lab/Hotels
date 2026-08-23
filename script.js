@@ -2493,7 +2493,7 @@ appearance = {
   nights: $("colorNights").value,
   background: $("colorBackground").value,
   card: $("colorCard").value,
-  theme: "custom"
+  theme: appearance.theme || "blue"
 };
 
   save(LS_A,appearance);
