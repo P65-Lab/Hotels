@@ -2298,7 +2298,7 @@ orange: {
   field: "#ffffff"
 },
 
-red: {
+yellow: {
   primary: "#eab308",
   primaryDark: "#854d0e",
   mail: "#eab308",
