@@ -2360,6 +2360,9 @@ function applyAppearance(values){
     ...appearanceDefaults,
     ...values
   };
+
+document.body.dataset.theme = a.theme || "classic";
+   
 /* ==========================================================
    FOND ACCUEIL HOTEL SELON LE THEME
    ========================================================== */
