@@ -4898,8 +4898,9 @@ body:has(#hotelHomeMenu:not([hidden])){
   width:100% !important;
   max-width:none !important;
 
-  min-height:100% !important;
-height:auto !important;
+ height:100% !important;
+min-height:0 !important;
+max-height:100svh !important;
 
   margin:0 !important;
 
