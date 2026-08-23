@@ -4954,7 +4954,52 @@ body:has(#hotelHomeMenu:not([hidden])){
 #hotelHomeMenu .hotel-home-btn:active{
   transform:scale(.985);
 }
+/* ==========================================================
+   ACCUEIL HOTEL - CONTENU DES BOUTONS
+   ========================================================== */
 
+#hotelHomeMenu .hotel-home-btn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+}
+
+.hotel-home-btn-icon{
+  width:42px;
+  flex:0 0 42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:24px;
+}
+
+.hotel-home-btn-separator{
+  width:1px;
+  height:48px;
+  flex:0 0 1px;
+
+  margin:0 12px;
+
+  background:rgba(255,255,255,.35);
+}
+
+.hotel-home-btn-text{
+  flex:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#ffffff;
+  -webkit-text-fill-color:#ffffff;
+
+  font-size:16px;
+  font-weight:800;
+  line-height:1.25;
+  text-align:center;
+}
 /* ==========================================================
    POPUP NOUVELLE DEMANDE HOTEL - PLEIN ECRAN
    ========================================================== */
