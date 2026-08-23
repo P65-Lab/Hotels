@@ -6060,3 +6060,33 @@ color:var(--theme-primary-dark) !important;
 #manage .settings-section-separator{
   background:var(--theme-border) !important;
 }
+/* ==========================================================
+   MODE CLASSIQUE - POPUPS PARAMETRES
+   ========================================================== */
+
+/* FOND GRIS CLAIR/MOYEN DES POPUPS */
+body[data-theme="classic"] .hotel-settings-menu{
+  background:#d9dde3 !important;
+}
+
+/* LES 3 CARTES DU MENU PARAMETRES EN BLANC */
+body[data-theme="classic"] .hotel-settings-choice{
+  background:#ffffff !important;
+}
+
+/* TEXTE DES CARTES */
+body[data-theme="classic"] .hotel-settings-choice strong{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
+
+body[data-theme="classic"] .hotel-settings-choice small{
+  color:#667085 !important;
+  -webkit-text-fill-color:#667085 !important;
+}
+
+/* ANNULER EN NOIR */
+body[data-theme="classic"] .hotel-settings-cancel{
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
+}
