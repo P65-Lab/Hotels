@@ -5840,3 +5840,163 @@ color:var(--theme-primary-dark) !important;
   -webkit-text-fill-color:var(--theme-primary) !important;
   border:1px solid var(--theme-primary) !important;
 }
+/* ==========================================================
+   PARAMETRES HOTEL - SUIVRE LE THEME
+   ========================================================== */
+
+/* ==========================================================
+   1. MENU PRINCIPAL PARAMETRES
+   Profil & Agents / Hôtels / Apparence
+   ========================================================== */
+
+.hotel-settings-menu{
+  background:var(--theme-primary-dark) !important;
+}
+
+.hotel-settings-title{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+
+.hotel-settings-choice{
+  background:var(--theme-card) !important;
+  color:var(--theme-text) !important;
+  border:1px solid var(--theme-border) !important;
+}
+
+.hotel-settings-icon{
+  background:var(--theme-primary-soft) !important;
+}
+
+.hotel-settings-choice strong{
+  color:var(--theme-text) !important;
+  -webkit-text-fill-color:var(--theme-text) !important;
+}
+
+.hotel-settings-choice small{
+  color:var(--theme-muted) !important;
+  -webkit-text-fill-color:var(--theme-muted) !important;
+}
+
+.hotel-settings-cancel{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+
+
+/* ==========================================================
+   2. LES 3 ECRANS PARAMETRES
+   Profil & Agents / Hôtels / Apparence
+   ========================================================== */
+
+#manage{
+  background:var(--theme-background) !important;
+  color:var(--theme-text) !important;
+}
+
+#manage .card,
+#manage .settings-subcard{
+  background:var(--theme-card) !important;
+  border-color:var(--theme-border) !important;
+}
+
+
+/* ==========================================================
+   TITRES
+   ========================================================== */
+
+#manage h1,
+#manage h2,
+#manage h3,
+#manage #manageTitle,
+#manage .settings-section-title{
+  color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+}
+
+#manage .appearance-title{
+  color:var(--theme-primary) !important;
+  -webkit-text-fill-color:var(--theme-primary) !important;
+}
+
+
+/* ==========================================================
+   CHAMPS
+   ========================================================== */
+
+#manage input,
+#manage select,
+#manage textarea{
+  background:var(--theme-field) !important;
+  color:var(--theme-text) !important;
+  -webkit-text-fill-color:var(--theme-text) !important;
+
+  border-color:var(--theme-border) !important;
+}
+
+
+/* ==========================================================
+   BOUTONS PRINCIPAUX
+   ========================================================== */
+
+#manage .primary{
+  background:var(--theme-primary) !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+
+#manage .secondary{
+  background:var(--theme-card) !important;
+  color:var(--theme-primary) !important;
+  -webkit-text-fill-color:var(--theme-primary) !important;
+
+  border-color:var(--theme-primary) !important;
+}
+
+
+/* ==========================================================
+   HOTELS
+   ========================================================== */
+
+#manage .admin-hotels-found,
+#manage .admin-hotel-row,
+#manage .admin-hotel-choice{
+  background:var(--theme-card) !important;
+  border-color:var(--theme-border) !important;
+}
+
+#manage .admin-hotel-row-name,
+#manage .admin-hotel-choice,
+#manage .admin-hotel-choice strong{
+  color:var(--theme-text) !important;
+  -webkit-text-fill-color:var(--theme-text) !important;
+}
+
+
+/* ==========================================================
+   APPARENCE
+   ========================================================== */
+
+#manage .theme-choice,
+#manage .color-field,
+#manage .appearance-custom-toggle{
+  background:var(--theme-card) !important;
+
+  color:var(--theme-text) !important;
+  -webkit-text-fill-color:var(--theme-text) !important;
+
+  border-color:var(--theme-border) !important;
+}
+
+#manage .theme-choice.active{
+  border-color:var(--theme-primary) !important;
+}
+
+
+/* ==========================================================
+   SEPARATEURS
+   ========================================================== */
+
+#manage .settings-section-separator{
+  background:var(--theme-border) !important;
+}
