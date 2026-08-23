@@ -2294,7 +2294,7 @@ orange: {
 
 red: {
   primary: "#eab308",
-  primaryDark: "#a16207",
+  primaryDark: "#854d0e",
   mail: "#eab308",
   nights: "#dc2626",
   background: "#fefce8",
