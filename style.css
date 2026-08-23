@@ -4829,12 +4829,11 @@ header {
 
   margin:0 !important;
 
-  padding:
-    calc(95px + env(safe-area-inset-top))
-    14px
-    calc(12px + env(safe-area-inset-bottom))
-    14px !important;
-
+ padding:
+  calc(35px + env(safe-area-inset-top))
+  14px
+  calc(12px + env(safe-area-inset-bottom))
+  14px !important;
   background:#ffffff !important;
 
   box-sizing:border-box !important;
