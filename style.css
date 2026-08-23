@@ -4872,7 +4872,8 @@ body:has(#hotelHomeMenu:not([hidden])){
 
 .hotel-home-title{
   text-align:left;
-  color:#111827;
+ color:#1976d2;
+-webkit-text-fill-color:#1976d2;
   font-size:24px;
   font-weight:900;
   letter-spacing:.02em;
@@ -4890,7 +4891,13 @@ body:has(#hotelHomeMenu:not([hidden])){
   border:0;
   border-radius:50%;
 
-  background:#111827;
+  background:
+  linear-gradient(
+    180deg,
+    #2f93e8 0%,
+    #1976d2 55%,
+    #0b5fbd 100%
+  );
   color:#ffffff;
 
   font-size:25px;
@@ -4937,8 +4944,13 @@ body:has(#hotelHomeMenu:not([hidden])){
   border:none !important;
   border-radius:16px !important;
 
-  background:var(--theme-primary) !important;
-
+  background:
+  linear-gradient(
+    180deg,
+    #2f93e8 0%,
+    #1976d2 55%,
+    #0b5fbd 100%
+  ) !important;
   color:#ffffff !important;
   -webkit-text-fill-color:#ffffff !important;
 
