@@ -4819,16 +4819,20 @@ header {
   justify-content:flex-start !important;
   gap:24px !important;
 
-height:100svh !important;
-min-height:100svh !important;
-max-height:100svh !important;
+  height:calc(100svh - 285px) !important;
+  min-height:calc(100svh - 285px) !important;
+  max-height:calc(100svh - 285px) !important;
 
-   
+  overflow:hidden !important;
+
   margin:0;
   padding:100px 0 10px !important;
   box-sizing:border-box;
 }
-
+body:has(#hotelHomeMenu:not([hidden])){
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
 .hotel-home-btn{
   width:150px;
   height:110px;
