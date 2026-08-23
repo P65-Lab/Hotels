@@ -2365,12 +2365,12 @@ function applyAppearance(values){
    ========================================================== */
 
 const fondsHotel = {
-  classic: "fond-hotel-bleu.png",
+ classic: "fond-hotel-blanc.png",
   blue: "fond-hotel-bleu.png",
   green: "fond-hotel-vert.png",
   yellow: "fond-hotel-jaune.png",
   orange: "fond-hotel-orange.png",
-  dark: "fond-hotel-noir.png"
+  dark: "fond-hotel-noirnegatif"
 };
 
 const fondHotel =
