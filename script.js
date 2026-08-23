@@ -2292,13 +2292,15 @@ orange: {
   field: "#ffedd5"
 },
 
- red: {
+red: {
   primary: "#eab308",
   primaryDark: "#854d0e",
   mail: "#eab308",
   nights: "#dc2626",
-  background: "#fefce8",
-  card: "#fef9c3"
+
+  background: "#fef3c7",
+  card: "#fffbea",
+  field: "#ffffff"
 },
 
  dark: {
