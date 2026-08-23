@@ -4845,7 +4845,7 @@ header {
    ========================================================== */
 
 #hotelHomeMenu{
-  background-image:url("fond-hotel-bleu.png") !important;
+  background-image:var(--hotel-home-background);
   background-position:center center !important;
   background-size:cover !important;
   background-repeat:no-repeat !important;
