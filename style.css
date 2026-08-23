@@ -5516,8 +5516,8 @@ body{
 #newRequestPopup.hotel-request-popup,
 #newRequestPopup .hotel-request-popup-card,
 #newRequestPopup #normalRequestZone{
-  background:#eff6ff !important;
-  background-color:#eff6ff !important;
+  background:var(--theme-background) !important;
+  background-color:var(--theme-background) !important;
 }
 /* CHAMPS BLANCS */
 
