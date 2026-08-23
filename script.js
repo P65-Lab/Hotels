@@ -2265,21 +2265,26 @@ const themePresets = {
     card: "#ffffff"
   },
 
- blue: {
+blue: {
   primary: "#0b63d8",
   primaryDark: "#1d4ed8",
   mail: "#0b63d8",
   nights: "#dc2626",
-  background: "#eef5ff",
-  card: "#ffffff"
+
+  background: "#dbeafe",
+  card: "#eff6ff",
+  field: "#ffffff"
 },
 
- green: {
+green: {
   primary: "#047857",
+  primaryDark: "#065f46",
   mail: "#079447",
   nights: "#dc2626",
-  background: "#eefbf5",
-  card: "#ffffff"
+
+  background: "#d1fae5",
+  card: "#ecfdf5",
+  field: "#ffffff"
 },
    
 orange: {
@@ -2287,9 +2292,10 @@ orange: {
   primaryDark: "#9a3412",
   mail: "#ea580c",
   nights: "#dc2626",
-  background: "#fff7ed",
-  card: "#ffffff",
-  field: "#ffedd5"
+
+  background: "#ffedd5",
+  card: "#fff7ed",
+  field: "#ffffff"
 },
 
 red: {
@@ -2303,13 +2309,15 @@ red: {
   field: "#ffffff"
 },
 
- dark: {
+dark: {
   primary: "#3b82f6",
-  primaryDark: "#1d4ed8",
+  primaryDark: "#60a5fa",
   mail: "#16a34a",
   nights: "#f87171",
+
   background: "#111827",
-  card: "#1f2937"
+  card: "#1f2937",
+  field: "#ffffff"
 }
 };
 
