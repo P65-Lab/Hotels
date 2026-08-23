@@ -4847,7 +4847,11 @@ header {
    ========================================================== */
 
 #hotelHomeMenu{
-  background:#ffffff !important;
+  background-image:url("fond-hotel.png") !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  background-color:#ffffff !important;
 }
 
 body:has(#hotelHomeMenu:not([hidden])){
