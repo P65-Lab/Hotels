@@ -4863,9 +4863,9 @@ body:has(#hotelHomeMenu:not([hidden])){
 
 .hotel-home-header{
   width:100%;
-  display:grid;
-  grid-template-columns:60px 1fr 60px;
+  display:flex;
   align-items:center;
+  justify-content:space-between;
   flex-shrink:0;
 }
 
@@ -4877,7 +4877,7 @@ body:has(#hotelHomeMenu:not([hidden])){
 }
 
 .hotel-home-title{
-  text-align:center;
+  text-align:left;
   color:#111827;
   font-size:24px;
   font-weight:900;
@@ -4917,6 +4917,8 @@ body:has(#hotelHomeMenu:not([hidden])){
   justify-content:center;
 
   gap:24px;
+
+   transform:translateY(-30px);
 }
 
 /* ==========================================================
