@@ -4813,55 +4813,34 @@ header {
    ========================================================== */
 
 .hotel-home-menu{
+  position:fixed !important;
+  inset:0 !important;
+
+  width:100% !important;
+  height:100svh !important;
+  min-height:100svh !important;
+  max-height:100svh !important;
+
   display:flex !important;
   flex-direction:column !important;
   align-items:center !important;
-  justify-content:flex-start !important;
+
   gap:24px !important;
 
-  height:calc(100svh - 285px) !important;
-  min-height:calc(100svh - 285px) !important;
-  max-height:calc(100svh - 285px) !important;
+  margin:0 !important;
 
+  padding:
+    calc(95px + env(safe-area-inset-top))
+    14px
+    calc(12px + env(safe-area-inset-bottom))
+    14px !important;
+
+  background:#ffffff !important;
+
+  box-sizing:border-box !important;
   overflow:hidden !important;
 
-  margin:0;
-  padding:100px 0 10px !important;
-  box-sizing:border-box;
-}
-body:has(#hotelHomeMenu:not([hidden])){
-  overflow:hidden !important;
-  overscroll-behavior:none !important;
-}
-.hotel-home-btn{
-  width:150px;
-  height:110px;
-  padding:10px;
-  border:none;
-  border-radius:12px;
-  background:#0b63d8;
-  color:#ffffff;
-  font-size:16px;
-  font-weight:800;
-  line-height:1.25;
-  text-align:center;
-  letter-spacing:.2px;
-  box-shadow:0 5px 14px rgba(0,0,0,.12);
-}
-
-.hotel-home-btn:active{
-  transform:scale(.985);
-}
-.hotel-home-version{
-  width:100%;
-  margin-top:auto;
-  padding-top:12px;
-  text-align:center;
-  color:#667085;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.08em;
-   
+  z-index:100 !important;
 }
 
 /* ==========================================================
