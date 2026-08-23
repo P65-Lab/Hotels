@@ -2360,7 +2360,27 @@ function applyAppearance(values){
     ...appearanceDefaults,
     ...values
   };
+/* ==========================================================
+   FOND ACCUEIL HOTEL SELON LE THEME
+   ========================================================== */
 
+const fondsHotel = {
+  classic: "fond-hotel-bleu.png",
+  blue: "fond-hotel-bleu.png",
+  green: "fond-hotel-vert.png",
+  yellow: "fond-hotel-jaune.png",
+  orange: "fond-hotel-orange.png",
+  dark: "fond-hotel-noir.png"
+};
+
+const fondHotel =
+  fondsHotel[a.theme] ||
+  fondsHotel.blue;
+
+document.documentElement.style.setProperty(
+  "--hotel-home-background",
+  `url("${fondHotel}")`
+);
   document.documentElement.style.setProperty(
    "--theme-primary",
     a.primary
