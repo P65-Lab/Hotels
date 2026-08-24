@@ -1,4 +1,4 @@
-const APP_VERSION = "v122";
+const APP_VERSION = "v123";
 const APP_VERSION_DATE = "24/08/2026";
 
 /* ==========================================================
