@@ -3860,15 +3860,7 @@ async function nettoyerAncienCacheHotel(){
   }
 }
 
-if(document.readyState === "loading"){
-  document.addEventListener(
-    "DOMContentLoaded",
-    nettoyerAncienCacheHotel,
-    { once:true }
-  );
-}else{
-  nettoyerAncienCacheHotel();
-}
+
 
 
 /* ==========================================================
