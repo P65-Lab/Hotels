@@ -6090,3 +6090,10 @@ body[data-theme="classic"] .hotel-settings-cancel{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+/* ==========================================================
+   PROFIL & AGENTS - FOND COMPLET DU GRAND CADRE
+   ========================================================== */
+
+#manage .card{
+  background:var(--theme-primary-soft) !important;
+}
