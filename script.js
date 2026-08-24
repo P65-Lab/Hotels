@@ -2639,13 +2639,19 @@ refreshVilles();fillSettings();renderStays();
 let derniereVersionDisponible = "";
 
 function numeroVersionHotel(v){
-  const n = parseInt(
-    String(v || "").replace(/\D/g, ""),
-    10
-  );
-  return Number.isFinite(n) ? n : 0;
-}
 
+  const texte =
+    String(v || "").trim();
+
+  const match =
+    texte.match(/v?(\d+)/i);
+
+  if(!match){
+    return 0;
+  }
+
+  return parseInt(match[1],10);
+}
 function afficherVersionChargeeHotel(){
 
   const texteVersion =
