@@ -1645,8 +1645,8 @@ button {
 .hotel-settings-title{
   margin:0 0 16px;
 
-  color:var(--theme-primary-dark) !important;
-  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
 
   font-size:25px;
   font-weight:900;
@@ -1655,20 +1655,20 @@ button {
 .hotel-settings-choice{
   width:100%;
   min-height:82px;
-  margin:0 0 11px!important;
+  margin:0 0 11px !important;
   padding:13px 15px;
 
   display:flex;
   align-items:center;
   gap:14px;
 
-  border:1px solid var(--theme-border) !important;
+  border:1px solid #111827 !important;
   border-radius:17px;
 
-  background:var(--theme-card) !important;
+  background:#111827 !important;
 
-  color:var(--theme-text) !important;
-  -webkit-text-fill-color:var(--theme-text) !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
 
   text-align:left;
 }
@@ -1695,16 +1695,14 @@ button {
 }
 
 .hotel-settings-choice strong{
-  color:var(--theme-text) !important;
-  -webkit-text-fill-color:var(--theme-text) !important;
-
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
   font-size:17px;
 }
 
 .hotel-settings-choice small{
-  color:var(--theme-muted) !important;
-  -webkit-text-fill-color:var(--theme-muted) !important;
-
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
   font-size:12px;
   font-weight:500;
 }
@@ -6070,28 +6068,17 @@ body[data-theme="classic"] .hotel-settings-menu{
   background:#d9dde3 !important;
 }
 
-/* LES 3 CARTES DU MENU PARAMETRES EN BLANC */
-body[data-theme="classic"] .hotel-settings-choice{
-  background:#ffffff !important;
-}
 
-/* TEXTE DES CARTES */
-body[data-theme="classic"] .hotel-settings-choice strong{
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
-}
 
-body[data-theme="classic"] .hotel-settings-choice small{
-  color:#667085 !important;
-  -webkit-text-fill-color:#667085 !important;
-}
+
+
+
 
 /* ANNULER EN NOIR */
 body[data-theme="classic"] .hotel-settings-cancel{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
-
 
 /* ==========================================================
    PROFIL & AGENTS - FOND SUIVANT LE THEME
