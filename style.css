@@ -6095,12 +6095,12 @@ body[data-theme="classic"] .hotel-settings-cancel{
    CLASSIQUE - PROFIL & AGENTS COHERENT AVEC LES AUTRES POPUPS
    ========================================================== */
 
-/* Grand fond Profil & Agents */
-:root:not([data-theme]),
-[data-theme="classic"],
-[data-theme="classique"]{
-  --profil-grand-fond:#d1d5db;
-  --profil-cadre-fond:#e5e7eb;
+/* CLASSIQUE - GRIS DU CADRE PROFIL & AGENTS */
+[data-theme="classic"] #manage .profil-agents-panel,
+[data-theme="classic"] #manage #profil .settings-subcard,
+[data-theme="classique"] #manage .profil-agents-panel,
+[data-theme="classique"] #manage #profil .settings-subcard{
+  background:var(--profil-cadre-fond) !important;
 }
 
 /* Grand fond gris un peu plus soutenu */
