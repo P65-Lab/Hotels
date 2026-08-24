@@ -6123,11 +6123,10 @@ body[data-theme="classic"] .hotel-settings-cancel{
   background:#ffffff !important;
 }
 /* ==========================================================
-   PROFIL & AGENTS - FOND GRIS UNIFORME
+   PROFIL & AGENTS - FOND SUIVANT LE THEME
    ========================================================== */
 
 #manage .profil-agents-panel,
 #manage #profil .settings-subcard{
-  background:#e5e7eb !important;
-}
+  background:var(--theme-card) !important;
 }
