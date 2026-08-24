@@ -2712,6 +2712,7 @@ function afficherIndicateurMiseAJourHotel(version){
 
 async function verifierMiseAJourHotel(){
   try{
+     alert("CONTROLE MISE A JOUR LANCE");
     const url = new URL("./version.json", window.location.href);
     url.searchParams.set("_", Date.now().toString());
 
