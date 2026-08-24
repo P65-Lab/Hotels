@@ -6090,10 +6090,35 @@ body[data-theme="classic"] .hotel-settings-cancel{
   color:#111827 !important;
   -webkit-text-fill-color:#111827 !important;
 }
+
 /* ==========================================================
-   PROFIL & AGENTS - FOND COMPLET DU GRAND CADRE
+   CLASSIQUE - PROFIL & AGENTS COHERENT AVEC LES AUTRES POPUPS
    ========================================================== */
 
-#manage .card{
-  background:var(--theme-primary-soft) !important;
+/* Grand fond Profil & Agents */
+:root:not([data-theme]),
+[data-theme="classic"],
+[data-theme="classique"]{
+  --profil-grand-fond:#d1d5db;
+  --profil-cadre-fond:#e5e7eb;
+}
+
+/* Grand fond gris un peu plus soutenu */
+[data-theme="classic"] #manage,
+[data-theme="classique"] #manage{
+  background:#d1d5db !important;
+}
+
+/* Grand cadre intérieur : gris clair */
+[data-theme="classic"] #manage .card,
+[data-theme="classique"] #manage .card{
+  background:#e5e7eb !important;
+}
+
+/* Champs : restent blancs */
+[data-theme="classic"] #manage input,
+[data-theme="classic"] #manage select,
+[data-theme="classique"] #manage input,
+[data-theme="classique"] #manage select{
+  background:#ffffff !important;
 }
