@@ -2726,15 +2726,27 @@ alert(
 );
     const serveur = numeroVersionHotel(info.version);
     const chargee = numeroVersionHotel(APP_VERSION);
-
+alert(
+  "SERVEUR NUM = " + serveur +
+  "\nAPP NUM = " + chargee
+);
     if(serveur > chargee){
       afficherIndicateurMiseAJourHotel(info.version);
     }else{
       masquerIndicateurMiseAJourHotel();
     }
   }catch(err){
-    console.log("Contrôle mise à jour :", err);
-  }
+
+  alert(
+    "ERREUR MISE A JOUR :\n" +
+    err.message
+  );
+
+  console.log(
+    "Contrôle mise à jour :",
+    err
+  );
+}
 }
 
 async function appliquerMiseAJourHotel(){
