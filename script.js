@@ -2707,7 +2707,7 @@ function masquerIndicateurMiseAJourHotel(){
 }
 
 function afficherIndicateurMiseAJourHotel(version){
-  alert("AFFICHAGE MISE A JOUR");
+  
   derniereVersionDisponible =
     String(version || "").trim();
   const badge =
@@ -2747,7 +2747,7 @@ function afficherIndicateurMiseAJourHotel(version){
 }
 async function verifierMiseAJourHotel(){
   try{
-     alert("CONTROLE MISE A JOUR LANCE");
+     
     const url = new URL("./version.json", window.location.href);
     url.searchParams.set("_", Date.now().toString());
 
@@ -2755,16 +2755,10 @@ async function verifierMiseAJourHotel(){
     if(!response.ok) return;
 
     const info = await response.json();
-alert(
-  "VERSION SERVEUR : " + info.version +
-  "\nVERSION APP : " + APP_VERSION
-);
+
     const serveur = numeroVersionHotel(info.version);
     const chargee = numeroVersionHotel(APP_VERSION);
-alert(
-  "SERVEUR NUM = " + serveur +
-  "\nAPP NUM = " + chargee
-);
+
     if(serveur > chargee){
       afficherIndicateurMiseAJourHotel(info.version);
     }else{
