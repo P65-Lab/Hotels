@@ -1818,21 +1818,46 @@ list.forEach((s, i) => {
   }, 1200);
 }
 
-$("manageBtn").onclick=()=>{
-  ouvrirMenuParametresHotel();
+$("manageBtn").onclick = function(event){
+
+  if(event){
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  const menu =
+    document.getElementById("hotelSettingsMenu");
+
+  if(menu){
+    menu.hidden = false;
+  }
 };
+
+
 const hotelHomeSettings =
   document.getElementById("hotelHomeSettings");
 
 if(hotelHomeSettings){
-  hotelHomeSettings.onclick = () => {
-    ouvrirMenuParametresHotel();
+  hotelHomeSettings.onclick = function(event){
+
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    const menu =
+      document.getElementById("hotelSettingsMenu");
+
+    if(menu){
+      menu.hidden = false;
+    }
   };
 }
+
+
 $("closeManage").onclick=()=>{
   $("manage").hidden=true;
 };
-
 function fillSettings(){ $("profilNom").value=profil.nom||"";$("destNom").value=dest.nom||"";$("destMail").value=dest.email||""}
 
 if($("addAgent")){
