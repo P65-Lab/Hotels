@@ -2688,6 +2688,7 @@ function masquerIndicateurMiseAJourHotel(){
 }
 
 function afficherIndicateurMiseAJourHotel(version){
+   alert("AFFICHAGE MISE A JOUR");
   derniereVersionDisponible = String(version || "").trim();
 
   const badge = document.getElementById("settingsUpdateBadge");
