@@ -5,7 +5,7 @@ const APP_VERSION_DATE = "24/08/2026";
    VERSION SCRIPT
    ========================================================== */
 
-window.HOTEL_SCRIPT_BUILD = 001;
+window.HOTEL_SCRIPT_BUILD = 1;
 const $=id=>document.getElementById(id);
 
 
@@ -2672,45 +2672,79 @@ function afficherVersionChargeeHotel(){
 }
 
 function masquerIndicateurMiseAJourHotel(){
+
   derniereVersionDisponible = "";
 
-  const badge = document.getElementById("settingsUpdateBadge");
-  const card = document.getElementById("settingsUpdateCard");
-  const popup = document.getElementById("hotelPopupUpdateCard");
+  const badge =
+    document.getElementById("settingsUpdateBadge");
+
+  const homeBadge =
+    document.getElementById("hotelHomeUpdateBadge");
+
+  const card =
+    document.getElementById("settingsUpdateCard");
+
+  const popup =
+    document.getElementById("hotelPopupUpdateCard");
 
   if(badge){
     badge.hidden = true;
     badge.classList.remove("badge-update-visible");
   }
 
-  if(card) card.hidden = true;
-  if(popup) popup.hidden = true;
+  if(homeBadge){
+    homeBadge.hidden = true;
+    homeBadge.classList.remove("badge-update-visible");
+  }
+
+  if(card){
+    card.hidden = true;
+  }
+
+  if(popup){
+    popup.hidden = true;
+  }
 }
 
 function afficherIndicateurMiseAJourHotel(version){
-   alert("AFFICHAGE MISE A JOUR");
-  derniereVersionDisponible = String(version || "").trim();
-
-  const badge = document.getElementById("settingsUpdateBadge");
-  const card = document.getElementById("settingsUpdateCard");
-  const popup = document.getElementById("hotelPopupUpdateCard");
-  const text = document.getElementById("settingsUpdateText");
-  const popupText = document.getElementById("hotelPopupUpdateText");
-
+  alert("AFFICHAGE MISE A JOUR");
+  derniereVersionDisponible =
+    String(version || "").trim();
+  const badge =
+    document.getElementById("settingsUpdateBadge");
+  const homeBadge =
+    document.getElementById("hotelHomeUpdateBadge");
+  const card =
+    document.getElementById("settingsUpdateCard");
+  const popup =
+    document.getElementById("hotelPopupUpdateCard");
+  const text =
+    document.getElementById("settingsUpdateText");
+  const popupText =
+    document.getElementById("hotelPopupUpdateText");
   if(badge){
     badge.hidden = false;
     badge.classList.add("badge-update-visible");
   }
-
-  if(card) card.hidden = false;
-  if(popup) popup.hidden = false;
-
-  const message = `Version ${derniereVersionDisponible} disponible`;
-
-  if(text) text.textContent = message;
-  if(popupText) popupText.textContent = message;
+  if(homeBadge){
+    homeBadge.hidden = false;
+    homeBadge.classList.add("badge-update-visible");
+  }
+  if(card){
+    card.hidden = false;
+  }
+  if(popup){
+    popup.hidden = false;
+  }
+  const message =
+    `Version ${derniereVersionDisponible} disponible`;
+  if(text){
+    text.textContent = message;
+  }
+  if(popupText){
+    popupText.textContent = message;
+  }
 }
-
 async function verifierMiseAJourHotel(){
   try{
      alert("CONTROLE MISE A JOUR LANCE");
