@@ -9,27 +9,6 @@ const APP_VERSION_DATE = "20/08/2026 14:05";
 window.HOTEL_SCRIPT_BUILD = 001;
 const $=id=>document.getElementById(id);
 
-/* ==========================================================
-   SECURITE BOUTON PARAMETRES
-   ========================================================== */
-
-const manageBtnSafe =
-  document.getElementById("manageBtn");
-
-const hotelSettingsMenuSafe =
-  document.getElementById("hotelSettingsMenu");
-
-if(
-  manageBtnSafe &&
-  hotelSettingsMenuSafe
-){
-  manageBtnSafe.addEventListener(
-    "click",
-    () => {
-      hotelSettingsMenuSafe.hidden = false;
-    }
-  );
-}
 
 function afficherVersionChargeeHotel() {
 
