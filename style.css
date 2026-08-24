@@ -6074,8 +6074,12 @@ body[data-theme="classic"] .hotel-settings-cancel{
 /* Grand cadre Profil & Agents :
    même couleur que le fond du thème */
 #manage #profil .profil-agents-panel{
-  background:var(--theme-background) !important;
+  background:transparent !important;
   border:none !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  margin:0 !important;
 }
 
 /* Mon profil / Réservation / Agents :
