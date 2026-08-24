@@ -1,6 +1,5 @@
-const APP_VERSION = "v122-ANDROID";
-
-const APP_VERSION_DATE = "20/08/2026 14:05";
+const APP_VERSION = "v122";
+const APP_VERSION_DATE = "24/08/2026";
 
 /* ==========================================================
    VERSION SCRIPT
