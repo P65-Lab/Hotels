@@ -6123,9 +6123,9 @@ body[data-theme="classic"] .hotel-settings-cancel{
   background:#ffffff !important;
 }
 /* ==========================================================
-   PROFIL & AGENTS - FOND COMPLET DU GRAND CADRE
+   PROFIL & AGENTS - FOND GRIS CLAIR
    ========================================================== */
 
 #manage .profil-agents-panel{
-  background:var(--theme-primary-soft) !important;
+  background:#e5e7eb !important;
 }
