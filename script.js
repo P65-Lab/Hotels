@@ -2719,7 +2719,10 @@ async function verifierMiseAJourHotel(){
     if(!response.ok) return;
 
     const info = await response.json();
-
+alert(
+  "VERSION SERVEUR : " + info.version +
+  "\nVERSION APP : " + APP_VERSION
+);
     const serveur = numeroVersionHotel(info.version);
     const chargee = numeroVersionHotel(APP_VERSION);
 
