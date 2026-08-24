@@ -6091,37 +6091,7 @@ body[data-theme="classic"] .hotel-settings-cancel{
   -webkit-text-fill-color:#111827 !important;
 }
 
-/* ==========================================================
-   CLASSIQUE - PROFIL & AGENTS COHERENT AVEC LES AUTRES POPUPS
-   ========================================================== */
 
-/* CLASSIQUE - GRIS DU CADRE PROFIL & AGENTS */
-[data-theme="classic"] #manage .profil-agents-panel,
-[data-theme="classic"] #manage #profil .settings-subcard,
-[data-theme="classique"] #manage .profil-agents-panel,
-[data-theme="classique"] #manage #profil .settings-subcard{
-  background:var(--profil-cadre-fond) !important;
-}
-
-/* Grand fond gris un peu plus soutenu */
-[data-theme="classic"] #manage,
-[data-theme="classique"] #manage{
-  background:#d1d5db !important;
-}
-
-/* Grand cadre intérieur : gris clair */
-[data-theme="classic"] #manage .card,
-[data-theme="classique"] #manage .card{
-  background:#e5e7eb !important;
-}
-
-/* Champs : restent blancs */
-[data-theme="classic"] #manage input,
-[data-theme="classic"] #manage select,
-[data-theme="classique"] #manage input,
-[data-theme="classique"] #manage select{
-  background:#ffffff !important;
-}
 /* ==========================================================
    PROFIL & AGENTS - FOND SUIVANT LE THEME
    ========================================================== */
@@ -6129,4 +6099,35 @@ body[data-theme="classic"] .hotel-settings-cancel{
 #manage .profil-agents-panel,
 #manage #profil .settings-subcard{
   background:var(--theme-card) !important;
+}
+/* ==========================================================
+   PROFIL & AGENTS - CORRECTION DEFINITIVE DES FONDS
+   ========================================================== */
+
+/* Grand fond de la fenêtre paramètres */
+#manage{
+  background:var(--theme-background) !important;
+}
+
+/* Grand cadre Profil & Agents :
+   même couleur que le fond du thème */
+#manage #profil .profil-agents-panel{
+  background:var(--theme-background) !important;
+  border:none !important;
+}
+
+/* Mon profil / Réservation / Agents :
+   aucun fond supplémentaire */
+#manage #profil .settings-subcard{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+/* Les champs restent blancs */
+#manage #profil input,
+#manage #profil select,
+#manage #profil textarea{
+  background:#ffffff !important;
+  background-color:#ffffff !important;
 }
