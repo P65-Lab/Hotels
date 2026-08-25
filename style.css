@@ -2225,9 +2225,11 @@ button {
 }
 
 .hotel-agents-picker-search::placeholder{
-  color:#b8c0cc !important;
-  -webkit-text-fill-color:#b8c0cc !important;
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
   opacity:1 !important;
+  font-style:italic !important;
+  font-weight:400 !important;
 }
 
 .hotel-agents-picker-list{
