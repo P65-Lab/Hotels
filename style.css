@@ -6434,18 +6434,3 @@ textarea::-webkit-input-placeholder{
   font-style:italic !important;
   font-weight:400 !important;
 }
-/* ==========================================================
-   CORRECTION FINALE - AGENTS CONCERNES
-   ========================================================== */
-
-#modificationRequestZone
-.mod-section-card.mod-agents-card
-.hotel-agent-picker-head > strong {
-  color: #9ca3af !important;
-  -webkit-text-fill-color: #9ca3af !important;
-
-  font-style: italic !important;
-  font-weight: 400 !important;
-
-  letter-spacing: 0 !important;
-}
