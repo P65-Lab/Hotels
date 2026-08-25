@@ -6011,10 +6011,10 @@ color:var(--theme-primary-dark) !important;
 #manage .theme-choice,
 #manage .color-field,
 #manage .appearance-custom-toggle{
-  background:var(--theme-card) !important;
+  background:#ffffff !important;
 
-  color:var(--theme-text) !important;
-  -webkit-text-fill-color:var(--theme-text) !important;
+  color:#111827 !important;
+  -webkit-text-fill-color:#111827 !important;
 
   border-color:var(--theme-border) !important;
 }
