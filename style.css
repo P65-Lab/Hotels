@@ -6160,3 +6160,202 @@ body[data-theme="classic"] .hotel-settings-cancel{
   color:var(--theme-primary-dark) !important;
   -webkit-text-fill-color:var(--theme-primary-dark) !important;
 }
+/* ==========================================================
+   V155 - MODIFIER DEMANDE - PRESENTATION COMPACTE
+   ========================================================== */
+
+/* Popup */
+#modifyRequestPopup .hotel-request-popup-card{
+  padding:14px !important;
+}
+
+/* Carte principale */
+#modificationRequestZone .mod-card{
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+
+/* ==========================================================
+   HEBERGEMENT ACTUEL
+   ========================================================== */
+
+#modificationRequestZone .mod-card > label{
+  margin:0 0 8px !important;
+}
+
+#modificationRequestZone .mod-card > label input{
+  min-height:46px !important;
+  height:46px !important;
+  padding:0 13px !important;
+  border-radius:13px !important;
+}
+
+
+/* ==========================================================
+   DETAILS APRES CHOIX HOTEL
+   ========================================================== */
+
+#modificationDetailsZone{
+  margin-top:12px !important;
+}
+
+#modificationDetailsZone .modification-inline-card{
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+
+/* Titre "Modification de l'hébergement" inutile */
+#modificationDetailsZone >
+.modification-inline-card >
+.mod-section-title{
+  display:none !important;
+}
+
+
+/* ==========================================================
+   CARTES
+   ========================================================== */
+
+#modificationDetailsZone .mod-section-card{
+  margin:0 0 10px !important;
+  padding:12px !important;
+
+  border:1px solid var(--theme-primary) !important;
+  border-radius:16px !important;
+
+  background:var(--theme-primary-soft) !important;
+
+  box-shadow:none !important;
+}
+
+
+/* ==========================================================
+   AGENTS
+   ========================================================== */
+
+#modificationDetailsZone .mod-agents-card{
+  padding:10px 12px !important;
+}
+
+#modificationDetailsZone .hotel-agent-picker-head{
+  margin-bottom:7px !important;
+}
+
+#modificationDetailsZone .hotel-agent-picker-btn{
+  min-height:44px !important;
+  height:44px !important;
+  padding:0 12px !important;
+  border-radius:12px !important;
+}
+
+#modificationDetailsZone .mod-agent-info{
+  margin-top:7px !important;
+  font-size:11px !important;
+  line-height:1.25 !important;
+}
+
+
+/* ==========================================================
+   NOUVEL HEBERGEMENT
+   ========================================================== */
+
+#replacementZone .mod-section-title{
+  margin:0 0 9px !important;
+  font-size:15px !important;
+  font-weight:900 !important;
+}
+
+#replacementZone label{
+  margin-bottom:7px !important;
+}
+
+#replacementZone input{
+  min-height:44px !important;
+  height:44px !important;
+  padding:0 12px !important;
+  border-radius:12px !important;
+}
+
+
+/* ==========================================================
+   ARRIVEE / DEPART
+   ========================================================== */
+
+#replacementZone .travel-grid{
+  gap:7px !important;
+  margin-top:8px !important;
+}
+
+#replacementZone .travel-card{
+  min-height:0 !important;
+  padding:8px !important;
+  border-radius:13px !important;
+}
+
+#replacementZone .travel-title{
+  margin-bottom:5px !important;
+  font-size:14px !important;
+}
+
+#replacementZone .travel-card label{
+  margin:0 0 5px !important;
+  font-size:11px !important;
+}
+
+#replacementZone .travel-card input{
+  height:40px !important;
+  min-height:40px !important;
+  padding:0 6px !important;
+  font-size:13px !important;
+}
+
+
+/* ==========================================================
+   PETIT-DEJEUNER
+   ========================================================== */
+
+#replacementZone .mod-new-pdj{
+  margin:8px 0 0 !important;
+  padding:0 !important;
+  gap:6px !important;
+}
+
+#replacementZone .mod-new-pdj > span{
+  font-size:13px !important;
+  font-weight:800 !important;
+}
+
+#replacementZone .mod-new-pdj .choice{
+  width:48px !important;
+  min-width:48px !important;
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 !important;
+  font-size:12px !important;
+  border-radius:9px !important;
+}
+
+
+/* ==========================================================
+   BOUTON MAIL
+   ========================================================== */
+
+#modificationRequestZone .mod-mail-btn{
+  width:100% !important;
+  height:50px !important;
+  min-height:50px !important;
+
+  margin:4px 0 0 !important;
+  padding:0 10px !important;
+
+  border-radius:13px !important;
+
+  font-size:15px !important;
+  font-weight:900 !important;
+}
