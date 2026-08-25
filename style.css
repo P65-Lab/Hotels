@@ -1562,6 +1562,10 @@ button {
   display:grid;
   gap:14px;
   padding-top:4px;
+
+  width:100% !important;
+  margin:0 !important;
+  box-sizing:border-box !important;
 }
 
 .mod-mail-btn{
@@ -6227,6 +6231,8 @@ body[data-theme="classic"] .hotel-settings-cancel{
    ========================================================== */
 
 #modificationDetailsZone .mod-section-card{
+  width:100% !important;
+box-sizing:border-box !important;
   margin:0 0 10px !important;
   padding:6px !important;
 
