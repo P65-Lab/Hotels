@@ -6309,8 +6309,25 @@ body[data-theme="classic"] .hotel-settings-cancel{
 }
 
 #replacementZone .travel-card label{
+  position:relative !important;
+  display:block !important;
   margin:0 0 5px !important;
   font-size:11px !important;
+}
+
+#replacementZone .travel-card .mod-date-placeholder{
+  position:absolute;
+  left:10px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+
+  color:#9ca3af;
+  font-size:13px;
+  font-style:italic;
+  font-weight:400;
+
+  pointer-events:none;
 }
 
 #replacementZone .travel-card input{
