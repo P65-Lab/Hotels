@@ -2862,16 +2862,18 @@ body{
 .card,
 form,
 .hotel-grid,
-.travel-grid,
 .travel-card,
 .mod-card,
-.replacement-zone,
-.hotel-agent-picker-block,
-.settings-inline-section,
-.panel{
-  width:100%;
-  max-width:100%;
-  min-width:0;
+.settings-inline-section{
+  padding:10px !important;
+  margin-top:7px !important;
+  margin-bottom:7px !important;
+}
+
+.replacement-zone{
+  padding:0 !important;
+  margin-top:7px !important;
+  margin-bottom:7px !important;
 }
 
 input,
@@ -6234,7 +6236,7 @@ body[data-theme="classic"] .hotel-settings-cancel{
   width:100% !important;
 box-sizing:border-box !important;
   margin:0 0 10px !important;
-  padding:6px !important;
+  padding:10px 12px !important;
 
   border:1px solid var(--theme-primary) !important;
   border-radius:16px !important;
