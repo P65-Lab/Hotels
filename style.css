@@ -6359,3 +6359,56 @@ body[data-theme="classic"] .hotel-settings-cancel{
   font-size:15px !important;
   font-weight:900 !important;
 }
+/* ==========================================================
+   MODIFIER - CADRE HEBERGEMENT ACTUEL
+   ========================================================== */
+
+#modificationRequestZone .mod-current-hotel{
+  width:100% !important;
+  margin:0 0 8px !important;
+  padding:10px 12px !important;
+  box-sizing:border-box !important;
+
+  background:var(--theme-primary-soft) !important;
+  border:1px solid var(--theme-primary) !important;
+  border-radius:16px !important;
+
+  box-shadow:none !important;
+}
+
+/* TITRE */
+#modificationRequestZone .mod-current-hotel .mod-section-title{
+  margin:0 0 8px !important;
+
+  color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+
+  font-size:15px !important;
+  font-weight:900 !important;
+}
+
+/* ESPACE ENTRE VILLE ET HOTEL */
+#modificationRequestZone .mod-current-hotel .search-wrap{
+  margin:0 !important;
+}
+
+#modificationRequestZone .mod-current-hotel .search-wrap + .search-wrap{
+  margin-top:7px !important;
+}
+
+/* CHAMPS */
+#modificationRequestZone .mod-current-hotel input{
+  width:100% !important;
+  height:44px !important;
+  min-height:44px !important;
+  margin:0 !important;
+  padding:0 12px !important;
+  box-sizing:border-box !important;
+
+  background:#ffffff !important;
+  border:1px solid var(--theme-primary) !important;
+  border-radius:12px !important;
+
+  font-size:15px !important;
+  font-weight:700 !important;
+}
