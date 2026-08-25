@@ -6305,6 +6305,14 @@ box-sizing:border-box !important;
   font-weight:700 !important;
 }
 
+#replacementZone .search-wrap{
+  margin:0 !important;
+}
+
+#replacementZone .search-wrap + .search-wrap{
+  margin-top:7px !important;
+}
+
 
 /* ==========================================================
    ARRIVEE / DEPART
@@ -6412,6 +6420,17 @@ box-sizing:border-box !important;
   padding:0 !important;
   font-size:12px !important;
   border-radius:9px !important;
+
+  background:var(--theme-card) !important;
+  color:var(--theme-primary) !important;
+  -webkit-text-fill-color:var(--theme-primary) !important;
+  border:1px solid var(--theme-primary) !important;
+}
+
+#replacementZone .mod-new-pdj .choice.active{
+  background:var(--theme-primary) !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
 }
 
 
