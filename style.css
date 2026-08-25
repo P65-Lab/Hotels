@@ -5387,10 +5387,10 @@ background:#ffffff !important;
 /* CROIX FERMETURE POPUP */
 
 .manage-close-x{
-  width:44px !important;
-  height:44px !important;
-  min-width:44px !important;
-  min-height:44px !important;
+ width:38px !important;
+height:38px !important;
+min-width:38px !important;
+min-height:38px !important;
 
   padding:0 !important;
   margin:0 !important;
