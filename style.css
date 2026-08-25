@@ -1952,10 +1952,11 @@ button {
 
   background:#ffffff !important;
 
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+  font-style:italic !important;
+  font-weight:400 !important;
 
-  font-weight:900 !important;
   text-align:left;
 }
 
