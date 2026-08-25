@@ -3618,8 +3618,15 @@ function ouvrirModificationHotel(){
   const accueil =
     document.getElementById("hotelHomeMenu");
 
+  const popup =
+    document.getElementById("newRequestPopup");
+
   if(accueil){
     accueil.hidden = true;
+  }
+
+  if(popup){
+    popup.hidden = false;
   }
 
   afficherModeDemandeHotel("modification");
