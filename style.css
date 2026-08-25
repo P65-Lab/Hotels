@@ -6215,7 +6215,7 @@ body[data-theme="classic"] .hotel-settings-cancel{
    ========================================================== */
 
 #modificationDetailsZone{
-  margin-top:0 !important;
+  margin-top:-6px !important;
 }
 
 #modificationDetailsZone .modification-inline-card{
@@ -6241,13 +6241,13 @@ body[data-theme="classic"] .hotel-settings-cancel{
 #modificationDetailsZone .mod-section-card{
   width:100% !important;
 box-sizing:border-box !important;
-  margin:0 0 6px !important;
+ margin:0 0 4px !important;
   padding:10px 12px !important;
 
   border:1px solid var(--theme-primary) !important;
   border-radius:16px !important;
 
-  background:var(--theme-primary-soft) !important;
+  background:#ffffff !important;
 
   box-shadow:none !important;
 }
@@ -6258,8 +6258,8 @@ box-sizing:border-box !important;
    ========================================================== */
 
 #modificationDetailsZone .mod-agents-card{
-  margin:0 0 6px !important;
-  padding:10px 12px !important;
+  margin:0 0 4px !important;
+  padding:8px 12px !important;
 }
 
 #modificationDetailsZone .hotel-agent-picker-head{
@@ -6434,7 +6434,8 @@ box-sizing:border-box !important;
 
 #modificationRequestZone .mod-current-hotel{
   width:100% !important;
-  margin:0 !important;
+  margin-top:0px !important;
+
   padding:10px 12px !important;
   box-sizing:border-box !important;
 
