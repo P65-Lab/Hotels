@@ -3641,20 +3641,36 @@ function ouvrirModificationHotel(){
   const popup =
     document.getElementById("modifyRequestPopup");
 
+  const modification =
+    document.getElementById("modificationRequestZone");
+
   const details =
     document.getElementById("modificationDetailsZone");
+
 
   if(accueil){
     accueil.hidden = true;
   }
 
+
+  /* OUVRE LA POPUP MODIFIER */
   if(popup){
     popup.hidden = false;
   }
 
+
+  /* AFFICHE VILLE + HOTEL */
+  if(modification){
+    modification.hidden = false;
+  }
+
+
+  /* LA SUITE RESTE CACHEE
+     TANT QUE L'HOTEL N'EST PAS CHOISI */
   if(details){
     details.hidden = true;
   }
+
 
   modeDemandeHotel = "modification";
   modActionHotel = "remplacer";
