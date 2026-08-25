@@ -578,11 +578,35 @@
 
 
 <!-- =====================================================
-     MODIFICATION / ANNULATION
+     POPUP MODIFIER DEMANDE
      ===================================================== -->
-  <div id="modificationRequestZone" hidden>
+<div
+  id="modifyRequestPopup"
+  class="hotel-request-popup"
+  hidden
+>
 
-    <div class="mod-card">
+  <div class="hotel-request-popup-card">
+
+    <div class="hotel-request-popup-header">
+
+      <h2>
+        Modifier une demande
+      </h2>
+
+      <button
+        type="button"
+        id="closeModifyRequestPopup"
+        class="hotel-request-popup-close"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="modificationRequestZone">
+
+      <div class="mod-card">
 
 
       <!-- VILLE -->
@@ -906,18 +930,18 @@
 </button>
 
 
-  <!-- FIN CARTE POPUP -->
+       <!-- FIN mod-card -->
+      </div>
+
+    <!-- FIN modificationRequestZone -->
+    </div>
+
+  <!-- FIN hotel-request-popup-card -->
   </div>
 
-<!-- FIN POPUP -->
+<!-- FIN modifyRequestPopup -->
 </div>
 
-<!-- FIN mod-card -->
-</div>
-
-<!-- FIN modificationRequestZone -->
-</div>
-</div>
 </form>
 
 </section>
