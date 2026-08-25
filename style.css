@@ -6302,6 +6302,7 @@ box-sizing:border-box !important;
   padding:0 12px !important;
   border:1px solid var(--theme-primary) !important;
   border-radius:12px !important;
+  font-weight:700 !important;
 }
 
 
@@ -6483,7 +6484,7 @@ box-sizing:border-box !important;
   border-radius:12px !important;
 
   font-size:15px !important;
-  font-weight:400 !important;
+  font-weight:700 !important;
 }
 /* ==========================================================
    TOUS LES PLACEHOLDERS
