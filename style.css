@@ -6333,14 +6333,44 @@ body[data-theme="classic"] .hotel-settings-cancel{
 }
 
 #replacementZone .travel-card input{
-  height:40px !important;
-  min-height:40px !important;
+  width:100% !important;
+  height:38px !important;
+  min-height:38px !important;
   padding:0 6px !important;
   font-size:13px !important;
- 
+  box-sizing:border-box !important;
+  background:#ffffff !important;
+}
+/* ICONE + PETIT CHAMP DATE / HEURE */
+
+#replacementZone .mod-date-row{
+  display:flex !important;
+  align-items:center !important;
+  gap:6px !important;
+  margin-bottom:6px !important;
 }
 
+#replacementZone .mod-date-icon{
+  width:28px !important;
+  min-width:28px !important;
+  height:38px !important;
 
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  background:#ffffff !important;
+  border-radius:10px !important;
+
+  font-size:18px !important;
+  line-height:1 !important;
+}
+
+#replacementZone .mod-date-field{
+  flex:1 !important;
+  min-width:0 !important;
+  margin:0 !important;
+}
 /* ==========================================================
    PETIT-DEJEUNER
    ========================================================== */
