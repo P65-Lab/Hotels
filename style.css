@@ -6271,6 +6271,7 @@ box-sizing:border-box !important;
   min-height:44px !important;
   height:44px !important;
   padding:0 12px !important;
+  border:1px solid var(--theme-primary) !important;
   border-radius:12px !important;
 }
 
@@ -6299,6 +6300,7 @@ box-sizing:border-box !important;
   min-height:44px !important;
   height:44px !important;
   padding:0 12px !important;
+  border:1px solid var(--theme-primary) !important;
   border-radius:12px !important;
 }
 
