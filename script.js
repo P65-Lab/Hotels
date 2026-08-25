@@ -3613,6 +3613,7 @@ function fermerNouvelleDemandeHotel(){
   }
 }
 
+
 function ouvrirModificationHotel(){
 
   const accueil =
@@ -3620,6 +3621,11 @@ function ouvrirModificationHotel(){
 
   const popup =
     document.getElementById("newRequestPopup");
+
+  const titre =
+    popup
+      ? popup.querySelector(".hotel-request-popup-header h2")
+      : null;
 
   if(accueil){
     accueil.hidden = true;
@@ -3629,10 +3635,13 @@ function ouvrirModificationHotel(){
     popup.hidden = false;
   }
 
+  if(titre){
+    titre.textContent = "Modifier une demande";
+  }
+
   afficherModeDemandeHotel("modification");
   afficherActionModificationHotel("remplacer");
 }
-
 
 
 if($("homeNewRequest")){
