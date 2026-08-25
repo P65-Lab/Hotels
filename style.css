@@ -6090,3 +6090,10 @@ body[data-theme="classic"] .hotel-settings-cancel{
   background:#ffffff !important;
   background-color:#ffffff !important;
 }
+/* PLACEHOLDERS DES POPUPS PARAMETRES */
+#manage input::placeholder,
+#manage textarea::placeholder{
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+  opacity:1 !important;
+}
