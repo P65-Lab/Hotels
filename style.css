@@ -6520,22 +6520,3 @@ textarea::-webkit-input-placeholder{
 
   opacity:1 !important;
 }
-/* ==========================================================
-   CORRECTION LARGEUR CADRE NOUVEL HEBERGEMENT
-   ========================================================== */
-
-#modificationDetailsZone #replacementZone{
-  width:100% !important;
-  max-width:none !important;
-  margin-left:0 !important;
-  margin-right:0 !important;
-  box-sizing:border-box !important;
-}
-
-#modificationDetailsZone #replacementZone > .mod-section-card{
-  width:100% !important;
-  max-width:none !important;
-  margin-left:0 !important;
-  margin-right:0 !important;
-  box-sizing:border-box !important;
-}
