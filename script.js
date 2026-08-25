@@ -3639,58 +3639,22 @@ function ouvrirModificationHotel(){
     document.getElementById("hotelHomeMenu");
 
   const popup =
-    document.getElementById("newRequestPopup");
-
-  const normal =
-    document.getElementById("normalRequestZone");
-
-  const modification =
-    document.getElementById("modificationRequestZone");
+    document.getElementById("modifyRequestPopup");
 
   const details =
     document.getElementById("modificationDetailsZone");
 
-  const titre =
-    popup
-      ? popup.querySelector(".hotel-request-popup-header h2")
-      : null;
-
-
-  /* CACHE L'ACCUEIL */
   if(accueil){
     accueil.hidden = true;
   }
 
-
-  /* OUVRE LA POPUP */
   if(popup){
     popup.hidden = false;
   }
 
-
-  /* TITRE */
-  if(titre){
-    titre.textContent = "Modifier une demande";
-  }
-
-
-  /* CACHE NOUVELLE DEMANDE */
-  if(normal){
-    normal.hidden = true;
-  }
-
-
-  /* AFFICHE VILLE + HOTEL */
-  if(modification){
-    modification.hidden = false;
-  }
-
-
-  /* FERME LA POPUP DETAILLEE */
   if(details){
     details.hidden = true;
   }
-
 
   modeDemandeHotel = "modification";
   modActionHotel = "remplacer";
