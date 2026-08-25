@@ -6180,9 +6180,10 @@ body[data-theme="classic"] .hotel-settings-cancel{
    V155 - MODIFIER DEMANDE - PRESENTATION COMPACTE
    ========================================================== */
 
-/* Popup */
 #modifyRequestPopup .hotel-request-popup-card{
   padding:8px !important;
+  background:var(--theme-background) !important;
+  background-color:var(--theme-background) !important;
 }
 
 /* Carte principale */
