@@ -581,9 +581,11 @@
 </div>
 <!-- FIN newRequestPopup -->
 
+
 <!-- =====================================================
      POPUP MODIFIER DEMANDE
      ===================================================== -->
+
 <div
   id="modifyRequestPopup"
   class="hotel-request-popup"
@@ -602,50 +604,70 @@
         type="button"
         id="closeModifyRequestPopup"
         class="hotel-request-popup-close"
+        aria-label="Fermer"
       >
         ×
       </button>
 
     </div>
 
+
     <div id="modificationRequestZone">
 
       <div class="mod-card">
 
 
-      <!-- VILLE -->
+        <!-- =================================================
+             HEBERGEMENT ACTUEL
+             ================================================= -->
 
-      <label>
-       
+        <div class="mod-section-card mod-current-hotel">
 
-        <div class="search-wrap">
+          <div class="mod-section-title">
+            HÉBERGEMENT ACTUEL
+          </div>
 
-          <input
-            id="modVille"
-            autocomplete="off"
-            placeholder="Ville prévue..."
-          >
 
-          <div
-            id="modVilleResults"
-            class="search-results"
-            hidden
-          ></div>
+          <!-- VILLE PREVUE -->
+
+          <div class="search-wrap">
+
+            <input
+              id="modVille"
+              autocomplete="off"
+              placeholder="Ville prévue..."
+            >
+
+            <div
+              id="modVilleResults"
+              class="search-results"
+              hidden
+            ></div>
+
+          </div>
+
+
+          <!-- HOTEL PREVU -->
+
+          <div class="search-wrap">
+
+            <input
+              id="modHotel"
+              type="text"
+              autocomplete="off"
+              readonly
+              placeholder="Hôtel prévu..."
+            >
+
+            <div
+              id="modHotelResults"
+              class="search-results"
+              hidden
+            ></div>
+
+          </div>
 
         </div>
-
-      </label>
-
-
-<!-- HOTEL -->
-
-<label>
-  
-
-  <div class="search-wrap">
-
-    <input
-      id="modHotel"
       type="text"
       autocomplete="off"
       readonly
@@ -780,34 +802,26 @@
     </div>
 
 
-    <!-- VILLE -->
+    <!-- NOUVELLE VILLE -->
 
-    <label>
-      Ville
+<div class="search-wrap">
 
-      <div class="search-wrap">
+  <input
+    id="newVille"
+    autocomplete="off"
+    placeholder="Nouvelle Ville..."
+  >
 
-        <input
-          id="newVille"
-          autocomplete="off"
-          placeholder="Rechercher une ville..."
-        >
+  <div
+    id="newVilleResults"
+    class="search-results"
+    hidden
+  ></div>
 
-        <div
-          id="newVilleResults"
-          class="search-results"
-          hidden
-        ></div>
-
-      </div>
-
-    </label>
+</div>
 
 
-    <!-- HOTEL -->
-
-    <label>
-      Hôtel
+<!-- NOUVEL HOTEL -->
 
 <div class="search-wrap">
 
@@ -816,7 +830,7 @@
     type="text"
     autocomplete="off"
     readonly
-    placeholder="Choisir un hébergement..."
+    placeholder="Nouvel hôtel..."
   >
 
   <div
@@ -826,7 +840,7 @@
   ></div>
 
 </div>
-    </label>
+    
 
 
     <!-- ARRIVEE / DEPART -->
