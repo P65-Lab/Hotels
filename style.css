@@ -6247,7 +6247,7 @@ box-sizing:border-box !important;
   border:1px solid var(--theme-primary) !important;
   border-radius:16px !important;
 
-  background:#ffffff !important;
+  background:var(--theme-card) !important;
 
   box-shadow:none !important;
 }
@@ -6439,7 +6439,7 @@ box-sizing:border-box !important;
   padding:10px 12px !important;
   box-sizing:border-box !important;
 
-  background:var(--theme-primary-soft) !important;
+ background:var(--theme-card) !important;
   border:1px solid var(--theme-primary) !important;
   border-radius:16px !important;
 
