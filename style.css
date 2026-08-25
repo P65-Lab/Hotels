@@ -1645,8 +1645,8 @@ button {
 .hotel-settings-title{
   margin:0 0 16px;
 
-  color:#111827 !important;
-  -webkit-text-fill-color:#111827 !important;
+ color:var(--theme-primary-dark) !important;
+-webkit-text-fill-color:var(--theme-primary-dark) !important;
 
   font-size:25px;
   font-weight:900;
@@ -1662,10 +1662,10 @@ button {
   align-items:center;
   gap:14px;
 
-  border:1px solid #111827 !important;
+  border:1px solid var(--theme-primary) !important;
   border-radius:17px;
 
-  background:#111827 !important;
+  background:var(--theme-primary) !important;
 
   color:#ffffff !important;
   -webkit-text-fill-color:#ffffff !important;
