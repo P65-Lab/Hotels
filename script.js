@@ -3668,8 +3668,8 @@ function ouvrirModificationHotel(){
   /* LA SUITE RESTE CACHEE
      TANT QUE L'HOTEL N'EST PAS CHOISI */
   if(details){
-    details.hidden = true;
-  }
+  details.hidden = false;
+}
 
 
   modeDemandeHotel = "modification";
