@@ -1167,7 +1167,54 @@ $("ville").addEventListener("blur",()=>{
 });
 installerRechercheVilleHotel("modVille","modVilleResults","modHotel");
 installerRechercheVilleHotel("newVille","newVilleResults","newHotel");
+/* ==========================================================
+   PLACEHOLDERS DATE / HEURE - MODIFICATION HOTEL - IPHONE
+   ========================================================== */
 
+[
+  ["newArrivee", "Date d'arrivée...", "date"],
+  ["newHeureArrivee", "Heure d'arrivée...", "time"],
+  ["newDepart", "Date de départ...", "date"],
+  ["newHeureDepart", "Heure de départ...", "time"]
+].forEach(([id, texte, typeFinal]) => {
+
+  const champ = document.getElementById(id);
+
+  if(!champ) return;
+
+  /* Au repos : vrai placeholder visible */
+  if(!champ.value){
+    champ.type = "text";
+    champ.placeholder = texte;
+    champ.readOnly = true;
+  }
+
+  /* Au toucher : ouverture du champ natif date / heure */
+  champ.addEventListener("click", () => {
+
+    champ.readOnly = false;
+    champ.type = typeFinal;
+
+    setTimeout(() => {
+      if(typeof champ.showPicker === "function"){
+        champ.showPicker();
+      }
+    }, 0);
+
+  });
+
+  /* Si on quitte sans avoir choisi */
+  champ.addEventListener("blur", () => {
+
+    if(!champ.value){
+      champ.type = "text";
+      champ.placeholder = texte;
+      champ.readOnly = true;
+    }
+
+  });
+
+});
 $("pdjOui").onclick=()=>{pdj=true;$("pdjOui").classList.add("active");$("pdjNon").classList.remove("active")};
 $("pdjNon").onclick=()=>{pdj=false;$("pdjNon").classList.add("active");$("pdjOui").classList.remove("active")};
 const fr=d=>d?new Date(d+"T12:00:00").toLocaleDateString("fr-FR"):"";
