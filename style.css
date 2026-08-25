@@ -6434,10 +6434,11 @@ textarea::-webkit-input-placeholder{
   font-style:italic !important;
   font-weight:400 !important;
 }
-/* AGENTS CONCERNES - GRIS + ITALIQUE */
+/* AGENTS CONCERNES - GRIS + ITALIQUE + GRAS */
 #modificationRequestZone .hotel-agent-picker-head strong{
   color:#9ca3af !important;
   -webkit-text-fill-color:#9ca3af !important;
+
   font-style:italic !important;
-  font-weight:400 !important;
+  font-weight:900 !important;
 }
