@@ -6434,3 +6434,28 @@ textarea::-webkit-input-placeholder{
   font-style:italic !important;
   font-weight:400 !important;
 }
+/* ==========================================================
+   PLACEHOLDERS - GRIS + ITALIQUE + NON GRAS
+   ========================================================== */
+
+input::placeholder,
+textarea::placeholder{
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+
+  font-style:italic !important;
+  font-weight:400 !important;
+
+  opacity:1 !important;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+
+  font-style:italic !important;
+  font-weight:400 !important;
+
+  opacity:1 !important;
+}
