@@ -995,18 +995,37 @@ function installerRechercheVilleHotel(villeId,resultsId,hotelId){
       hotelResults.hidden = false;
 
       hotelResults
-        .querySelectorAll(".search-result")
-        .forEach(btn => {
+  .querySelectorAll(".search-result")
+  .forEach(btn => {
 
-          btn.onclick = () => {
+    btn.onclick = () => {
 
-            hotel.value =
-              btn.dataset.hotel ||
-              btn.textContent.trim();
+      hotel.value =
+        btn.dataset.hotel ||
+        btn.textContent.trim();
 
-            hotelResults.hidden = true;
-          };
+      hotelResults.hidden = true;
 
+
+      /* MODIFICATION :
+         afficher la suite sous l'hôtel choisi */
+      if(hotelId === "modHotel"){
+
+        const details =
+          document.getElementById(
+            "modificationDetailsZone"
+          );
+
+        if(details){
+          details.hidden = false;
+        }
+
+        modActionHotel = "remplacer";
+
+        renderModificationAgents();
+      }
+
+    };
         });
     };
   }

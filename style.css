@@ -6113,3 +6113,50 @@ body[data-theme="classic"] .hotel-settings-cancel{
   font-style:italic !important;
   font-weight:400 !important;
 }
+/* ==========================================================
+   MODIFICATION - BLOC INTEGRE SOUS VILLE / HOTEL
+   ========================================================== */
+
+.modification-inline-details{
+  width:100% !important;
+  margin-top:20px !important;
+}
+
+.modification-inline-card{
+  width:100% !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+
+.modification-inline-details .mod-section-title{
+  margin:4px 0 14px !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+}
+/* ==========================================================
+   MODIFICATION - BLOC INTEGRE
+   ========================================================== */
+
+.modification-inline-details{
+  width:100% !important;
+  margin-top:20px !important;
+}
+
+.modification-inline-card{
+  width:100% !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.modification-inline-details .mod-section-title{
+  margin:4px 0 14px !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  color:var(--theme-primary-dark) !important;
+  -webkit-text-fill-color:var(--theme-primary-dark) !important;
+}
