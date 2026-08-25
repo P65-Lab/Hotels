@@ -6182,7 +6182,7 @@ body[data-theme="classic"] .hotel-settings-cancel{
 
 /* Popup */
 #modifyRequestPopup .hotel-request-popup-card{
-  padding:14px !important;
+  padding:8px !important;
 }
 
 /* Carte principale */
@@ -6215,7 +6215,7 @@ body[data-theme="classic"] .hotel-settings-cancel{
    ========================================================== */
 
 #modificationDetailsZone{
-  margin-top:6px !important;
+  margin-top:0 !important;
 }
 
 #modificationDetailsZone .modification-inline-card{
@@ -6241,7 +6241,7 @@ body[data-theme="classic"] .hotel-settings-cancel{
 #modificationDetailsZone .mod-section-card{
   width:100% !important;
 box-sizing:border-box !important;
-  margin:0 0 10px !important;
+  margin:0 0 6px !important;
   padding:10px 12px !important;
 
   border:1px solid var(--theme-primary) !important;
