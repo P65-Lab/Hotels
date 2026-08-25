@@ -3699,6 +3699,47 @@ if($("homeModifyRequest")){
     ouvrirModificationHotel;
 }
 
+
+/* ==========================================================
+   FERMER POPUP MODIFIER DEMANDE
+   ========================================================== */
+
+if($("closeModifyRequestPopup")){
+
+  $("closeModifyRequestPopup").onclick = () => {
+
+    const popup =
+      document.getElementById("modifyRequestPopup");
+
+    const accueil =
+      document.getElementById("hotelHomeMenu");
+
+    const modification =
+      document.getElementById("modificationRequestZone");
+
+    const details =
+      document.getElementById("modificationDetailsZone");
+
+    if(popup){
+      popup.hidden = true;
+    }
+
+    if(modification){
+      modification.hidden = true;
+    }
+
+    if(details){
+      details.hidden = true;
+    }
+
+    if(accueil){
+      accueil.hidden = false;
+    }
+
+  };
+
+}
+
 /* ==========================================================
    v80 - INITIALISATION APRES DECLARATION DES VARIABLES
    ========================================================== */
