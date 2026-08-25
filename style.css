@@ -3057,14 +3057,20 @@ div{
     gap:7px !important;
   }
 
-  .travel-card,
-  .mod-card,
-  .replacement-zone,
-  .settings-inline-section{
-    padding:10px !important;
-    margin-top:7px !important;
-    margin-bottom:7px !important;
-  }
+.travel-card,
+.mod-card,
+.settings-inline-section{
+  padding:10px !important;
+  margin-top:7px !important;
+  margin-bottom:7px !important;
+}
+
+.replacement-zone{
+  padding-left:0 !important;
+  padding-right:0 !important;
+  margin-top:7px !important;
+  margin-bottom:7px !important;
+}
 
   .hotel-agent-picker-block{
     margin:8px 0 !important;
