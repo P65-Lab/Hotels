@@ -2418,6 +2418,26 @@ document.documentElement.style.setProperty(
   "--theme-field",
   a.field || "#ffffff"
 );
+
+document.documentElement.style.setProperty(
+  "--theme-primary-soft",
+  a.background
+);
+
+document.documentElement.style.setProperty(
+  "--theme-border",
+  a.primary
+);
+
+document.documentElement.style.setProperty(
+  "--theme-text",
+  a.primaryDark || a.primary
+);
+
+document.documentElement.style.setProperty(
+  "--theme-muted",
+  a.primaryDark || a.primary
+);
    /* FOND DES CHAMPS SELON LE THEME */
 const couleurChamp =
   a.field || a.card || "#ffffff";
