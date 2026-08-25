@@ -6100,3 +6100,16 @@ body[data-theme="classic"] .hotel-settings-cancel{
   font-weight:400 !important;
 
 }
+/* ==========================================================
+   PLACEHOLDERS - NOUVELLE DEMANDE
+   Gris clair + italique + non gras
+   ========================================================== */
+
+#newRequestPopup input::placeholder,
+#newRequestPopup textarea::placeholder{
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+  opacity:1 !important;
+  font-style:italic !important;
+  font-weight:400 !important;
+}

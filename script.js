@@ -2542,11 +2542,6 @@ $("resetAppearance").onclick=()=>{
 
 applyAppearance(appearance);
 
-
-
-
-
-
 if($("modeNouvelle")){
   $("modeNouvelle").onclick=()=>
     afficherModeDemandeHotel("nouvelle");
@@ -2557,56 +2552,7 @@ if($("modeModification")){
     afficherModeDemandeHotel("modification");
 }
 
-if($("modActionAnnuler")){
-  $("modActionAnnuler").onclick=()=>{
-    const details =
-      document.getElementById("modificationDetailsZone");
 
-    if(details){
-      details.hidden = true;
-    }
-
-    alert("Fenêtre d'annulation à ajouter à l'étape suivante.");
-  };
-}
-
-if($("modActionRemplacer")){
-
-  $("modActionRemplacer").onclick=()=>{
-
-    const ville =
-      document.getElementById("modVille");
-
-    const hotel =
-      document.getElementById("modHotel");
-
-    if(
-      !ville ||
-      !hotel ||
-      !ville.value.trim() ||
-      !hotel.value.trim()
-    ){
-      alert(
-        "Choisissez d'abord la ville et l'hôtel à modifier."
-      );
-
-      return;
-    }
-
-    afficherActionModificationHotel("remplacer");
-
-    const popup =
-      document.getElementById(
-        "modificationDetailsZone"
-      );
-
-    if(popup){
-      popup.hidden = false;
-    }
-
-  };
-
-}
 
 if($("closeModificationPopup")){
 
