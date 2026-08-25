@@ -6315,6 +6315,26 @@ body[data-theme="classic"] .hotel-settings-cancel{
   font-size:11px !important;
 }
 
+/* Texte dans les champs date / heure */
+#replacementZone .mod-date-field::before{
+  content:attr(data-placeholder);
+
+  position:absolute;
+  left:10px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+
+  color:#9ca3af !important;
+  -webkit-text-fill-color:#9ca3af !important;
+
+  font-size:13px !important;
+  font-style:italic !important;
+  font-weight:400 !important;
+
+  pointer-events:none;
+}
+
 #replacementZone .travel-card .mod-date-placeholder{
   position:absolute;
   left:10px;
